@@ -1,14 +1,7 @@
-// ===========================
-// Digital Marketing / SEO Website
-// Main JavaScript File
-// ===========================
 
-// Theme Toggle Functionality
 function initThemeToggle() {
     const themeToggle = document.querySelector('.theme-toggle');
     const html = document.documentElement;
-    
-    // Check for saved theme preference or default to 'light'
     const currentTheme = localStorage.getItem('theme') || 'light';
     html.setAttribute('data-theme', currentTheme);
     
@@ -26,7 +19,6 @@ function initThemeToggle() {
     }
 }
 
-// Mobile Menu Toggle
 function initMobileMenu() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -38,7 +30,6 @@ function initMobileMenu() {
             mobileMenuToggle.textContent = isActive ? '✕' : '☰';
         });
         
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('nav')) {
                 navLinks.classList.remove('active');
@@ -46,7 +37,6 @@ function initMobileMenu() {
             }
         });
         
-        // Close menu when clicking on a link
         const links = navLinks.querySelectorAll('a');
         links.forEach(link => {
             link.addEventListener('click', () => {
@@ -57,7 +47,6 @@ function initMobileMenu() {
     }
 }
 
-// Smooth Scroll for Anchor Links
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -76,7 +65,6 @@ function initSmoothScroll() {
     });
 }
 
-// Header Scroll Effect
 function initHeaderScroll() {
     const header = document.querySelector('header');
     
@@ -91,7 +79,6 @@ function initHeaderScroll() {
     }
 }
 
-// Active Navigation Link
 function setActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -106,7 +93,6 @@ function setActiveNavLink() {
     });
 }
 
-// Form Validation
 function initFormValidation() {
     const forms = document.querySelectorAll('form');
     
@@ -122,7 +108,6 @@ function initFormValidation() {
                     isValid = false;
                     input.style.borderColor = 'var(--color-danger)';
                     
-                    // Remove error styling on input
                     input.addEventListener('input', () => {
                         input.style.borderColor = '';
                     });
@@ -132,7 +117,7 @@ function initFormValidation() {
             });
             
             if (isValid) {
-                // Show success message
+
                 showNotification('Form submitted successfully!', 'success');
                 form.reset();
             } else {
@@ -142,9 +127,7 @@ function initFormValidation() {
     });
 }
 
-// Show Notification
 function showNotification(message, type = 'info') {
-    // Remove existing notifications
     const existingNotification = document.querySelector('.notification');
     if (existingNotification) {
         existingNotification.remove();
@@ -176,7 +159,6 @@ function showNotification(message, type = 'info') {
     }, 3000);
 }
 
-// Intersection Observer for Animations
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -191,8 +173,7 @@ function initScrollAnimations() {
             }
         });
     }, observerOptions);
-    
-    // Observe elements with animation classes
+
     const animatedElements = document.querySelectorAll('.card, .pricing-card, .stat-item');
     
     animatedElements.forEach((el, index) => {
@@ -203,7 +184,6 @@ function initScrollAnimations() {
     });
 }
 
-// Counter Animation
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-item h3');
     
@@ -228,7 +208,6 @@ function animateCounters() {
     });
 }
 
-// Password Visibility Toggle
 function initPasswordToggle() {
     const passwordInputs = document.querySelectorAll('input[type="password"]');
     
@@ -261,8 +240,6 @@ function initPasswordToggle() {
         wrapper.appendChild(toggle);
     });
 }
-
-// Search Functionality (for dashboard)
 function initSearch() {
     const searchInputs = document.querySelectorAll('[data-search]');
     
@@ -284,7 +261,6 @@ function initSearch() {
     });
 }
 
-// Copy to Clipboard
 function initCopyButtons() {
     const copyButtons = document.querySelectorAll('[data-copy]');
     
@@ -297,15 +273,11 @@ function initCopyButtons() {
         });
     });
 }
-
-// Initialize Dashboard Charts (placeholder for chart.js or other library)
 function initCharts() {
-    // This is a placeholder function
-    // In production, you would integrate Chart.js or another charting library
+
     console.log('Charts initialized');
 }
 
-// Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
     initMobileMenu();
@@ -317,8 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPasswordToggle();
     initSearch();
     initCopyButtons();
-    
-    // Initialize counters if on a page with stats
+
     const hasStats = document.querySelector('.stat-item');
     if (hasStats) {
         const observer = new IntersectionObserver((entries) => {
@@ -332,15 +303,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         observer.observe(hasStats.parentElement);
     }
-    
-    // Initialize charts if on dashboard
+
     const hasDashboard = document.querySelector('.dashboard');
     if (hasDashboard) {
         initCharts();
     }
 });
 
-// Export functions for use in other scripts
 window.appUtils = {
     showNotification,
     initCharts
