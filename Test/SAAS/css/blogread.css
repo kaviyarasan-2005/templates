@@ -1,0 +1,136 @@
+/* HERO */
+.blog-hero {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71') center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.blog-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(99,102,241,0.9), rgba(139,92,246,0.8));
+}
+
+.blog-hero .hero-content {
+  position: relative;
+  z-index: 2;
+}
+.blog-hero h1 {
+  font-size: 2.5rem;
+  margin: 15px 0;
+}
+/* WRAPPER */
+.blog-wrapper {
+  max-width: 800px;
+  padding: 60px 0;
+  line-height: 1.9;
+}
+
+.blog-wrapper h2 {
+  margin-top: 35px;
+  font-size: 1.5rem;
+}
+
+.blog-wrapper p {
+  margin: 15px 0;
+  color: #374151;
+}
+
+/* AUTHOR BOX */
+.author-box {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 15px;
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+.author-box img {
+  border-radius: 50%;
+}
+
+/* QUOTE */
+blockquote {
+  margin: 30px 0;
+  padding: 20px;
+  border-left: 4px solid #6366f1;
+  background: #f9fafb;
+  font-style: italic;
+}
+
+/* TAGS */
+.blog-tags {
+  margin-top: 40px;
+}
+
+.blog-tags a {
+  margin-right: 10px;
+  text-decoration: none;
+  background: #e5e7eb;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* SHARE */
+.share-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.share-buttons button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #6366f1;
+  color: white;
+}
+
+/* RELATED */
+.related-section {
+  padding: 60px 20px;
+  background: #f9fafb;
+}
+
+.related-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.related-card {
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.related-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* DARK MODE */
+body.dark .blog-wrapper p {
+  color: #f1f5f9;
+}
+
+body.dark .author-box,
+body.dark blockquote,
+body.dark .related-card {
+  background: #1e293b;
+  color: white;
+}
+
+/* RTL */
+[dir="rtl"] .author-box {
+  flex-direction: row-reverse;
+}
