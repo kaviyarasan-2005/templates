@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - CloudVault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .filter-bar {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-secondary);
+            border: var(--border-width) solid var(--border-color);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all var(--transition);
+            color: var(--text-primary);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-primary);
+            color: var(--bg-primary);
+            border-color: var(--color-primary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .portfolio-card {
+            background: var(--bg-secondary);
+            border: var(--border-width) solid var(--border-color);
+            overflow: hidden;
+            transition: all var(--transition);
+            position: relative;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-primary);
+        }
+
+        .portfolio-card:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--bg-accent) 0%, var(--border-color) 100%);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .portfolio-content {
+            padding: var(--spacing-lg);
+            border-top: var(--border-width) solid var(--border-color);
+        }
+
+        .portfolio-tags {
+            display: flex;
+            gap: var(--spacing-xs);
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .portfolio-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .portfolio-tag.tag-enterprise {
+            background: var(--color-primary);
+        }
+
+        .portfolio-tag.tag-startup {
+            background: var(--color-secondary);
+        }
+
+        .portfolio-tag.tag-agency {
+            background: var(--color-accent);
+        }
+
+        .portfolio-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .portfolio-stat {
+            text-align: center;
+        }
+
+        .portfolio-stat-value {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .portfolio-stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-top: var(--spacing-xs);
+        }
+
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: var(--spacing-md);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            color: var(--color-primary);
+            transition: all var(--transition);
+        }
+
+        .portfolio-link:hover {
+            gap: 1rem;
+        }
+
+        .portfolio-featured {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .portfolio-featured .portfolio-image {
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .portfolio-featured .portfolio-content {
+            border-top: none;
+            border-left: var(--border-width) solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--spacing-2xl);
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-featured {
+                grid-column: 1;
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-featured .portfolio-content {
+                border-left: none;
+                border-top: var(--border-width) solid var(--border-color);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">CLOUDVAULT</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle">DARK</button>
+                <button class="rtl-toggle">RTL</button>
+                <a href="login.html" class="btn btn-primary">LOGIN</a>
+                <button class="mobile-menu-toggle">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" style="padding: 140px 0 80px;">
+        <div class="container">
+            <div class="hero-badge">// PORTFOLIO</div>
+            <h1>TRUSTED BY<br>INDUSTRY LEADERS</h1>
+            <p>Real projects. Real results. See how CloudVault powers businesses worldwide.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">ALL PROJECTS</button>
+                <button class="filter-btn" data-filter="enterprise">ENTERPRISE</button>
+                <button class="filter-btn" data-filter="startup">STARTUP</button>
+                <button class="filter-btn" data-filter="agency">AGENCY</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Featured Project -->
+                <div class="portfolio-card portfolio-featured" data-category="enterprise">
+                    <div class="portfolio-image">🏢</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag tag-enterprise">ENTERPRISE</span>
+                            <span class="portfolio-tag">FEATURED</span>
+                        </div>
+                        <h2>TECHCORP GLOBAL</h2>
+                        <p style="font-size: 1.125rem; margin: var(--spacing-md) 0;">Fortune 500 technology company migrated 50,000 employees to CloudVault, achieving 99.99% uptime and reducing infrastructure costs by 40%.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">50K</div>
+                                <div class="portfolio-stat-label">Users</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">500TB</div>
+                                <div class="portfolio-stat-label">Data</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">40%</div>
+                                <div class="portfolio-stat-label">Cost Saved</div>
+                            </div>
+                        </div>
+                        <a href="#" class="portfolio-link">VIEW CASE STUDY →</a>
+                    </div>
+                </div>
+
+                <!-- Regular Projects -->
+                <div class="portfolio-card" data-category="startup">
+                    <div class="portfolio-image">🚀</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag tag-startup">STARTUP</span>
+                            <span class="portfolio-tag">SAAS</span>
+                        </div>
+                        <h3>DATAFLOW AI</h3>
+                        <p>Machine learning startup leveraged CloudVault's API to build their data pipeline, processing 10TB daily with zero downtime.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">10TB</div>
+                                <div class="portfolio-stat-label">Daily</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">100%</div>
+                                <div class="portfolio-stat-label">Uptime</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">< 50ms</div>
+                                <div class="portfolio-stat-label">Latency</div>
+                            </div>
+                        </div>
+                        <a href="#" class="portfolio-link">VIEW CASE STUDY →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="agency">
+                    <div class="portfolio-image">🎨</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag tag-agency">AGENCY</span>
+                            <span class="portfolio-tag">CREATIVE</span>
+                        </div>
+                        <h3>PIXEL PERFECT STUDIO</h3>
+                        <p>Design agency manages 100GB+ of client assets with instant team collaboration and client sharing capabilities.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">200+</div>
+                                <div class="portfolio-stat-label">Clients</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">100GB</div>
+                                <div class="portfolio-stat-label">Assets</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">15</div>
+                                <div class="portfolio-stat-label">Team</div>
+                            </div>
+                        </div>
+                        <a href="#" class="portfolio-link">VIEW CASE STUDY →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="enterprise">
+                    <div class="portfolio-image">🏥</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag tag-enterprise">ENTERPRISE</span>
+                            <span class="portfolio-tag">HEALTHCARE</span>
+                        </div>
+                        <h3>MEDCARE SYSTEMS</h3>
+                        <p>Healthcare provider securely stores patient records with HIPAA-compliant encryption and audit logging.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">5M+</div>
+                                <div class="portfolio-stat-label">Records</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">100%</div>
+                                <div class="portfolio-stat-label">Compliant</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">24/7</div>
+                                <div class="portfolio-stat-label">Access</div>
+                            </div>
+                        </div>
+                        <a href="#" class="portfolio-link">VIEW CASE STUDY →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="startup">
+                    <div class="portfolio-image">💰</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag tag-startup">STARTUP</span>
+                            <span class="portfolio-tag">FINTECH</span>
+                        </div>
+                        <h3>FINTRACK PRO</h3>
+                        <p>Financial analytics platform uses CloudVault for secure document storage with bank-level encryption.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">50K</div>
+                                <div class="portfolio-stat-label">Users</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">AES-256</div>
+                                <div class="portfolio-stat-label">Encrypted</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">SOC 2</div>
+                                <div class="portfolio-stat-label">Certified</div>
+                            </div>
+                        </div>
+                        <a href="#" class="portfolio-link">VIEW CASE STUDY →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="agency">
+                    <div class="portfolio-image">📹</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag tag-agency">AGENCY</span>
+                            <span class="portfolio-tag">MEDIA</span>
+                        </div>
+                        <h3>MOTION MEDIA GROUP</h3>
+                        <p>Video production company stores and delivers 4K footage to clients with lightning-fast CDN delivery.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">2PB</div>
+                                <div class="portfolio-stat-label">Storage</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">4K</div>
+                                <div class="portfolio-stat-label">Quality</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">10Gbps</div>
+                                <div class="portfolio-stat-label">Transfer</div>
+                            </div>
+                        </div>
+                        <a href="#" class="portfolio-link">VIEW CASE STUDY →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="enterprise">
+                    <div class="portfolio-image">🎓</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag tag-enterprise">ENTERPRISE</span>
+                            <span class="portfolio-tag">EDUCATION</span>
+                        </div>
+                        <h3>GLOBAL UNIVERSITY</h3>
+                        <p>Academic institution provides 100,000+ students with secure cloud storage for coursework and research.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">100K</div>
+                                <div class="portfolio-stat-label">Students</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">1PB</div>
+                                <div class="portfolio-stat-label">Academic Data</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">99.9%</div>
+                                <div class="portfolio-stat-label">Uptime</div>
+                            </div>
+                        </div>
+                        <a href="#" class="portfolio-link">VIEW CASE STUDY →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="startup">
+                    <div class="portfolio-image">🛒</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag tag-startup">STARTUP</span>
+                            <span class="portfolio-tag">E-COMMERCE</span>
+                        </div>
+                        <h3>SHOPSTREAM</h3>
+                        <p>E-commerce platform stores product images and videos with automatic optimization and fast global delivery.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">500K</div>
+                                <div class="portfolio-stat-label">Products</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">5M</div>
+                                <div class="portfolio-stat-label">Images</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">< 100ms</div>
+                                <div class="portfolio-stat-label">Load Time</div>
+                            </div>
+                        </div>
+                        <a href="#" class="portfolio-link">VIEW CASE STUDY →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="agency">
+                    <div class="portfolio-image">📱</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag tag-agency">AGENCY</span>
+                            <span class="portfolio-tag">MOBILE</span>
+                        </div>
+                        <h3>APP BUILDERS CO</h3>
+                        <p>Mobile development agency uses CloudVault SDK to power file storage in 50+ client applications.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">50+</div>
+                                <div class="portfolio-stat-label">Apps</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">2M</div>
+                                <div class="portfolio-stat-label">End Users</div>
+                            </div>
+                            <div class="portfolio-stat">
+                                <div class="portfolio-stat-value">SDK</div>
+                                <div class="portfolio-stat-label">Integration</div>
+                            </div>
+                        </div>
+                        <a href="#" class="portfolio-link">VIEW CASE STUDY →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--text-primary); color: var(--bg-primary); padding: var(--spacing-2xl) 0;">
+        <div class="container text-center">
+            <h2 style="color: var(--bg-primary);">READY TO JOIN THEM?</h2>
+            <p style="font-size: 1.25rem; margin: var(--spacing-md) auto var(--spacing-xl); max-width: 600px; color: var(--bg-primary); opacity: 0.8;">Start your 14-day free trial and experience enterprise-grade cloud storage.</p>
+            <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                <a href="register.html" class="btn btn-primary btn-lg">START FREE TRIAL</a>
+                <a href="contact.html" class="btn btn-lg" style="border-color: var(--bg-primary); color: var(--bg-primary);">CONTACT SALES</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">CLOUDVAULT</div>
+                    <p style="margin-top: var(--spacing-md);">Next-generation cloud storage platform built for security, speed, and collaboration.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>PRODUCT</h4>
+                    <ul>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>SUPPORT</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">API Docs</a></li>
+                        <li><a href="#">Status</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CloudVault. All rights reserved.</p>
+                <div>
+                    <a href="#!">Privacy Policy</a>
+                    <a href="#!" style="margin-left: var(--spacing-md);">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Portfolio Filter Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active state
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.dataset.filter;
+
+                    // Filter cards
+                    portfolioCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = '';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
