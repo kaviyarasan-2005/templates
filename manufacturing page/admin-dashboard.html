@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - FORXA Manufacturing</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%230A2647'/><text x='50' y='68' font-size='55' font-weight='900' text-anchor='middle' fill='%23E8630A'>F</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        FOR<span>XA</span>
+      </a>
+      <nav class="nav-menu">
+        <div class="nav-dropdown">
+          <span >Home <i class="fas fa-chevron-down"></i></span>
+          <div class="dropdown-menu">
+            <a href="index.html"><i class="fas fa-home"></i> Home Version 1</a>
+            <a href="index-v2.html"><i class="fas fa-layer-group"></i> Home Version 2</a>
+          </div>
+        </div>
+        <a href="about.html" >About</a>
+        <a href="services.html" >Services</a>
+        <a href="products.html" >Products</a>
+        <a href="pricing.html" >Pricing</a>
+        <a href="help-center.html" >Help Center</a>
+        <a href="contact.html" >Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="rtl-toggle" title="Toggle RTL/LTR"><i class="fas fa-globe"></i></button>
+        <a href="login.html" class="btn btn-primary btn-sm">Get Started</a>
+        <div class="mobile-toggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="logo">FOR<span>XA</span></a>
+      <div class="mobile-menu-close"><i class="fas fa-times"></i></div>
+    </div>
+    <nav>
+      <a href="index.html"><i class="fas fa-home"></i> Home V1</a>
+      <a href="index-v2.html"><i class="fas fa-layer-group"></i> Home V2</a>
+      <a href="about.html"><i class="fas fa-building"></i> About Us</a>
+      <a href="services.html"><i class="fas fa-cogs"></i> Services</a>
+      <a href="products.html"><i class="fas fa-box"></i> Products</a>
+      <a href="infrastructure.html"><i class="fas fa-industry"></i> Infrastructure</a>
+      <a href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+      <a href="pricing.html"><i class="fas fa-tags"></i> Pricing</a>
+      <a href="help-center.html"><i class="fas fa-question-circle"></i> Help Center</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+    </nav>
+    <a href="contact.html" class="btn btn-primary" style="margin-top:20px;width:100%;justify-content:center;">Get a Quote</a>
+  </div>
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <h3>FORXA Admin</h3>
+        <span>Manufacturing Control Center</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Main</div>
+        <a href="#" class="active"><i class="fas fa-chart-line"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-box"></i> Orders</a>
+        <a href="#"><i class="fas fa-file-alt"></i> Quotes</a>
+        <a href="#"><i class="fas fa-users"></i> Clients</a>
+        <div class="nav-section">Production</div>
+        <a href="#"><i class="fas fa-industry"></i> Jobs</a>
+        <a href="#"><i class="fas fa-cogs"></i> Machines</a>
+        <a href="#"><i class="fas fa-clipboard-check"></i> Quality</a>
+        <a href="#"><i class="fas fa-truck"></i> Shipping</a>
+        <div class="nav-section">System</div>
+        <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
+        <a href="#"><i class="fas fa-gear"></i> Settings</a>
+        <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Site</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-header">
+        <div>
+          <button class="sidebar-toggle btn btn-sm btn-outline" style="display:none;margin-bottom:10px;"><i class="fas fa-bars"></i></button>
+          <h1>Dashboard Overview</h1>
+          <p style="color:var(--gray-500);font-size:.9rem;">Welcome back, Admin. Here's your manufacturing summary for today.</p>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> New Order</a>
+      </div>
+
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="sc-header">
+            <div class="sc-icon orange"><i class="fas fa-box"></i></div>
+            <span class="sc-change up">+12.5%</span>
+          </div>
+          <div class="sc-value">1,284</div>
+          <div class="sc-label">Total Orders This Month</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-header">
+            <div class="sc-icon blue"><i class="fas fa-dollar-sign"></i></div>
+            <span class="sc-change up">+8.2%</span>
+          </div>
+          <div class="sc-value">$2.4M</div>
+          <div class="sc-label">Revenue This Month</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-header">
+            <div class="sc-icon green"><i class="fas fa-check-circle"></i></div>
+            <span class="sc-change up">+3.1%</span>
+          </div>
+          <div class="sc-value">99.2%</div>
+          <div class="sc-label">On-Time Delivery Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-header">
+            <div class="sc-icon red"><i class="fas fa-exclamation-triangle"></i></div>
+            <span class="sc-change down">-2.4%</span>
+          </div>
+          <div class="sc-value">0.3%</div>
+          <div class="sc-label">Defect Rate</div>
+        </div>
+      </div>
+
+      <div class="admin-table-wrapper">
+        <div class="admin-table-header">
+          <h3>Recent Orders</h3>
+          <a href="#" class="btn btn-sm btn-outline">View All</a>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Client</th>
+              <th>Service</th>
+              <th>Quantity</th>
+              <th>Status</th>
+              <th>Due Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>#FX-4821</td><td>AeroTech Industries</td><td>5-Axis CNC</td><td>250 pcs</td><td><span class="status-badge open">In Production</span></td><td>Mar 25, 2026</td></tr>
+            <tr><td>#FX-4820</td><td>MedDevice Corp</td><td>Assembly</td><td>1,000 pcs</td><td><span class="status-badge pending">Quality Check</span></td><td>Mar 22, 2026</td></tr>
+            <tr><td>#FX-4819</td><td>AutoParts Global</td><td>Fabrication</td><td>500 pcs</td><td><span class="status-badge closed">Shipped</span></td><td>Mar 18, 2026</td></tr>
+            <tr><td>#FX-4818</td><td>Defensa Systems</td><td>CNC Machining</td><td>75 pcs</td><td><span class="status-badge open">In Production</span></td><td>Mar 28, 2026</td></tr>
+            <tr><td>#FX-4817</td><td>WindPower Inc.</td><td>Prototyping</td><td>5 pcs</td><td><span class="status-badge closed">Delivered</span></td><td>Mar 15, 2026</td></tr>
+            <tr><td>#FX-4816</td><td>TechnoValve LLC</td><td>CNC + Assembly</td><td>2,000 pcs</td><td><span class="status-badge pending">Awaiting Material</span></td><td>Apr 05, 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/rtl-toggle.js"></script>
+  <script>
+    // Show sidebar toggle on mobile for admin
+    if(window.innerWidth <= 1024) {
+      document.querySelector('.sidebar-toggle').style.display='inline-flex';
+    }
+    window.addEventListener('resize',()=>{
+      const st=document.querySelector('.sidebar-toggle');
+      if(st) st.style.display = window.innerWidth<=1024 ? 'inline-flex' : 'none';
+    });
+  </script>
+</body></html>
