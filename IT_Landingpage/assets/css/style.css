@@ -429,3 +429,99 @@ textarea.form-control{min-height:140px;resize:vertical}
 .auth-card{padding:1.75rem}
 .contact-form-wrap{padding:1.75rem}
 }
+/* ===== HEADER HEIGHT ON MOBILE MENU OPEN ===== */
+
+/* ===== MOBILE NAV LINK HEIGHT ===== */
+
+/* ===== MOBILE MENU — SLIDE DOWN HEIGHT ANIMATION ===== */
+
+@media (max-width: 768px) {
+  .mobile-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: auto;           /* remove bottom:0 */
+    max-height: 0;          /* start collapsed */
+    overflow: hidden;
+    transform: none;        /* remove side slide */
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 1.5rem;      /* no top/bottom padding when closed */
+    background: var(--white);
+    z-index: 999;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-top: 1px solid var(--gray-100);
+  }
+
+  .mobile-menu.open {
+    max-height: 100vh;      /* grow to full height when open */
+    padding: 1.5rem;        /* restore padding when open */
+    overflow-y: auto;
+    transform: none;
+  }
+}
+ /* ===== MOBILE MENU FIXES — add to end of style.css ===== */ */
+/* 1. Separate each nav item with a divider line */
+.mobile-menu .nav-item {
+  border-bottom: 1px solid var(--gray-100);
+}
+.mobile-menu .nav-item:last-child {
+  border-bottom: none;
+}
+/* 2. Fix nav-link hover + active state on mobile */
+.mobile-menu .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: .875rem 1rem;
+  color: var(--gray-700);
+}
+.mobile-menu .nav-link:hover {
+  color: var(--primary);
+  background: rgba(30,58,138,.05);
+}
+/* 3. Rotate chevron when dropdown is open */
+.mobile-menu .nav-item.open .nav-link i.fa-chevron-down {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+/* 4. Style dropdown links inside mobile menu */
+.mobile-menu .dropdown {
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  margin: 0 0 .5rem .5rem;
+  padding: .25rem .5rem;
+}
+.mobile-menu .dropdown a {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: .9rem;
+  color: var(--gray-700);
+  transition: var(--transition);
+}
+.mobile-menu .dropdown a:hover {
+  background: var(--white);
+  color: var(--primary);
+}
+.mobile-menu .dropdown a i {
+  width: 20px;
+  text-align: center;
+  color: var(--secondary);
+}
+/* 5. Fix mobile auth buttons to fill width */
+.mobile-auth {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+}
+.mobile-auth .btn {
+  width: 100%;
+  justify-content: center;
+}

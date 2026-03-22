@@ -11,10 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Mobile Menu ===
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileMenu = document.querySelector('.mobile-menu');
+  // const header = document.querySelector('.header');
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('active');
       mobileMenu.classList.toggle('open');
+      //  header.classList.toggle('menu-open');
       document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
     });
     // Mobile dropdown toggle
