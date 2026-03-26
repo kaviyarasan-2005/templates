@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashboard - FORXA Manufacturing</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%230A2647'/><text x='50' y='68' font-size='55' font-weight='900' text-anchor='middle' fill='%23E8630A'>F</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="admin-sidebar" id="userSidebar">
+
+      <!-- Logo -->
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">
+          <div class="sidebar-logo-icon">F</div>
+          <div class="sidebar-logo-text">
+            FORXA
+            <small>Client Portal</small>
+          </div>
+        </a>
+      </div>
+
+      <!-- User Profile Card -->
+      <div class="sidebar-profile">
+        <div class="sp-avatar">JD</div>
+        <div class="sp-info">
+          <strong>John Davis</strong>
+          <span>AeroTech Industries</span>
+        </div>
+        <div class="sp-status"><i class="fas fa-circle"></i></div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="sidebar-nav">
+        <div class="nav-section">Overview</div>
+        <a href="user-dashboard.html" class="active"><i class="fas fa-gauge-high"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-bell"></i> Notifications <span class="nav-badge">3</span></a>
+
+        <div class="nav-section">My Activity</div>
+        <a href="#"><i class="fas fa-box"></i> My Orders</a>
+        <a href="#"><i class="fas fa-file-invoice"></i> My Quotes</a>
+        <a href="#"><i class="fas fa-receipt"></i> Invoices</a>
+        <a href="#"><i class="fas fa-folder-open"></i> Documents</a>
+
+        <div class="nav-section">Support</div>
+        <a href="#"><i class="fas fa-headset"></i> Support Tickets</a>
+        <a href="#"><i class="fas fa-comments"></i> Messages</a>
+
+        <div class="nav-section">Account</div>
+        <a href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+        <a href="#"><i class="fas fa-building"></i> Company Info</a>
+        <a href="#"><i class="fas fa-gear"></i> Settings</a>
+        <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Site</a>
+      </nav>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="admin-main">
+
+      <!-- Top Bar -->
+      <div class="admin-header">
+        <div class="udash-topbar-left">
+          <button class="sidebar-toggle btn btn-sm btn-outline" id="sidebarToggleBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div>
+            <h1>Welcome back, John 👋</h1>
+            <p style="color:var(--gray-500);font-size:.9rem;margin-top:2px;">
+              Here's your account overview for <strong>AeroTech Industries</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="udash-topbar-right">
+          <a href="#" class="udash-notif-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notif-count">3</span>
+          </a>
+          <a href="contact.html" class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i> New Quote
+          </a>
+        </div>
+      </div>
+
+      <!-- ===== STAT CARDS ===== -->
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="sc-header">
+            <div class="sc-icon orange"><i class="fas fa-box"></i></div>
+            <span class="sc-change up">+2 this week</span>
+          </div>
+          <div class="sc-value">8</div>
+          <div class="sc-label">Active Orders</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-header">
+            <div class="sc-icon blue"><i class="fas fa-file-invoice"></i></div>
+            <span class="sc-change pending">Awaiting</span>
+          </div>
+          <div class="sc-value">3</div>
+          <div class="sc-label">Pending Quotes</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-header">
+            <div class="sc-icon green"><i class="fas fa-check-circle"></i></div>
+            <span class="sc-change up">All clear</span>
+          </div>
+          <div class="sc-value">$0</div>
+          <div class="sc-label">Overdue Invoices</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-header">
+            <div class="sc-icon red"><i class="fas fa-headset"></i></div>
+            <span class="sc-change down">1 urgent</span>
+          </div>
+          <div class="sc-value">2</div>
+          <div class="sc-label">Open Support Tickets</div>
+        </div>
+      </div>
+
+      <!-- ===== CONTENT GRID ===== -->
+      <div class="udash-grid">
+
+        <!-- Recent Orders Table -->
+        <div class="admin-table-wrapper udash-orders">
+          <div class="admin-table-header">
+            <h3><i class="fas fa-box" style="color:var(--secondary);margin-right:8px;"></i>My Recent Orders</h3>
+            <a href="#" class="btn btn-sm btn-outline">View All</a>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Service</th>
+                  <th>Qty</th>
+                  <th>Status</th>
+                  <th>Due Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#FX-4821</strong></td>
+                  <td>5-Axis CNC</td>
+                  <td>250 pcs</td>
+                  <td><span class="status-badge open">In Production</span></td>
+                  <td>Mar 25, 2026</td>
+                  <td><a href="#" class="udash-action-link"><i class="fas fa-eye"></i> View</a></td>
+                </tr>
+                <tr>
+                  <td><strong>#FX-4818</strong></td>
+                  <td>CNC Machining</td>
+                  <td>75 pcs</td>
+                  <td><span class="status-badge open">In Production</span></td>
+                  <td>Mar 28, 2026</td>
+                  <td><a href="#" class="udash-action-link"><i class="fas fa-eye"></i> View</a></td>
+                </tr>
+                <tr>
+                  <td><strong>#FX-4810</strong></td>
+                  <td>Assembly</td>
+                  <td>500 pcs</td>
+                  <td><span class="status-badge pending">Quality Check</span></td>
+                  <td>Apr 02, 2026</td>
+                  <td><a href="#" class="udash-action-link"><i class="fas fa-eye"></i> View</a></td>
+                </tr>
+                <tr>
+                  <td><strong>#FX-4805</strong></td>
+                  <td>Prototyping</td>
+                  <td>5 pcs</td>
+                  <td><span class="status-badge closed">Delivered</span></td>
+                  <td>Mar 15, 2026</td>
+                  <td><a href="#" class="udash-action-link"><i class="fas fa-download"></i> Receipt</a></td>
+                </tr>
+                <tr>
+                  <td><strong>#FX-4798</strong></td>
+                  <td>Fabrication</td>
+                  <td>1,200 pcs</td>
+                  <td><span class="status-badge closed">Delivered</span></td>
+                  <td>Mar 08, 2026</td>
+                  <td><a href="#" class="udash-action-link"><i class="fas fa-download"></i> Receipt</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="udash-right-col">
+
+          <!-- Order Progress Card -->
+          <div class="udash-card">
+            <div class="udash-card-header">
+              <h4><i class="fas fa-chart-line" style="color:var(--secondary);"></i> Order #FX-4821 Progress</h4>
+              <span class="status-badge open">Live</span>
+            </div>
+            <div class="udash-progress-steps">
+              <div class="ups-step done">
+                <div class="ups-dot"><i class="fas fa-check"></i></div>
+                <div class="ups-label">Order Confirmed</div>
+                <div class="ups-date">Mar 10</div>
+              </div>
+              <div class="ups-line done"></div>
+              <div class="ups-step done">
+                <div class="ups-dot"><i class="fas fa-check"></i></div>
+                <div class="ups-label">Materials Ready</div>
+                <div class="ups-date">Mar 14</div>
+              </div>
+              <div class="ups-line done"></div>
+              <div class="ups-step active">
+                <div class="ups-dot"><i class="fas fa-cog fa-spin"></i></div>
+                <div class="ups-label">In Production</div>
+                <div class="ups-date">Now</div>
+              </div>
+              <div class="ups-line"></div>
+              <div class="ups-step">
+                <div class="ups-dot"><i class="fas fa-clipboard-check"></i></div>
+                <div class="ups-label">QA Check</div>
+                <div class="ups-date">Mar 23</div>
+              </div>
+              <div class="ups-line"></div>
+              <div class="ups-step">
+                <div class="ups-dot"><i class="fas fa-truck"></i></div>
+                <div class="ups-label">Shipped</div>
+                <div class="ups-date">Mar 25</div>
+              </div>
+            </div>
+            <div class="udash-progress-bar-wrap">
+              <div class="udash-progress-bar" style="width:58%"></div>
+            </div>
+            <div class="udash-progress-meta">
+              <span>58% Complete</span>
+              <span>Due Mar 25, 2026</span>
+            </div>
+          </div>
+
+          <!-- Pending Quotes -->
+          <div class="udash-card">
+            <div class="udash-card-header">
+              <h4><i class="fas fa-file-invoice" style="color:var(--secondary);"></i> Pending Quotes</h4>
+              <a href="#" class="udash-link">View all</a>
+            </div>
+            <div class="udash-quote-list">
+              <div class="udash-quote-item">
+                <div class="udash-quote-info">
+                  <strong>QT-2024-089</strong>
+                  <span>Laser Cutting × 800 pcs</span>
+                </div>
+                <div class="udash-quote-right">
+                  <span class="status-badge pending">Review</span>
+                </div>
+              </div>
+              <div class="udash-quote-item">
+                <div class="udash-quote-info">
+                  <strong>QT-2024-091</strong>
+                  <span>Surface Finishing × 300 pcs</span>
+                </div>
+                <div class="udash-quote-right">
+                  <span class="status-badge open">Sent</span>
+                </div>
+              </div>
+              <div class="udash-quote-item">
+                <div class="udash-quote-info">
+                  <strong>QT-2024-094</strong>
+                  <span>Assembly & Testing × 50 units</span>
+                </div>
+                <div class="udash-quote-right">
+                  <span class="status-badge pending">Draft</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Support Tickets -->
+          <div class="udash-card">
+            <div class="udash-card-header">
+              <h4><i class="fas fa-headset" style="color:var(--secondary);"></i> Support Tickets</h4>
+              <a href="#" class="btn btn-sm btn-outline">New Ticket</a>
+            </div>
+            <div class="udash-ticket-list">
+              <div class="udash-ticket-item urgent">
+                <div class="udash-ticket-dot red"></div>
+                <div class="udash-ticket-info">
+                  <strong>Delivery delay on #FX-4818</strong>
+                  <span>Opened 2 hours ago · <em>Urgent</em></span>
+                </div>
+                <a href="#" class="udash-action-link"><i class="fas fa-arrow-right"></i></a>
+              </div>
+              <div class="udash-ticket-item">
+                <div class="udash-ticket-dot orange"></div>
+                <div class="udash-ticket-info">
+                  <strong>Invoice #INV-2024-044 query</strong>
+                  <span>Opened yesterday · <em>Normal</em></span>
+                </div>
+                <a href="#" class="udash-action-link"><i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Sidebar overlay for mobile -->
+  <div class="udash-overlay" id="sidebarOverlay"></div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/rtl-toggle.js"></script>
+  <script src="assets/js/user-dashboard.js"></script>
+</body>
+</html>

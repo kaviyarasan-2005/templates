@@ -119,3 +119,84 @@ document.addEventListener('DOMContentLoaded', function() {
   updateCountdown();
 
 });
+// ===== USER DASHBOARD JS =====
+document.addEventListener('DOMContentLoaded', function () {
+
+  // ── Sidebar toggle (mobile) ──────────────────────────────────────
+  const toggleBtn   = document.getElementById('sidebarToggleBtn');
+  const sidebar     = document.getElementById('userSidebar');
+  const overlay     = document.getElementById('sidebarOverlay');
+
+  function openSidebar() {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (toggleBtn) toggleBtn.addEventListener('click', openSidebar);
+  if (overlay)   overlay.addEventListener('click', closeSidebar);
+
+  // Close sidebar on resize back to desktop
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 1024) closeSidebar();
+  });
+
+  // Show/hide sidebar toggle button based on screen size
+  function checkToggleVisibility() {
+    if (toggleBtn) {
+      toggleBtn.style.display = window.innerWidth <= 1024 ? 'inline-flex' : 'none';
+    }
+  }
+  checkToggleVisibility();
+  window.addEventListener('resize', checkToggleVisibility);
+
+  // ── Active nav link highlight ────────────────────────────────────
+  const currentPage = window.location.pathname.split('/').pop() || 'user-dashboard.html';
+  document.querySelectorAll('.sidebar-nav a').forEach(function (link) {
+    const href = link.getAttribute('href');
+    if (href && href !== '#' && href.includes(currentPage)) {
+      link.classList.add('active');
+    }
+  });
+
+  // ── Notification bell badge ──────────────────────────────────────
+  const notifBtn = document.querySelector('.udash-notif-btn');
+  if (notifBtn) {
+    notifBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const badge = notifBtn.querySelector('.notif-count');
+      if (badge) badge.style.display = 'none';
+      // In a real app you would open a notification dropdown here
+    });
+  }
+
+  // ── Stat card subtle entrance animation ─────────────────────────
+  const statCards = document.querySelectorAll('.stat-card');
+  statCards.forEach(function (card, i) {
+    card.style.opacity    = '0';
+    card.style.transform  = 'translateY(16px)';
+    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    setTimeout(function () {
+      card.style.opacity   = '1';
+      card.style.transform = 'translateY(0)';
+    }, 100 + i * 80);
+  });
+
+  // ── Progress bar animated fill ───────────────────────────────────
+  const progressBar = document.querySelector('.udash-progress-bar');
+  if (progressBar) {
+    const target = progressBar.style.width;
+    progressBar.style.width = '0';
+    setTimeout(function () {
+      progressBar.style.width       = target;
+      progressBar.style.transition  = 'width 1s ease';
+    }, 400);
+  }
+
+});
