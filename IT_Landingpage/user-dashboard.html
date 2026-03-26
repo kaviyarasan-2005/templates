@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashboard - TechAssist IT Support</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../IT_Landingpage/assets/css/style.css">
+</head>
+<body>
+  <div class="user-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="user-sidebar" id="userSidebar">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+       <div class="logo-icon"><i class="fas fa-headset"></i></div>
+        <span>TechAssist</span>
+      </a>
+
+      <!-- User Profile Card -->
+      <div class="sidebar-profile">
+        <div class="sidebar-avatar">JD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Jane Doe</div>
+          <div class="sidebar-user-role"><span class="role-dot"></span> Pro Plan</div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="user-nav">
+        <div class="user-nav-section">
+          <div class="user-nav-label">Overview</div>
+          <a href="#" class="active"><i class="fas fa-house"></i> Dashboard</a>
+          <a href="#"><i class="fas fa-ticket"></i> My Tickets</a>
+          <a href="#"><i class="fas fa-bell"></i> Notifications <span class="nav-badge">3</span></a>
+        </div>
+        <div class="user-nav-section">
+          <div class="user-nav-label">Support</div>
+          <a href="#"><i class="fas fa-circle-plus"></i> New Ticket</a>
+          <a href="#"><i class="fas fa-book-open"></i> Knowledge Base</a>
+          <a href="#"><i class="fas fa-comments"></i> Live Chat</a>
+        </div>
+        <div class="user-nav-section">
+          <div class="user-nav-label">Account</div>
+          <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
+          <a href="#"><i class="fas fa-credit-card"></i> Billing</a>
+          <a href="#"><i class="fas fa-gear"></i> Settings</a>
+        </div>
+        <div class="user-nav-section">
+          <a href="index.html"><i class="fas fa-arrow-right-from-bracket"></i> Sign Out</a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="user-main">
+
+      <!-- Topbar -->
+      <div class="user-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="user-welcome">
+            <h2>Good morning, Jane 👋</h2>
+            <p>Here's a summary of your support activity.</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="topbar-icon-btn" title="Notifications">
+            <i class="fas fa-bell"></i>
+            <span class="topbar-badge">3</span>
+          </button>
+          <button class="rtl-toggle topbar-icon-btn" title="Toggle RTL/LTR">
+            <i class="fas fa-globe-asia"></i>
+          </button>
+          <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-circle-plus"></i> New Ticket</a>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="user-stats">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-card-icon blue"><i class="fas fa-ticket"></i></div>
+            <span class="stat-card-change up"><i class="fas fa-arrow-up"></i> 2</span>
+          </div>
+          <div class="number">14</div>
+          <div class="label">Total Tickets</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-card-icon amber"><i class="fas fa-clock"></i></div>
+            <span class="stat-card-change neutral">Same</span>
+          </div>
+          <div class="number">3</div>
+          <div class="label">Open Tickets</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-card-icon green"><i class="fas fa-check-circle"></i></div>
+            <span class="stat-card-change up"><i class="fas fa-arrow-up"></i> 5</span>
+          </div>
+          <div class="number">11</div>
+          <div class="label">Resolved</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-card-icon cyan"><i class="fas fa-star"></i></div>
+            <span class="stat-card-change up"><i class="fas fa-arrow-up"></i></span>
+          </div>
+          <div class="number">4.8</div>
+          <div class="label">Avg. Rating</div>
+        </div>
+      </div>
+
+      <!-- Main Grid -->
+      <div class="dashboard-grid">
+
+        <!-- Recent Tickets Table -->
+        <div class="dash-card dash-card-wide">
+          <div class="dash-card-header">
+            <div class="dash-card-title">
+              <i class="fas fa-ticket"></i>
+              <h3>My Recent Tickets</h3>
+            </div>
+            <a href="#" class="btn btn-sm btn-outline">View All</a>
+          </div>
+          <div class="table-wrap">
+            <table class="user-table">
+              <thead>
+                <tr>
+                  <th>Ticket ID</th>
+                  <th>Subject</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Updated</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ticket-id">#TK-4521</td>
+                  <td>Server downtime on Node 3</td>
+                  <td><span class="priority-tag high"><span class="priority-dot high"></span>High</span></td>
+                  <td><span class="status-badge open">Open</span></td>
+                  <td class="date-col">Mar 17, 2026</td>
+                  <td><a href="#" class="table-action"><i class="fas fa-arrow-up-right-from-square"></i></a></td>
+                </tr>
+                <tr>
+                  <td class="ticket-id">#TK-4520</td>
+                  <td>VPN connection issues</td>
+                  <td><span class="priority-tag medium"><span class="priority-dot medium"></span>Medium</span></td>
+                  <td><span class="status-badge progress">In Progress</span></td>
+                  <td class="date-col">Mar 17, 2026</td>
+                  <td><a href="#" class="table-action"><i class="fas fa-arrow-up-right-from-square"></i></a></td>
+                </tr>
+                <tr>
+                  <td class="ticket-id">#TK-4519</td>
+                  <td>Email migration to O365</td>
+                  <td><span class="priority-tag low"><span class="priority-dot low"></span>Low</span></td>
+                  <td><span class="status-badge progress">In Progress</span></td>
+                  <td class="date-col">Mar 16, 2026</td>
+                  <td><a href="#" class="table-action"><i class="fas fa-arrow-up-right-from-square"></i></a></td>
+                </tr>
+                <tr>
+                  <td class="ticket-id">#TK-4518</td>
+                  <td>Firewall rule update request</td>
+                  <td><span class="priority-tag medium"><span class="priority-dot medium"></span>Medium</span></td>
+                  <td><span class="status-badge resolved">Resolved</span></td>
+                  <td class="date-col">Mar 16, 2026</td>
+                  <td><a href="#" class="table-action"><i class="fas fa-arrow-up-right-from-square"></i></a></td>
+                </tr>
+                 <tr>
+                  <td class="ticket-id">#TK-4520</td>
+                  <td>VPN connection issues</td>
+                  <td><span class="priority-tag medium"><span class="priority-dot medium"></span>Medium</span></td>
+                  <td><span class="status-badge progress">In Progress</span></td>
+                  <td class="date-col">Mar 17, 2026</td>
+                  <td><a href="#" class="table-action"><i class="fas fa-arrow-up-right-from-square"></i></a></td>
+                </tr>
+                 <tr>
+                  <td class="ticket-id">#TK-4520</td>
+                  <td>VPN connection issues</td>
+                  <td><span class="priority-tag medium"><span class="priority-dot medium"></span>Medium</span></td>
+                  <td><span class="status-badge progress">In Progress</span></td>
+                  <td class="date-col">Mar 17, 2026</td>
+                  <td><a href="#" class="table-action"><i class="fas fa-arrow-up-right-from-square"></i></a></td>
+                </tr>
+                <tr>
+                  <td class="ticket-id">#TK-4517</td>
+                  <td>New employee onboarding - 5 users</td>
+                  <td><span class="priority-tag low"><span class="priority-dot low"></span>Low</span></td>
+                  <td><span class="status-badge resolved">Resolved</span></td>
+                  <td class="date-col">Mar 15, 2026</td>
+                  <td><a href="#" class="table-action"><i class="fas fa-arrow-up-right-from-square"></i></a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="dash-right-col">
+
+          <!-- Plan Card -->
+          <div class="dash-card plan-card">
+            <div class="plan-card-bg"></div>
+            <div class="plan-card-content">
+              <div class="plan-badge"><i class="fas fa-crown"></i> Pro Plan</div>
+              <div class="plan-name">Professional</div>
+              <div class="plan-renewal">Renews on <strong>Apr 15, 2026</strong></div>
+              <div class="plan-features">
+                <div class="plan-feature"><i class="fas fa-check"></i> Unlimited Tickets</div>
+                <div class="plan-feature"><i class="fas fa-check"></i> Priority Support</div>
+                <div class="plan-feature"><i class="fas fa-check"></i> Dedicated Agent</div>
+              </div>
+              <a href="#" class="btn btn-white btn-sm">Manage Plan</a>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <!-- <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title">
+                <i class="fas fa-bolt"></i>
+                <h3>Quick Actions</h3>
+              </div>
+            </div>
+            <div class="quick-actions">
+              <a href="#" class="quick-action-btn">
+                <div class="quick-action-icon blue"><i class="fas fa-circle-plus"></i></div>
+                <span>New Ticket</span>
+              </a>
+              <a href="#" class="quick-action-btn">
+                <div class="quick-action-icon cyan"><i class="fas fa-comments"></i></div>
+                <span>Live Chat</span>
+              </a>
+              <a href="#" class="quick-action-btn">
+                <div class="quick-action-icon green"><i class="fas fa-book-open"></i></div>
+                <span>Knowledge Base</span>
+              </a>
+              <a href="#" class="quick-action-btn">
+                <div class="quick-action-icon amber"><i class="fas fa-phone"></i></div>
+                <span>Call Support</span>
+              </a>
+            </div>
+          </div> -->
+
+          <!-- Agent Card -->
+          <div class="dash-card agent-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title">
+                <i class="fas fa-headset"></i>
+                <h3>Your Agent</h3>
+              </div>
+              <span class="agent-online"><span class="online-dot"></span>Online</span>
+            </div>
+            <div class="agent-info">
+              <div class="agent-avatar">MA</div>
+              <div>
+                <div class="agent-name">Marcus Allen</div>
+                <div class="agent-role">Senior IT Specialist</div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm agent-btn"><i class="fas fa-comments"></i> Send Message</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Notifications Section -->
+      <div class="dash-card notifications-card">
+        <div class="dash-card-header">
+          <div class="dash-card-title">
+            <i class="fas fa-bell"></i>
+            <h3>Recent Notifications</h3>
+          </div>
+          <button class="btn btn-sm btn-ghost">Mark all read</button>
+        </div>
+        <div class="notifications-list">
+          <div class="notif-item unread">
+            <div class="notif-icon blue"><i class="fas fa-reply"></i></div>
+            <div class="notif-body">
+              <div class="notif-title">Agent replied to <strong>#TK-4521</strong></div>
+              <div class="notif-time">10 minutes ago</div>
+            </div>
+            <div class="notif-dot"></div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon green"><i class="fas fa-check-circle"></i></div>
+            <div class="notif-body">
+              <div class="notif-title">Ticket <strong>#TK-4518</strong> has been resolved</div>
+              <div class="notif-time">2 hours ago</div>
+            </div>
+            <div class="notif-dot"></div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon amber"><i class="fas fa-triangle-exclamation"></i></div>
+            <div class="notif-body">
+              <div class="notif-title">Scheduled maintenance on <strong>Mar 20</strong> from 2–4 AM</div>
+              <div class="notif-time">Yesterday</div>
+            </div>
+            <div class="notif-dot"></div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-icon cyan"><i class="fas fa-star"></i></div>
+            <div class="notif-body">
+              <div class="notif-title">Please rate your experience with <strong>#TK-4517</strong></div>
+              <div class="notif-time">2 days ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Mobile sidebar backdrop -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/rtl-toggle.js"></script>
+</body>
+</html>

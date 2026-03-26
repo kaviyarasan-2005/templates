@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('dir') || 'ltr';
   document.documentElement.setAttribute('dir', saved);
   updateIcon(saved);
-
   toggleBtn.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('dir') || 'ltr';
     const next = current === 'ltr' ? 'rtl' : 'ltr';
@@ -15,10 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('dir', next);
     updateIcon(next);
   });
-
   function updateIcon(dir) {
     const icon = toggleBtn.querySelector('i');
-    if (icon) {
+    if (icon){
       icon.className = dir === 'rtl' ? 'fas fa-globe-americas' : 'fas fa-globe-asia';
     }
   }

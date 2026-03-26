@@ -119,3 +119,122 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+// ===== USER-DASHBOARD.JS =====
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ── Sidebar Toggle (mobile) ─────────────────────────────────────────
+  const sidebar    = document.getElementById('userSidebar');
+  const toggleBtn  = document.getElementById('sidebarToggle');
+  const backdrop   = document.getElementById('sidebarBackdrop');
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    backdrop.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('visible');
+    document.body.style.overflow = '';
+  }
+
+  if (toggleBtn) toggleBtn.addEventListener('click', openSidebar);
+  if (backdrop)  backdrop.addEventListener('click',  closeSidebar);
+
+  // Close sidebar on nav link click (mobile UX)
+  if (sidebar) {
+    sidebar.querySelectorAll('.user-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) closeSidebar();
+      });
+    });
+  }
+
+  // ── Active nav link ─────────────────────────────────────────────────
+  const navLinks = document.querySelectorAll('.user-nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // ── Mark all notifications read ─────────────────────────────────────
+  const markAllBtn = document.querySelector('.notifications-card .btn-ghost');
+  if (markAllBtn) {
+    markAllBtn.addEventListener('click', () => {
+      document.querySelectorAll('.notif-item.unread').forEach(item => {
+        item.classList.remove('unread');
+        const dot = item.querySelector('.notif-dot');
+        if (dot) dot.remove();
+      });
+      // Update badge counts
+      document.querySelectorAll('.topbar-badge, .nav-badge').forEach(b => {
+        b.textContent = '0';
+        b.style.opacity = '0';
+      });
+      markAllBtn.textContent = '✓ All read';
+      markAllBtn.disabled = true;
+    });
+  }
+
+  // ── Stat card entrance animation ────────────────────────────────────
+  const statCards = document.querySelectorAll('.stat-card');
+  statCards.forEach((card, i) => {
+    card.style.opacity    = '0';
+    card.style.transform  = 'translateY(16px)';
+    card.style.transition = `opacity .4s ease ${i * 80}ms, transform .4s ease ${i * 80}ms`;
+    requestAnimationFrame(() => {
+      card.style.opacity   = '1';
+      card.style.transform = 'translateY(0)';
+    });
+  });
+
+  // ── Animated number counter for stat cards ──────────────────────────
+  function animateNumber(el, target, duration = 900) {
+    const isDecimal = String(target).includes('.');
+    const decimals  = isDecimal ? 1 : 0;
+    const start     = 0;
+    const startTime = performance.now();
+
+    function step(now) {
+      const elapsed  = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased    = 1 - Math.pow(1 - progress, 3);
+      const current  = start + (target - start) * eased;
+      el.textContent = current.toFixed(decimals);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  document.querySelectorAll('.stat-card .number').forEach(numEl => {
+    const raw    = numEl.textContent.replace(/,/g, '');
+    const target = parseFloat(raw);
+    if (!isNaN(target)) {
+      setTimeout(() => animateNumber(numEl, target), 300);
+    }
+  });
+
+  // ── Topbar notification button opens notifications section ──────────
+  const notifBtn = document.querySelector('.topbar-icon-btn[title="Notifications"]');
+  const notifCard = document.querySelector('.notifications-card');
+  if (notifBtn && notifCard) {
+    notifBtn.addEventListener('click', () => {
+      notifCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      notifCard.style.outline = '2px solid var(--secondary)';
+      notifCard.style.outlineOffset = '3px';
+      setTimeout(() => {
+        notifCard.style.outline = 'none';
+      }, 1800);
+    });
+  }
+
+  // ── Window resize: auto-close sidebar on expand ──────────────────────
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) closeSidebar();
+  });
+
+});
