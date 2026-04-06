@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Complete Guide to Smart Lighting in 2024 | SmartNest Blog</title>
+  <meta name="description" content="Everything you need to know about choosing, installing, and optimising smart lighting — from bulb types to automation scenes and voice control." />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <style>
+    .page-hero{background:linear-gradient(135deg,#0F172A 0%,#1E3A8A 100%);padding:var(--space-8) 0;text-align:center;}
+    .page-hero h1{color:#fff;margin-bottom:var(--space-2);font-size:var(--fs-4xl);}
+    .page-hero p{color:rgba(255,255,255,0.8);max-width:560px;margin:0 auto;}
+    .blog-layout{display:grid;grid-template-columns:1fr 320px;gap:var(--space-5);align-items:start;}
+    .article-content{font-size:var(--fs-base);line-height:var(--lh-relaxed);color:var(--text-secondary);}
+    .article-content h2{font-family:var(--font-heading);font-size:var(--fs-2xl);color:var(--text-primary);margin:var(--space-4) 0 var(--space-2);}
+    .article-content h3{font-family:var(--font-heading);font-size:var(--fs-xl);color:var(--text-primary);margin:var(--space-3) 0 var(--space-1);}
+    .article-content p{margin-bottom:var(--space-2);}
+    .article-content ul{margin:0 0 var(--space-2) var(--space-3);list-style:disc;}
+    .article-content ul li{margin-bottom:8px;font-size:var(--fs-sm);}
+    .article-img{width:100%;border-radius:var(--border-radius-xl);margin-bottom:var(--space-3);}
+    .article-meta{display:flex;gap:var(--space-2);align-items:center;font-size:var(--fs-sm);color:var(--text-tertiary);margin-bottom:var(--space-3);flex-wrap:wrap;}
+    .share-btns{display:flex;gap:var(--space-1);margin-top:var(--space-3);padding-top:var(--space-3);border-top:1px solid var(--border-color);}
+    .share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--border-radius);font-size:var(--fs-xs);font-weight:var(--fw-medium);color:#fff;transition:all var(--transition-base);}
+    .share-btn:hover{transform:translateY(-1px);color:#fff;}
+    .sidebar-widget{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--border-radius-lg);padding:var(--space-3);margin-bottom:var(--space-2);}
+    .sidebar-widget__title{font-family:var(--font-heading);font-size:var(--fs-base);font-weight:var(--fw-semibold);margin-bottom:var(--space-2);color:var(--text-primary);}
+    .recent-post{display:flex;gap:var(--space-1);padding:var(--space-1) 0;border-bottom:1px solid var(--border-color);}
+    .recent-post:last-child{border-bottom:none;}
+    .recent-post__img{width:64px;height:48px;border-radius:var(--border-radius);object-fit:cover;flex-shrink:0;}
+    .recent-post__title{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--text-primary);line-height:1.4;}
+    .recent-post__title a{color:inherit;}
+    .recent-post__title a:hover{color:var(--color-primary);}
+    .recent-post__date{font-size:11px;color:var(--text-tertiary);}
+    .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;}
+    .tag-cloud a{padding:4px 12px;border-radius:var(--border-radius-full);font-size:var(--fs-xs);background:var(--bg-card-hover);color:var(--text-secondary);border:1px solid var(--border-color);transition:all var(--transition-base);}
+    .tag-cloud a:hover{background:var(--color-primary);color:#fff;border-color:var(--color-primary);}
+    @media(max-width:1024px){.blog-layout{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body class="has-navbar">
+
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo"><img src="../assets/images/logo.svg" alt="SmartNest" width="36" height="36"/>Smart<span>Nest</span></a>
+    <ul class="navbar__links" role="menubar">
+      <li><div class="nav-dropdown"><button class="nav-dropdown__trigger">Home <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown__menu"><a href="index.html">General</a><a href="home-saas.html">SaaS</a></div></div></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><div class="nav-dropdown"><button class="nav-dropdown__trigger">Dashboard <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown__menu"><a href="dashboard.html">Dashboard</a><a href="login.html">Login</a></div></div></li>
+    </ul>
+    <div class="navbar__actions">
+      <button class="navbar__icon-btn mobile-visible" id="theme-toggle" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="theme-icon"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2"/></svg></button>
+      <button class="navbar__icon-btn mobile-visible" id="rtl-toggle" aria-label="Toggle RTL"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+      <button class="navbar__hamburger" id="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html" class="active">Blog</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></div>
+
+<section class="page-hero"><div class="container" data-aos="fade-up">
+  <span class="badge badge--primary" style="color:#fff;background:rgba(37,99,235,0.4);margin-bottom:var(--space-2);">Guides</span>
+  <h1>The Complete Guide to Smart Lighting in 2024</h1>
+  <div class="article-meta" style="justify-content:center;color:rgba(255,255,255,0.6);"><span>By Marcus Chen</span><span>•</span><span>March 15, 2024</span><span>•</span><span>8 min read</span></div>
+</div></section>
+
+<section class="section-padding" aria-label="Blog article">
+  <div class="container">
+    <div class="blog-layout">
+      <article data-aos="fade-up">
+        <img src="../assets/images/blog-1-detail.jpg" alt="Smart Lighting Setup in Modern Living Room" class="article-img" loading="lazy" />
+        <div class="article-content">
+          <h2>Why Smart Lighting Is the Best First Step</h2>
+          <p>If you're new to home automation, smart lighting is universally recommended as the ideal starting point. It's relatively affordable, immediately impactful, and introduces you to the core concepts of automation — scheduling, scenes, voice control, and remote access — without requiring any complex wiring changes.</p>
+          <p>At SmartNest, over 70% of our first-time clients start with a lighting project before expanding into security, climate, or full-home automation. The reason is simple: smart lighting delivers the highest "wow factor" per dollar spent.</p>
+
+          <h2>Types of Smart Lighting Products</h2>
+          <h3>Smart Bulbs</h3>
+          <p>The simplest entry point. Smart bulbs screw into existing fixtures and connect via Wi-Fi, Zigbee, or Z-Wave. Leading brands include Philips Hue, LIFX, and Nanoleaf. They typically offer colour temperature control, dimming, and millions of colour options.</p>
+          <ul>
+            <li><strong>Best for:</strong> Renters, single rooms, accent and mood lighting</li>
+            <li><strong>Price range:</strong> $12–$50 per bulb</li>
+            <li><strong>Pros:</strong> Easy to install, no electrician needed, portable</li>
+            <li><strong>Cons:</strong> Physical switch must stay on, can be more expensive per-fixture long term</li>
+          </ul>
+
+          <h3>Smart Switches & Dimmers</h3>
+          <p>Smart switches replace your existing wall switches and control any bulb connected to that circuit. This is our recommended approach for whole-home installations — it's more cost-effective than smart bulbs and works with any standard bulb.</p>
+          <ul>
+            <li><strong>Best for:</strong> Homeowners, whole-room or whole-home lighting control</li>
+            <li><strong>Price range:</strong> $25–$65 per switch</li>
+            <li><strong>Pros:</strong> Works with existing bulbs, family-friendly physical controls, more reliable</li>
+            <li><strong>Cons:</strong> Requires neutral wire (most homes built after 1985), professional installation recommended</li>
+          </ul>
+
+          <h2>Creating Effective Lighting Scenes</h2>
+          <p>Lighting scenes are pre-configured settings that adjust multiple lights simultaneously. Here are the essential scenes we configure for every SmartNest client:</p>
+          <ul>
+            <li><strong>Good Morning:</strong> Gradual brightening in bedrooms and hallways over 15 minutes</li>
+            <li><strong>Work Mode:</strong> Cool, bright light in the home office with minimal ambient light elsewhere</li>
+            <li><strong>Movie Night:</strong> Dim living room to 10%, turn off kitchen, set accent lights to warm amber</li>
+            <li><strong>Away Mode:</strong> Random on/off patterns that simulate occupancy across multiple rooms</li>
+            <li><strong>Sleep:</strong> All lights off except hallway nightlight at 5% brightness</li>
+          </ul>
+
+          <h2>Energy Savings: Real Numbers</h2>
+          <p>Our clients report an average energy saving of 38% on lighting costs after installing smart lighting with automated scheduling. The biggest savings come from:</p>
+          <ul>
+            <li>Occupancy-based auto-off (no more lights left on in empty rooms)</li>
+            <li>Daylight harvesting (dimming near windows based on natural light levels)</li>
+            <li>Scheduled brightness reduction during peak energy pricing hours</li>
+          </ul>
+          <p>For a typical 3-bedroom home, this translates to approximately $180–$320 in annual savings on electricity costs.</p>
+
+          <h2>Getting Started with SmartNest</h2>
+          <p>Ready to upgrade your lighting? Our process is simple: book a free consultation, and one of our CEDIA-certified technicians will visit your home, assess your needs, and provide a no-obligation quote within 48 hours. Most installations are completed in a single day.</p>
+
+          <div style="background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.2);border-radius:var(--border-radius-lg);padding:var(--space-3);margin-top:var(--space-3);">
+            <h4 style="font-family:var(--font-heading);color:var(--color-primary);margin-bottom:8px;">Ready to get started?</h4>
+            <p style="margin-bottom:var(--space-2);">Book a free consultation and get a custom lighting plan for your home.</p>
+            <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+          </div>
+        </div>
+
+        <div class="share-btns">
+          <span style="font-size:var(--fs-sm);font-weight:var(--fw-medium);color:var(--text-secondary);margin-right:8px;">Share:</span>
+          <a href="#" class="share-btn" style="background:#1877F2;">Facebook</a>
+          <a href="#" class="share-btn" style="background:#000;">X</a>
+          <a href="#" class="share-btn" style="background:#0A66C2;">LinkedIn</a>
+          <a href="#" class="share-btn" style="background:#25D366;">WhatsApp</a>
+        </div>
+
+        <!-- RELATED POSTS -->
+        <div style="margin-top:var(--space-5);">
+          <h3 style="font-family:var(--font-heading);margin-bottom:var(--space-3);">Related Articles</h3>
+          <div class="grid-3">
+            <div class="card" style="padding:0;overflow:hidden;">
+              <img src="../assets/images/blog-2.jpg" alt="Home Security" style="width:100%;height:140px;object-fit:cover;" loading="lazy" />
+              <div style="padding:var(--space-2);"><h4 class="card__title" style="font-size:var(--fs-sm);">10 Ways Smart Security Protects Your Family</h4><a href="blog-details.html" class="card__link">Read <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></div>
+            </div>
+            <div class="card" style="padding:0;overflow:hidden;">
+              <img src="../assets/images/blog-3.jpg" alt="Energy Savings" style="width:100%;height:140px;object-fit:cover;" loading="lazy" />
+              <div style="padding:var(--space-2);"><h4 class="card__title" style="font-size:var(--fs-sm);">How Smart Homes Cut Energy Bills by 40%</h4><a href="blog-details.html" class="card__link">Read <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></div>
+            </div>
+            <div class="card" style="padding:0;overflow:hidden;">
+              <img src="../assets/images/blog-4.jpg" alt="Thermostats" style="width:100%;height:140px;object-fit:cover;" loading="lazy" />
+              <div style="padding:var(--space-2);"><h4 class="card__title" style="font-size:var(--fs-sm);">Best Smart Thermostats: 2024 Comparison</h4><a href="blog-details.html" class="card__link">Read <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="sticky-sidebar" data-aos="fade-left">
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget__title">Recent Posts</h3>
+          <div class="recent-post"><img src="../assets/images/blog-2.jpg" class="recent-post__img" alt="Security" loading="lazy" /><div><div class="recent-post__title"><a href="blog-details.html">10 Ways Smart Security Protects Your Family</a></div><div class="recent-post__date">March 8, 2024</div></div></div>
+          <div class="recent-post"><img src="../assets/images/blog-3.jpg" class="recent-post__img" alt="Energy" loading="lazy" /><div><div class="recent-post__title"><a href="blog-details.html">How Smart Homes Cut Energy Bills by 40%</a></div><div class="recent-post__date">Feb 22, 2024</div></div></div>
+          <div class="recent-post"><img src="../assets/images/blog-4.jpg" class="recent-post__img" alt="Thermostats" loading="lazy" /><div><div class="recent-post__title"><a href="blog-details.html">Best Smart Thermostats: 2024 Comparison</a></div><div class="recent-post__date">Feb 14, 2024</div></div></div>
+          <div class="recent-post"><img src="../assets/images/blog-5.jpg" class="recent-post__img" alt="Matter" loading="lazy" /><div><div class="recent-post__title"><a href="blog-details.html">What the Matter Protocol Means for Your Home</a></div><div class="recent-post__date">Feb 1, 2024</div></div></div>
+        </div>
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget__title">Tags</h3>
+          <div class="tag-cloud">
+            <a href="#">Smart Lighting</a><a href="#">Security</a><a href="#">Thermostats</a><a href="#">Energy</a><a href="#">Voice Control</a><a href="#">Alexa</a><a href="#">Google Home</a><a href="#">HomeKit</a><a href="#">Matter</a><a href="#">Z-Wave</a><a href="#">Zigbee</a><a href="#">Wi-Fi</a>
+          </div>
+        </div>
+        <div class="sidebar-widget" style="background:linear-gradient(135deg,var(--color-primary),var(--color-secondary));border:none;">
+          <h3 class="sidebar-widget__title" style="color:#fff;">Newsletter</h3>
+          <p style="font-size:var(--fs-sm);color:rgba(255,255,255,0.85);margin-bottom:var(--space-2);">Get weekly smart home tips in your inbox.</p>
+          <form data-validate novalidate><input type="email" class="form-input" placeholder="Your email" required style="margin-bottom:8px;" /><button type="submit" class="btn btn-accent w-full" style="display:flex;">Subscribe</button></form>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand"><a href="index.html" class="navbar__logo" style="color:#fff;"><img src="../assets/images/logo-white.svg" alt="SmartNest" width="36" height="36"/>Smart<span style="color:var(--color-accent);">Nest</span></a><p>Professional smart home automation since 2012.</p></div>
+      <div><h3 class="footer__heading">Services</h3><ul class="footer__links"><li><a href="service-details.html">Smart Lighting</a></li><li><a href="service-details.html">Security</a></li><li><a href="service-details.html">Climate</a></li></ul></div>
+      <div><h3 class="footer__heading">Company</h3><ul class="footer__links"><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h3 class="footer__heading">Contact</h3><ul class="footer__links"><li><a href="tel:+15551234567">+1 (555) 123-4567</a></li><li><a href="mailto:hello@smartnest.io">hello@smartnest.io</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p style="color:rgba(255,255,255,0.5);font-size:var(--fs-xs);">© 2024 SmartNest. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

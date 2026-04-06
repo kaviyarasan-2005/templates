@@ -11,22 +11,22 @@
     const toggleBtns = document.querySelectorAll('[data-sidebar-toggle]');
     const sidebar = document.querySelector('.dashboard-sidebar');
     const layout = document.querySelector('.dashboard-layout');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    const toggleSidebar = () => {
+      if (window.innerWidth <= 768) {
+        sidebar?.classList.toggle('mobile-open');
+        overlay?.classList.toggle('active');
+        document.body.style.overflow = sidebar?.classList.contains('mobile-open') ? 'hidden' : '';
+      }
+      // Note: Desktop sidebar is now fixed as 'always expanded' (no collapse state).
+    };
 
     toggleBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        sidebar?.classList.toggle('collapsed');
-        layout?.classList.toggle('sidebar-collapsed');
-        // Persist state
-        const collapsed = sidebar?.classList.contains('collapsed');
-        localStorage.setItem('sidebar-collapsed', collapsed);
-      });
+      btn.addEventListener('click', toggleSidebar);
     });
 
-    // Restore state
-    if (localStorage.getItem('sidebar-collapsed') === 'true') {
-      sidebar?.classList.add('collapsed');
-      layout?.classList.add('sidebar-collapsed');
-    }
+    overlay?.addEventListener('click', toggleSidebar);
   }
 
   /* ── Active Sidebar Link ────────────────── */

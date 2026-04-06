@@ -6,7 +6,7 @@
   <meta name="description" content="Create your free Élise Laurent account to access exclusive style resources, book sessions, and track your transformation."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="../assets/css/main.css"/><link rel="stylesheet" href="../assets/css/components.css"/>
+  <link rel="icon" href="../assets/images/icons/favicon.svg" type="image/svg+xml"/><link rel="manifest" href="../manifest.json"/><link rel="stylesheet" href="../assets/css/main.css"/><link rel="stylesheet" href="../assets/css/components.css"/>
   <link rel="stylesheet" href="../assets/css/animations.css"/><link rel="stylesheet" href="../assets/css/dark-mode.css"/>
   <link rel="stylesheet" href="../assets/css/rtl.css"/><link rel="stylesheet" href="../assets/css/style.css"/>
 </head>
@@ -29,14 +29,20 @@
     </div>
 
     <!-- Form Side -->
-    <div class="auth-form-side" style="height:100vh">
-      <a href="index.html" class="auth-logo" aria-label="Return home">
-        <div class="auth-logo-mark">É</div>
-        <div>
-          <div style="font-weight:700;font-size:var(--text-base);color:var(--text-primary)">Élise Laurent</div>
-          <div style="font-size:var(--text-xs);color:var(--text-muted)">Image Consultant</div>
+    <div class="auth-form-side">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--space-6);">
+        <a href="index.html" class="auth-logo" aria-label="Return home" style="margin-bottom:0;">
+          <div class="auth-logo-mark">É</div>
+          <div>
+            <div style="font-weight:700;font-size:var(--text-base);color:var(--text-primary)">Élise Laurent</div>
+            <div style="font-size:var(--text-xs);color:var(--text-muted)">Image Consultant</div>
+          </div>
+        </a>
+        <div style="display:flex;gap:8px;">
+          <button type="button" class="nav-action-btn" data-dir-toggle aria-label="Toggle direction"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button>
+          <button type="button" class="nav-action-btn" data-theme-toggle aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
         </div>
-      </a>
+      </div>
 
       <h1 class="auth-heading">Create your account</h1>
       <p class="auth-subheading">Join 500+ clients who've transformed their image with us.</p>
@@ -109,10 +115,7 @@
       <p class="auth-footer-text">Already have an account? <a href="login.html">Sign in here</a></p>
       <p class="auth-footer-text" style="margin-top:8px"><a href="index.html" style="color:var(--text-muted);font-size:var(--text-xs)">← Return to homepage</a></p>
 
-      <div style="position:absolute;top:var(--space-3);right:var(--space-3);display:flex;gap:8px">
-        <button class="nav-action-btn" data-dir-toggle aria-label="Toggle direction"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button>
-        <button class="nav-action-btn" data-theme-toggle aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
-      </div>
+      <!-- Theme / RTL toggles incorporated into logo header -->
     </div>
   </div>
 </main>
@@ -127,3 +130,4 @@
 </script>
 </body>
 </html>
+

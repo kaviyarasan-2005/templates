@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Lighting Installation — Service Details | SmartNest</title>
+  <meta name="description" content="Professional smart lighting installation by SmartNest. Automated scenes, voice control, energy savings up to 40%. Get a free quote today." />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <style>
+    .page-hero{background:linear-gradient(135deg,#0F172A 0%,#1E3A8A 100%);padding:var(--space-8) 0;text-align:center;}
+    .page-hero h1{color:#fff;margin-bottom:var(--space-2);}
+    .page-hero p{color:rgba(255,255,255,0.8);max-width:560px;margin:0 auto;}
+    .detail-layout{display:grid;grid-template-columns:1fr 340px;gap:var(--space-5);align-items:start;}
+    .detail-img{width:100%;border-radius:var(--border-radius-xl);max-height:400px;object-fit:cover;margin-bottom:var(--space-3);}
+    .pricing-compact-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--border-radius-lg);padding:var(--space-3);}
+    .pricing-compact-card table{width:100%;font-size:var(--fs-sm);border-collapse:collapse;}
+    .pricing-compact-card td{padding:10px 0;border-bottom:1px solid var(--border-color);}
+    .pricing-compact-card td:last-child{text-align:right;font-weight:var(--fw-semibold);color:var(--color-primary);}
+    .pricing-compact-card tr:last-child td{border-bottom:none;}
+    .sidebar-cta-card{background:linear-gradient(135deg,var(--color-primary),var(--color-secondary));border-radius:var(--border-radius-lg);padding:var(--space-3);text-align:center;color:#fff;margin-top:var(--space-2);}
+    .sidebar-cta-card h3{font-family:var(--font-heading);color:#fff;margin-bottom:var(--space-1);}
+    .sidebar-cta-card p{color:rgba(255,255,255,0.85);font-size:var(--fs-sm);margin-bottom:var(--space-2);}
+    .breadcrumb{display:flex;gap:8px;align-items:center;font-size:var(--fs-sm);color:var(--text-tertiary);margin-bottom:var(--space-3);}
+    .breadcrumb a{color:var(--text-secondary);}
+    .breadcrumb a:hover{color:var(--color-primary);}
+    .breadcrumb span{color:var(--text-tertiary);}
+    .include-list li{display:flex;align-items:center;gap:var(--space-1);font-size:var(--fs-sm);color:var(--text-secondary);padding:6px 0;}
+    .include-list li svg{width:16px;height:16px;color:var(--color-success);flex-shrink:0;}
+    @media(max-width:1024px){.detail-layout{grid-template-columns:1fr;}.sticky-sidebar{position:relative;top:0;}}
+  </style>
+</head>
+<body class="has-navbar">
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo"><img src="../assets/images/logo.svg" alt="SmartNest" width="36" height="36"/>Smart<span>Nest</span></a>
+    <ul class="navbar__links" role="menubar">
+      <li><div class="nav-dropdown"><button class="nav-dropdown__trigger">Home <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown__menu"><a href="index.html">General Services</a><a href="home-saas.html">SaaS / Niche</a></div></div></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><div class="nav-dropdown"><button class="nav-dropdown__trigger">Dashboard <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown__menu"><a href="dashboard.html">Dashboard</a><a href="login.html">Login</a><a href="register.html">Register</a></div></div></li>
+    </ul>
+    <div class="navbar__actions">
+      <button class="navbar__icon-btn mobile-visible" id="theme-toggle" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="theme-icon"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2"/></svg></button>
+      <button class="navbar__icon-btn mobile-visible" id="rtl-toggle" aria-label="Toggle RTL"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+      <a href="contact.html" class="btn btn-primary btn-sm" style="display:none" id="nav-cta">Get a Quote</a>
+      <button class="navbar__hamburger" id="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav"><a href="index.html">Home – General</a><a href="home-saas.html">Home – SaaS</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="dashboard.html">Dashboard</a><a href="login.html">Login</a><a href="register.html">Register</a></div>
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-label="Service detail header">
+  <div class="container" data-aos="fade-up">
+    <span class="section-header__tag" style="color:var(--color-accent);">Service Details</span>
+    <h1>Smart Lighting Installation</h1>
+    <p>Complete automated lighting systems designed and installed by certified professionals. Transform every room with intelligent light.</p>
+  </div>
+</section>
+
+<!-- DETAIL CONTENT -->
+<section class="section-padding" aria-label="Service detail content">
+  <div class="container">
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="services.html">Services</a>
+      <span>›</span>
+      <span style="color:var(--text-primary);">Smart Lighting</span>
+    </div>
+    <div class="detail-layout">
+
+      <!-- MAIN CONTENT -->
+      <div>
+        <img src="../assets/images/service-lighting-detail.jpg" alt="Smart Lighting Installation" class="detail-img" loading="lazy" data-aos="fade-up" />
+
+        <div data-aos="fade-up">
+          <h2 style="margin-bottom:var(--space-2);">Why Upgrade to Smart Lighting?</h2>
+          <p style="margin-bottom:var(--space-2);">Smart lighting goes far beyond simply controlling your lights from a phone. Our systems create dynamic, responsive environments that adapt to your daily routines — brightening gradually in the morning, dimming automatically at sunset, and securing your home with presence simulation when you're away.</p>
+          <p style="margin-bottom:var(--space-3);">Compatible with Google Home, Amazon Alexa, Apple HomeKit, and the SmartNest platform, our installations integrate seamlessly with whatever ecosystem you prefer.</p>
+
+          <h3 style="font-family:var(--font-heading);margin-bottom:var(--space-2);">What's Included</h3>
+          <ul class="include-list" style="margin-bottom:var(--space-3);">
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Free pre-installation consultation and lighting design plan</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Professional installation of all smart bulbs, switches, and dimmers</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Scene creation (Morning, Movie, Party, Sleep, Away, etc.)</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Voice assistant setup and configuration</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>SmartNest app configuration and walkthrough</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>12-month installation warranty + 5-year support plan</li>
+          </ul>
+
+          <h3 style="font-family:var(--font-heading);margin-bottom:var(--space-2);">Pricing Tiers</h3>
+          <div class="pricing-compact-card" style="margin-bottom:var(--space-3);">
+            <table>
+              <tbody>
+                <tr><td>Starter — Up to 10 smart bulbs + 2 smart switches</td><td>From $499</td></tr>
+                <tr><td>Standard — Up to 25 devices + scene setup</td><td>From $999</td></tr>
+                <tr><td>Premium — Full home lighting + energy monitoring</td><td>From $1,999</td></tr>
+                <tr><td>Enterprise — Multi-zone commercial/large estate</td><td>Custom Quote</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="font-family:var(--font-heading);margin-bottom:var(--space-2);">Frequently Asked Questions</h3>
+          <div class="accordion" role="list">
+            <div class="accordion__item" role="listitem">
+              <button class="accordion__trigger" aria-expanded="false">How long does a smart lighting installation take? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="accordion__content"><div class="accordion__content__inner">Most standard installations (up to 20 devices) are completed within a single day. Larger whole-home projects may require 2 days. We always work to minimise disruption to your daily routine.</div></div>
+            </div>
+            <div class="accordion__item" role="listitem">
+              <button class="accordion__trigger" aria-expanded="false">Do I need to replace my existing wiring? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="accordion__content"><div class="accordion__content__inner">In most cases, no. Our smart switches and dimmers are designed to work with standard wiring in homes built after 1985. Our technicians will assess your wiring during the free consultation and advise if any upgrades are needed.</div></div>
+            </div>
+            <div class="accordion__item" role="listitem">
+              <button class="accordion__trigger" aria-expanded="false">Can I control the lights if the internet goes down? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="accordion__content"><div class="accordion__content__inner">Yes. All our smart switches retain local control — they work exactly like traditional switches even during an internet outage. The SmartNest hub also operates locally for most functions without needing cloud connectivity.</div></div>
+            </div>
+            <div class="accordion__item" role="listitem">
+              <button class="accordion__trigger" aria-expanded="false">Which brands do you install and support? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="accordion__content"><div class="accordion__content__inner">We work with all major brands including Lutron, Philips Hue, Leviton, Caseta, LIFX, Nanoleaf, and more. We recommend the best solution for your budget and existing setup — we're brand-agnostic.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RELATED SERVICES -->
+        <div style="margin-top:var(--space-5);" data-aos="fade-up">
+          <h3 style="font-family:var(--font-heading);margin-bottom:var(--space-3);">Related Services</h3>
+          <div class="grid-3">
+            <div class="card" style="padding:var(--space-2);">
+              <div class="card__icon" style="background:rgba(239,68,68,0.1);color:#EF4444;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div class="card__title">Security Systems</div>
+              <a href="service-details.html" class="card__link">View Service <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+            </div>
+            <div class="card" style="padding:var(--space-2);">
+              <div class="card__icon" style="background:rgba(16,185,129,0.1);color:#10B981;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
+              <div class="card__title">Climate Control</div>
+              <a href="service-details.html" class="card__link">View Service <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+            </div>
+            <div class="card" style="padding:var(--space-2);">
+              <div class="card__icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="24" height="24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <div class="card__title">Energy Management</div>
+              <a href="service-details.html" class="card__link">View Service <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STICKY SIDEBAR -->
+      <div class="sticky-sidebar" data-aos="fade-left">
+        <div class="sidebar-cta-card">
+          <h3>Get a Free Quote</h3>
+          <p>Tell us about your home and we'll design a custom lighting plan — no obligation.</p>
+          <a href="contact.html" class="btn btn-accent w-full" style="display:flex;">Schedule Consultation</a>
+        </div>
+        <div class="sidebar-cta-card" style="background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-color);margin-top:var(--space-2);">
+          <h3 style="color:var(--text-primary);">Quick Contact</h3>
+          <p style="color:var(--text-secondary);">Prefer to talk? Call us directly.</p>
+          <a href="tel:+15551234567" class="btn btn-outline w-full" style="display:flex;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.59 3.37 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.72a16 16 0 0 0 7.37 7.37l1.08-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +1 (555) 123-4567</a>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--border-radius-lg);padding:var(--space-2);margin-top:var(--space-2);">
+          <h4 style="font-family:var(--font-heading);font-size:var(--fs-sm);margin-bottom:var(--space-1);">Why Choose SmartNest?</h4>
+          <ul class="include-list">
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>CEDIA Certified Installers</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>5-Year Warranty</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Same-Day Response</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Fixed Price Guarantee</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Finance Options Available</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand"><a href="index.html" class="navbar__logo" style="color:#fff;"><img src="../assets/images/logo-white.svg" alt="SmartNest" width="36" height="36"/>Smart<span style="color:var(--color-accent);">Nest</span></a><p>Professional smart home automation since 2012.</p><div class="footer__social"><a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a></div></div>
+      <div><h3 class="footer__heading">Services</h3><ul class="footer__links"><li><a href="service-details.html">Smart Lighting</a></li><li><a href="service-details.html">Security Systems</a></li><li><a href="service-details.html">Climate Control</a></li><li><a href="service-details.html">Entertainment</a></li></ul></div>
+      <div><h3 class="footer__heading">Company</h3><ul class="footer__links"><li><a href="about.html">About Us</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h3 class="footer__heading">Contact</h3><ul class="footer__links"><li><a href="tel:+15551234567">+1 (555) 123-4567</a></li><li><a href="mailto:hello@smartnest.io">hello@smartnest.io</a></li><li>Austin, TX 78701</li></ul><div style="margin-top:var(--space-2);"><a href="contact.html" class="btn btn-primary btn-sm">Get Free Quote</a></div></div>
+    </div>
+    <div class="footer__bottom"><p style="color:rgba(255,255,255,0.5);font-size:var(--fs-xs);">© 2024 SmartNest. All rights reserved.</p><div style="display:flex;gap:var(--space-2);"><a href="#" style="font-size:var(--fs-xs);color:rgba(255,255,255,0.5);">Privacy Policy</a><a href="#" style="font-size:var(--fs-xs);color:rgba(255,255,255,0.5);">Terms of Service</a></div></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="../assets/js/main.js"></script>
+<style>@media(max-width:1024px){#nav-cta{display:none!important;}}@media(min-width:1025px){#nav-cta{display:inline-flex!important;}}</style>
+</body>
+</html>

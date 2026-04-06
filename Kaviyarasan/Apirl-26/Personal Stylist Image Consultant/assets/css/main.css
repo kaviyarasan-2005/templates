@@ -263,6 +263,17 @@ p { color: var(--text-secondary); line-height: 1.7; }
 .gap-3 { gap: var(--space-3); }
 .gap-4 { gap: var(--space-4); }
 
+.hide-mobile {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+.hide-desktop {
+  @media (min-width: 769px) {
+    display: none !important;
+  }
+}
+
 /* ============================================================
    SECTION HEADERS
    ============================================================ */

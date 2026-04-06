@@ -1,0 +1,57 @@
+/* ============================================
+   RTL LAYOUT OVERRIDES
+   ============================================ */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .navbar__links { flex-direction: row-reverse; }
+[dir="rtl"] .navbar__links a.active::after { left: auto; right: 0; }
+[dir="rtl"] .nav-dropdown__menu { left: auto; right: 0; }
+[dir="rtl"] .navbar__inner { flex-direction: row-reverse; }
+
+[dir="rtl"] .hero__buttons { flex-direction: row-reverse; }
+
+[dir="rtl"] .card__link { flex-direction: row-reverse; }
+[dir="rtl"] .card__link svg { transform: rotate(180deg); }
+
+[dir="rtl"] .footer__grid { direction: rtl; }
+[dir="rtl"] .footer__bottom { flex-direction: row-reverse; }
+[dir="rtl"] .footer__social { flex-direction: row-reverse; }
+
+[dir="rtl"] .timeline { padding-left: 0; padding-right: var(--space-4); }
+[dir="rtl"] .timeline::before { left: auto; right: 15px; }
+[dir="rtl"] .timeline__dot { left: auto; right: -25px; }
+
+[dir="rtl"] .form-input { text-align: right; }
+
+[dir="rtl"] .accordion__trigger { flex-direction: row-reverse; text-align: right; }
+
+[dir="rtl"] .dashboard__sidebar { left: auto; right: 0; border-right: none; border-left: 1px solid var(--border-color); }
+[dir="rtl"] .dashboard__sidebar.collapsed { transform: translateX(100%); }
+[dir="rtl"] .dashboard__main { margin-left: 0; margin-right: 260px; }
+[dir="rtl"] .sidebar-nav__item { flex-direction: row-reverse; }
+[dir="rtl"] .dashboard__stat-card { flex-direction: row-reverse; }
+
+[dir="rtl"] .data-table th,
+[dir="rtl"] .data-table td { text-align: right; }
+
+[dir="rtl"] .social-btn { flex-direction: row-reverse; }
+
+[dir="rtl"] .pricing-card__features li { flex-direction: row-reverse; }
+
+[dir="rtl"] .testimonial-card__author { flex-direction: row-reverse; }
+
+[dir="rtl"] .auth-card__logo { flex-direction: row-reverse; }
+
+[dir="rtl"] .search-bar { flex-direction: row-reverse; }
+
+[dir="rtl"] .btn svg { transform: scaleX(-1); }
+
+@media (max-width: 1024px) {
+  [dir="rtl"] .dashboard__main { margin-right: 0; }
+  [dir="rtl"] .dashboard__sidebar { right: auto; left: 0; transform: translateX(-100%); }
+  [dir="rtl"] .dashboard__sidebar.open { transform: translateX(0); }
+}

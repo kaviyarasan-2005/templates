@@ -76,11 +76,30 @@
     const dropdown = item.querySelector('.nav-dropdown');
     if (!dropdown) return;
 
+    // Desktop Hover with delay
+    let timeout;
+    item.addEventListener('mouseenter', () => {
+      if (window.matchMedia('(hover: hover)').matches) {
+        clearTimeout(timeout);
+        item.classList.add('open');
+      }
+    });
+
+    item.addEventListener('mouseleave', () => {
+      if (window.matchMedia('(hover: hover)').matches) {
+        timeout = setTimeout(() => {
+          item.classList.remove('open');
+        }, 400); // 400ms delay before closing
+      }
+    });
+
     link?.addEventListener('click', (e) => {
       // On touch, toggle dropdown
       if (window.matchMedia('(hover: none)').matches) {
         e.preventDefault();
-        item.classList.toggle('open');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.nav-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
       }
     });
 

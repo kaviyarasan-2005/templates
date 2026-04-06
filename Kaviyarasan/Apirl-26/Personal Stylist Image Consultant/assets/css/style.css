@@ -7,6 +7,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 .auth-image-side {
   position: relative;
@@ -37,11 +38,14 @@
 .auth-form-side {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* This is safe with min-height and padding */
   padding: var(--space-6) var(--space-5);
   background: var(--bg-primary);
   overflow-y: auto;
+  min-height: 100vh;
 }
+.auth-form-side > * { width: 100%; max-width: 440px; margin-inline: auto; }
+.auth-form-side form { margin-bottom: var(--space-2); }
 .auth-logo {
   display: flex; align-items: center; gap: var(--space-1);
   margin-bottom: var(--space-6); text-decoration: none;
@@ -84,7 +88,11 @@
 @media (max-width: 768px) {
   .auth-layout { grid-template-columns: 1fr; }
   .auth-image-side { display: none; }
-  .auth-form-side { padding: var(--space-4) var(--space-3); min-height: 100vh; }
+  .auth-form-side { 
+    padding: var(--space-6) var(--space-4); 
+    min-height: 100vh;
+    justify-content: center;
+  }
 }
 
 /* ── BLOG DETAIL ─────────────────────────────────────────── */

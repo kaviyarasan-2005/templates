@@ -6,23 +6,24 @@
   <meta name="description" content="Élise Laurent Admin Dashboard — manage bookings, client profiles, analytics and messages."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="../assets/css/main.css"/><link rel="stylesheet" href="../assets/css/components.css"/>
+  <link rel="icon" href="../assets/images/icons/favicon.svg" type="image/svg+xml"/><link rel="manifest" href="../manifest.json"/><link rel="stylesheet" href="../assets/css/main.css"/><link rel="stylesheet" href="../assets/css/components.css"/>
   <link rel="stylesheet" href="../assets/css/animations.css"/><link rel="stylesheet" href="../assets/css/dark-mode.css"/>
   <link rel="stylesheet" href="../assets/css/rtl.css"/><link rel="stylesheet" href="../assets/css/dashboard.css"/>
 </head>
 <body>
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
 <!-- NAV (minimal - no menu items) -->
 <header class="site-nav" id="site-nav" style="z-index:100">
   <nav class="nav-container" aria-label="Dashboard navigation">
     <a href="index.html" class="nav-logo"><div class="nav-logo-mark">É</div><div class="nav-logo-text"><span class="nav-logo-name">Élise Laurent</span><span class="nav-logo-tagline">Admin</span></div></a>
-    <ul class="nav-menu" style="display:flex;gap:var(--space-2)">
-      <li><a href="dashboard-admin.html" class="nav-link active" style="font-size:var(--text-sm)">Admin</a></li>
-      <li><a href="dashboard-user.html" class="nav-link" style="font-size:var(--text-sm)">User View</a></li>
-    </ul>
+
     <div class="nav-actions">
+      <button class="nav-action-btn hide-desktop" data-sidebar-toggle aria-label="Toggle sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg></button>
       <button class="nav-action-btn" data-dir-toggle aria-label="Toggle direction"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button>
       <button class="nav-action-btn" data-theme-toggle aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
-      <a href="index.html" class="btn btn-ghost btn-sm">← Back to Site</a>
+      <a href="index.html" class="btn btn-ghost btn-sm">← <span class="hide-mobile">Back to Site</span></a>
     </div>
   </nav>
 </header>
@@ -86,11 +87,11 @@
   <!-- MAIN CONTENT -->
   <main class="dashboard-main" id="main-content">
     <div class="dashboard-header">
-      <div>
-        <button data-sidebar-toggle aria-label="Toggle sidebar" style="margin-inline-end:var(--space-2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-        <h1 class="dashboard-title" style="display:inline">Good morning, Élise ✦</h1>
-        <p class="dashboard-subtitle" style="margin-top:4px">Here's what's happening across your business today.</p>
+      <div style="display:flex;align-items:center">
+        <button class="hide-mobile" data-sidebar-toggle aria-label="Toggle sidebar" style="margin-inline-end:var(--space-2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <h1 class="dashboard-title">Good morning, Élise ✦</h1>
       </div>
+      <p class="dashboard-subtitle" style="margin-top:4px">Here's what's happening across your business today.</p>
       <div style="display:flex;gap:var(--space-2);align-items:center">
         <a href="contact.html" class="btn btn-primary btn-sm">+ New Booking</a>
       </div>
@@ -270,3 +271,4 @@
 <script src="../assets/js/theme.js"></script><script src="../assets/js/rtl.js"></script><script src="../assets/js/counters.js"></script><script src="../assets/js/dashboard.js"></script><script src="../assets/js/main.js"></script>
 </body>
 </html>
+

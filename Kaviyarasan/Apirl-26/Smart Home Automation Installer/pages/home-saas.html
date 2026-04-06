@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartNest Platform — Smart Home Automation SaaS</title>
+  <meta name="description" content="The SmartNest platform gives you complete control of every device in your home from one intelligent dashboard." />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <style>
+    .saas-hero{background:linear-gradient(135deg,#0F172A 0%,#1E3A8A 50%,#0C4A6E 100%);min-height:700px;display:flex;align-items:center;padding:var(--space-10) 0;}
+    .saas-hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:center;}
+    .saas-hero h1{color:#fff;font-size:var(--fs-6xl);margin-bottom:var(--space-3);}
+    .saas-hero p{color:rgba(255,255,255,0.8);font-size:var(--fs-lg);margin-bottom:var(--space-4);}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.3);border-radius:var(--border-radius-full);padding:6px 16px;font-size:var(--fs-xs);color:var(--color-accent);margin-bottom:var(--space-2);}
+    .hero-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--color-accent);animation:pulse-dot 2s infinite;}
+    @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
+    .mockup-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--border-radius-xl);padding:var(--space-3);backdrop-filter:blur(10px);}
+    .mockup-card img{border-radius:var(--border-radius-lg);width:100%;}
+    .feature-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--border-radius-lg);padding:var(--space-3);display:flex;gap:var(--space-2);align-items:flex-start;transition:all var(--transition-base);}
+    .feature-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+    .feature-card__icon{width:48px;height:48px;border-radius:var(--border-radius);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .feature-card__icon svg{width:24px;height:24px;}
+    .integration-logo{display:flex;align-items:center;justify-content:center;padding:var(--space-2) var(--space-3);background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--border-radius);font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--text-secondary);transition:all var(--transition-base);}
+    .integration-logo:hover{border-color:var(--color-primary);color:var(--color-primary);}
+    .compare-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
+    .compare-table th{padding:var(--space-2);background:var(--color-primary);color:#fff;text-align:center;font-weight:var(--fw-semibold);}
+    .compare-table th:first-child{background:var(--bg-card);color:var(--text-primary);text-align:left;}
+    .compare-table td{padding:var(--space-2);border-bottom:1px solid var(--border-color);text-align:center;color:var(--text-secondary);}
+    .compare-table td:first-child{text-align:left;color:var(--text-primary);font-weight:var(--fw-medium);}
+    .check{color:var(--color-success);} .cross{color:var(--text-tertiary);}
+    @media(max-width:768px){.saas-hero__inner{grid-template-columns:1fr;}.saas-hero h1{font-size:var(--fs-4xl);}.mockup-card{display:none;}}
+  </style>
+</head>
+<body class="has-navbar">
+
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo"><img src="../assets/images/logo.svg" alt="SmartNest" width="36" height="36"/>Smart<span>Nest</span></a>
+    <ul class="navbar__links" role="menubar">
+      <li><div class="nav-dropdown"><button class="nav-dropdown__trigger">Home <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown__menu"><a href="index.html">General Services</a><a href="home-saas.html">SaaS / Niche</a></div></div></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><div class="nav-dropdown"><button class="nav-dropdown__trigger">Dashboard <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown__menu"><a href="dashboard.html">Dashboard</a><a href="login.html">Login</a><a href="register.html">Register</a></div></div></li>
+    </ul>
+    <div class="navbar__actions">
+      <button class="navbar__icon-btn mobile-visible" id="theme-toggle" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="theme-icon"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2"/></svg></button>
+      <button class="navbar__icon-btn mobile-visible" id="rtl-toggle" aria-label="Toggle RTL"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+      <a href="register.html" class="btn btn-primary btn-sm" style="display:none" id="nav-cta">Start Free Trial</a>
+      <button class="navbar__hamburger" id="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav"><a href="index.html">Home – General</a><a href="home-saas.html" class="active">Home – SaaS</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="dashboard.html">Dashboard</a></div>
+
+<!-- HERO -->
+<section class="saas-hero" aria-label="SaaS hero">
+  <div class="container"><div class="saas-hero__inner">
+    <div data-aos="fade-right">
+      <div class="hero-badge">Live Platform — Now Available</div>
+      <h1>One App.<br>Every Device.<br><span style="color:var(--color-accent);">Total Control.</span></h1>
+      <p>SmartNest connects all your home devices into a single, beautifully simple dashboard. Automate everything — from your front door to your thermostat.</p>
+      <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
+        <a href="register.html" class="btn btn-accent btn-lg">Start Free Trial</a>
+        <a href="pricing.html" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.4);color:#fff;">View Plans</a>
+      </div>
+      <p style="font-size:var(--fs-xs);color:rgba(255,255,255,.5);margin-top:var(--space-1);">No credit card required · 30 day trial · Cancel anytime</p>
+    </div>
+    <div data-aos="fade-left" data-aos-delay="200"><div class="mockup-card"><img src="../assets/images/dashboard-mockup.jpg" alt="SmartNest Dashboard" loading="eager"/></div></div>
+  </div></div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section style="padding:var(--space-5) 0;background:var(--bg-card);border-bottom:1px solid var(--border-color);">
+  <div class="container">
+    <p style="text-align:center;font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:2px;color:var(--text-tertiary);margin-bottom:var(--space-3);">Works with 200+ Devices & Platforms</p>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:var(--space-2);" data-aos="fade-up">
+      <div class="integration-logo">Google Home</div><div class="integration-logo">Amazon Alexa</div><div class="integration-logo">Apple HomeKit</div><div class="integration-logo">Z-Wave</div><div class="integration-logo">Zigbee</div><div class="integration-logo">Matter</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up"><span class="section-header__tag">Features</span><h2>Everything You Need to Automate Your Home</h2><p>Powerful tools designed for homeowners, not IT professionals.</p></div>
+    <div class="grid-3" data-aos="fade-up" data-aos-delay="100">
+      <div class="feature-card"><div class="feature-card__icon" style="background:rgba(37,99,235,.1);color:var(--color-primary);"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div><h4 style="font-family:var(--font-heading);margin-bottom:4px;">Unified Dashboard</h4><p style="font-size:var(--fs-sm);">Control every device from one clean, intuitive interface on any screen.</p></div></div>
+      <div class="feature-card"><div class="feature-card__icon" style="background:rgba(56,189,248,.1);color:var(--color-accent);"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4 style="font-family:var(--font-heading);margin-bottom:4px;">Smart Security</h4><p style="font-size:var(--fs-sm);">AI-powered anomaly detection, real-time camera feeds, and instant alerts.</p></div></div>
+      <div class="feature-card"><div class="feature-card__icon" style="background:rgba(16,185,129,.1);color:#10B981;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><h4 style="font-family:var(--font-heading);margin-bottom:4px;">Energy Analytics</h4><p style="font-size:var(--fs-sm);">Real-time tracking and AI-driven recommendations to cut bills by 40%.</p></div></div>
+      <div class="feature-card"><div class="feature-card__icon" style="background:rgba(245,158,11,.1);color:#F59E0B;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2"/></svg></div><div><h4 style="font-family:var(--font-heading);margin-bottom:4px;">Scene Automation</h4><p style="font-size:var(--fs-sm);">Create custom scenes that trigger multiple devices simultaneously.</p></div></div>
+      <div class="feature-card"><div class="feature-card__icon" style="background:rgba(139,92,246,.1);color:#8B5CF6;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77"/></svg></div><div><h4 style="font-family:var(--font-heading);margin-bottom:4px;">Open API</h4><p style="font-size:var(--fs-sm);">Build custom integrations with our documented REST API.</p></div></div>
+      <div class="feature-card"><div class="feature-card__icon" style="background:rgba(239,68,68,.1);color:#EF4444;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div><div><h4 style="font-family:var(--font-heading);margin-bottom:4px;">Multi-User Access</h4><p style="font-size:var(--fs-sm);">Add family members with custom permission levels.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section-padding" style="background:var(--bg-card);">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up"><span class="section-header__tag">Compare</span><h2>SmartNest vs. Traditional Systems</h2></div>
+    <div data-aos="fade-up" data-aos-delay="100" style="border:1px solid var(--border-color);border-radius:var(--border-radius-xl);overflow:hidden;">
+      <table class="compare-table"><thead><tr><th>Feature</th><th>SmartNest</th><th>Traditional</th><th>DIY</th></tr></thead>
+      <tbody>
+        <tr><td>Unified App Control</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+        <tr><td>Professional Installation</td><td class="check">✓</td><td class="check">✓</td><td class="cross">✗</td></tr>
+        <tr><td>AI Energy Saving</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+        <tr><td>24/7 Monitoring</td><td class="check">✓</td><td class="check">✓</td><td class="cross">✗</td></tr>
+        <tr><td>Voice Assistants</td><td class="check">✓</td><td>Partial</td><td>Partial</td></tr>
+        <tr><td>5-Year Warranty</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up"><span class="section-header__tag">Reviews</span><h2>Thousands of Happy Smart Homes</h2></div>
+    <div class="grid-4" style="grid-template-columns:repeat(2,1fr);" data-aos="fade-up" data-aos-delay="100">
+      <div class="testimonial-card"><div class="testimonial-card__stars"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testimonial-card__text">"The most intuitive home automation platform I've ever used. Everything just works."</p><div class="testimonial-card__author"><img src="../assets/images/testimonial-avatar-5.jpg" alt="Alex T." class="testimonial-card__avatar"/><div><div class="testimonial-card__name">Alex T.</div><div class="testimonial-card__role">Tech Enthusiast, San Francisco</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-card__stars"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testimonial-card__text">"Managing 5 rental properties from one dashboard is a game changer."</p><div class="testimonial-card__author"><img src="../assets/images/testimonial-avatar-6.jpg" alt="Rachel W." class="testimonial-card__avatar"/><div><div class="testimonial-card__name">Rachel W.</div><div class="testimonial-card__role">Property Manager, Chicago</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-card__stars"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testimonial-card__text">"Setup took less than an afternoon and now my home basically runs itself."</p><div class="testimonial-card__author"><img src="../assets/images/testimonial-avatar-7.jpg" alt="David C." class="testimonial-card__avatar"/><div><div class="testimonial-card__name">David C.</div><div class="testimonial-card__role">Busy Professional, New York</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-card__stars"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testimonial-card__text">"Compared 6 platforms — SmartNest won on every metric. Couldn't be happier."</p><div class="testimonial-card__author"><img src="../assets/images/testimonial-avatar-8.jpg" alt="Mia S." class="testimonial-card__avatar"/><div><div class="testimonial-card__name">Mia S.</div><div class="testimonial-card__role">Interior Designer, Miami</div></div></div></div>
+    </div>
+    <div class="text-center mt-4" data-aos="fade-up"><a href="#" class="btn btn-outline">Read More Reviews</a></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-padding" style="background:linear-gradient(135deg,#0F172A,#1E3A8A);">
+  <div class="container text-center" data-aos="fade-up">
+    <h2 style="color:#fff;margin-bottom:var(--space-2);">Plans Starting at $49/month</h2>
+    <p style="color:rgba(255,255,255,.75);max-width:520px;margin:0 auto var(--space-4);">No contracts. No hidden fees. Cancel anytime.</p>
+    <div style="display:flex;gap:var(--space-2);justify-content:center;flex-wrap:wrap;">
+      <a href="pricing.html" class="btn btn-accent btn-lg">See All Plans</a>
+      <a href="register.html" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.4);color:#fff;">Start Free Trial</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section-padding">
+  <div class="container" style="max-width:600px;text-align:center;" data-aos="fade-up">
+    <span class="section-header__tag">Stay Updated</span>
+    <h2>Get Smart Home Tips & Updates</h2>
+    <p style="margin-bottom:var(--space-3);">Join 12,000+ homeowners getting weekly smart home tips.</p>
+    <form data-validate style="display:flex;gap:var(--space-1);"><input type="email" class="form-input" placeholder="Your email" required style="flex:1;"/><button type="submit" class="btn btn-primary">Subscribe</button></form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand"><a href="index.html" class="navbar__logo" style="color:#fff;"><img src="../assets/images/logo-white.svg" alt="SmartNest" width="36" height="36"/>Smart<span style="color:var(--color-accent);">Nest</span></a><p>Professional smart home automation since 2012.</p><div class="footer__social"><a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a></div></div>
+      <div><h3 class="footer__heading">Services</h3><ul class="footer__links"><li><a href="service-details.html">Smart Lighting</a></li><li><a href="service-details.html">Security</a></li><li><a href="service-details.html">Climate</a></li></ul></div>
+      <div><h3 class="footer__heading">Company</h3><ul class="footer__links"><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h3 class="footer__heading">Contact</h3><ul class="footer__links"><li><a href="tel:+15551234567">+1 (555) 123-4567</a></li><li><a href="mailto:hello@smartnest.io">hello@smartnest.io</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p style="color:rgba(255,255,255,.5);font-size:var(--fs-xs);">© 2024 SmartNest. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="../assets/js/main.js"></script>
+<style>@media(max-width:1024px){#nav-cta{display:none!important;}}@media(min-width:1025px){#nav-cta{display:inline-flex!important;}}</style>
+</body>
+</html>
