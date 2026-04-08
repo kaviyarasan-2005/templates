@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services — Aurelia Gallery</title>
   <meta name="description" content="Professional art services including curation, restoration, custom framing, and private collection management.">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -24,22 +24,41 @@
       .navbar__inner { padding-inline: 16px !important; }
       .navbar__logo { font-size: 1.1rem !important; }
       .navbar__actions { gap: 0 !important; }
-      html, body { overflow-x: hidden !important; width: 100% !important; position: relative !important; }
+      body { overflow-x: hidden !important; width: 100% !important; position: relative !important; }
       * { max-width: 100vw !important; }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main navigation">
+    <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar__inner">
       <a href="home-main.html" class="navbar__logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span>Aurelia</span> <span class="navbar__logo-suffix">Gallery</span></a>
       <div class="navbar__links">
-        <div class="navbar__dropdown"><a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a><div class="navbar__dropdown-menu"><a href="home-main.html" class="navbar__dropdown-item">Gallery Overview</a><a href="home-exhibition.html" class="navbar__dropdown-item">Current Exhibition</a></div></div>
+        <div class="navbar__dropdown">
+          <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="navbar__dropdown-menu" role="menu">
+            <a href="home-main.html" class="navbar__dropdown-item" role="menuitem">Home 1</a>
+            <a href="home-exhibition.html" class="navbar__dropdown-item" role="menuitem">Home 2</a>
+          </div>
+        </div>
         <a href="about.html" class="navbar__link">About Us</a>
-        <a href="services.html" class="navbar__link">Services</a>
-        <a href="blog.html" class="navbar__link">Blog</a>
+        <div class="navbar__dropdown">
+          <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Services <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="navbar__dropdown-menu" role="menu">
+            <a href="services.html" class="navbar__dropdown-item" role="menuitem">Services Overview</a>
+            <a href="service-detail.html" class="navbar__dropdown-item" role="menuitem">Service Details</a>
+          </div>
+        </div>
+        <div class="navbar__dropdown">
+          <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Blog <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="navbar__dropdown-menu" role="menu">
+            <a href="blog.html" class="navbar__dropdown-item" role="menuitem">Blog Grid</a>
+            <a href="blog-detail.html" class="navbar__dropdown-item" role="menuitem">Blog Details</a>
+          </div>
+        </div>
+        <a href="pricing.html" class="navbar__link">Pricing</a>
         <a href="contact.html" class="navbar__link">Contact</a>
-              <div class="navbar__dropdown">
+        <div class="navbar__dropdown">
           <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Dashboard <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
           <div class="navbar__dropdown-menu" role="menu">
             <a href="dashboard.html#user" class="navbar__dropdown-item" role="menuitem">User Dashboard</a>
@@ -48,25 +67,37 @@
         </div>
       </div>
       <div class="navbar__actions">
-        <button class="navbar__icon-btn" id="rtl-toggle" aria-label="Toggle RTL"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
-        <button class="navbar__icon-btn" id="theme-toggle" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-        <a href="login.html" class="btn btn--primary btn--sm">Login</a>
+        <button class="navbar__icon-btn" id="rtl-toggle" aria-label="Toggle RTL/LTR">
+          <svg style="pointer-events:none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </button>
+        <button class="navbar__icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg style="pointer-events:none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="login.html" class="btn btn--primary btn--sm mobile-hidden">Login</a>
       </div>
-      <button class="navbar__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
     <div class="navbar__mobile-menu" aria-hidden="true">
-      <a href="home-main.html" class="navbar__link">Gallery Overview</a>
-      <a href="home-exhibition.html" class="navbar__link">Current Exhibition</a>
+      <a href="home-main.html" class="navbar__link">Home 1</a>
+      <a href="home-exhibition.html" class="navbar__link">Home 2</a>
       <a href="about.html" class="navbar__link">About Us</a>
-      <a href="services.html" class="navbar__link">Services</a>
-      <a href="blog.html" class="navbar__link">Blog</a>
+      <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
+      <a href="services.html" class="navbar__link">Services Overview</a>
+      <a href="service-detail.html" class="navbar__link">Service Details</a>
+      <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
+      <a href="blog.html" class="navbar__link">Blog Grid</a>
+      <a href="blog-detail.html" class="navbar__link">Blog Details</a>
+      <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
+      <a href="pricing.html" class="navbar__link">Pricing</a>
       <a href="contact.html" class="navbar__link">Contact</a>
       <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
       <a href="dashboard.html#user" class="navbar__link">User Dashboard</a>
       <a href="dashboard.html#admin" class="navbar__link">Admin Dashboard</a>
       <div style="display:flex;gap:12px;margin-top:16px;">
-        <button class="navbar__icon-btn" id="mobile-rtl-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
-        <button class="navbar__icon-btn" id="mobile-theme-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="navbar__icon-btn" onclick="document.getElementById('rtl-toggle').click()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+        <button class="navbar__icon-btn" onclick="document.getElementById('theme-toggle').click()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
       </div>
       <a href="login.html" class="btn btn--primary" style="margin-top:8px;">Login</a>
     </div>
@@ -148,6 +179,169 @@
     }
   </style>
 
+  <!-- OUR PROCESS -->
+  <section class="section" style="background:var(--color-bg-alt);" id="process" aria-labelledby="process-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <p style="color:var(--color-primary);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.875rem;">How It Works</p>
+        <h2 id="process-heading">Our Process</h2>
+      </div>
+      <div class="grid grid--4" data-stagger>
+        <div class="card stagger-child" style="border:none;background:transparent;text-align:center;">
+          <div style="width:64px;height:64px;border-radius:50%;background:var(--color-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;border:2px solid var(--color-primary);color:var(--color-primary);font-size:1.5rem;font-weight:700;font-family:var(--font-heading);">1</div>
+          <h3 style="font-size:1.125rem;margin-bottom:12px;">Consultation</h3>
+          <p style="font-size:0.875rem;color:var(--color-text-secondary);">We begin with an in-depth discussion to understand your unique needs, collection, and vision.</p>
+        </div>
+        <div class="card stagger-child" style="border:none;background:transparent;text-align:center;">
+          <div style="width:64px;height:64px;border-radius:50%;background:var(--color-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;border:2px solid var(--color-primary);color:var(--color-primary);font-size:1.5rem;font-weight:700;font-family:var(--font-heading);">2</div>
+          <h3 style="font-size:1.125rem;margin-bottom:12px;">Assessment</h3>
+          <p style="font-size:0.875rem;color:var(--color-text-secondary);">Our experts conduct a thorough evaluation of the artwork, space, or collection involved.</p>
+        </div>
+        <div class="card stagger-child" style="border:none;background:transparent;text-align:center;">
+          <div style="width:64px;height:64px;border-radius:50%;background:var(--color-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;border:2px solid var(--color-primary);color:var(--color-primary);font-size:1.5rem;font-weight:700;font-family:var(--font-heading);">3</div>
+          <h3 style="font-size:1.125rem;margin-bottom:12px;">Strategy</h3>
+          <p style="font-size:0.875rem;color:var(--color-text-secondary);">We develop a customized proposal encompassing treatments, timelines, and logistical planning.</p>
+        </div>
+        <div class="card stagger-child" style="border:none;background:transparent;text-align:center;">
+          <div style="width:64px;height:64px;border-radius:50%;background:var(--color-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;border:2px solid var(--color-primary);color:var(--color-primary);font-size:1.5rem;font-weight:700;font-family:var(--font-heading);">4</div>
+          <h3 style="font-size:1.125rem;margin-bottom:12px;">Execution</h3>
+          <p style="font-size:0.875rem;color:var(--color-text-secondary);">Meticulous implementation by our master conservators, curators, or framing specialists.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE / WHY CHOOSE US -->
+  <section class="section" id="expertise" aria-labelledby="expertise-heading">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+        <div class="reveal-left">
+          <p style="color:var(--color-primary);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.875rem;margin-bottom:12px;">Our Expertise</p>
+          <h2 id="expertise-heading" style="margin-bottom:24px;">Uncompromising Standards since 1998</h2>
+          <p style="color:var(--color-text-secondary);line-height:1.8;margin-bottom:24px;">At Aurelia Gallery, we combine decades of art historical knowledge with state-of-the-art conservation technology.</p>
+          <div class="grid grid--2" style="gap:24px;">
+            <div style="display:flex;align-items:flex-start;gap:16px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <div>
+                <h4 style="font-size:1rem;margin-bottom:8px;">Museum Quality</h4>
+                <p style="font-size:0.8125rem;color:var(--color-text-secondary);">All materials and techniques adhere perfectly to strict institutional conservation standards.</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:16px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div>
+                <h4 style="font-size:1rem;margin-bottom:8px;">Timely Execution</h4>
+                <p style="font-size:0.8125rem;color:var(--color-text-secondary);">Meticulous planning ensures your project is completed precisely on schedule without compromise.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="background:var(--color-bg);border:1px solid var(--color-border);padding:32px;border-radius:12px;text-align:center;">
+              <div style="font-size:2.5rem;font-family:var(--font-heading);font-weight:700;color:var(--color-primary);margin-bottom:8px;">15k+</div>
+              <div style="font-size:0.875rem;color:var(--color-text-secondary);">Artworks Restored</div>
+            </div>
+            <div style="background:var(--color-bg);border:1px solid var(--color-border);padding:32px;border-radius:12px;text-align:center;transform:translateY(24px);">
+              <div style="font-size:2.5rem;font-family:var(--font-heading);font-weight:700;color:var(--color-primary);margin-bottom:8px;">25</div>
+              <div style="font-size:0.875rem;color:var(--color-text-secondary);">Years Experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" style="background:var(--color-muted);" id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <p style="color:var(--color-primary);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.875rem;">Client Success</p>
+        <h2 id="testimonials-heading">Trusted by Collectors</h2>
+      </div>
+      <div class="grid grid--2" data-stagger>
+        <div class="card stagger-child" style="padding:32px;border:none;">
+          <div style="color:var(--color-primary);margin-bottom:16px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p style="font-style:italic;color:var(--color-text-secondary);font-size:1rem;margin-bottom:24px;">"The restoration team at Aurelia worked miracles on my 19th-century oil painting. Their dedication to precise conservation techniques while preserving the artwork's soul is unmatched."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:48px;height:48px;border-radius:50%;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">HC</div>
+            <div>
+              <div style="font-weight:600;font-size:0.9375rem;">Henry Carlton</div>
+              <div style="font-size:0.75rem;color:var(--color-text-secondary);">Private Collector</div>
+            </div>
+          </div>
+        </div>
+        <div class="card stagger-child" style="padding:32px;border:none;">
+          <div style="color:var(--color-primary);margin-bottom:16px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p style="font-style:italic;color:var(--color-text-secondary);font-size:1rem;margin-bottom:24px;">"We partnered with Aurelia for our corporate headquarters' exhibition. Their attention to spatial dynamics and thematic flow transformed our lobby into a world-class gallery space."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:48px;height:48px;border-radius:50%;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">EW</div>
+            <div>
+              <div style="font-weight:600;font-size:0.9375rem;">Emily Walsh</div>
+              <div style="font-size:0.75rem;color:var(--color-text-secondary);">Corporate Art Director</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" aria-labelledby="faq-heading">
+    <div class="container container--narrow">
+      <div class="section__header reveal">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+      </div>
+      <div class="accordion" data-accordion>
+        <div class="accordion__item reveal">
+          <button class="accordion__trigger" aria-expanded="false">
+            How do I get an estimate for restoration?
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion__content" aria-hidden="true">
+            <div class="accordion__content-inner">
+              Please contact our restoration department via the submission form on our website with high-resolution images of your artwork. A specialist will reach out to schedule an in-person assessment, after which we will provide a detailed treatment proposal and estimate.
+            </div>
+          </div>
+        </div>
+        <div class="accordion__item reveal">
+          <button class="accordion__trigger" aria-expanded="false">
+            Do you provide international shipping for framed artworks?
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion__content" aria-hidden="true">
+            <div class="accordion__content-inner">
+              Yes, we work with specialized fine art logistics companies to arrange secure, climate-controlled shipping and crating for international deliveries to ensure your artwork arrives safely.
+            </div>
+          </div>
+        </div>
+        <div class="accordion__item reveal">
+          <button class="accordion__trigger" aria-expanded="false">
+            How long does custom framing typically take?
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion__content" aria-hidden="true">
+            <div class="accordion__content-inner">
+              Our standard turnaround time is 3-4 weeks. However, expedited services are available for urgent requests, and complex conservation framing pieces might require additional time.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="section" style="background:linear-gradient(135deg,var(--color-secondary) 0%,#1a1a1a 100%);text-align:center;color:#fff;">
     <div class="container container--narrow reveal">
@@ -157,18 +351,75 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
+  <!-- FOOTER START -->
+  <footer class="footer" id="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
-        <div><div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span> Gallery</span></div><p style="font-size:0.875rem;line-height:1.7;">A premier contemporary art gallery since 1998.</p></div>
-        <div><h4>Quick Links</h4><ul style="display:flex;flex-direction:column;gap:10px;"><li><a href="home-main.html" style="font-size:0.875rem;">Home</a></li><li><a href="about.html" style="font-size:0.875rem;">About</a></li><li><a href="services.html" style="font-size:0.875rem;">Services</a></li><li><a href="blog.html" style="font-size:0.875rem;">Blog</a></li></ul></div>
-        <div><h4>Contact</h4><ul style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;"><li>42 Gallery Row, NY 10012</li><li>+1 (212) 555-0198</li><li>hello@aureliagallery.com</li></ul></div>
-        <div><h4>Newsletter</h4><p style="font-size:0.875rem;margin-bottom:16px;">Stay updated with our latest exhibitions.</p><form class="newsletter"><input type="email" placeholder="Your email" aria-label="Email"><button type="submit" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></form></div>
+        <!-- About -->
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg>
+            <span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span> Gallery</span>
+          </div>
+          <p style="font-size:0.875rem;line-height:1.7;margin-bottom:16px;">A premier contemporary art gallery dedicated to showcasing exceptional artworks and nurturing emerging talent since 1998.</p>
+          <div class="footer__socials">
+            <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4>Quick Links</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;">
+            <li><a href="home-main.html" style="font-size:0.875rem;">Home</a></li>
+            <li><a href="about.html" style="font-size:0.875rem;">About Us</a></li>
+            <li><a href="services.html" style="font-size:0.875rem;">Services</a></li>
+            <li><a href="blog.html" style="font-size:0.875rem;">Blog</a></li>
+            <li><a href="pricing.html" style="font-size:0.875rem;">Pricing</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4>Contact</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+            <li style="display:flex;align-items:center;gap:8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              42 Gallery Row, NY 10012
+            </li>
+            <li style="display:flex;align-items:center;gap:8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +1 (212) 555-0198
+            </li>
+            <li style="display:flex;align-items:center;gap:8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              hello@aureliagallery.com
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4>Newsletter</h4>
+          <p style="font-size:0.875rem;margin-bottom:16px;">Get exhibition previews and exclusive invites delivered to your inbox.</p>
+          <form class="newsletter">
+            <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+            <button type="submit" class="btn btn--primary btn--sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
       </div>
-      <div class="footer__bottom"><p>&copy; 2026 Aurelia Gallery. All rights reserved.</p><div style="display:flex;gap:24px;"><a href="#" style="font-size:0.875rem;">Privacy</a><a href="#" style="font-size:0.875rem;">Terms</a></div></div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Aurelia Gallery. All rights reserved.</p>
+      </div>
     </div>
   </footer>
+  <!-- FOOTER END -->
 
   <script type="module" src="../assets/js/main.js"></script>
   <script type="module" src="../assets/js/animations.js"></script>

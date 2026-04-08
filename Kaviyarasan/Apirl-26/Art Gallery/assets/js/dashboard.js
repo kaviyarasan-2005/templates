@@ -138,6 +138,40 @@ function initCharts() {
     });
   }
 
+  // Booking Trends (Polar Area or Bar)
+  const bookingCtx = $('#bookingChart');
+  if (bookingCtx) {
+    new Chart(bookingCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+        datasets: [{
+          label: 'Website Bookings',
+          data: [120, 150, 180, 220],
+          backgroundColor: gold,
+          borderRadius: 4
+        }, {
+          label: 'In-Person',
+          data: [80, 90, 75, 110],
+          backgroundColor: burgundy,
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 1.5,
+        plugins: {
+          legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true } }
+        },
+        scales: {
+          y: { stacked: true, beginAtZero: true, grid: { color: gridColor } },
+          x: { stacked: true, grid: { display: false } }
+        }
+      }
+    });
+  }
+
   // Listen for theme changes to update charts
   const observer = new MutationObserver(() => {
     const nowDark = document.documentElement.getAttribute('data-theme') === 'dark';

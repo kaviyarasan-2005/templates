@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery News &amp; Blog — Aurelia Gallery</title>
   <meta name="description" content="Read the latest art news, exhibition insights, and artist interviews from Aurelia Gallery.">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -24,23 +24,42 @@
       .navbar__inner { padding-inline: 16px !important; }
       .navbar__logo { font-size: 1.1rem !important; }
       .navbar__actions { gap: 0 !important; }
-      html, body { overflow-x: hidden !important; width: 100% !important; position: relative !important; }
+      body { overflow-x: hidden !important; width: 100% !important; position: relative !important; }
       * { max-width: 100vw !important; }
     }
   </style>
 </head>
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main navigation">
+    <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar__inner">
       <a href="home-main.html" class="navbar__logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span>Aurelia</span> <span class="navbar__logo-suffix">Gallery</span></a>
       <div class="navbar__links">
-        <div class="navbar__dropdown"><a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a><div class="navbar__dropdown-menu"><a href="home-main.html" class="navbar__dropdown-item">Gallery Overview</a><a href="home-exhibition.html" class="navbar__dropdown-item">Current Exhibition</a></div></div>
+        <div class="navbar__dropdown">
+          <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="navbar__dropdown-menu" role="menu">
+            <a href="home-main.html" class="navbar__dropdown-item" role="menuitem">Home 1</a>
+            <a href="home-exhibition.html" class="navbar__dropdown-item" role="menuitem">Home 2</a>
+          </div>
+        </div>
         <a href="about.html" class="navbar__link">About Us</a>
-        <a href="services.html" class="navbar__link">Services</a>
-        <a href="blog.html" class="navbar__link active">Blog</a>
+        <div class="navbar__dropdown">
+          <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Services <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="navbar__dropdown-menu" role="menu">
+            <a href="services.html" class="navbar__dropdown-item" role="menuitem">Services Overview</a>
+            <a href="service-detail.html" class="navbar__dropdown-item" role="menuitem">Service Details</a>
+          </div>
+        </div>
+        <div class="navbar__dropdown">
+          <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Blog <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="navbar__dropdown-menu" role="menu">
+            <a href="blog.html" class="navbar__dropdown-item" role="menuitem">Blog Grid</a>
+            <a href="blog-detail.html" class="navbar__dropdown-item" role="menuitem">Blog Details</a>
+          </div>
+        </div>
+        <a href="pricing.html" class="navbar__link">Pricing</a>
         <a href="contact.html" class="navbar__link">Contact</a>
-              <div class="navbar__dropdown">
+        <div class="navbar__dropdown">
           <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Dashboard <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
           <div class="navbar__dropdown-menu" role="menu">
             <a href="dashboard.html#user" class="navbar__dropdown-item" role="menuitem">User Dashboard</a>
@@ -49,25 +68,37 @@
         </div>
       </div>
       <div class="navbar__actions">
-        <button class="navbar__icon-btn" id="rtl-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
-        <button class="navbar__icon-btn" id="theme-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-        <a href="login.html" class="btn btn--primary btn--sm">Login</a>
+        <button class="navbar__icon-btn" id="rtl-toggle" aria-label="Toggle RTL/LTR">
+          <svg style="pointer-events:none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </button>
+        <button class="navbar__icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg style="pointer-events:none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="login.html" class="btn btn--primary btn--sm mobile-hidden">Login</a>
       </div>
-      <button class="navbar__hamburger"><span></span><span></span><span></span></button>
+      <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
     <div class="navbar__mobile-menu" aria-hidden="true">
-      <a href="home-main.html" class="navbar__link">Gallery Overview</a>
-      <a href="home-exhibition.html" class="navbar__link">Current Exhibition</a>
+      <a href="home-main.html" class="navbar__link">Home 1</a>
+      <a href="home-exhibition.html" class="navbar__link">Home 2</a>
       <a href="about.html" class="navbar__link">About Us</a>
-      <a href="services.html" class="navbar__link">Services</a>
-      <a href="blog.html" class="navbar__link">Blog</a>
+      <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
+      <a href="services.html" class="navbar__link">Services Overview</a>
+      <a href="service-detail.html" class="navbar__link">Service Details</a>
+      <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
+      <a href="blog.html" class="navbar__link">Blog Grid</a>
+      <a href="blog-detail.html" class="navbar__link">Blog Details</a>
+      <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
+      <a href="pricing.html" class="navbar__link">Pricing</a>
       <a href="contact.html" class="navbar__link">Contact</a>
       <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
       <a href="dashboard.html#user" class="navbar__link">User Dashboard</a>
       <a href="dashboard.html#admin" class="navbar__link">Admin Dashboard</a>
       <div style="display:flex;gap:12px;margin-top:16px;">
-        <button class="navbar__icon-btn" id="mobile-rtl-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
-        <button class="navbar__icon-btn" id="mobile-theme-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="navbar__icon-btn" onclick="document.getElementById('rtl-toggle').click()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+        <button class="navbar__icon-btn" onclick="document.getElementById('theme-toggle').click()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
       </div>
       <a href="login.html" class="btn btn--primary" style="margin-top:8px;">Login</a>
     </div>
@@ -93,6 +124,64 @@
         </div>
       </div>
       <div style="font-size:0.875rem;color:var(--color-text-secondary);margin-top:16px;" id="search-result-count">Showing all 6 articles</div>
+    </div>
+  </section>
+
+  <!-- FEATURED SPOTLIGHT ARTICLE -->
+  <section class="section" id="featured-post" aria-labelledby="featured-heading">
+    <div class="container">
+      <div class="section__header reveal" style="text-align:left;margin-bottom:32px;">
+        <h2 id="featured-heading" style="font-size:2rem;">Editor's Pick</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center;background:var(--color-bg);border:1px solid var(--color-border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md);" class="reveal">
+        <a href="blog-detail.html" style="display:block;height:100%;min-height:350px;">
+          <img src="https://images.unsplash.com/photo-1544627836-822bfea46016?w=800&h=600&fit=crop" alt="Featured art gallery exhibition" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        </a>
+        <div style="padding:40px 40px 40px 0;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <span class="badge badge--gold">In-Depth Review</span>
+            <span style="font-size:0.875rem;color:var(--color-text-secondary);">Oct 20, 2026</span>
+          </div>
+          <h3 style="font-size:1.75rem;line-height:1.3;margin-bottom:16px;font-family:var(--font-heading);">
+            <a href="blog-detail.html" style="color:var(--color-text);">The Resurgence of Abstract Expressionism in the Digital Age</a>
+          </h3>
+          <p style="color:var(--color-text-secondary);font-size:1rem;margin-bottom:24px;line-height:1.7;">Exploring how digital media has redefined the emotional landscapes of contemporary artists, featuring an exclusive look into the creative process behind 'Abstract Horizons'.</p>
+          <a href="blog-detail.html" class="btn btn--primary">Read Full Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE BY CATEGORY -->
+  <section class="section" style="background:var(--color-muted);padding-block:60px;" id="categories" aria-labelledby="categories-heading">
+    <div class="container reveal">
+      <h2 id="categories-heading" style="font-size:1.5rem;text-align:center;margin-bottom:32px;">Explore by Category</h2>
+      <div class="grid grid--4" data-stagger>
+        <a href="#" class="stagger-child card" style="text-align:center;padding:24px;border:none;transition:transform 0.3s, background 0.3s;">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(212,175,55,0.1);color:var(--color-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 style="font-size:1.125rem;">Exhibitions</h3>
+        </a>
+        <a href="#" class="stagger-child card" style="text-align:center;padding:24px;border:none;">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(212,175,55,0.1);color:var(--color-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+          </div>
+          <h3 style="font-size:1.125rem;">Artist Interviews</h3>
+        </a>
+        <a href="#" class="stagger-child card" style="text-align:center;padding:24px;border:none;">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(212,175,55,0.1);color:var(--color-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 style="font-size:1.125rem;">Art Education</h3>
+        </a>
+        <a href="#" class="stagger-child card" style="text-align:center;padding:24px;border:none;">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(212,175,55,0.1);color:var(--color-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 style="font-size:1.125rem;">Gallery News</h3>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -230,6 +319,56 @@
     </div>
   </section>
 
+  <!-- MULTIMEDIA / VIDEO CONTENT -->
+  <section class="section" style="background:#1a1a1a;color:#fff;" id="multimedia" aria-labelledby="multimedia-heading">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;" class="reveal">
+        <div>
+          <p style="color:var(--color-primary);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.875rem;margin-bottom:12px;">Visual Stories</p>
+          <h2 id="multimedia-heading" style="color:#fff;">Gallery Video Journal</h2>
+        </div>
+        <a href="#" class="btn btn--secondary" style="border-color:rgba(255,255,255,0.2);color:#fff;">View All Videos</a>
+      </div>
+      <div class="grid grid--2" data-stagger>
+        <div class="card stagger-child" style="background:transparent;border:none;">
+          <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/9;margin-bottom:16px;box-shadow:var(--shadow-lg);">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=340&fit=crop" style="width:100%;height:100%;object-fit:cover;opacity:0.8;">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);">
+              <button style="width:64px;height:64px;border-radius:50%;background:rgba(212,175,55,0.9);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform 0.3s;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+            </div>
+          </div>
+          <h3 style="font-size:1.25rem;color:#fff;margin-bottom:8px;">Studio Visit: Lucia Feretti</h3>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.6);">12 Min Video &bull; Artist Profile</p>
+        </div>
+        <div class="card stagger-child" style="background:transparent;border:none;">
+          <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/9;margin-bottom:16px;box-shadow:var(--shadow-lg);">
+            <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&h=340&fit=crop" style="width:100%;height:100%;object-fit:cover;opacity:0.8;">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);">
+              <button style="width:64px;height:64px;border-radius:50%;background:rgba(212,175,55,0.9);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform 0.3s;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+            </div>
+          </div>
+          <h3 style="font-size:1.25rem;color:#fff;margin-bottom:8px;">The Restoration Process Explained</h3>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.6);">8 Min Video &bull; Conservation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER CTA -->
+  <section class="section" style="background:linear-gradient(135deg,var(--color-secondary) 0%,var(--color-bg) 100%);text-align:center;color:#fff;" id="newsletter" aria-labelledby="newsletter-heading">
+    <div class="container" style="max-width:600px;">
+      <div class="reveal">
+        <h2 id="newsletter-heading" style="color:#fff;margin-bottom:16px;">Curated News in Your Inbox</h2>
+        <p style="color:rgba(255,255,255,0.8);margin-bottom:32px;">Subscribe for our weekly digest of art news, curatorial insights, and exhibition announcements.</p>
+        <form class="newsletter" style="margin:0 auto;" data-validate>
+          <input type="email" placeholder="Enter your email address" required aria-label="Email address for newsletter" style="color:var(--color-text);">
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+        </form>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.6);margin-top:12px;">We respect your inbox. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
   <style>
     @media (max-width: 1024px) {
       .masonry { columns: 2 !important; }
@@ -290,18 +429,75 @@
     });
   </script>
 
-  <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
+  <!-- FOOTER START -->
+  <footer class="footer" id="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
-        <div><div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span> Gallery</span></div><p style="font-size:0.875rem;line-height:1.7;">A premier contemporary art gallery since 1998.</p></div>
-        <div><h4>Quick Links</h4><ul style="display:flex;flex-direction:column;gap:10px;"><li><a href="home-main.html" style="font-size:0.875rem;">Home</a></li><li><a href="about.html" style="font-size:0.875rem;">About</a></li><li><a href="services.html" style="font-size:0.875rem;">Services</a></li><li><a href="blog.html" style="font-size:0.875rem;">Blog</a></li></ul></div>
-        <div><h4>Contact</h4><ul style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;"><li>42 Gallery Row, NY 10012</li><li>+1 (212) 555-0198</li><li>hello@aureliagallery.com</li></ul></div>
-        <div><h4>Newsletter</h4><p style="font-size:0.875rem;margin-bottom:16px;">Stay updated with our latest exhibitions.</p><form class="newsletter"><input type="email" placeholder="Your email" aria-label="Email"><button type="submit" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></form></div>
+        <!-- About -->
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg>
+            <span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span> Gallery</span>
+          </div>
+          <p style="font-size:0.875rem;line-height:1.7;margin-bottom:16px;">A premier contemporary art gallery dedicated to showcasing exceptional artworks and nurturing emerging talent since 1998.</p>
+          <div class="footer__socials">
+            <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4>Quick Links</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;">
+            <li><a href="home-main.html" style="font-size:0.875rem;">Home</a></li>
+            <li><a href="about.html" style="font-size:0.875rem;">About Us</a></li>
+            <li><a href="services.html" style="font-size:0.875rem;">Services</a></li>
+            <li><a href="blog.html" style="font-size:0.875rem;">Blog</a></li>
+            <li><a href="pricing.html" style="font-size:0.875rem;">Pricing</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4>Contact</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+            <li style="display:flex;align-items:center;gap:8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              42 Gallery Row, NY 10012
+            </li>
+            <li style="display:flex;align-items:center;gap:8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +1 (212) 555-0198
+            </li>
+            <li style="display:flex;align-items:center;gap:8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              hello@aureliagallery.com
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4>Newsletter</h4>
+          <p style="font-size:0.875rem;margin-bottom:16px;">Get exhibition previews and exclusive invites delivered to your inbox.</p>
+          <form class="newsletter">
+            <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+            <button type="submit" class="btn btn--primary btn--sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
       </div>
-      <div class="footer__bottom"><p>&copy; 2026 Aurelia Gallery. All rights reserved.</p><div style="display:flex;gap:24px;"><a href="#" style="font-size:0.875rem;">Privacy</a><a href="#" style="font-size:0.875rem;">Terms</a></div></div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Aurelia Gallery. All rights reserved.</p>
+      </div>
     </div>
   </footer>
+  <!-- FOOTER END -->
 
   <script type="module" src="../assets/js/main.js"></script>
   <script type="module" src="../assets/js/animations.js"></script>
