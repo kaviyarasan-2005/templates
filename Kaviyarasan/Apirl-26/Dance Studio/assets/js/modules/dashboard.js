@@ -8,6 +8,23 @@ const Dashboard = (() => {
 
   function init() {
     initSidebar();
+    
+    // Check for role in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const roleParam = urlParams.get('role');
+    if (roleParam === 'user') {
+      currentRole = 'user';
+      // Sync UI if toggle button exists
+      const toggleBtn = document.querySelector('.role-toggle');
+      if (toggleBtn) {
+        toggleBtn.classList.remove('admin');
+        const label = toggleBtn.querySelector('.role-toggle__label');
+        if (label) label.textContent = 'User View';
+      }
+      // Update items with data-role
+      updateRoleUI();
+    }
+
     initRoleToggle();
     initSortableTable();
     initProgressRings();
@@ -18,6 +35,18 @@ const Dashboard = (() => {
     initHeatMap();
     initChat();
     initMobileNav();
+  }
+
+  function updateRoleUI() {
+    document.querySelectorAll('[data-role]').forEach(el => {
+      const roles = el.dataset.role.split(',').map(r => r.trim());
+      el.style.display = roles.includes(currentRole) ? '' : 'none';
+    });
+    
+    document.querySelectorAll('.dashboard__nav-item[data-role]').forEach(item => {
+      const roles = item.dataset.role.split(',').map(r => r.trim());
+      item.style.display = roles.includes(currentRole) ? '' : 'none';
+    });
   }
 
   /* === Sidebar Collapse === */
@@ -57,23 +86,13 @@ const Dashboard = (() => {
       toggleBtn.classList.toggle('admin');
       currentRole = toggleBtn.classList.contains('admin') ? 'admin' : 'user';
       
-      // Show/hide admin and user sections
-      document.querySelectorAll('[data-role]').forEach(el => {
-        const roles = el.dataset.role.split(',').map(r => r.trim());
-        el.style.display = roles.includes(currentRole) ? '' : 'none';
-      });
-
       // Update role label
       const label = toggleBtn.querySelector('.role-toggle__label');
       if (label) {
         label.textContent = currentRole === 'admin' ? 'Admin View' : 'User View';
       }
 
-      // Update nav items based on role
-      document.querySelectorAll('.dashboard__nav-item[data-role]').forEach(item => {
-        const roles = item.dataset.role.split(',').map(r => r.trim());
-        item.style.display = roles.includes(currentRole) ? '' : 'none';
-      });
+      updateRoleUI();
     });
   }
 

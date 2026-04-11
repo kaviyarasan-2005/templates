@@ -328,15 +328,6 @@
           </div>
         </div>
 
-        <!-- Messages Preview -->
-        <div class="widget">
-          <div class="widget-header"><p class="widget-title">Inbox <span class="nav-badge" style="position:static;margin-inline-start:6px">3</span></p><a href="#" class="btn btn-ghost btn-sm">View All</a></div>
-          <div class="inbox-list">
-            <div class="inbox-item unread"><img src="../assets/images/team/avatar-1.png" alt="Sarah" class="inbox-avatar" width="36" height="36" loading="lazy"/><div class="inbox-body"><div class="inbox-name">Sarah Mitchell</div><div class="inbox-preview">Thanks so much for today's session!</div></div><div class="inbox-time">2h</div><div class="inbox-unread-dot"></div></div>
-            <div class="inbox-item unread"><img src="../assets/images/team/avatar-2.png" alt="Amelia" class="inbox-avatar" width="36" height="36" loading="lazy"/><div class="inbox-body"><div class="inbox-name">Amelia Torres</div><div class="inbox-preview">Could we reschedule Thursday?</div></div><div class="inbox-time">5h</div><div class="inbox-unread-dot"></div></div>
-            <div class="inbox-item"><img src="../assets/images/team/avatar-3.png" alt="Priya" class="inbox-avatar" width="36" height="36" loading="lazy"/><div class="inbox-body"><div class="inbox-name">Priya Sharma</div><div class="inbox-preview">Do you have availability on the 20th?</div></div><div class="inbox-time">1d</div></div>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -344,13 +335,15 @@
     <div class="table-widget" style="margin-bottom:var(--space-4)">
       <div class="table-widget-header">
         <p class="widget-title">Recent Bookings</p>
-        <div style="display:flex;gap:var(--space-1);align-items:center">
-          <div class="search-bar" style="max-width:200px">
+        <div class="table-header-controls">
+          <div class="search-bar">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <input type="search" id="table-search" placeholder="Search clients…" aria-label="Search bookings"/>
           </div>
-          <select class="form-control" style="width:auto;padding:0.4em 0.8em;font-size:var(--text-xs)" aria-label="Filter status"><option>All Status</option><option>Confirmed</option><option>Pending</option><option>Completed</option></select>
-          <a href="#" class="btn btn-primary btn-sm">Export CSV</a>
+          <div class="table-action-row">
+            <select class="form-control" style="width:auto;padding:0.4em 0.8em;font-size:var(--text-xs)" aria-label="Filter status"><option>All Status</option><option>Confirmed</option><option>Pending</option><option>Completed</option></select>
+            <a href="#" class="btn btn-primary btn-sm">Export CSV</a>
+          </div>
         </div>
       </div>
       <div class="table-wrapper">
@@ -365,6 +358,50 @@
             <tr><td><img src="../assets/images/team/avatar-3.png" alt="" class="table-avatar" width="32" height="32" loading="lazy"/><span class="table-name">Priya Sharma</span></td><td>Bridal Styling</td><td>Apr 12, 2026</td><td>4h</td><td><strong>$799</strong></td><td><span class="badge badge-success">Confirmed</span></td><td><a href="#" class="btn btn-ghost btn-sm">Edit</a></td></tr>
             <tr><td><img src="../assets/images/team/avatar-1.png" alt="" class="table-avatar" width="32" height="32" loading="lazy"/><span class="table-name">Laura Kim</span></td><td>Wardrobe Audit</td><td>Apr 6, 2026</td><td>2.5h</td><td><strong>$199</strong></td><td><span class="badge badge-info">Completed</span></td><td><a href="#" class="btn btn-ghost btn-sm">Edit</a></td></tr>
             <tr><td><img src="../assets/images/team/avatar-2.png" alt="" class="table-avatar" width="32" height="32" loading="lazy"/><span class="table-name">Maria Rossi</span></td><td>Corporate Styling</td><td>Apr 15, 2026</td><td>3h</td><td><strong>$499</strong></td><td><span class="badge badge-warning">Pending</span></td><td><a href="#" class="btn btn-ghost btn-sm">Edit</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    <div class="table-widget" style="margin-bottom:var(--space-4)">
+      <div class="table-widget-header">
+        <p class="widget-title">Messages <span class="nav-badge" style="position:static;margin-inline-start:8px">3</span></p>
+        <div class="table-header-controls">
+          <div class="search-bar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="message-search" placeholder="Search messages…" aria-label="Search messages"/>
+          </div>
+          <div class="table-action-row">
+            <select class="form-control" style="width:auto;padding:0.4em 0.8em;font-size:var(--text-xs)" aria-label="Filter status"><option>All Messages</option><option>Unread</option><option>Starred</option><option>Archived</option></select>
+            <a href="#" class="btn btn-primary btn-sm">Compose</a>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table class="data-table" id="messages-table" aria-label="Inbox messages">
+          <thead><tr>
+            <th>Sender</th><th>Subject Preview</th><th>Received</th><th>Status</th><th>Actions</th>
+          </tr></thead>
+          <tbody>
+            <tr class="unread">
+              <td><img src="../assets/images/team/avatar-1.png" alt="" class="table-avatar" width="32" height="32" loading="lazy"/><span class="table-name">Sarah Mitchell</span></td>
+              <td><span style="font-weight:600">Booking Confirmation</span> — Thanks so much for today's session!</td>
+              <td>2 hours ago</td>
+              <td><span class="badge badge-warning">Unread</span></td>
+              <td><a href="#" class="btn btn-ghost btn-sm">View</a></td>
+            </tr>
+            <tr class="unread">
+              <td><img src="../assets/images/team/avatar-2.png" alt="" class="table-avatar" width="32" height="32" loading="lazy"/><span class="table-name">Amelia Torres</span></td>
+              <td><span style="font-weight:600">Reschedule Request</span> — Could we reschedule Thursday?</td>
+              <td>5 hours ago</td>
+              <td><span class="badge badge-warning">Unread</span></td>
+              <td><a href="#" class="btn btn-ghost btn-sm">View</a></td>
+            </tr>
+            <tr>
+              <td><img src="../assets/images/team/avatar-3.png" alt="" class="table-avatar" width="32" height="32" loading="lazy"/><span class="table-name">Priya Sharma</span></td>
+              <td><span style="font-weight:600">Inquiry</span> — Do you have availability on the 20th?</td>
+              <td>1 day ago</td>
+              <td><span class="badge badge-success">Read</span></td>
+              <td><a href="#" class="btn btn-ghost btn-sm">View</a></td>
+            </tr>
           </tbody>
         </table>
       </div>
