@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — Aurelia Gallery</title>
-  <meta name="description" content="Learn about Aurelia Gallery's mission, our expert team, and 25+ years of dedication to contemporary art curation and exhibition.">
+  <title>About Us — Aurelia</title>
+  <meta name="description" content="Learn about Aurelia's mission, our expert team, and 25+ years of dedication to contemporary art curation and exhibition.">
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +33,7 @@
   <!-- NAVBAR -->
     <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar__inner">
-      <a href="home-main.html" class="navbar__logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span>Aurelia</span> <span class="navbar__logo-suffix">Gallery</span></a>
+      <a href="home-main.html" class="navbar__logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span>Aurelia</span></a>
       <div class="navbar__links">
         <div class="navbar__dropdown">
           <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
@@ -106,7 +106,7 @@
 
   <!-- PAGE HERO -->
   <section class="hero" style="min-height:50vh;" aria-labelledby="about-title">
-    <div class="hero__bg"><img src="https://images.unsplash.com/photo-1594388534984-7976f8e78a74?w=1400&h=600&fit=crop" alt="Gallery interior with visitors appreciating art" loading="eager"></div>
+    <div class="hero__bg"><img src="../assets/images/hero-about.png" alt="Luxurious contemporary Aurelia interior with abstract artworks" loading="eager"></div>
     <div class="hero__overlay"></div>
     <div class="hero__content reveal">
       <p style="color:var(--color-primary);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.875rem;margin-bottom:8px;">About Us</p>
@@ -118,16 +118,16 @@
   <!-- OUR STORY -->
   <section class="section" id="our-story" aria-labelledby="story-heading">
     <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
-        <div class="reveal-left">
+      <div class="story reveal">
+        <div class="story__content">
           <p style="color:var(--color-primary);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.875rem;margin-bottom:12px;">Est. 1998</p>
           <h2 id="story-heading">Our Story</h2>
-          <p style="margin-top:20px;line-height:1.8;">Founded in 1998 by art collector and visionary Isabella Moretti, Aurelia Gallery began as a small exhibition space in downtown Manhattan with a bold mission: to bridge the gap between established masters and emerging voices in contemporary art.</p>
+          <p style="margin-top:20px;line-height:1.8;">Founded in 1998 by art collector and visionary Isabella Moretti, Aurelia began as a small exhibition space in downtown Manhattan with a bold mission: to bridge the gap between established masters and emerging voices in contemporary art.</p>
           <p style="margin-top:16px;line-height:1.8;">Over the past 25 years, we have grown into one of the city's most respected galleries, hosting over 300 exhibitions, representing 150+ artists, and building lasting relationships with collectors, institutions, and art lovers worldwide.</p>
           <p style="margin-top:16px;line-height:1.8;">Our commitment remains unchanged: to curate meaningful experiences that connect people with art that challenges, inspires, and transforms.</p>
         </div>
-        <div class="reveal-right" style="border-radius:16px;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1577720643272-265f09367456?w=600&h=500&fit=crop" alt="Aurelia Gallery exhibition space with artwork displays" style="width:100%;display:block;" loading="lazy">
+        <div class="story__image">
+          <img src="https://images.unsplash.com/photo-1577720643272-265f09367456?w=600&h=500&fit=crop" alt="Aurelia exhibition space with artwork displays" loading="lazy">
         </div>
       </div>
     </div>
@@ -146,13 +146,13 @@
           <div class="timeline__dot"></div>
           <div class="timeline__date">1998</div>
           <h3 class="timeline__title" style="font-size:1.25rem;">The Beginning</h3>
-          <p style="color:var(--color-text-secondary);font-size:0.9375rem;line-height:1.7;">Isabella Moretti opens the first Aurelia Gallery space on Gallery Row with an inaugural exhibition of 12 emerging artists.</p>
+          <p style="color:var(--color-text-secondary);font-size:0.9375rem;line-height:1.7;">Isabella Moretti opens the first Aurelia space on Gallery Row with an inaugural exhibition of 12 emerging artists.</p>
         </div>
         <div class="timeline__item reveal">
           <div class="timeline__dot"></div>
           <div class="timeline__date">2005</div>
           <h3 class="timeline__title" style="font-size:1.25rem;">International Recognition</h3>
-          <p style="color:var(--color-text-secondary);font-size:0.9375rem;line-height:1.7;">Aurelia Gallery receives the International Contemporary Art Award, establishing its reputation on the global stage.</p>
+          <p style="color:var(--color-text-secondary);font-size:0.9375rem;line-height:1.7;">Aurelia receives the International Contemporary Art Award, establishing its reputation on the global stage.</p>
         </div>
         <div class="timeline__item reveal">
           <div class="timeline__dot"></div>
@@ -238,7 +238,7 @@
           <strong style="color:var(--color-text);font-size:0.9375rem;">— Margaret Thornton, Art Critic</strong>
         </div>
         <div class="card stagger-child" style="border:none;background:var(--color-bg);padding:32px;">
-          <p style="font-style:italic;margin-bottom:16px;color:var(--color-text-secondary);line-height:1.8;">"Aurelia Gallery changed my career. Their support for emerging artists is unmatched in the industry."</p>
+          <p style="font-style:italic;margin-bottom:16px;color:var(--color-text-secondary);line-height:1.8;">"Aurelia changed my career. Their support for emerging artists is unmatched in the industry."</p>
           <strong style="color:var(--color-text);font-size:0.9375rem;">— Rafael Santos, Contemporary Artist</strong>
         </div>
         <div class="card stagger-child" style="border:none;background:var(--color-bg);padding:32px;">
@@ -258,10 +258,10 @@
       <div class="footer__grid">
         <!-- About -->
         <div>
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+          <a href="home-main.html" style="display:flex;align-items:center;gap:8px;margin-bottom:16px;text-decoration:none;">
             <svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg>
-            <span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span> Gallery</span>
-          </div>
+            <span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span></span>
+          </a>
           <p style="font-size:0.875rem;line-height:1.7;margin-bottom:16px;">A premier contemporary art gallery dedicated to showcasing exceptional artworks and nurturing emerging talent since 1998.</p>
           <div class="footer__socials">
             <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -297,7 +297,7 @@
             </li>
             <li style="display:flex;align-items:center;gap:8px;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              hello@aureliagallery.com
+              hello@aurelia.com
             </li>
           </ul>
         </div>
@@ -316,7 +316,7 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2026 Aurelia Gallery. All rights reserved.</p>
+        <p>&copy; 2026 Aurelia. All rights reserved.</p>
       </div>
     </div>
   </footer>

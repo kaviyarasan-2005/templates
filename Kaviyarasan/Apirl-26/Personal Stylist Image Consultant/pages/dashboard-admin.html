@@ -90,7 +90,15 @@
   <main class="dashboard-main" id="main-content">
     <style>
       /* ── Admin-specific overrides ── */
-      .admin-banner { background: linear-gradient(135deg,#1a0f0a 0%,#2d1a10 60%,#3d2416 100%); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); margin-bottom: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
+      .admin-banner { 
+        background: linear-gradient(135deg,#1a0f0a 0%,#2d1a10 60%,#3d2416 100%); 
+        border-radius: var(--radius-lg); 
+        padding: clamp(var(--space-2), 3vw, var(--space-4)) clamp(var(--space-2), 4vw, var(--space-5)); 
+        margin-bottom: var(--space-4); 
+        display: flex; 
+        flex-direction: column; 
+        gap: var(--space-3); 
+      }
       [data-theme="light"] .admin-banner { background: linear-gradient(135deg,#3d2416 0%,#6D4C41 60%,#8D6E63 100%); }
       .admin-banner-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); }
       .admin-banner-greeting { font-family: var(--font-heading); font-size: clamp(1.4rem,3vw,2rem); color: white; font-weight: 400; }
@@ -175,7 +183,7 @@
               <a href="#" class="btn btn-ghost btn-sm">Export</a>
             </div>
           </div>
-          <svg viewBox="0 0 480 210" width="100%" role="img" aria-label="Revenue bar chart showing monthly growth">
+          <svg viewBox="0 0 480 210" style="width:100%;height:auto;display:block" role="img" aria-label="Revenue bar chart showing monthly growth">
             <defs>
               <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="#6D4C41"/>
@@ -225,8 +233,8 @@
           <!-- Donut -->
           <div class="widget">
             <div class="widget-header"><p class="widget-title">Service Mix</p><span style="font-size:var(--text-xs);color:var(--text-muted)">This Month</span></div>
-            <div class="flex-stack-mobile" style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap">
-              <svg viewBox="0 0 160 160" width="130" height="130" role="img" aria-label="Service breakdown donut">
+            <div class="flex-stack-mobile" style="display:flex;align-items:center;justify-content:center;gap:var(--space-3);flex-wrap:nowrap;width:100%">
+              <svg viewBox="0 0 160 160" style="width:min(100%, 130px); height:auto; flex-shrink:0" role="img" aria-label="Service breakdown donut">
                 <circle cx="80" cy="80" r="56" fill="none" stroke="var(--border-color-soft)" stroke-width="22"/>
                 <circle cx="80" cy="80" r="56" fill="none" stroke="#6D4C41" stroke-width="22" stroke-dasharray="113 239" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
                 <circle cx="80" cy="80" r="56" fill="none" stroke="#8D6E63" stroke-width="22" stroke-dasharray="85 267" stroke-dashoffset="-113" transform="rotate(-90 80 80)"/>
@@ -235,7 +243,7 @@
                 <text x="80" y="76" text-anchor="middle" font-size="20" font-weight="700" fill="var(--text-primary)">38</text>
                 <text x="80" y="92" text-anchor="middle" font-size="9" fill="var(--text-muted)">Sessions</text>
               </svg>
-              <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="display:flex;flex-direction:column;gap:6px;min-width:0;flex:1">
                 <div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#6D4C41;flex-shrink:0"></span><span style="font-size:11px;color:var(--text-secondary)">Shopping <b>32%</b></span></div>
                 <div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#8D6E63;flex-shrink:0"></span><span style="font-size:11px;color:var(--text-secondary)">Color <b>24%</b></span></div>
                 <div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#D9B8A6;flex-shrink:0"></span><span style="font-size:11px;color:var(--text-secondary)">Bridal <b>20%</b></span></div>
@@ -243,20 +251,19 @@
               </div>
             </div>
           </div>
-          <!-- Radial Goals -->
           <div class="widget">
             <div class="widget-header"><p class="widget-title">Monthly Goals</p><span style="font-size:var(--text-xs);color:var(--text-muted)">April 2026</span></div>
-            <div class="responsive-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2)">
-              <div style="text-align:center"><svg viewBox="0 0 80 80" width="76" height="76" style="display:block;margin:0 auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#6D4C41" stroke-width="8" stroke-dasharray="150 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">80%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Revenue</text></svg></div>
-              <div style="text-align:center"><svg viewBox="0 0 80 80" width="76" height="76" style="display:block;margin:0 auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#8D6E63" stroke-width="8" stroke-dasharray="141 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">75%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Sessions</text></svg></div>
-              <div style="text-align:center"><svg viewBox="0 0 80 80" width="76" height="76" style="display:block;margin:0 auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#D9B8A6" stroke-width="8" stroke-dasharray="169 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">90%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Clients</text></svg></div>
-              <div style="text-align:center"><svg viewBox="0 0 80 80" width="76" height="76" style="display:block;margin:0 auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#4CAF50" stroke-width="8" stroke-dasharray="179 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">95%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Rating</text></svg></div>
+            <div class="responsive-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));gap:var(--space-2)">
+              <div style="text-align:center"><svg viewBox="0 0 80 80" style="display:block;margin:0 auto;width:min(100%, 76px);height:auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#6D4C41" stroke-width="8" stroke-dasharray="150 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">80%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Revenue</text></svg></div>
+              <div style="text-align:center"><svg viewBox="0 0 80 80" style="display:block;margin:0 auto;width:min(100%, 76px);height:auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#8D6E63" stroke-width="8" stroke-dasharray="141 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">75%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Sessions</text></svg></div>
+              <div style="text-align:center"><svg viewBox="0 0 80 80" style="display:block;margin:0 auto;width:min(100%, 76px);height:auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#D9B8A6" stroke-width="8" stroke-dasharray="169 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">90%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Clients</text></svg></div>
+              <div style="text-align:center"><svg viewBox="0 0 80 80" style="display:block;margin:0 auto;width:min(100%, 76px);height:auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#4CAF50" stroke-width="8" stroke-dasharray="179 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">95%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Rating</text></svg></div>
             </div>
           </div>
           <!-- Growth line -->
           <div class="widget">
             <div class="widget-header"><p class="widget-title">Client Growth</p><span style="font-size:var(--text-xs);color:var(--text-muted)">8 Weeks</span></div>
-            <svg viewBox="0 0 300 130" width="100%" role="img" aria-label="Client growth line chart">
+            <svg viewBox="0 0 300 130" style="width:100%;height:auto;display:block" role="img" aria-label="Client growth line chart">
               <line x1="20" y1="10" x2="20" y2="110" stroke="var(--border-color)" stroke-width="1"/>
               <line x1="20" y1="110" x2="298" y2="110" stroke="var(--border-color)" stroke-width="1"/>
               <defs><linearGradient id="gGrad2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6D4C41" stop-opacity="0.2"/><stop offset="100%" stop-color="#6D4C41" stop-opacity="0"/></linearGradient></defs>
@@ -332,7 +339,7 @@
     </div>
 
     <!-- ── FULL-WIDTH BOOKINGS TABLE ── -->
-    <div class="table-widget" style="margin-bottom:var(--space-4)">
+    <div class="table-widget" style="margin-bottom:var(--space-5)">
       <div class="table-widget-header">
         <p class="widget-title">Recent Bookings</p>
         <div class="table-header-controls">
@@ -361,7 +368,9 @@
           </tbody>
         </table>
       </div>
+    </div>
     <div class="table-widget" style="margin-bottom:var(--space-4)">
+
       <div class="table-widget-header">
         <p class="widget-title">Messages <span class="nav-badge" style="position:static;margin-inline-start:8px">3</span></p>
         <div class="table-header-controls">

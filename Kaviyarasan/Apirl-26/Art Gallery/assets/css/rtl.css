@@ -73,4 +73,19 @@
   float: right;
   margin-right: 0;
   margin-left: 12px;
+
+/* Auth Pages */
+[dir="rtl"] .auth-page {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .auth-card__toggles {
+  right: auto;
+  left: 0;
+}
+[dir="rtl"] .auth-page__highlight-side::before {
+  right: auto;
+  left: -50%;
+}
+[dir="rtl"] .auth-features {
+  text-align: right;
 }

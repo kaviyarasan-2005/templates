@@ -11,6 +11,7 @@ function init() {
   initTheme();
   initRTL();
   highlightActiveNav();
+  initMagnetic();
 }
 
 /* ---------- NAVBAR ---------- */
@@ -157,6 +158,24 @@ function highlightActiveNav() {
         if (trigger) trigger.classList.add('active');
       }
     }
+  });
+}
+
+/* ---------- MAGNETIC ELEMENTS ---------- */
+function initMagnetic() {
+  const magnets = $$('.navbar__logo, .navbar__icon-btn, .btn--primary');
+  magnets.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const { left, top, width, height } = el.getBoundingClientRect();
+      const x = (e.clientX - (left + width / 2)) * 0.4;
+      const y = (e.clientY - (top + height / 2)) * 0.4;
+      el.style.transform = `translate(${x}px, ${y}px)`;
+      el.style.transition = 'none';
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'translate(0, 0)';
+      el.style.transition = 'transform 0.4s var(--ease-spring)';
+    });
   });
 }
 

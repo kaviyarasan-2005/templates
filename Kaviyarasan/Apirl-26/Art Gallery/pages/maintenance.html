@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Under Maintenance — Aurelia Gallery</title>
+  <title>Under Maintenance — Aurelia</title>
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   
@@ -43,10 +43,10 @@
   </style>
   <link rel="stylesheet" href="../assets/css/rtl.css">
 </head>
-<body style="display:flex;align-items:center;justify-content:center;height:100vh;background:var(--color-bg);text-align:center;">
+<body style="display:flex;flex-direction:column;min-height:100vh;background:var(--color-bg);">
   <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar__inner">
-      <a href="home-main.html" class="navbar__logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span>Aurelia</span> <span class="navbar__logo-suffix">Gallery</span></a>
+      <a href="home-main.html" class="navbar__logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span>Aurelia</span></a>
       <div class="navbar__links">
         <div class="navbar__dropdown">
           <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
@@ -116,7 +116,7 @@
       <a href="login.html" class="btn btn--primary" style="margin-top:8px;">Login</a>
     </div>
   </nav>
-  <div style="padding:40px;">
+  <main style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 40px 40px;">
     <svg width="64" height="64" viewBox="0 0 36 36" fill="none" style="margin:0 auto 24px;"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg>
     <h1 style="font-family:var(--font-heading);font-size:3rem;margin-bottom:16px;">Curating Our Next Experience</h1>
     <p style="color:var(--color-text-secondary);max-width:500px;margin:0 auto 32px;line-height:1.6;font-size:1.125rem;">Our website is temporarily down for planned maintenance and installation of our new digital exhibition spaces. We will be back online shortly.</p>
@@ -125,18 +125,18 @@
       <div class="loading-pulse"></div>
       <div class="loading-pulse"></div>
     </div>
-    <p style="font-size:0.875rem;color:var(--color-text-secondary);">For urgent inquiries, please contact <a href="mailto:hello@aureliagallery.com" style="color:var(--color-primary);">hello@aureliagallery.com</a></p>
-  </div>
+    <p style="font-size:0.875rem;color:var(--color-text-secondary);">For urgent inquiries, please contact <a href="mailto:hello@aurelia.com" style="color:var(--color-primary);">hello@aurelia.com</a></p>
+  </main>
 <!-- FOOTER START -->
   <footer class="footer" id="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
         <!-- About -->
         <div>
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+          <a href="home-main.html" style="display:flex;align-items:center;gap:8px;margin-bottom:16px;text-decoration:none;">
             <svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg>
-            <span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span> Gallery</span>
-          </div>
+            <span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span></span>
+          </a>
           <p style="font-size:0.875rem;line-height:1.7;margin-bottom:16px;">A premier contemporary art gallery dedicated to showcasing exceptional artworks and nurturing emerging talent since 1998.</p>
           <div class="footer__socials">
             <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -172,7 +172,7 @@
             </li>
             <li style="display:flex;align-items:center;gap:8px;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              hello@aureliagallery.com
+              hello@aurelia.com
             </li>
           </ul>
         </div>
@@ -191,7 +191,7 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2026 Aurelia Gallery. All rights reserved.</p>
+        <p>&copy; 2026 Aurelia. All rights reserved.</p>
       </div>
     </div>
   </footer>

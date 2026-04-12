@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memberships &amp; Tickets — Aurelia Gallery</title>
+  <title>Memberships &amp; Tickets — Aurelia</title>
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   
@@ -31,7 +31,7 @@
 <body>
     <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar__inner">
-      <a href="home-main.html" class="navbar__logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span>Aurelia</span> <span class="navbar__logo-suffix">Gallery</span></a>
+      <a href="home-main.html" class="navbar__logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span>Aurelia</span></a>
       <div class="navbar__links">
         <div class="navbar__dropdown">
           <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
@@ -102,7 +102,8 @@
     </div>
   </nav>
 
-  <section class="page-offset" style="text-align:center;padding-block:60px 40px;">
+  <section class="page-offset" style="text-align:center;padding-top:120px;padding-bottom:40px;">
+
     <div class="container reveal">
       <span class="badge badge--gold" style="margin-bottom:16px;">Visitor Information</span>
       <h1 style="font-size:clamp(2.5rem,5vw,3.5rem);margin-bottom:16px;">Tickets &amp; Memberships</h1>
@@ -135,7 +136,11 @@
         <div class="card stagger-child" style="padding:40px 32px;border:1px solid var(--color-border);background:var(--color-bg);display:flex;flex-direction:column;">
           <h3 style="font-size:1.5rem;margin-bottom:8px;">Guided Tour</h3>
           <p style="color:var(--color-text-secondary);font-size:0.875rem;margin-bottom:24px;">Perfect for first-time visitors</p>
-          <div style="margin-bottom:32px;"><span style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">$25</span> <span style="color:var(--color-text-secondary);font-size:0.875rem;">/ person</span></div>
+          <div style="display:flex;justify-content:center;align-items:baseline;gap:2px;margin-bottom:32px;">
+            <span style="font-size:1.5rem;font-weight:700;color:var(--color-primary);">$</span>
+            <span id="price-1" style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">25</span>
+            <span id="period-1" style="color:var(--color-text-secondary);font-size:0.875rem;margin-left:4px;">/ person</span>
+          </div>
           <ul style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px;flex:1;">
             <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 1-hour guided walkthrough</li>
             <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Curatorial insights</li>
@@ -145,11 +150,14 @@
         </div>
 
         <!-- Card 2 (Popular) -->
-        <div class="card stagger-child" style="padding:40px 32px;border:2px solid var(--color-primary);background:var(--color-bg);position:relative;display:flex;flex-direction:column;transform:scale(1.02);box-shadow:var(--shadow-xl);z-index:2;">
-          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--color-primary);color:#fff;padding:4px 16px;border-radius:20px;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;">Most Popular</div>
+        <div class="card stagger-child" style="padding:40px 32px;border:2px solid var(--color-primary);background:var(--color-bg);position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;transform:scale(1.02);box-shadow:var(--shadow-xl);z-index:2;">
           <h3 style="font-size:1.5rem;margin-bottom:8px;">Patron Member</h3>
           <p style="color:var(--color-text-secondary);font-size:0.875rem;margin-bottom:24px;">For art enthusiasts</p>
-          <div style="margin-bottom:32px;"><span style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">$150</span> <span style="color:var(--color-text-secondary);font-size:0.875rem;">/ year</span></div>
+          <div style="display:flex;justify-content:center;align-items:baseline;gap:2px;margin-bottom:32px;">
+            <span style="font-size:1.5rem;font-weight:700;color:var(--color-primary);">$</span>
+            <span id="price-2" style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">150</span>
+            <span style="color:var(--color-text-secondary);font-size:0.875rem;margin-left:4px;">/ year</span>
+          </div>
           <ul style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px;flex:1;">
             <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Unlimited free bringing of guests</li>
             <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Invites to opening receptions</li>
@@ -163,7 +171,11 @@
         <div class="card stagger-child" style="padding:40px 32px;border:1px solid var(--color-border);background:var(--color-bg);display:flex;flex-direction:column;">
           <h3 style="font-size:1.5rem;margin-bottom:8px;">Benefactor</h3>
           <p style="color:var(--color-text-secondary);font-size:0.875rem;margin-bottom:24px;">For established collectors</p>
-          <div style="margin-bottom:32px;"><span style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">$500</span> <span style="color:var(--color-text-secondary);font-size:0.875rem;">/ year</span></div>
+          <div style="display:flex;justify-content:center;align-items:baseline;gap:2px;margin-bottom:32px;">
+            <span style="font-size:1.5rem;font-weight:700;color:var(--color-primary);">$</span>
+            <span id="price-3" style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">500</span>
+            <span style="color:var(--color-text-secondary);font-size:0.875rem;margin-left:4px;">/ year</span>
+          </div>
           <ul style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px;flex:1;">
             <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> All Patron benefits</li>
             <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Private artist studio visits</li>
@@ -184,10 +196,10 @@
       <div class="footer__grid">
         <!-- About -->
         <div>
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+          <a href="home-main.html" style="display:flex;align-items:center;gap:8px;margin-bottom:16px;text-decoration:none;">
             <svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg>
-            <span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span> Gallery</span>
-          </div>
+            <span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span></span>
+          </a>
           <p style="font-size:0.875rem;line-height:1.7;margin-bottom:16px;">A premier contemporary art gallery dedicated to showcasing exceptional artworks and nurturing emerging talent since 1998.</p>
           <div class="footer__socials">
             <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -223,7 +235,7 @@
             </li>
             <li style="display:flex;align-items:center;gap:8px;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              hello@aureliagallery.com
+              hello@aurelia.com
             </li>
           </ul>
         </div>
@@ -242,11 +254,50 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2026 Aurelia Gallery. All rights reserved.</p>
+        <p>&copy; 2026 Aurelia. All rights reserved.</p>
       </div>
     </div>
   </footer>
   <!-- FOOTER END -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('pricing-toggle');
+      const p1 = document.getElementById('price-1');
+      const p2 = document.getElementById('price-2');
+      const p3 = document.getElementById('price-3');
+      const pd1 = document.getElementById('period-1');
+
+      const prices = {
+        individual: { p1: '25', p2: '150', p3: '500', pd1: '/ person' },
+        corporate: { p1: '200', p2: '1200', p3: '5000', pd1: '/ group (10)' }
+      };
+
+      if (toggle) {
+        toggle.addEventListener('change', () => {
+          const type = toggle.checked ? 'corporate' : 'individual';
+          
+          // Add transition effect
+          [p1, p2, p3, pd1].forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(-5px)';
+            el.style.transition = 'opacity 0.2s, transform 0.2s';
+          });
+
+          setTimeout(() => {
+            p1.textContent = prices[type].p1;
+            p2.textContent = prices[type].p2;
+            p3.textContent = prices[type].p3;
+            pd1.textContent = prices[type].pd1;
+
+            [p1, p2, p3, pd1].forEach(el => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            });
+          }, 200);
+        });
+      }
+    });
+  </script>
   <script type="module" src="../assets/js/main.js"></script>
   <script type="module" src="../assets/js/animations.js"></script>
 </body>

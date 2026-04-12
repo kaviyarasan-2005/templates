@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard — Aurelia Gallery</title>
+  <title>Dashboard — Aurelia</title>
   <meta name="description" content="Manage your gallery preferences, exhibitions, artwork collections and analytics.">
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,80 +17,160 @@
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
+    /* ─── Premium Design Tokens ─── */
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.4);
+      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    }
+    [data-theme="dark"] {
+      --glass-bg: rgba(15, 15, 15, 0.96); /* Very dark glass for absolute contrast */
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+      --color-text: #ffffff;
+      --color-text-secondary: #e0e0e0; /* Brightened for legibility */
+      --color-bg: #0a0a0a;
+      --color-bg-alt: #000000; /* Pure black background for the most contrast */
+      --color-border: #2a2a2a;
+    }
+
+    /* Contrast Fixes for Buttons in Dark Mode */
+    [data-theme="dark"] .btn--primary { color: #000000 !important; font-weight: 700; }
+    [data-theme="dark"] .btn:not(.btn--primary) { color: #ffffff !important; border-color: rgba(255,255,255,0.2) !important; }
+    [data-theme="dark"] .btn:not(.btn--primary):hover { background: rgba(255,255,255,0.05); border-color: var(--color-primary); }
+
     /* ─── Mobile Fixes ─── */
     @media (max-width: 640px) {
       .navbar__logo-suffix { display: none !important; }
       .navbar__actions .btn--primary,
       .navbar__actions #theme-toggle,
       .navbar__actions #rtl-toggle { display: none !important; }
-      .navbar__inner { padding-inline: 16px !important; }
-      .navbar__logo { font-size: 1.1rem !important; }
-      .navbar__actions { gap: 0 !important; }
+      .navbar__inner { padding-inline: 12px !important; }
+      .navbar__logo { font-size: 1.05rem !important; }
+      .navbar__actions { gap: 4px !important; }
       body { overflow-x: hidden !important; width: 100% !important; }
-      * { max-width: 100vw !important; }
+      * { max-width: 100vw }
     }
-    @media (max-width: 768px) { .md-hidden { display: none !important; } }
 
-    /* ─── Dashboard Layout ─── */
-    .db-layout { display: flex; gap: 32px; align-items: flex-start; padding-block: 32px; }
-    .db-sidebar {
-      width: 240px; flex-shrink: 0; position: sticky; top: 24px;
-      background: var(--color-bg); border: 1px solid var(--color-border);
-      border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 4px;
+    /* ─── Dashboard Sidebar & Hamburger (Universal Off-Canvas) ─── */
+    .db-hamburger {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border-radius: 12px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); backdrop-filter: blur(12px);
+      color: var(--color-text); margin-right: 12px; cursor: pointer;
+      z-index: 1060; transition: all 0.3s var(--ease-spring);
     }
+    .db-hamburger:hover { transform: scale(1.05); border-color: var(--color-primary); }
+
+    .db-sidebar-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+      z-index: 1040; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .db-sidebar-overlay.active { opacity: 1; visibility: visible; pointer-events: auto; }
+
+    .db-sidebar {
+      position: fixed; top: 0; left: 0; bottom: 0; z-index: 1050;
+      width: 300px; height: 100vh; border-radius: 0; border-right: 1px solid var(--glass-border);
+      background: var(--glass-bg); backdrop-filter: blur(20px);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(-100%);
+      display: flex !important; flex-direction: column; padding: 24px 0;
+      overflow-y: auto; overflow-x: hidden;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+    }
+    .db-sidebar::-webkit-scrollbar { display: none; } /* Chrome, Safari, Opera */
+    .db-sidebar.active { transform: translateX(0); }
+    
+    [dir="rtl"] .db-sidebar { left: auto; right: 0; border-right: none; border-left: 1px solid var(--glass-border); transform: translateX(100%); }
+    [dir="rtl"] .db-sidebar.active { transform: translateX(0); }
+
+    [dir="rtl"] .db-sidebar.active { transform: translateX(0); }
+
+    /* Layout overrides for universal sidebar */
+    .db-layout { display: flex; gap: 0; align-items: flex-start; padding-block: 32px; width: 100% !important; max-width: 100vw; }
+    
+    @media (max-width: 1024px) {
+      .db-layout { padding-top: 24px; }
+      .md-hidden { display: none !important; }
+      .md-only { display: flex !important; }
+    }
+
+    /* ─── Dashboard User Profile ─── */
+    .db-user-profile {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      padding: 0 16px 24px; margin-bottom: 24px; border-bottom: 1px solid var(--color-border);
+      text-align: center;
+    }
+    .db-user-profile__avatar {
+      width: 82px; height: 82px; border-radius: 50%; border: 3px solid var(--color-primary);
+      padding: 4px; background: var(--color-bg); transition: transform 0.3s;
+    }
+    .db-user-profile__name { font-weight: 700; color: var(--color-text); font-size: 1.15rem; font-family: var(--font-heading); margin-bottom: 2px; }
+    .db-user-profile__email { font-size: 0.85rem; color: var(--color-text-secondary); }
+
+    /* ─── Sidebar Navigation ─── */
     .db-sidebar__section-label {
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
       text-transform: uppercase; color: var(--color-text-secondary);
-      padding: 12px 12px 4px; margin-top: 4px;
+      padding: 16px 24px 8px; opacity: 0.8;
     }
     .db-nav-link {
-      display: flex; align-items: center; gap: 10px; padding: 10px 12px;
-      border-radius: 10px; font-size: 0.875rem; font-weight: 500;
+      display: flex; align-items: center; gap: 12px; padding: 12px 24px;
+      font-size: 0.95rem; font-weight: 500;
       color: var(--color-text-secondary); text-decoration: none;
-      transition: all 0.2s; border: none; background: none; cursor: pointer; width: 100%; text-align: left;
+      transition: all 0.3s var(--ease-spring); border-left: 3px solid transparent;
     }
-    .db-nav-link:hover { background: var(--color-muted); color: var(--color-text); }
+    .db-nav-link:hover { background: rgba(212,175,55,0.08); color: var(--color-text); padding-left: 28px; }
+    [dir="rtl"] .db-nav-link:hover { padding-left: 24px; padding-right: 28px; border-left: none; border-right: 3px solid transparent; }
+    
     .db-nav-link.active {
-      background: rgba(212,175,55,0.12); color: var(--color-primary); font-weight: 600;
+      background: linear-gradient(90deg, rgba(212,175,55,0.1) 0%, transparent 100%);
+      color: var(--color-primary); font-weight: 600; border-left-color: var(--color-primary);
     }
-    .db-nav-link svg { flex-shrink: 0; }
-    .db-sidebar__divider { height: 1px; background: var(--color-border); margin: 8px 0; }
+    [dir="rtl"] .db-nav-link.active { border-left-color: transparent; border-right-color: var(--color-primary); background: linear-gradient(-90deg, rgba(212,175,55,0.1) 0%, transparent 100%); }
+    
+    .db-nav-link svg { flex-shrink: 0; transition: transform 0.3s; }
+    .db-nav-link:hover svg { transform: scale(1.1); color: var(--color-primary); }
 
-    /* ─── Stat Cards ─── */
-    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 28px; }
-    @media (max-width: 1024px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 540px) { .stats-grid { grid-template-columns: 1fr; } }
+    /* ─── High-End Stat Cards & Panels ─── */
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-bottom: 32px; width: 100%; }
+    @media (max-width: 1200px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px) { .stats-grid { grid-template-columns: 1fr; } }
     .kpi-card {
-      background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 14px;
-      padding: 20px; position: relative; overflow: hidden;
-      transition: transform .2s, box-shadow .2s;
+      background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px;
+      padding: 24px; position: relative; overflow: hidden; backdrop-filter: blur(16px);
+      transition: all 0.4s var(--ease-spring); box-shadow: var(--glass-shadow);
+      display: flex; flex-direction: column; justify-content: space-between;
     }
-    .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .kpi-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); border-color: var(--color-primary); }
     .kpi-card__accent {
-      position: absolute; top: 0; left: 0; width: 4px; height: 100%; border-radius: 14px 0 0 14px;
+      position: absolute; top: 0; left: 0; width: 4px; height: 100%; border-radius: 20px 0 0 20px; opacity: 0.8;
     }
     .kpi-card__icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s;
     }
-    .kpi-card__label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-secondary); margin-bottom: 4px; }
-    .kpi-card__value { font-size: 2rem; font-weight: 700; font-family: var(--font-heading); color: var(--color-text); line-height: 1.1; }
-    .kpi-card__change { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; margin-top: 8px; }
-    .kpi-card__change--up { color: #16a34a; }
-    .kpi-card__change--down { color: #dc2626; }
-    .kpi-card__change--neutral { color: var(--color-text-secondary); }
+    .kpi-card:hover .kpi-card__icon { transform: scale(1.1) rotate(5deg); }
+    .kpi-card__label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-secondary); margin-bottom: 8px; }
+    .kpi-card__value { font-size: 2.25rem; font-weight: 700; font-family: var(--font-heading); color: var(--color-text); line-height: 1; }
+    .kpi-card__change { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; margin-top: 12px; font-weight: 500; }
 
-    /* ─── Section / Panel ─── */
     .db-panel {
-      background: var(--color-bg); border: 1px solid var(--color-border);
-      border-radius: 14px; overflow: hidden; margin-bottom: 24px;
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      border-radius: 24px; overflow: hidden; margin-bottom: 32px;
+      backdrop-filter: blur(16px); box-shadow: var(--glass-shadow);
+      transition: border-color 0.3s;
     }
+    .db-panel:hover { border-color: rgba(212,175,55,0.2); }
     .db-panel__head {
-      padding: 16px 24px; border-bottom: 1px solid var(--color-border);
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+      padding: 24px 28px; border-bottom: 1px solid var(--color-border);
+      display: flex; justify-content: space-between; align-items: center;
     }
-    .db-panel__title { font-size: 1rem; font-weight: 700; color: var(--color-text); margin: 0; }
-    .db-panel__body { padding: 24px; }
+    .db-panel__title { font-size: 1.15rem; font-weight: 700; color: var(--color-text); font-family: var(--font-heading); margin: 0; }
+    .db-panel__body { padding: 28px; }
 
     /* ─── Infographics ─── */
     .infographics-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-bottom: 28px; }
@@ -178,6 +258,28 @@
     .tl-content__title { font-size: 0.9rem; font-weight: 600; color: var(--color-text); }
     .tl-content__date { font-size: 0.75rem; color: var(--color-primary); font-weight: 600; margin-top: 2px; }
     .tl-content__desc { font-size: 0.8125rem; color: var(--color-text-secondary); margin-top: 4px; }
+
+    .db-cards-scroll-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .db-cards-scroll-row {
+        display: flex;
+        overflow-x: auto;
+        gap: 16px;
+        padding-bottom: 12px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .db-cards-scroll-row::-webkit-scrollbar { display: none; }
+      .db-cards-scroll-row .card {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
+      }
+    }
 
     /* ─── Top Artworks ─── */
     .top-artworks-list { display: flex; flex-direction: column; gap: 12px; }
@@ -268,14 +370,20 @@
   </style>
 </head>
 <body style="background:var(--color-bg-alt);">
+  <div class="db-sidebar-overlay" id="db-overlay"></div>
 
   <!-- NAVBAR -->
   <nav class="navbar" style="position:static;border-bottom:1px solid var(--color-border);" role="navigation" aria-label="Dashboard navigation">
     <div class="navbar__inner">
-      <a href="home-main.html" class="navbar__logo">
-        <svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg>
-        <span style="font-size:1.25rem;">Aurelia</span>
-      </a>
+      <div style="display:flex;align-items:center;">
+        <button class="db-hamburger" id="db-hamburger" aria-label="Toggle Sidebar">
+          <svg style="pointer-events:none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="home-main.html" class="navbar__logo">
+          <svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg>
+          <span style="font-size:1.25rem;">Aurelia</span>
+        </a>
+      </div>
 
       <div style="display:flex;align-items:center;gap:16px;">
         <!-- Search Bar -->
@@ -296,31 +404,26 @@
         <button class="navbar__icon-btn" id="theme-toggle" aria-label="Toggle theme">
           <svg style="pointer-events:none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-
-        <!-- User Dropdown -->
-        <div class="navbar__dropdown">
-          <button class="navbar__dropdown-trigger" style="border:none;background:none;padding:0;cursor:pointer;">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop" alt="User Profile" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--color-primary);">
-          </button>
-          <div class="navbar__dropdown-menu" style="right:0;left:auto;min-width:180px;">
-            <div style="padding:12px 16px;border-bottom:1px solid var(--color-border);margin-bottom:4px;">
-              <div style="font-weight:600;font-size:0.875rem;color:var(--color-text);">David Kim</div>
-              <div style="font-size:0.75rem;color:var(--color-text-secondary);">david@example.com</div>
-            </div>
-            <a href="#" class="navbar__dropdown-item">Profile Settings</a>
-            <a href="#" class="navbar__dropdown-item">Billing Info</a>
-            <hr style="border:none;border-bottom:1px solid var(--color-border);margin:4px 0;">
-            <a href="login.html" class="navbar__dropdown-item" style="color:var(--color-error);">Sign Out</a>
-          </div>
-        </div>
       </div>
     </div>
   </nav>
 
   <div class="container db-layout">
 
-    <!-- ═══════════════════ SIDEBAR ═══════════════════ -->
-    <aside class="db-sidebar md-hidden">
+    <aside class="db-sidebar">
+      <!-- Sidebar Profile -->
+      <div class="db-user-profile">
+        <div style="position:relative;">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop" alt="David Kim" class="db-user-profile__avatar">
+          <span style="position:absolute;bottom:4px;right:4px;width:14px;height:14px;background:var(--color-success);border:2px solid var(--color-bg);border-radius:50%;"></span>
+        </div>
+        <div class="db-user-profile__info">
+          <div class="db-user-profile__name">David Kim</div>
+          <div class="db-user-profile__email">david@example.com</div>
+          <div style="margin-top:8px;"><span class="badge badge--gold" style="font-size:0.6rem;">Gold Patron</span></div>
+        </div>
+      </div>
+
       <div class="db-sidebar__section-label">Overview</div>
       <a href="#" class="db-nav-link active" data-section="visitor-view">
         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
@@ -360,32 +463,28 @@
         Purchases
       </a>
 
-      <div class="db-sidebar__section-label">Admin</div>
-      <a href="#admin" class="db-nav-link" onclick="switchToAdmin()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Admin View
-      </a>
 
-      <div class="db-sidebar__divider"></div>
       <a href="#" class="db-nav-link">
         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
         Settings
+      </a>
+
+      <!-- Mobile Sign Out -->
+      <div class="db-sidebar__divider md-only" style="display:none;"></div>
+      <a href="login.html" class="db-nav-link md-only" style="display:none;color:var(--color-error);" id="mobile-sign-out">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
       </a>
     </aside>
 
     <!-- ═══════════════════ MAIN CONTENT ═══════════════════ -->
     <main style="flex:1;min-width:0;">
 
-      <!-- Role Tabs -->
-      <div class="role-tabs" style="margin-bottom:28px;">
-        <button class="role-tab active" id="tab-user" onclick="showView('visitor')">User View</button>
-        <button class="role-tab" id="tab-admin" onclick="showView('admin')">Admin View</button>
-      </div>
 
       <!-- Greeting Banner -->
       <div style="margin-bottom:28px;">
         <h1 class="dashboard-title" style="font-size:1.75rem;margin-bottom:4px;">Welcome back, David 👋</h1>
-        <p style="color:var(--color-text-secondary);font-size:0.9rem;">Here's what's happening at Aurelia Gallery today.</p>
+        <p style="color:var(--color-text-secondary);font-size:0.9rem;">Here's what's happening at Aurelia today.</p>
       </div>
 
       <!-- ══════════ VISITOR VIEW ══════════ -->
@@ -741,7 +840,8 @@
             <a href="services.html" style="font-size:0.8rem;color:var(--color-primary);font-weight:600;">Browse Gallery</a>
           </div>
           <div class="db-panel__body">
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+            <div class="db-cards-scroll-row">
+              <!-- Card 1 -->
               <div class="card">
                 <img src="../assets/images/artworks/painting-1.png" alt="Chromatic Reverie" style="aspect-ratio:3/2;object-fit:cover;border-radius:8px 8px 0 0;">
                 <div class="card__body">
@@ -753,6 +853,7 @@
                   </div>
                 </div>
               </div>
+              <!-- Card 2 -->
               <div class="card">
                 <img src="../assets/images/artworks/sculpture-1.png" alt="The Ascent" style="aspect-ratio:3/2;object-fit:cover;border-radius:8px 8px 0 0;">
                 <div class="card__body">
@@ -764,6 +865,7 @@
                   </div>
                 </div>
               </div>
+              <!-- Card 3 -->
               <div class="card">
                 <img src="../assets/images/artworks/painting-2.png" alt="Amber Fields" style="aspect-ratio:3/2;object-fit:cover;border-radius:8px 8px 0 0;">
                 <div class="card__body">
@@ -1281,12 +1383,75 @@
       });
     }
 
+
+    /* ── Dashboard Sidebar Toggle ── */
+    function initDashboardToggle() {
+      const hamburger = document.getElementById('db-hamburger');
+      const closeBtn = document.getElementById('db-close');
+      const logoutBtn = document.getElementById('mobile-sign-out');
+      const sidebar = document.querySelector('.db-sidebar');
+      const overlay = document.getElementById('db-overlay');
+
+      if (!hamburger || !sidebar || !overlay) {
+        console.warn('Dashboard toggle elements missing');
+        return;
+      }
+
+      const toggleSidebar = (force) => {
+        const isActive = force !== undefined ? force : !sidebar.classList.contains('active');
+        sidebar.classList.toggle('active', isActive);
+        overlay.classList.toggle('active', isActive);
+        document.body.classList.toggle('no-scroll', isActive);
+        
+        // Change hamburger icon if active
+        const menuIcon = hamburger.querySelector('svg');
+        if (menuIcon) {
+          if (isActive) {
+            menuIcon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+          } else {
+            menuIcon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+          }
+        }
+      };
+
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleSidebar(); // Now it toggles as requested
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleSidebar(false);
+        });
+      }
+
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => toggleSidebar(false));
+      }
+      
+      overlay.addEventListener('click', () => toggleSidebar(false));
+
+      // Close on link click
+      sidebar.querySelectorAll('.db-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          toggleSidebar(false);
+        });
+      });
+      
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') toggleSidebar(false);
+      });
+    }
+
     /* ── Init everything ── */
     document.addEventListener('DOMContentLoaded', () => {
       buildRadialRings();
       buildSparkBars();
       buildFunnel();
       buildHeatmap();
+      initDashboardToggle();
 
       // Animate on intersection
       const io = new IntersectionObserver(entries => {
