@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aura Services — Virtual residential, commercial, and consultation design packages tailored for every space.">
@@ -81,13 +82,6 @@
     /* Footer styles */
 
 
-
-
-
-
-
-    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -197,12 +191,12 @@
       <div class="grid grid-cols-3">
         <!-- Card 1 -->
         <div class="card service-card animate-on-scroll fade-up" data-category="residential">
-          <div class="service-icon-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div>
+          <div class="service-icon-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
           <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Residential" class="card-img">
-          <div class="card-body">
+          <div class="card-body text-center">
             <h3 class="mb-2">Full Home Makeover</h3>
             <p class="text-secondary text-sm mb-3">Complete residential interior design perfectly modeling your floorplan into reality.</p>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex flex-column align-items-center gap-2">
               <a href="service-details.html" class="btn btn-outline" style="height: 36px; padding: 0 16px;">View Details</a>
               <span class="text-secondary">From $999</span>
             </div>
@@ -213,10 +207,10 @@
         <div class="card service-card animate-on-scroll fade-up delay-100" data-category="commercial">
           <div class="service-icon-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect></svg></div>
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Commercial" class="card-img">
-          <div class="card-body">
+          <div class="card-body text-center">
             <h3 class="mb-2">Office Space Planning</h3>
             <p class="text-secondary text-sm mb-3">Maximizing productivity and aesthetic appeal for modern commercial environments.</p>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex flex-column align-items-center gap-2">
               <a href="service-details.html" class="btn btn-outline" style="height: 36px; padding: 0 16px;">View Details</a>
               <span class="text-secondary">From $1499</span>
             </div>
@@ -227,10 +221,10 @@
         <div class="card service-card animate-on-scroll fade-up delay-200" data-category="residential">
           <div class="service-icon-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
           <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=800&q=80" alt="Kitchen" class="card-img">
-          <div class="card-body">
+          <div class="card-body text-center">
             <h3 class="mb-2">Kitchen Renovation</h3>
             <p class="text-secondary text-sm mb-3">Specialized focus on functional modular kitchen design and material selection.</p>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex flex-column align-items-center gap-2">
               <a href="service-details.html" class="btn btn-outline" style="height: 36px; padding: 0 16px;">View Details</a>
               <span class="text-secondary">From $599</span>
             </div>
@@ -241,17 +235,77 @@
         <div class="card service-card animate-on-scroll fade-up" data-category="consultation">
           <div class="service-icon-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></div>
           <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Color" class="card-img">
-          <div class="card-body">
+          <div class="card-body text-center">
             <h3 class="mb-2">Palette Consultation</h3>
             <p class="text-secondary text-sm mb-3">Curated color palettes and material boards tailored to your personal aesthetic.</p>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex flex-column align-items-center gap-2">
               <a href="service-details.html" class="btn btn-outline" style="height: 36px; padding: 0 16px;">View Details</a>
               <span class="text-secondary">From $299</span>
             </div>
           </div>
         </div>
-        
-        <!-- Card 5 (Rest of grid) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section section-glass">
+    <div class="container">
+      <div class="text-center mb-6 animate-on-scroll fade-up">
+        <h2 class="text-center">The Aura Method</h2>
+        <p class="text-secondary text-center" style="max-width: 700px; margin: 0 auto;">A seamless synergy of human creativity and digital precision.</p>
+      </div>
+      <div class="grid grid-cols-3">
+        <div class="text-center animate-on-scroll fade-up">
+          <div style="width:80px; height:80px; border-radius:50%; background:var(--color-primary); color:white; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:1.5rem; font-weight:700;">01</div>
+          <h3>Discovery & Context</h3>
+          <p class="text-secondary">We begin by understanding your lifestyle, architectural constraints, and aesthetic aspirations through a deep-dive consultation.</p>
+        </div>
+        <div class="text-center animate-on-scroll fade-up delay-100">
+          <div style="width:80px; height:80px; border-radius:50%; background:var(--color-primary); color:white; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:1.5rem; font-weight:700;">02</div>
+          <h3>3D Synthesis</h3>
+          <p class="text-secondary">Our designers build a photorealistic 3D twin of your space, testing every texture, light source, and piece of furniture in real-time.</p>
+        </div>
+        <div class="text-center animate-on-scroll fade-up delay-200">
+          <div style="width:80px; height:80px; border-radius:50%; background:var(--color-primary); color:white; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:1.5rem; font-weight:700;">03</div>
+          <h3>Execution Blueprint</h3>
+          <p class="text-secondary">Receive a curated shopping list, technical floorplans, and material codes ready for your contractor to implement with confidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Spotlight -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-2 align-items-center">
+        <div class="animate-on-scroll fade-up text-center d-flex flex-column align-items-center">
+          <h2 class="mb-4">Future-Proof Your Space with VR & 3D Tech</h2>
+          <p class="text-secondary mb-4">We leverage the same rendering engines used in Hollywood films to provide you with an immersive look at your future home. No more guessing how a sofa fits or how lighting affects your mood.</p>
+          <ul class="price-features mb-5 d-flex flex-column align-items-center" style="list-style:none;">
+            <li><svg width="20" height="20" stroke="var(--color-primary)" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg> 4K Photorealistic Stills</li>
+            <li><svg width="20" height="20" stroke="var(--color-primary)" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg> 360 Degree VR Walkthroughs</li>
+            <li><svg width="20" height="20" stroke="var(--color-primary)" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg> Real-time Material Swaps</li>
+            <li><svg width="20" height="20" stroke="var(--color-primary)" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg> Accurate Lighting Simulation</li>
+          </ul>
+          <a href="pricing.html" class="btn btn-primary">Start Your Transformation</a>
+        </div>
+        <div class="px-5 animate-on-scroll scale-in">
+          <div style="position:relative; padding-bottom:100%; border-radius:32px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.15);">
+            <img src="assets/images/vr_design_tech.png" alt="VR Technology" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation CTA -->
+  <section class="section section-glass text-center animate-on-scroll fade-up">
+    <div class="container">
+      <h2 class="mb-4 text-center">Still Not Sure Which Package is Right?</h2>
+      <p class="text-secondary mb-5 text-center" style="max-width:600px; margin-inline:auto;">Schedule a 15-minute discovery call with our Lead Designer to find the perfect strategy for your unique project.</p>
+      <div class="text-center">
+        <a href="contact.html" class="btn btn-outline" style="border-width:2px; padding:0 32px;">Book Discovery Call</a>
       </div>
     </div>
   </section>
@@ -289,7 +343,10 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <h3 class="footer-heading" style="font-family: var(--font-heading); color: var(--color-primary); font-size: 1.5rem; font-weight: 700;">Aura</h3>
+                    <div class="footer-brand mb-3" style="display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); color: var(--color-primary); font-size: 1.5rem; font-weight: 700;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            Aura
+          </div>
           <p class="text-secondary mb-3">Redefining indoor spaces with bespoke virtual interior design architecture tailored for you.</p>
           <div class="d-flex gap-2">
             <!-- Social icons -->

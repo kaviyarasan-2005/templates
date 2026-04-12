@@ -64,3 +64,13 @@
   .d-md-block { display: block !important; }
   .d-md-flex { display: flex !important; }
 }
+
+/* Utilities */
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.d-block { display: block !important; }
+.d-inline-block { display: inline-block !important; }
+.text-secondary { color: var(--color-text-secondary); }
+
