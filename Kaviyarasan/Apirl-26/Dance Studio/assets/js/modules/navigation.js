@@ -57,6 +57,7 @@ const Navigation = (() => {
   function toggleMobileMenu() {
     mobileToggle.classList.toggle('active');
     mobileMenu.classList.toggle('open');
+    if (navbar) navbar.classList.toggle('menu-open');
     document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
   }
 
