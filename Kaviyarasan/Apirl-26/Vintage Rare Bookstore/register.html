@@ -2,154 +2,294 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Account | Vintage Rare Bookstore</title>
-  <meta name="description" content="Join Vintage Rare Bookstore to access our expert services, curated marketplace, and community of rare book collectors.">
+  <title>Create Account | VintStore</title>
+  <meta name="description" content="Join VintStore to access our expert services, curated marketplace, and community of rare book collectors.">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <style>
-    html,body{height:100%;overflow:hidden}
-    .auth-wrapper{display:grid;grid-template-columns:40% 60%;height:100vh;max-height:100vh}
-    .auth-left{position:relative;overflow:hidden}
-    .auth-left__bg{position:absolute;inset:0;background:url('assets/images/backgrounds/bookstore-interior.png') center/cover}
-    .auth-left__overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,20,16,0.75) 0%,rgba(93,58,26,0.65) 100%)}
-    .auth-left__content{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--space-3xl)}
-    .auth-steps{display:flex;flex-direction:column;gap:var(--space-lg);margin-bottom:var(--space-xl)}
-    .auth-step{display:flex;align-items:center;gap:var(--space-md);opacity:0.5;transition:opacity var(--transition-base)}
-    .auth-step.active{opacity:1}
-    .step-num{width:36px;height:36px;border-radius:50%;border:2px solid rgba(212,175,55,0.6);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:0.8125rem;font-weight:700;color:#fff;flex-shrink:0}
-    .auth-step.active .step-num{background:var(--accent);border-color:var(--accent);color:var(--text-primary)}
-    .step-label{font-family:var(--font-ui);font-size:0.875rem;font-weight:600;color:rgba(255,255,255,0.9)}
-    .auth-right{display:flex;align-items:center;justify-content:center;background:var(--bg-primary);overflow-y:auto;padding:var(--space-xl)}
-    .auth-card{width:100%;max-width:480px}
-    .auth-logo{text-align:center;margin-bottom:var(--space-2xl)}
-    .auth-logo a{display:inline-flex;flex-direction:column;align-items:center;gap:var(--space-sm);text-decoration:none}
-    .auth-logo-name{font-family:var(--font-heading);font-size:1.125rem;font-weight:700;color:var(--primary)}
-    .auth-title{font-family:var(--font-heading);font-size:1.75rem;font-weight:700;color:var(--text-primary);text-align:center;margin-bottom:var(--space-sm)}
-    .auth-subtitle{text-align:center;color:var(--text-muted);font-size:0.9375rem;margin-bottom:var(--space-2xl)}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md)}
-    .plan-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-sm);margin-bottom:var(--space-lg)}
-    .plan-opt{border:2px solid var(--border);border-radius:var(--border-radius);padding:var(--space-md);text-align:center;cursor:pointer;transition:all var(--transition-base);background:none}
-    .plan-opt:hover{border-color:var(--primary-light)}
-    .plan-opt.selected{border-color:var(--accent);background:rgba(212,175,55,0.06)}
-    .plan-opt__name{font-family:var(--font-ui);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:2px}
-    .plan-opt__price{font-family:var(--font-heading);font-size:1.1rem;font-weight:700;color:var(--text-primary)}
-    .auth-footer{text-align:center;margin-top:var(--space-md);font-family:var(--font-ui);font-size:0.9375rem;color:var(--text-muted)}
-    .auth-footer a{color:var(--accent-hover);font-weight:600}
-    .auth-topbar{position:fixed;top:var(--space-md);right:var(--space-md);z-index:100}
-    .pw-strength-bar{height:4px;background:var(--border);border-radius:2px;margin-top:6px;overflow:hidden}
-    .pw-strength-fill{height:100%;border-radius:2px;width:0;transition:width 0.4s ease,background 0.3s ease}
-    .pw-strength-fill.weak{width:25%;background:var(--error)}
-    .pw-strength-fill.fair{width:50%;background:var(--warning)}
-    .pw-strength-fill.good{width:75%;background:#4CAF50}
-    .pw-strength-fill.strong{width:100%;background:var(--success)}
-    .pw-strength-label{font-family:var(--font-ui);font-size:0.75rem;color:var(--text-muted);margin-top:4px}
-    @media(max-width:768px){html,body{overflow:auto}.auth-wrapper{grid-template-columns:1fr}.auth-left{display:none}.auth-right{min-height:100vh;height:auto}.form-row{grid-template-columns:1fr}}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: var(--font-ui, 'Inter', sans-serif); background: #1a0e06; }
+
+    /* ── Animated Background ── */
+    .auth-scene {
+      position: fixed; inset: 0; z-index: 0;
+      background: linear-gradient(135deg, #1a0e06 0%, #2c1a0e 35%, #3b1f0a 65%, #1a0e06 100%);
+      background-size: 400% 400%;
+      animation: bgShift 14s ease infinite;
+    }
+    @keyframes bgShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+    .orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.2; animation: orbFloat 9s ease-in-out infinite; }
+    .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, #D4AF37, transparent); top: -200px; right: -150px; }
+    .orb-2 { width: 450px; height: 450px; background: radial-gradient(circle, #8B4513, transparent); bottom: -120px; left: -120px; animation-delay: -4s; }
+    .orb-3 { width: 280px; height: 280px; background: radial-gradient(circle, #D4AF37, transparent); top: 40%; left: 40%; animation-delay: -7s; opacity: 0.1; }
+    @keyframes orbFloat { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-25px,30px) scale(1.06)} }
+
+    .float-el {
+      position: fixed; font-size: 2rem; opacity: 0.065;
+      animation: floatUp linear infinite; pointer-events: none; user-select: none; z-index: 1;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.065; }
+      90%  { opacity: 0.065; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── Scrollable page layout ── */
+    .auth-page {
+      position: relative; z-index: 10; min-height: 100vh;
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: 3rem 1rem 3rem;
+    }
+
+    /* ── Card ── */
+    .auth-card {
+      width: 100%; max-width: 520px;
+      background: rgba(255,255,255,0.055);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 28px;
+      padding: 2.5rem 2.75rem 2.25rem;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06);
+      animation: cardIn 0.65s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    @keyframes cardIn { from{opacity:0;transform:translateY(32px) scale(0.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+    [data-theme="dark"] .auth-card { background: rgba(18,10,4,0.58); border-color: rgba(212,175,55,0.15); }
+
+    /* ── Logo ── */
+    .auth-logo { text-align: center; margin-bottom: 1.5rem; }
+    .auth-logo a { display: inline-flex; flex-direction: column; align-items: center; gap: 9px; text-decoration: none; }
+    .auth-logo-mark {
+      width: 60px; height: 60px; border-radius: 15px;
+      background: linear-gradient(135deg, #8B4513, #D4AF37);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(212,175,55,0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .auth-logo a:hover .auth-logo-mark { transform: translateY(-3px) rotate(-4deg); box-shadow: 0 14px 32px rgba(212,175,55,0.45); }
+    .auth-logo-name { font-family: var(--font-heading, Georgia, serif); font-size: 1.25rem; font-weight: 700; color: #fff; letter-spacing: -.01em; }
+    .auth-logo-sub { font-size: 0.7rem; color: rgba(212,175,55,0.7); letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--font-ui); }
+
+    /* ── Heading ── */
+    .auth-heading { text-align: center; margin-bottom: 1.5rem; }
+    .auth-heading h1 { font-family: var(--font-heading, Georgia, serif); font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
+    .auth-heading p { font-size: 0.875rem; color: rgba(255,255,255,0.45); }
+
+
+
+    /* ── Form ── */
+    .auth-form { display: flex; flex-direction: column; gap: 13px; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field-group { display: flex; flex-direction: column; gap: 5px; }
+    .field-label { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.65); font-family: var(--font-ui); }
+    .field-label .req { color: rgba(212,175,55,0.7); }
+    .field-wrap { position: relative; }
+    .field-icon {
+      position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+      color: rgba(212,175,55,0.55); pointer-events: none; display: flex;
+    }
+    .field-input {
+      width: 100%; padding: 11px 13px 11px 40px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 11px; color: #fff; font-family: var(--font-ui); font-size: 0.9rem;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s; outline: none;
+    }
+    .field-input::placeholder { color: rgba(255,255,255,0.25); }
+    .field-input:focus { border-color: rgba(212,175,55,0.5); background: rgba(255,255,255,0.08); box-shadow: 0 0 0 3px rgba(212,175,55,0.1); }
+    .field-action {
+      position: absolute; right: 11px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.35); display: flex; padding: 4px; transition: color 0.2s;
+    }
+    .field-action:hover { color: rgba(212,175,55,0.8); }
+
+    /* Password strength */
+    .pw-strength-bar { height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 5px; overflow: hidden; }
+    .pw-strength-fill { height: 100%; border-radius: 2px; width: 0; transition: width 0.4s ease, background 0.3s ease; }
+    .pw-strength-fill.weak   { width: 25%; background: var(--error, #ef4444); }
+    .pw-strength-fill.fair   { width: 50%; background: var(--warning, #f59e0b); }
+    .pw-strength-fill.good   { width: 75%; background: #4CAF50; }
+    .pw-strength-fill.strong { width: 100%; background: var(--success, #22c55e); }
+    .pw-strength-label { font-family: var(--font-ui); font-size: 0.7rem; color: rgba(255,255,255,0.35); margin-top: 3px; }
+
+    /* Terms */
+    .check-label { display: flex; align-items: flex-start; gap: 9px; cursor: pointer; }
+    .check-label input { width: 15px; height: 15px; accent-color: #D4AF37; flex-shrink: 0; margin-top: 2px; }
+    .check-label span { font-family: var(--font-ui); font-size: 0.8125rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+    .check-label a { color: rgba(212,175,55,0.8); font-weight: 600; text-decoration: none; }
+    .check-label a:hover { color: #D4AF37; }
+
+    /* Submit */
+    .btn-submit {
+      width: 100%; padding: 13px;
+      background: linear-gradient(135deg, #D4AF37, #c9991f);
+      border: none; border-radius: 12px; color: #1a0e06;
+      font-family: var(--font-ui); font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: all 0.25s ease;
+      box-shadow: 0 4px 18px rgba(212,175,55,0.35); position: relative; overflow: hidden;
+    }
+    .btn-submit::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent); opacity:0; transition:opacity 0.2s; }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,175,55,0.45); }
+    .btn-submit:hover::after { opacity: 1; }
+
+    /* Footer */
+    .auth-switch { text-align: center; margin-top: 1.1rem; font-family: var(--font-ui); font-size: 0.875rem; color: rgba(255,255,255,0.38); }
+    .auth-switch a { color: rgba(212,175,55,0.85); font-weight: 600; text-decoration: none; }
+    .auth-switch a:hover { color: #D4AF37; }
+
+    /* Theme toggle */
+    .auth-topbar { position: fixed; top: 1rem; right: 1rem; z-index: 200; display: flex; flex-direction: row; gap: 8px; }
+    .theme-btn {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: rgba(255,255,255,0.7); transition: all 0.2s;
+      backdrop-filter: blur(10px);
+    }
+    .theme-btn:hover { background: rgba(255,255,255,0.13); color: #fff; }
+
+    @media (max-width:520px) {
+      .auth-card { padding: 2rem 1.5rem 1.75rem; }
+      .form-row-2 { grid-template-columns: 1fr; }
+      .plan-grid { grid-template-columns: repeat(3,1fr); gap:6px; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Background Scene -->
+  <div class="auth-scene">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <span class="float-el" style="left:5%;animation-duration:20s;animation-delay:0s">📖</span>
+  <span class="float-el" style="left:18%;animation-duration:26s;animation-delay:-5s;font-size:1.3rem">✦</span>
+  <span class="float-el" style="left:60%;animation-duration:17s;animation-delay:-9s;font-size:2rem">📚</span>
+  <span class="float-el" style="left:78%;animation-duration:22s;animation-delay:-3s">📜</span>
+  <span class="float-el" style="left:90%;animation-duration:15s;animation-delay:-7s;font-size:1.1rem">✦</span>
+
+  <!-- Theme Toggle -->
   <div class="auth-topbar">
-    <button id="theme-toggle" class="nav-icon-btn" aria-label="Toggle theme" style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius)"><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></button>
+    <button id="rtl-toggle" class="theme-btn" aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+    <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
   </div>
 
-  <div class="auth-wrapper">
-    <div class="auth-left"><div class="auth-left__bg"></div><div class="auth-left__overlay"></div>
-      <div class="auth-left__content">
-        <h2 style="color:#fff;margin-bottom:var(--space-lg)">Join Our Community</h2>
-        <div class="auth-steps">
-          <div class="auth-step active"><div class="step-num">1</div><span class="step-label">Create your account</span></div>
-          <div class="auth-step"><div class="step-num">2</div><span class="step-label">Choose a plan</span></div>
-          <div class="auth-step"><div class="step-num">3</div><span class="step-label">Access your dashboard</span></div>
-        </div>
-        <blockquote style="border-left:3px solid rgba(212,175,55,0.5);padding-left:var(--space-lg);font-family:var(--font-heading);font-style:italic;color:rgba(255,255,255,0.8);font-size:1.0625rem">"A library is not a luxury but one of the necessities of life."<br><cite style="font-size:0.875rem;color:rgba(212,175,55,0.8)">— Henry Ward Beecher</cite></blockquote>
+  <!-- Page -->
+  <div class="auth-page">
+    <div class="auth-card">
+
+      <!-- Logo -->
+      <div class="auth-logo">
+        <a href="index.html" aria-label="Return to Home">
+          <div class="auth-logo-mark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
+              <rect width="40" height="40" rx="7" fill="rgba(255,255,255,0.12)"/>
+              <rect x="7" y="6" width="19" height="28" rx="2" fill="#FDF8F0"/>
+              <rect x="9" y="8" width="15" height="24" rx="1" fill="#fff"/>
+              <rect x="11" y="13" width="11" height="1.5" rx="0.75" fill="#8B4513"/>
+              <rect x="11" y="16.5" width="9" height="1.5" rx="0.75" fill="#8B4513"/>
+              <rect x="11" y="20" width="10" height="1.5" rx="0.75" fill="#8B4513"/>
+              <rect x="27" y="8" width="6" height="24" rx="1" fill="#5D3A1A"/>
+            </svg>
+          </div>
+          <span class="auth-logo-name">VintStore</span>
+          <span class="auth-logo-sub">Rare &amp; Vintage Books</span>
+        </a>
       </div>
-    </div>
 
-    <div class="auth-right">
-      <div class="auth-card">
-        <div class="auth-logo">
-          <a href="index.html" aria-label="Return to Home">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="56" height="56"><rect width="64" height="64" rx="12" fill="#8B4513"/><rect x="11" y="10" width="30" height="44" rx="3" fill="#D4AF37"/><rect x="14" y="13" width="24" height="38" rx="2" fill="#FDF8F0"/><rect x="17" y="21" width="18" height="2.5" rx="1.25" fill="#8B4513"/><rect x="17" y="27" width="14" height="2.5" rx="1.25" fill="#8B4513"/><rect x="43" y="13" width="10" height="38" rx="2" fill="#5D3A1A"/></svg>
-            <span class="auth-logo-name">Vintage Rare Bookstore</span>
-          </a>
-        </div>
-        <h1 class="auth-title">Create Your Account</h1>
-        <p class="auth-subtitle">Join thousands of collectors and begin your journey</p>
-
-        <form id="register-form" novalidate>
-          <!-- Plan selection -->
-          <div style="margin-bottom:var(--space-lg)">
-            <div style="font-family:var(--font-ui);font-size:0.875rem;font-weight:600;color:var(--text-secondary);margin-bottom:var(--space-sm)">Choose your plan:</div>
-            <div class="plan-cards">
-              <button type="button" class="plan-opt" data-plan="collector">
-                <div class="plan-opt__name">Collector</div>
-                <div class="plan-opt__price">£29/mo</div>
-              </button>
-              <button type="button" class="plan-opt selected" data-plan="curator">
-                <div class="plan-opt__name">Curator ✦</div>
-                <div class="plan-opt__price">£79/mo</div>
-              </button>
-              <button type="button" class="plan-opt" data-plan="connoisseur">
-                <div class="plan-opt__name">Connoisseur</div>
-                <div class="plan-opt__price">£199/mo</div>
-              </button>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="reg-firstname" class="form-label">First Name <span class="required">*</span></label>
-              <input type="text" id="reg-firstname" name="firstname" class="form-input" placeholder="John" required minlength="2">
-            </div>
-            <div class="form-group">
-              <label for="reg-lastname" class="form-label">Last Name <span class="required">*</span></label>
-              <input type="text" id="reg-lastname" name="lastname" class="form-input" placeholder="Smith" required minlength="2">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="reg-email" class="form-label">Email Address <span class="required">*</span></label>
-            <input type="email" id="reg-email" name="email" class="form-input" placeholder="john@example.com" required autocomplete="email">
-          </div>
-          <div class="form-group">
-            <label for="password" class="form-label">Password <span class="required">*</span></label>
-            <div style="position:relative">
-              <input type="password" id="password" name="password" class="form-input" placeholder="Min. 8 chars, uppercase, number, symbol" required autocomplete="new-password" style="padding-right:44px">
-              <button type="button" class="pw-toggle" aria-label="Show password"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
-            </div>
-            <div class="pw-strength-bar"><div class="pw-strength-fill"></div></div>
-            <div class="pw-strength-label"></div>
-          </div>
-          <div class="form-group">
-            <label for="confirm-password" class="form-label">Confirm Password <span class="required">*</span></label>
-            <div style="position:relative">
-              <input type="password" id="confirm-password" name="confirm-password" class="form-input" placeholder="Repeat your password" required style="padding-right:44px">
-              <button type="button" class="pw-toggle" aria-label="Show password"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="checkbox-wrap" style="display:flex;align-items:flex-start;gap:10px;font-family:var(--font-ui);font-size:0.875rem;color:var(--text-secondary);cursor:pointer">
-              <input type="checkbox" id="reg-terms" name="terms" required style="width:16px;height:16px;accent-color:var(--accent);margin-top:2px;flex-shrink:0">
-              <span>I agree to the <a href="#" style="color:var(--accent-hover);font-weight:600">Terms of Service</a> and <a href="#" style="color:var(--accent-hover);font-weight:600">Privacy Policy</a></span>
-            </label>
-          </div>
-          <button type="submit" class="btn btn-accent btn-full btn-lg form-submit" id="register-btn">Create Account</button>
-        </form>
-
-        <p class="auth-footer">Already have an account? <a href="login.html">Sign in →</a></p>
+      <!-- Heading -->
+      <div class="auth-heading">
+        <h1>Create Your Account</h1>
+        <p>Join thousands of collectors and begin your journey</p>
       </div>
+
+      <!-- Form -->
+      <form id="register-form" class="auth-form" novalidate>
+
+        <!-- Name row -->
+        <div class="form-row-2">
+          <div class="field-group">
+            <label for="reg-firstname" class="field-label">First Name <span class="req">*</span></label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <input type="text" id="reg-firstname" name="firstname" class="field-input" placeholder="John" required minlength="2">
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="reg-lastname" class="field-label">Last Name <span class="req">*</span></label>
+            <div class="field-wrap">
+              <span class="field-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <input type="text" id="reg-lastname" name="lastname" class="field-input" placeholder="Smith" required minlength="2">
+            </div>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="field-group">
+          <label for="reg-email" class="field-label">Email Address <span class="req">*</span></label>
+          <div class="field-wrap">
+            <span class="field-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <input type="email" id="reg-email" name="email" class="field-input" placeholder="john@example.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="field-group">
+          <label for="reg-password" class="field-label">Password <span class="req">*</span></label>
+          <div class="field-wrap">
+            <span class="field-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <input type="password" id="reg-password" name="password" class="field-input" placeholder="Min. 8 chars, uppercase, number, symbol" required autocomplete="new-password">
+            <button type="button" class="field-action pw-toggle" aria-label="Show password">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="pw-strength-bar"><div class="pw-strength-fill"></div></div>
+          <div class="pw-strength-label"></div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="field-group">
+          <label for="reg-confirm" class="field-label">Confirm Password <span class="req">*</span></label>
+          <div class="field-wrap">
+            <span class="field-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </span>
+            <input type="password" id="reg-confirm" name="confirm-password" class="field-input" placeholder="Repeat your password" required>
+            <button type="button" class="field-action pw-toggle" aria-label="Show password">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Terms -->
+        <label class="check-label">
+          <input type="checkbox" id="reg-terms" name="terms" required>
+          <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+        </label>
+
+        <button type="submit" class="btn-submit" id="register-btn">Create Account →</button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="login.html">Sign in →</a></p>
     </div>
   </div>
 
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/forms.js" defer></script>
-  <script>
-    document.querySelectorAll('.plan-opt').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.plan-opt').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-      });
-    });
-  </script>
+  <script src="assets/js/rtl-ltr.js" defer></script>
 </body>
 </html>

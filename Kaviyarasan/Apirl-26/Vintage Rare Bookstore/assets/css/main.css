@@ -239,6 +239,8 @@ em { font-style: italic; }
   font-weight: 700;
   color: var(--primary);
   line-height: 1.2;
+  position: relative;
+  top: 2px;
   transition: color var(--transition-base);
 }
 .navbar__logo:hover .navbar__logo-text { color: var(--accent); }
@@ -825,7 +827,7 @@ em { font-style: italic; }
 .footer__bottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: var(--space-lg) 0;
   font-family: var(--font-ui);
   font-size: 0.875rem;

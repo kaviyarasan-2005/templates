@@ -2,144 +2,310 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Vintage Rare Bookstore</title>
-  <meta name="description" content="Sign in to your Vintage Rare Bookstore account to access your collection, orders, and services.">
+  <title>Login | VintStore</title>
+  <meta name="description" content="Sign in to your VintStore account to access your collection, orders, and services.">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicons/favicon.svg">
   <meta name="theme-color" content="#8B4513">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <style>
-    /* NO NAVBAR, NO FOOTER — Full viewport, no scroll */
-    html, body { overflow: hidden; height: 100%; margin: 0; }
-    .auth-wrapper { display: grid; grid-template-columns: 60% 40%; height: 100vh; max-height: 100vh; }
-    .auth-left { position: relative; overflow: hidden; }
-    .auth-left__bg { position: absolute; inset: 0; background: url('assets/images/backgrounds/hero-library.png') center/cover; }
-    .auth-left__overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(26,20,16,0.7) 0%, rgba(93,58,26,0.6) 100%); }
-    .auth-left__content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: var(--space-3xl); }
-    .auth-left__quote { font-family: var(--font-heading); font-size: 1.75rem; font-style: italic; color: rgba(255,255,255,0.9); line-height: 1.4; margin-bottom: var(--space-md); }
-    .auth-left__attribution { font-family: var(--font-ui); font-size: 0.875rem; color: rgba(212,175,55,0.85); }
-    .auth-right { display: flex; align-items: center; justify-content: center; background: var(--bg-primary); overflow-y: auto; padding: var(--space-xl); }
-    .auth-card { width: 100%; max-width: 420px; }
-    .auth-logo { text-align: center; margin-bottom: var(--space-2xl); }
-    .auth-logo a { display: inline-flex; flex-direction: column; align-items: center; gap: var(--space-sm); text-decoration: none; }
-    .auth-logo svg { width: 64px; height: 64px; }
-    .auth-logo-name { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--primary); }
-    .auth-title { font-family: var(--font-heading); font-size: 1.875rem; font-weight: 700; color: var(--text-primary); text-align: center; margin-bottom: var(--space-sm); }
-    .auth-subtitle { text-align: center; color: var(--text-muted); font-size: 0.9375rem; margin-bottom: var(--space-2xl); }
-    .social-btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); margin-bottom: var(--space-md); }
-    .auth-form-group { margin-bottom: var(--space-md); }
-    .auth-pw-row { position: relative; }
-    .auth-pw-row .form-input { padding-right: 44px; }
-    .form-options { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg); font-family: var(--font-ui); font-size: 0.875rem; }
-    .checkbox-wrap { display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); cursor: pointer; }
-    .checkbox-wrap input { width: 16px; height: 16px; accent-color: var(--accent); }
-    .forgot-link { color: var(--accent-hover); font-weight: 600; transition: color var(--transition-base); }
-    .forgot-link:hover { color: var(--primary); }
-    .auth-footer { text-align: center; margin-top: var(--space-lg); font-family: var(--font-ui); font-size: 0.9375rem; color: var(--text-muted); }
-    .auth-footer a { color: var(--accent-hover); font-weight: 600; }
-    .auth-footer a:hover { color: var(--primary); }
-    /* Theme toggle (top right corner only) */
-    .auth-topbar { position: fixed; top: var(--space-md); right: var(--space-md); z-index: 100; display: flex; gap: var(--space-sm); }
-    @media (max-width: 768px) {
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; font-family: var(--font-ui, 'Inter', sans-serif); }
+
+    /* ── Animated Background ── */
+    .auth-scene {
+      position: fixed; inset: 0;
+      background: linear-gradient(135deg, #1a0e06 0%, #2c1a0e 30%, #3b1f0a 60%, #1a0e06 100%);
+      background-size: 400% 400%;
+      animation: bgShift 12s ease infinite;
+    }
+    @keyframes bgShift {
+      0%,100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+
+    /* Blurred orbs */
+    .orb {
+      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.25; animation: orbFloat 8s ease-in-out infinite;
+    }
+    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #D4AF37, transparent); top: -150px; left: -150px; animation-delay: 0s; }
+    .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, #8B4513, transparent); bottom: -100px; right: -100px; animation-delay: -3s; }
+    .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, #D4AF37, transparent); bottom: 20%; left: 30%; animation-delay: -6s; opacity: 0.12; }
+    @keyframes orbFloat {
+      0%,100% { transform: translate(0, 0) scale(1); }
+      50%      { transform: translate(20px, -30px) scale(1.05); }
+    }
+
+    /* Floating letters / book icons */
+    .float-el {
+      position: absolute; font-size: 2rem; opacity: 0.07; animation: floatUp linear infinite; pointer-events: none; user-select: none;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.07; }
+      90%  { opacity: 0.07; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── Layout ── */
+    .auth-center {
+      position: relative; z-index: 10;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; padding: 2rem 1rem;
+    }
+
+    /* ── Card ── */
+    .auth-card {
+      width: 100%; max-width: 440px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 24px;
+      padding: 2.5rem 2.5rem 2rem;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.07);
+      animation: cardIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    [data-theme="dark"] .auth-card {
+      background: rgba(20, 12, 6, 0.55);
+      border-color: rgba(212, 175, 55, 0.18);
+    }
+
+    /* ── Logo ── */
+    .auth-logo { text-align: center; margin-bottom: 1.75rem; }
+    .auth-logo a { display: inline-flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; }
+    .auth-logo-mark {
+      width: 64px; height: 64px; border-radius: 16px;
+      background: linear-gradient(135deg, #8B4513, #D4AF37);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(212,175,55,0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .auth-logo a:hover .auth-logo-mark { transform: translateY(-3px) rotate(-4deg); box-shadow: 0 14px 32px rgba(212,175,55,0.45); }
+    .auth-logo-name { font-family: var(--font-heading, Georgia, serif); font-size: 1.375rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+    .auth-logo-sub { font-size: 0.75rem; color: rgba(212,175,55,0.75); font-family: var(--font-ui); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── Heading ── */
+    .auth-heading { text-align: center; margin-bottom: 1.75rem; }
+    .auth-heading h1 { font-family: var(--font-heading, Georgia, serif); font-size: 1.625rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .auth-heading p { font-size: 0.9rem; color: rgba(255,255,255,0.5); }
+
+    /* ── Social buttons ── */
+    .social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
+    .soc-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 14px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.85); font-family: var(--font-ui); font-size: 0.875rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .soc-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.22); transform: translateY(-1px); }
+    .soc-btn svg { flex-shrink: 0; }
+
+    /* Or divider */
+    .or-divider { display: flex; align-items: center; gap: 12px; margin-bottom: 1.25rem; }
+    .or-divider::before, .or-divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+    .or-divider span { font-size: 0.75rem; color: rgba(255,255,255,0.35); white-space: nowrap; font-family: var(--font-ui); }
+
+    /* ── Form ── */
+    .auth-form { display: flex; flex-direction: column; gap: 14px; }
+    .field-group { display: flex; flex-direction: column; gap: 6px; }
+    .field-label { font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.7); font-family: var(--font-ui); }
+    .field-wrap { position: relative; }
+    .field-icon {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      color: rgba(212,175,55,0.6); pointer-events: none; display: flex;
+    }
+    .field-input {
+      width: 100%; padding: 12px 14px 12px 42px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; color: #fff;
+      font-family: var(--font-ui); font-size: 0.9375rem;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .field-input::placeholder { color: rgba(255,255,255,0.28); }
+    .field-input:focus {
+      border-color: rgba(212,175,55,0.55);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.12);
+    }
+    .field-action {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.4);
+      display: flex; transition: color 0.2s; padding: 4px;
+    }
+    .field-action:hover { color: rgba(212,175,55,0.8); }
+
+    /* Options row */
+    .form-options-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-ui); font-size: 0.8125rem;
+    }
+    .check-label { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.55); cursor: pointer; }
+    .check-label input { width: 15px; height: 15px; accent-color: #D4AF37; border-radius: 4px; }
+    .forgot-link { color: rgba(212,175,55,0.85); font-weight: 600; text-decoration: none; transition: color 0.2s; }
+    .forgot-link:hover { color: #D4AF37; }
+
+    /* Submit */
+    .btn-submit {
+      width: 100%; padding: 13px;
+      background: linear-gradient(135deg, #D4AF37, #c9991f);
+      border: none; border-radius: 12px;
+      color: #1a0e06; font-family: var(--font-ui); font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: all 0.25s ease;
+      box-shadow: 0 4px 16px rgba(212,175,55,0.35);
+      position: relative; overflow: hidden;
+    }
+    .btn-submit::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,175,55,0.45); }
+    .btn-submit:hover::after { opacity: 1; }
+    .btn-submit:active { transform: translateY(0); }
+
+    /* Footer link */
+    .auth-switch { text-align: center; margin-top: 1.25rem; font-family: var(--font-ui); font-size: 0.9rem; color: rgba(255,255,255,0.4); }
+    .auth-switch a { color: rgba(212,175,55,0.85); font-weight: 600; text-decoration: none; transition: color 0.2s; }
+    .auth-switch a:hover { color: #D4AF37; }
+
+    /* Theme toggle */
+    .auth-topbar { position: fixed; top: 1rem; right: 1rem; z-index: 100; display: flex; flex-direction: row; gap: 8px; }
+    .theme-btn {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: rgba(255,255,255,0.7); transition: all 0.2s;
+      backdrop-filter: blur(10px);
+    }
+    .theme-btn:hover { background: rgba(255,255,255,0.13); color: #fff; }
+
+    /* Responsive */
+    @media (max-width: 480px) {
       html, body { overflow: auto; }
-      .auth-wrapper { grid-template-columns: 1fr; }
-      .auth-left { display: none; }
-      .auth-right { min-height: 100vh; height: auto; }
+      .auth-card { padding: 2rem 1.5rem 1.5rem; }
+      .social-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <!-- Top controls only -->
+
+  <!-- Animated Scene -->
+  <div class="auth-scene">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <!-- Floating letters -->
+    <span class="float-el" style="left:8%;animation-duration:18s;animation-delay:0s;font-size:1.5rem">📖</span>
+    <span class="float-el" style="left:22%;animation-duration:22s;animation-delay:-4s;font-size:2.2rem">📚</span>
+    <span class="float-el" style="left:55%;animation-duration:16s;animation-delay:-8s;font-size:1.2rem">✦</span>
+    <span class="float-el" style="left:72%;animation-duration:20s;animation-delay:-2s;font-size:1.8rem">📕</span>
+    <span class="float-el" style="left:88%;animation-duration:14s;animation-delay:-6s;font-size:1.4rem">📜</span>
+    <span class="float-el" style="left:38%;animation-duration:25s;animation-delay:-11s;font-size:1rem">✦</span>
+  </div>
+
+  <!-- Theme Toggle -->
   <div class="auth-topbar">
-    <button id="theme-toggle" class="nav-icon-btn" aria-label="Toggle theme" style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);">
-      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+    <button id="rtl-toggle" class="theme-btn" aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+    <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
   </div>
 
-  <div class="auth-wrapper">
-    <!-- Left: Library image -->
-    <div class="auth-left" role="presentation">
-      <div class="auth-left__bg"></div>
-      <div class="auth-left__overlay"></div>
-      <div class="auth-left__content">
-        <blockquote class="auth-left__quote">"A room without books is like a body without a soul."</blockquote>
-        <p class="auth-left__attribution">— Marcus Tullius Cicero</p>
-      </div>
-    </div>
+  <!-- Center Card -->
+  <div class="auth-center">
+    <div class="auth-card">
 
-    <!-- Right: Login card -->
-    <div class="auth-right">
-      <div class="auth-card">
-        <div class="auth-logo">
-          <!-- Logo as link to home, no "Back to Home" text -->
-          <a href="index.html" aria-label="Return to Vintage Rare Bookstore home">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
-              <rect width="64" height="64" rx="12" fill="#8B4513"/>
-              <rect x="11" y="10" width="30" height="44" rx="3" fill="#D4AF37"/>
-              <rect x="14" y="13" width="24" height="38" rx="2" fill="#FDF8F0"/>
-              <rect x="17" y="21" width="18" height="2.5" rx="1.25" fill="#8B4513"/>
-              <rect x="17" y="27" width="14" height="2.5" rx="1.25" fill="#8B4513"/>
-              <rect x="17" y="33" width="16" height="2.5" rx="1.25" fill="#8B4513"/>
-              <rect x="43" y="13" width="10" height="38" rx="2" fill="#5D3A1A"/>
+      <!-- Logo -->
+      <div class="auth-logo">
+        <a href="index.html" aria-label="Return to VintStore home">
+          <div class="auth-logo-mark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true">
+              <rect width="40" height="40" rx="7" fill="rgba(255,255,255,0.15)"/>
+              <rect x="7" y="6" width="19" height="28" rx="2" fill="#FDF8F0"/>
+              <rect x="9" y="8" width="15" height="24" rx="1" fill="#fff"/>
+              <rect x="11" y="13" width="11" height="1.5" rx="0.75" fill="#8B4513"/>
+              <rect x="11" y="16.5" width="9" height="1.5" rx="0.75" fill="#8B4513"/>
+              <rect x="11" y="20" width="10" height="1.5" rx="0.75" fill="#8B4513"/>
+              <rect x="27" y="8" width="6" height="24" rx="1" fill="#5D3A1A"/>
             </svg>
-            <span class="auth-logo-name">Vintage Rare Bookstore</span>
-          </a>
-        </div>
-
-        <h1 class="auth-title">Welcome Back</h1>
-        <p class="auth-subtitle">Sign in to access your collection and services</p>
-
-        <!-- Social Login -->
-        <div class="social-btns">
-          <button class="social-btn social-btn--google" type="button" aria-label="Continue with Google">
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-            Google
-          </button>
-          <button class="social-btn social-btn--facebook" type="button" aria-label="Continue with Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Facebook
-          </button>
-          <button class="social-btn social-btn--apple" type="button" aria-label="Continue with Apple">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Apple
-          </button>
-        </div>
-
-        <div class="divider"><span>or continue with email</span></div>
-
-        <form id="login-form" novalidate>
-          <div class="auth-form-group">
-            <label for="login-email" class="form-label">Email Address <span class="required">*</span></label>
-            <input type="email" id="login-email" name="email" class="form-input" placeholder="you@example.com" required autocomplete="email">
           </div>
-          <div class="auth-form-group">
-            <label for="login-password" class="form-label">Password <span class="required">*</span></label>
-            <div class="auth-pw-row" style="position:relative">
-              <input type="password" id="login-password" name="password" class="form-input" placeholder="Enter your password" required autocomplete="current-password">
-              <button type="button" class="pw-toggle" aria-label="Show password">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
-            </div>
-          </div>
-          <div class="form-options">
-            <label class="checkbox-wrap">
-              <input type="checkbox" id="remember-me" name="remember"> Remember me
-            </label>
-            <a href="#" class="forgot-link">Forgot password?</a>
-          </div>
-          <button type="submit" class="btn btn-accent btn-full btn-lg form-submit" id="login-btn">Sign In</button>
-        </form>
-
-        <p class="auth-footer">
-          Don't have an account? <a href="register.html">Create one →</a>
-        </p>
+          <span class="auth-logo-name">VintStore</span>
+          <span class="auth-logo-sub">Rare &amp; Vintage Books</span>
+        </a>
       </div>
+
+      <!-- Heading -->
+      <div class="auth-heading">
+        <h1>Welcome Back</h1>
+        <p>Sign in to your collector's account</p>
+      </div>
+
+      <!-- Social Login -->
+      <div class="social-row">
+        <button class="soc-btn" type="button" aria-label="Continue with Google">
+          <svg width="17" height="17" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google
+        </button>
+        <button class="soc-btn" type="button" aria-label="Continue with Apple">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Apple
+        </button>
+      </div>
+
+      <div class="or-divider"><span>or continue with email</span></div>
+
+      <!-- Form -->
+      <form id="login-form" class="auth-form" novalidate>
+
+        <div class="field-group">
+          <label for="login-email" class="field-label">Email Address</label>
+          <div class="field-wrap">
+            <span class="field-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <input type="email" id="login-email" name="email" class="field-input" placeholder="you@example.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="login-password" class="field-label">Password</label>
+          <div class="field-wrap">
+            <span class="field-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <input type="password" id="login-password" name="password" class="field-input" placeholder="Enter your password" required autocomplete="current-password">
+            <button type="button" class="field-action pw-toggle" aria-label="Show password">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-options-row">
+          <label class="check-label">
+            <input type="checkbox" id="remember-me" name="remember"> Remember me
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-submit" id="login-btn">Sign In</button>
+      </form>
+
+      <p class="auth-switch">Don't have an account? <a href="register.html">Create one →</a></p>
     </div>
   </div>
 
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/forms.js" defer></script>
+  <script src="assets/js/rtl-ltr.js" defer></script>
 </body>
 </html>
