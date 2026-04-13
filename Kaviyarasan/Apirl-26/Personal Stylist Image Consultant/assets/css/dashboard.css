@@ -518,6 +518,94 @@
   .admin-kpi { padding: var(--space-1); }
 }
 
+/* ── 360px hard mobile fix — clamps ALL overflow ──────────────── */
+@media (max-width: 400px) {
+  /* 1. Box model: prevent padding from adding to width */
+  *, *::before, *::after { box-sizing: border-box !important; }
+
+  /* 2. Root layout: no horizontal scroll, no overflow */
+  html, body { overflow-x: hidden !important; max-width: 100vw !important; }
+  .dashboard-layout { overflow-x: hidden !important; width: 100% !important; max-width: 100vw !important; display: block !important; }
+
+  /* 3. Main content: tight 8px side padding */
+  .dashboard-main {
+    padding: 12px 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 4. Admin banner: reduce padding, stack buttons */
+  .admin-banner {
+    padding: 12px 10px !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .admin-banner-top { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; }
+  .admin-banner-top .banner-actions,
+  .admin-banner-top > div { display: flex !important; gap: 6px !important; flex-wrap: wrap !important; }
+  .admin-banner-top .btn { flex: 1 !important; text-align: center !important; justify-content: center !important; font-size: 11px !important; padding: 0.4em 0.5em !important; }
+  .admin-banner-greeting { font-size: 1.2rem !important; }
+  .admin-banner-sub { font-size: 11px !important; }
+
+  /* 5. KPI strip: 2 columns */
+  .admin-kpi-strip { grid-template-columns: 1fr 1fr !important; gap: 6px !important; }
+  .admin-kpi { padding: 10px 8px !important; }
+  .admin-kpi-val { font-size: 1.25rem !important; }
+  .admin-kpi-label { font-size: 9px !important; }
+  .admin-kpi-delta { font-size: 9px !important; }
+
+  /* 6. Two-column layout: single column */
+  .admin-cols { display: flex !important; flex-direction: column !important; gap: 10px !important; width: 100% !important; }
+  .admin-infogrid { grid-template-columns: 1fr !important; width: 100% !important; }
+  .admin-right { width: 100% !important; }
+
+  /* 7. Every widget: full width, reduced padding */
+  .widget {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px 10px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    margin-inline: 0 !important;
+    border-radius: 12px !important;
+  }
+  .widget-header { flex-wrap: wrap !important; gap: 4px !important; margin-bottom: 10px !important; }
+  .widget-header select { max-width: 110px !important; font-size: 10px !important; padding: 2px 4px !important; }
+  .widget-header .btn { font-size: 10px !important; padding: 0.2em 0.4em !important; }
+  .widget-title { font-size: 11px !important; letter-spacing: 0.06em !important; }
+
+  /* 8. Revenue chart: scroll container */
+  .admin-chart-scroll { overflow-x: auto !important; width: 100% !important; -webkit-overflow-scrolling: touch; }
+  .admin-chart-scroll svg { min-width: 300px !important; width: 100% !important; height: auto !important; }
+
+  /* 9. Today's Schedule */
+  .schedule-item { flex-wrap: nowrap !important; gap: 6px !important; padding: 6px 0 !important; align-items: flex-start !important; }
+  .schedule-time { font-size: 10px !important; min-width: 46px !important; padding-top: 1px !important; }
+  .schedule-info-name { font-size: 12px !important; }
+  .schedule-info-svc { font-size: 10px !important; }
+
+  /* 10. Quick Actions: 2-col grid, compact buttons */
+  .widget div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+  .widget div[style*="grid-template-columns:1fr 1fr"] .btn {
+    font-size: 10px !important;
+    padding: 0.4em 0.3em !important;
+    text-align: center !important;
+  }
+
+  /* 11. Live Activity: vertical stack (not horizontal scroll cards) */
+  .activity-scroll-wrap { display: flex !important; flex-direction: column !important; overflow-x: visible !important; gap: 0 !important; padding-bottom: 0 !important; }
+  .activity-scroll-wrap .activity-item { flex: unset !important; width: 100% !important; background: none !important; border: none !important; border-bottom: 1px solid var(--border-color-soft) !important; border-radius: 0 !important; padding: 8px 0 !important; }
+  .activity-text { word-break: break-word !important; font-size: 11px !important; }
+  .activity-time { font-size: 10px !important; }
+  .activity-icon { width: 28px !important; height: 28px !important; flex-shrink: 0 !important; }
+}
+
 @media (max-width: 576px) {
   .site-nav .nav-logo-name, 
   .site-nav .nav-logo-tagline { display: none !important; }

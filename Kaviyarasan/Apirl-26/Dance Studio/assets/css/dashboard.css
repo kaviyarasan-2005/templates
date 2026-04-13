@@ -245,7 +245,7 @@
 
 /* Sidebar collapse toggle */
 .sidebar-toggle {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 28px;
@@ -306,17 +306,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
-  top: var(--space-4);
-  z-index: calc(var(--z-sticky) - 1);
   box-shadow: var(--shadow-lg), inset 0 0 20px rgba(255, 255, 255, 0.02);
-}
 }
 
 .dashboard__topbar-left {
   display: flex;
   align-items: center;
   gap: var(--space-4);
+}
+
+.dashboard__topbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .dashboard__mobile-menu-btn {
@@ -466,11 +468,10 @@
 }
 
 /* === Stats Grid === */
-.stats-grid {
+.dashboard__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--space-6);
-  margin-bottom: var(--space-8);
 }
 
 .stat-card {
@@ -592,6 +593,14 @@
 
 .chart-card:hover {
   box-shadow: var(--shadow-lg);
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 1.5s var(--transition-spring);
+}
+
+.level-progress-ring {
+  transition: stroke-dashoffset 2s var(--transition-spring);
 }
 
 .chart-card__header {
@@ -897,7 +906,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .dashboard__sidebar {
     transform: translateX(-100%);
     width: 280px;
@@ -995,5 +1004,66 @@
 @media (min-width: 769px) {
   .dashboard__mobile-nav {
     display: none;
+  }
+}/* === User Dashboard Redesign Styles === */
+.user-profile-banner {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.user-profile-banner:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Entry Animations */
+@keyframes scaleUp {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hexagon Hover */
+.hexagon-badges g {
+  cursor: pointer;
+}
+
+.hexagon-badges g:hover polygon {
+  fill: rgba(var(--color-primary-rgb), 0.1);
+  stroke-width: 3;
+}
+
+/* Responsiveness for User Grid */
+@media (max-width: 1024px) {
+  .dashboard__grid[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .dashboard__grid > .dashboard__card {
+    grid-column: span 12 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-profile-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-4);
+  }
+  
+  .user-profile-banner > div {
+    justify-content: center;
   }
 }

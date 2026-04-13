@@ -9,6 +9,26 @@
   <link rel="icon" href="../assets/images/icons/favicon.svg" type="image/svg+xml"/><link rel="manifest" href="../manifest.json"/><link rel="stylesheet" href="../assets/css/main.css"/><link rel="stylesheet" href="../assets/css/components.css"/>
   <link rel="stylesheet" href="../assets/css/animations.css"/><link rel="stylesheet" href="../assets/css/dark-mode.css"/>
   <link rel="stylesheet" href="../assets/css/rtl.css"/><link rel="stylesheet" href="../assets/css/dashboard.css"/>
+  <style>
+    /* ── Admin dashboard mobile fixes (360px) ── */
+    .admin-chart-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .admin-chart-scroll svg { display: block; min-width: 340px; }
+    .admin-infogrid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+    @media(max-width:600px){
+      .admin-infogrid { grid-template-columns: 1fr; }
+      .admin-banner-top { flex-direction: column; align-items: stretch; gap: var(--space-2); }
+      .admin-banner-top .banner-actions { display: flex; gap: var(--space-1); }
+      .admin-banner-top .banner-actions .btn { flex: 1; text-align: center; }
+      .widget-header { flex-wrap: wrap; gap: 6px; }
+      .widget-header select { font-size: 11px !important; padding: 0.25em 0.5em !important; max-width: 130px; }
+      .admin-kpi-val { font-size: 1.4rem !important; }
+      .admin-kpi-delta { font-size: 10px !important; }
+      .schedule-item { align-items: flex-start; }
+      .activity-text { word-break: break-word; }
+      .dashboard-main { overflow-x: hidden; }
+      .widget, .table-widget { overflow: hidden; min-width: 0; box-sizing: border-box; }
+    }
+  </style>
 </head>
 <body>
 <!-- SIDEBAR OVERLAY -->
@@ -141,7 +161,7 @@
           <h1 class="admin-banner-greeting">Good morning, Élise ✦</h1>
           <p class="admin-banner-sub">Here's your business intelligence for today — April 9, 2026</p>
         </div>
-        <div style="display:flex;gap:var(--space-1)">
+        <div class="banner-actions">
           <a href="contact.html" class="btn btn-sm" style="background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.25)">+ Booking</a>
           <a href="#" class="btn btn-sm" style="background:linear-gradient(135deg,#D9B8A6,#8D6E63);color:#1a0f0a;border:none;font-weight:700">Export Report</a>
         </div>
@@ -183,107 +203,200 @@
               <a href="#" class="btn btn-ghost btn-sm">Export</a>
             </div>
           </div>
-          <svg viewBox="0 0 480 210" style="width:100%;height:auto;display:block" role="img" aria-label="Revenue bar chart showing monthly growth">
-            <defs>
-              <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#6D4C41"/>
-                <stop offset="100%" stop-color="#8D6E63"/>
-              </linearGradient>
-            </defs>
-            <line x1="40" y1="10" x2="40" y2="175" stroke="var(--border-color)" stroke-width="1"/>
-            <line x1="40" y1="175" x2="478" y2="175" stroke="var(--border-color)" stroke-width="1"/>
-            <line x1="40" y1="130" x2="478" y2="130" stroke="var(--border-color-soft)" stroke-width="1" stroke-dasharray="4,4"/>
-            <line x1="40" y1="90" x2="478" y2="90" stroke="var(--border-color-soft)" stroke-width="1" stroke-dasharray="4,4"/>
-            <line x1="40" y1="50" x2="478" y2="50" stroke="var(--border-color-soft)" stroke-width="1" stroke-dasharray="4,4"/>
-            <text x="30" y="179" text-anchor="end" font-size="10" fill="var(--text-muted)">$0</text>
-            <text x="30" y="134" text-anchor="end" font-size="10" fill="var(--text-muted)">$10k</text>
-            <text x="30" y="94" text-anchor="end" font-size="10" fill="var(--text-muted)">$18k</text>
-            <text x="30" y="54" text-anchor="end" font-size="10" fill="var(--text-muted)">$28k</text>
-            <!-- Ghost bars -->
-            <g fill="var(--color-brown)" opacity="0.1">
-              <rect x="55" y="120" width="52" height="55" rx="5"/><rect x="130" y="100" width="52" height="75" rx="5"/>
-              <rect x="205" y="80" width="52" height="95" rx="5"/><rect x="280" y="60" width="52" height="115" rx="5"/>
-              <rect x="355" y="40" width="52" height="135" rx="5"/><rect x="430" y="25" width="42" height="150" rx="5"/>
-            </g>
-            <!-- Actual bars -->
-            <g fill="url(#barGrad)">
-              <rect x="55" y="145" width="52" height="30" rx="5"/><rect x="130" y="120" width="52" height="55" rx="5"/>
-              <rect x="205" y="105" width="52" height="70" rx="5"/><rect x="280" y="85" width="52" height="90" rx="5"/>
-              <rect x="355" y="65" width="52" height="110" rx="5"/><rect x="430" y="50" width="42" height="125" rx="5"/>
-            </g>
-            <!-- Month values -->
-            <g font-size="10" font-weight="700" text-anchor="middle" fill="#8D6E63">
-              <text x="81" y="140">$8.2k</text><text x="156" y="115">$12.1k</text>
-              <text x="231" y="100">$15.4k</text><text x="306" y="80">$18.9k</text>
-              <text x="381" y="60">$22.3k</text><text x="451" y="45">$24.8k</text>
-            </g>
-            <!-- X labels -->
-            <g font-size="11" text-anchor="middle" fill="var(--text-muted)">
-              <text x="81" y="193">Nov</text><text x="156" y="193">Dec</text>
-              <text x="231" y="193">Jan</text><text x="306" y="193">Feb</text>
-              <text x="381" y="193">Mar</text><text x="451" y="193">Apr</text>
-            </g>
-            <!-- Trend line -->
-            <polyline points="81,145 156,120 231,105 306,85 381,65 451,50" fill="none" stroke="#D9B8A6" stroke-width="2" stroke-dasharray="5,3" opacity="0.8"/>
-          </svg>
+          <!-- Scrollable chart wrapper so it never overflows the card -->
+          <div class="admin-chart-scroll">
+            <svg viewBox="0 0 480 210" style="width:100%;height:auto;display:block;min-width:300px" role="img" aria-label="Revenue bar chart showing monthly growth">
+              <defs>
+                <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#6D4C41"/>
+                  <stop offset="100%" stop-color="#8D6E63"/>
+                </linearGradient>
+              </defs>
+              <line x1="40" y1="10" x2="40" y2="175" stroke="var(--border-color)" stroke-width="1"/>
+              <line x1="40" y1="175" x2="478" y2="175" stroke="var(--border-color)" stroke-width="1"/>
+              <line x1="40" y1="130" x2="478" y2="130" stroke="var(--border-color-soft)" stroke-width="1" stroke-dasharray="4,4"/>
+              <line x1="40" y1="90" x2="478" y2="90" stroke="var(--border-color-soft)" stroke-width="1" stroke-dasharray="4,4"/>
+              <line x1="40" y1="50" x2="478" y2="50" stroke="var(--border-color-soft)" stroke-width="1" stroke-dasharray="4,4"/>
+              <text x="30" y="179" text-anchor="end" font-size="10" fill="var(--text-muted)">$0</text>
+              <text x="30" y="134" text-anchor="end" font-size="10" fill="var(--text-muted)">$10k</text>
+              <text x="30" y="94" text-anchor="end" font-size="10" fill="var(--text-muted)">$18k</text>
+              <text x="30" y="54" text-anchor="end" font-size="10" fill="var(--text-muted)">$28k</text>
+              <g fill="var(--color-brown)" opacity="0.1">
+                <rect x="55" y="120" width="52" height="55" rx="5"/><rect x="130" y="100" width="52" height="75" rx="5"/>
+                <rect x="205" y="80" width="52" height="95" rx="5"/><rect x="280" y="60" width="52" height="115" rx="5"/>
+                <rect x="355" y="40" width="52" height="135" rx="5"/><rect x="430" y="25" width="42" height="150" rx="5"/>
+              </g>
+              <g fill="url(#barGrad)">
+                <rect x="55" y="145" width="52" height="30" rx="5"/><rect x="130" y="120" width="52" height="55" rx="5"/>
+                <rect x="205" y="105" width="52" height="70" rx="5"/><rect x="280" y="85" width="52" height="90" rx="5"/>
+                <rect x="355" y="65" width="52" height="110" rx="5"/><rect x="430" y="50" width="42" height="125" rx="5"/>
+              </g>
+              <g font-size="10" font-weight="700" text-anchor="middle" fill="#8D6E63">
+                <text x="81" y="140">$8.2k</text><text x="156" y="115">$12.1k</text>
+                <text x="231" y="100">$15.4k</text><text x="306" y="80">$18.9k</text>
+                <text x="381" y="60">$22.3k</text><text x="451" y="45">$24.8k</text>
+              </g>
+              <g font-size="11" text-anchor="middle" fill="var(--text-muted)">
+                <text x="81" y="193">Nov</text><text x="156" y="193">Dec</text>
+                <text x="231" y="193">Jan</text><text x="306" y="193">Feb</text>
+                <text x="381" y="193">Mar</text><text x="451" y="193">Apr</text>
+              </g>
+              <polyline points="81,145 156,120 231,105 306,85 381,65 451,50" fill="none" stroke="#D9B8A6" stroke-width="2" stroke-dasharray="5,3" opacity="0.8"/>
+            </svg>
+          </div>
         </div>
 
-        <!-- Infographics 2×2 -->
-        <div class="responsive-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)">
-          <!-- Donut -->
+        <!-- Infographics — 2-col desktop, 1-col mobile -->
+        <div class="admin-infogrid">
+
+          <!-- Service Mix — compact stacked bar + legend list -->
           <div class="widget">
             <div class="widget-header"><p class="widget-title">Service Mix</p><span style="font-size:var(--text-xs);color:var(--text-muted)">This Month</span></div>
-            <div class="flex-stack-mobile" style="display:flex;align-items:center;justify-content:center;gap:var(--space-3);flex-wrap:nowrap;width:100%">
-              <svg viewBox="0 0 160 160" style="width:min(100%, 130px); height:auto; flex-shrink:0" role="img" aria-label="Service breakdown donut">
-                <circle cx="80" cy="80" r="56" fill="none" stroke="var(--border-color-soft)" stroke-width="22"/>
-                <circle cx="80" cy="80" r="56" fill="none" stroke="#6D4C41" stroke-width="22" stroke-dasharray="113 239" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
-                <circle cx="80" cy="80" r="56" fill="none" stroke="#8D6E63" stroke-width="22" stroke-dasharray="85 267" stroke-dashoffset="-113" transform="rotate(-90 80 80)"/>
-                <circle cx="80" cy="80" r="56" fill="none" stroke="#D9B8A6" stroke-width="22" stroke-dasharray="71 281" stroke-dashoffset="-198" transform="rotate(-90 80 80)"/>
-                <circle cx="80" cy="80" r="56" fill="none" stroke="#E8CFC5" stroke-width="22" stroke-dasharray="83 269" stroke-dashoffset="-269" transform="rotate(-90 80 80)"/>
-                <text x="80" y="76" text-anchor="middle" font-size="20" font-weight="700" fill="var(--text-primary)">38</text>
-                <text x="80" y="92" text-anchor="middle" font-size="9" fill="var(--text-muted)">Sessions</text>
-              </svg>
-              <div style="display:flex;flex-direction:column;gap:6px;min-width:0;flex:1">
-                <div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#6D4C41;flex-shrink:0"></span><span style="font-size:11px;color:var(--text-secondary)">Shopping <b>32%</b></span></div>
-                <div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#8D6E63;flex-shrink:0"></span><span style="font-size:11px;color:var(--text-secondary)">Color <b>24%</b></span></div>
-                <div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#D9B8A6;flex-shrink:0"></span><span style="font-size:11px;color:var(--text-secondary)">Bridal <b>20%</b></span></div>
-                <div style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#E8CFC5;flex-shrink:0"></span><span style="font-size:11px;color:var(--text-secondary)">Wardrobe <b>24%</b></span></div>
+            <!-- Stacked bar -->
+            <div style="height:14px;border-radius:99px;overflow:hidden;display:flex;margin-bottom:var(--space-2)">
+              <div style="width:32%;background:#6D4C41" title="Shopping 32%"></div>
+              <div style="width:24%;background:#8D6E63" title="Color 24%"></div>
+              <div style="width:20%;background:#D9B8A6" title="Bridal 20%"></div>
+              <div style="width:24%;background:#E8CFC5" title="Wardrobe 24%"></div>
+            </div>
+            <!-- Legend rows with mini progress -->
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                <div style="display:flex;align-items:center;gap:6px;min-width:0">
+                  <span style="width:10px;height:10px;border-radius:2px;background:#6D4C41;flex-shrink:0"></span>
+                  <span style="font-size:12px;color:var(--text-secondary);white-space:nowrap">Shopping</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:0">
+                  <div style="flex:1;height:6px;background:var(--border-color-soft);border-radius:99px;overflow:hidden">
+                    <div style="height:100%;width:32%;background:#6D4C41;border-radius:99px"></div>
+                  </div>
+                  <b style="font-size:11px;color:var(--text-primary);white-space:nowrap">32%</b>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                <div style="display:flex;align-items:center;gap:6px;min-width:0">
+                  <span style="width:10px;height:10px;border-radius:2px;background:#8D6E63;flex-shrink:0"></span>
+                  <span style="font-size:12px;color:var(--text-secondary);white-space:nowrap">Color</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:0">
+                  <div style="flex:1;height:6px;background:var(--border-color-soft);border-radius:99px;overflow:hidden">
+                    <div style="height:100%;width:24%;background:#8D6E63;border-radius:99px"></div>
+                  </div>
+                  <b style="font-size:11px;color:var(--text-primary);white-space:nowrap">24%</b>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                <div style="display:flex;align-items:center;gap:6px;min-width:0">
+                  <span style="width:10px;height:10px;border-radius:2px;background:#D9B8A6;flex-shrink:0"></span>
+                  <span style="font-size:12px;color:var(--text-secondary);white-space:nowrap">Bridal</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:0">
+                  <div style="flex:1;height:6px;background:var(--border-color-soft);border-radius:99px;overflow:hidden">
+                    <div style="height:100%;width:20%;background:#D9B8A6;border-radius:99px"></div>
+                  </div>
+                  <b style="font-size:11px;color:var(--text-primary);white-space:nowrap">20%</b>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                <div style="display:flex;align-items:center;gap:6px;min-width:0">
+                  <span style="width:10px;height:10px;border-radius:2px;background:#E8CFC5;flex-shrink:0"></span>
+                  <span style="font-size:12px;color:var(--text-secondary);white-space:nowrap">Wardrobe</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:0">
+                  <div style="flex:1;height:6px;background:var(--border-color-soft);border-radius:99px;overflow:hidden">
+                    <div style="height:100%;width:24%;background:#E8CFC5;border-radius:99px"></div>
+                  </div>
+                  <b style="font-size:11px;color:var(--text-primary);white-space:nowrap">24%</b>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:var(--space-2);padding-top:var(--space-2);border-top:1px solid var(--border-color-soft);display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:11px;color:var(--text-muted)">Total sessions</span>
+              <span style="font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--text-primary)">38</span>
+            </div>
+          </div>
+
+          <!-- Monthly Goals — labeled progress bars -->
+          <div class="widget">
+            <div class="widget-header"><p class="widget-title">Monthly Goals</p><span style="font-size:var(--text-xs);color:var(--text-muted)">April 2026</span></div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+                  <span style="font-size:12px;color:var(--text-secondary);font-weight:500">Revenue</span>
+                  <span style="font-size:12px;font-weight:700;color:#6D4C41">80%</span>
+                </div>
+                <div style="height:10px;background:var(--border-color-soft);border-radius:99px;overflow:hidden">
+                  <div style="height:100%;width:80%;background:linear-gradient(90deg,#6D4C41,#8D6E63);border-radius:99px"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+                  <span style="font-size:12px;color:var(--text-secondary);font-weight:500">Sessions</span>
+                  <span style="font-size:12px;font-weight:700;color:#8D6E63">75%</span>
+                </div>
+                <div style="height:10px;background:var(--border-color-soft);border-radius:99px;overflow:hidden">
+                  <div style="height:100%;width:75%;background:linear-gradient(90deg,#8D6E63,#D9B8A6);border-radius:99px"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+                  <span style="font-size:12px;color:var(--text-secondary);font-weight:500">Clients</span>
+                  <span style="font-size:12px;font-weight:700;color:#D9B8A6">90%</span>
+                </div>
+                <div style="height:10px;background:var(--border-color-soft);border-radius:99px;overflow:hidden">
+                  <div style="height:100%;width:90%;background:linear-gradient(90deg,#D9B8A6,#c8a48e);border-radius:99px"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+                  <span style="font-size:12px;color:var(--text-secondary);font-weight:500">Rating</span>
+                  <span style="font-size:12px;font-weight:700;color:#4CAF50">95%</span>
+                </div>
+                <div style="height:10px;background:var(--border-color-soft);border-radius:99px;overflow:hidden">
+                  <div style="height:100%;width:95%;background:linear-gradient(90deg,#4CAF50,#81C784);border-radius:99px"></div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="widget">
-            <div class="widget-header"><p class="widget-title">Monthly Goals</p><span style="font-size:var(--text-xs);color:var(--text-muted)">April 2026</span></div>
-            <div class="responsive-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));gap:var(--space-2)">
-              <div style="text-align:center"><svg viewBox="0 0 80 80" style="display:block;margin:0 auto;width:min(100%, 76px);height:auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#6D4C41" stroke-width="8" stroke-dasharray="150 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">80%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Revenue</text></svg></div>
-              <div style="text-align:center"><svg viewBox="0 0 80 80" style="display:block;margin:0 auto;width:min(100%, 76px);height:auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#8D6E63" stroke-width="8" stroke-dasharray="141 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">75%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Sessions</text></svg></div>
-              <div style="text-align:center"><svg viewBox="0 0 80 80" style="display:block;margin:0 auto;width:min(100%, 76px);height:auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#D9B8A6" stroke-width="8" stroke-dasharray="169 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">90%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Clients</text></svg></div>
-              <div style="text-align:center"><svg viewBox="0 0 80 80" style="display:block;margin:0 auto;width:min(100%, 76px);height:auto"><circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-color-soft)" stroke-width="8"/><circle cx="40" cy="40" r="30" fill="none" stroke="#4CAF50" stroke-width="8" stroke-dasharray="179 188" stroke-dashoffset="47" transform="rotate(-90 40 40)"/><text x="40" y="37" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">95%</text><text x="40" y="48" text-anchor="middle" font-size="7" fill="var(--text-muted)">Rating</text></svg></div>
-            </div>
-          </div>
-          <!-- Growth line -->
+
+          <!-- Client Growth — compact sparkline + stat -->
           <div class="widget">
             <div class="widget-header"><p class="widget-title">Client Growth</p><span style="font-size:var(--text-xs);color:var(--text-muted)">8 Weeks</span></div>
-            <svg viewBox="0 0 300 130" style="width:100%;height:auto;display:block" role="img" aria-label="Client growth line chart">
-              <line x1="20" y1="10" x2="20" y2="110" stroke="var(--border-color)" stroke-width="1"/>
-              <line x1="20" y1="110" x2="298" y2="110" stroke="var(--border-color)" stroke-width="1"/>
-              <defs><linearGradient id="gGrad2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6D4C41" stop-opacity="0.2"/><stop offset="100%" stop-color="#6D4C41" stop-opacity="0"/></linearGradient></defs>
-              <polygon points="20,95 60,86 100,76 140,64 180,52 220,40 260,28 298,18 298,110 20,110" fill="url(#gGrad2)"/>
-              <polyline points="20,95 60,86 100,76 140,64 180,52 220,40 260,28 298,18" fill="none" stroke="#6D4C41" stroke-width="2" stroke-linejoin="round"/>
-              <g fill="#6D4C41"><circle cx="20" cy="95" r="3"/><circle cx="60" cy="86" r="3"/><circle cx="100" cy="76" r="3"/><circle cx="140" cy="64" r="3"/><circle cx="180" cy="52" r="3"/><circle cx="220" cy="40" r="3"/><circle cx="260" cy="28" r="3"/><circle cx="298" cy="18" r="4"/></g>
-              <g font-size="9" text-anchor="middle" fill="var(--text-muted)"><text x="20" y="124">W1</text><text x="60" y="124">W2</text><text x="100" y="124">W3</text><text x="140" y="124">W4</text><text x="180" y="124">W5</text><text x="220" y="124">W6</text><text x="260" y="124">W7</text><text x="298" y="124">W8</text></g>
-            </svg>
+            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-2)">
+              <div>
+                <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:700;color:var(--color-brown);line-height:1">+23</div>
+                <div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:3px">New Clients</div>
+              </div>
+              <div style="flex:1;min-width:0">
+                <svg viewBox="0 0 180 60" style="width:100%;height:auto;display:block" role="img" aria-label="Client growth sparkline">
+                  <defs><linearGradient id="spkGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6D4C41" stop-opacity="0.25"/><stop offset="100%" stop-color="#6D4C41" stop-opacity="0"/></linearGradient></defs>
+                  <polygon points="0,48 26,42 52,36 78,28 104,20 130,12 156,6 180,2 180,60 0,60" fill="url(#spkGrad)"/>
+                  <polyline points="0,48 26,42 52,36 78,28 104,20 130,12 156,6 180,2" fill="none" stroke="#6D4C41" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+                  <circle cx="180" cy="2" r="4" fill="#6D4C41"/>
+                </svg>
+              </div>
+            </div>
+            <!-- Week labels strip -->
+            <div style="display:flex;justify-content:space-between;padding-top:4px;border-top:1px solid var(--border-color-soft)">
+              <span style="font-size:9px;color:var(--text-muted)">W1</span><span style="font-size:9px;color:var(--text-muted)">W2</span>
+              <span style="font-size:9px;color:var(--text-muted)">W3</span><span style="font-size:9px;color:var(--text-muted)">W4</span>
+              <span style="font-size:9px;color:var(--text-muted)">W5</span><span style="font-size:9px;color:var(--text-muted)">W6</span>
+              <span style="font-size:9px;color:var(--text-muted)">W7</span><span style="font-size:9px;color:var(--text-muted)">W8</span>
+            </div>
           </div>
-          <!-- Horizontal bars -->
+
+          <!-- Top by Revenue — horizontal bars (already mobile-friendly) -->
           <div class="widget">
             <div class="widget-header"><p class="widget-title">Top by Revenue</p><span style="font-size:var(--text-xs);color:var(--text-muted)">This Month</span></div>
-            <div class="flex-stack-mobile" style="display:flex;flex-direction:column;gap:10px;padding-top:4px">
+            <div style="display:flex;flex-direction:column;gap:10px;padding-top:4px">
               <div><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="color:var(--text-secondary)">Bridal</span><strong>$7,990</strong></div><div style="height:8px;background:var(--border-color-soft);border-radius:99px;overflow:hidden"><div style="height:100%;width:96%;background:linear-gradient(90deg,#6D4C41,#8D6E63);border-radius:99px"></div></div></div>
               <div><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="color:var(--text-secondary)">Corporate</span><strong>$5,980</strong></div><div style="height:8px;background:var(--border-color-soft);border-radius:99px;overflow:hidden"><div style="height:100%;width:72%;background:linear-gradient(90deg,#8D6E63,#D9B8A6);border-radius:99px"></div></div></div>
               <div><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="color:var(--text-secondary)">Shopping</span><strong>$4,990</strong></div><div style="height:8px;background:var(--border-color-soft);border-radius:99px;overflow:hidden"><div style="height:100%;width:60%;background:linear-gradient(90deg,#D9B8A6,#E8CFC5);border-radius:99px"></div></div></div>
               <div><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="color:var(--text-secondary)">Wardrobe</span><strong>$3,180</strong></div><div style="height:8px;background:var(--border-color-soft);border-radius:99px;overflow:hidden"><div style="height:100%;width:38%;background:linear-gradient(90deg,#E8CFC5,#f0ddd6);border-radius:99px"></div></div></div>
             </div>
           </div>
-        </div>
+
+        </div><!-- /admin-infogrid -->
       </div>
 
       <!-- RIGHT PANEL -->

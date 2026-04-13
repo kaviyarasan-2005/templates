@@ -4,50 +4,34 @@
    ======================================== */
 
 const Dashboard = (() => {
-  let currentRole = 'admin';
 
   function init() {
     initSidebar();
     
-    // Check for role in URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const roleParam = urlParams.get('role');
-    if (roleParam === 'user') {
-      currentRole = 'user';
-      // Sync UI if toggle button exists
-      const toggleBtn = document.querySelector('.role-toggle');
-      if (toggleBtn) {
-        toggleBtn.classList.remove('admin');
-        const label = toggleBtn.querySelector('.role-toggle__label');
-        if (label) label.textContent = 'User View';
-      }
-      // Update items with data-role
-      updateRoleUI();
-    }
-
-    initRoleToggle();
-    initSortableTable();
-    initProgressRings();
-    initCounters();
-    initLineChart();
-    initDonutChart();
-    initRadarChart();
-    initHeatMap();
-    initChat();
-    initMobileNav();
+    // Delay chart initialization to ensure container dimensions are calculated
+    setTimeout(() => {
+        // Admin & Common
+        initSortableTable();
+        initProgressRings();
+        initCounters();
+        initLineChart();
+        initDonutChart();
+        initRadarChart();
+        initHeatMap();
+        initAttendanceHeatMap();
+        
+        // User Specific Redesign
+        initWaveChart();
+        initGoalRings();
+        initBadges();
+        initLevelProgress();
+        
+        initChat();
+        initMobileNav();
+    }, 250);
   }
 
-  function updateRoleUI() {
-    document.querySelectorAll('[data-role]').forEach(el => {
-      const roles = el.dataset.role.split(',').map(r => r.trim());
-      el.style.display = roles.includes(currentRole) ? '' : 'none';
-    });
-    
-    document.querySelectorAll('.dashboard__nav-item[data-role]').forEach(item => {
-      const roles = item.dataset.role.split(',').map(r => r.trim());
-      item.style.display = roles.includes(currentRole) ? '' : 'none';
-    });
-  }
+
 
   /* === Sidebar Collapse === */
   function initSidebar() {
@@ -69,7 +53,7 @@ const Dashboard = (() => {
 
     // Close sidebar on overlay click (mobile)
     document.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768 && sidebar.classList.contains('mobile-open')) {
+      if (window.innerWidth <= 1024 && sidebar.classList.contains('mobile-open')) {
         if (!sidebar.contains(e.target) && !e.target.closest('.dashboard__mobile-menu-btn')) {
           sidebar.classList.remove('mobile-open');
         }
@@ -77,24 +61,6 @@ const Dashboard = (() => {
     });
   }
 
-  /* === Role Toggle (Admin <-> User) === */
-  function initRoleToggle() {
-    const toggleBtn = document.querySelector('.role-toggle');
-    if (!toggleBtn) return;
-
-    toggleBtn.addEventListener('click', () => {
-      toggleBtn.classList.toggle('admin');
-      currentRole = toggleBtn.classList.contains('admin') ? 'admin' : 'user';
-      
-      // Update role label
-      const label = toggleBtn.querySelector('.role-toggle__label');
-      if (label) {
-        label.textContent = currentRole === 'admin' ? 'Admin View' : 'User View';
-      }
-
-      updateRoleUI();
-    });
-  }
 
   /* === Sortable Table === */
   function initSortableTable() {
@@ -162,7 +128,7 @@ const Dashboard = (() => {
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 0.1 });
 
       observer.observe(ring);
     });
@@ -181,7 +147,7 @@ const Dashboard = (() => {
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 0.1 });
       
       observer.observe(el);
     });
@@ -208,115 +174,138 @@ const Dashboard = (() => {
 
   /* === SVG Line Chart === */
   function initLineChart() {
-    const chartContainer = document.querySelector('.line-chart');
-    if (!chartContainer) return;
+    document.querySelectorAll('.line-chart').forEach(container => {
+      const data = JSON.parse(container.dataset.values || '[]');
+      const labels = JSON.parse(container.dataset.labels || '[]');
+      if (!data.length) return;
 
-    const data = JSON.parse(chartContainer.dataset.values || '[]');
-    const labels = JSON.parse(chartContainer.dataset.labels || '[]');
-    if (!data.length) return;
+      container.innerHTML = '';
+      const width = container.offsetWidth || 400;
+      const height = 250;
+      const padding = { top: 20, right: 20, bottom: 40, left: 50 };
+      const chartW = width - padding.left - padding.right;
+      const chartH = height - padding.top - padding.bottom;
 
-    const width = chartContainer.offsetWidth;
-    const height = 250;
-    const padding = { top: 20, right: 20, bottom: 40, left: 50 };
-    const chartW = width - padding.left - padding.right;
-    const chartH = height - padding.top - padding.bottom;
+      const maxVal = Math.max(...data) * 1.1;
+      const minVal = 0;
 
-    const maxVal = Math.max(...data) * 1.1;
-    const minVal = 0;
+      const svg = createSVGElement('svg', { width, height, viewBox: `0 0 ${width} ${height}` });
 
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('width', width);
-    svg.setAttribute('height', height);
-    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+      // Grid lines
+      for (let i = 0; i <= 4; i++) {
+        const y = padding.top + (chartH / 4) * i;
+        svg.appendChild(createSVGElement('line', {
+          x1: padding.left, y1: y, x2: width - padding.right, y2: y,
+          stroke: 'var(--border-color)', 'stroke-width': 1, 'stroke-dasharray': '4,4'
+        }));
 
-    // Grid lines
-    for (let i = 0; i <= 4; i++) {
-      const y = padding.top + (chartH / 4) * i;
-      const line = createSVGElement('line', {
-        x1: padding.left, y1: y,
-        x2: width - padding.right, y2: y,
-        stroke: 'var(--border-color)', 'stroke-width': 1, 'stroke-dasharray': '4,4'
+        const val = Math.round(maxVal - (maxVal / 4) * i);
+        const text = createSVGElement('text', {
+          x: padding.left - 10, y: y + 4, 'text-anchor': 'end', fill: 'var(--text-tertiary)', 'font-size': '11'
+        });
+        text.textContent = val;
+        svg.appendChild(text);
+      }
+
+      // Points and path
+      const points = data.map((val, i) => ({
+        x: padding.left + (i / (data.length - 1)) * chartW,
+        y: padding.top + chartH - ((val - minVal) / (maxVal - minVal)) * chartH
+      }));
+
+      // Area fill
+      const areaPath = `M${points[0].x},${padding.top + chartH} ` +
+        points.map(p => `L${p.x},${p.y}`).join(' ') +
+        ` L${points[points.length - 1].x},${padding.top + chartH} Z`;
+
+      const defs = createSVGElement('defs', {});
+      const gradient = createSVGElement('linearGradient', { id: 'chartGradient', x1: '0', y1: '0', x2: '0', y2: '1' });
+      gradient.appendChild(createSVGElement('stop', { offset: '0%', 'stop-color': 'var(--color-primary)', 'stop-opacity': '0.4' }));
+      gradient.appendChild(createSVGElement('stop', { offset: '100%', 'stop-color': 'var(--color-primary)', 'stop-opacity': '0' }));
+      defs.appendChild(gradient);
+      svg.appendChild(defs);
+      svg.appendChild(createSVGElement('path', { d: areaPath, fill: 'url(#chartGradient)', opacity: '0.3' }));
+
+      // Line
+      const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ');
+      const line = createSVGElement('path', {
+        d: linePath, fill: 'none', stroke: 'var(--color-primary)',
+        'stroke-width': 2.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
       });
+      line.style.animation = 'drawLine 1.5s ease forwards';
       svg.appendChild(line);
 
-      const val = Math.round(maxVal - (maxVal / 4) * i);
-      const text = createSVGElement('text', {
-        x: padding.left - 10, y: y + 4,
-        'text-anchor': 'end', fill: 'var(--text-tertiary)',
-        'font-size': '11', 'font-family': 'var(--font-body)'
+      // X-axis labels
+      labels.forEach((label, i) => {
+        if (i >= points.length) return;
+        const text = createSVGElement('text', {
+          x: points[i].x, y: height - 8, 'text-anchor': 'middle', fill: 'var(--text-tertiary)', 'font-size': '11'
+        });
+        text.textContent = label;
+        svg.appendChild(text);
       });
-      text.textContent = val;
-      svg.appendChild(text);
-    }
 
-    // Points and path
-    const points = data.map((val, i) => ({
-      x: padding.left + (i / (data.length - 1)) * chartW,
-      y: padding.top + chartH - ((val - minVal) / (maxVal - minVal)) * chartH
-    }));
-
-    // Area fill
-    const areaPath = `M${points[0].x},${padding.top + chartH} ` +
-      points.map(p => `L${p.x},${p.y}`).join(' ') +
-      ` L${points[points.length - 1].x},${padding.top + chartH} Z`;
-
-    const area = createSVGElement('path', {
-      d: areaPath,
-      fill: 'url(#chartGradient)', opacity: '0.3'
+      container.appendChild(svg);
     });
-
-    // Gradient definition
-    const defs = createSVGElement('defs', {});
-    const gradient = createSVGElement('linearGradient', {
-      id: 'chartGradient', x1: '0', y1: '0', x2: '0', y2: '1'
-    });
-    const stop1 = createSVGElement('stop', { offset: '0%', 'stop-color': 'var(--color-primary)', 'stop-opacity': '0.4' });
-    const stop2 = createSVGElement('stop', { offset: '100%', 'stop-color': 'var(--color-primary)', 'stop-opacity': '0' });
-    gradient.appendChild(stop1);
-    gradient.appendChild(stop2);
-    defs.appendChild(gradient);
-    svg.appendChild(defs);
-    svg.appendChild(area);
-
-    // Line
-    const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ');
-    const line = createSVGElement('path', {
-      d: linePath, fill: 'none', stroke: 'var(--color-primary)',
-      'stroke-width': 2.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
-    });
-    
-    // Animate drawing
-    const lineLength = line.getTotalLength ? 1000 : 1000;
-    line.style.strokeDasharray = lineLength;
-    line.style.strokeDashoffset = lineLength;
-    line.style.animation = 'drawLine 1.5s ease forwards';
-    svg.appendChild(line);
-
-    // Dots
-    points.forEach((p, i) => {
-      const dot = createSVGElement('circle', {
-        cx: p.x, cy: p.y, r: 4,
-        fill: 'var(--bg-card)', stroke: 'var(--color-primary)', 'stroke-width': 2.5
-      });
-      dot.style.opacity = '0';
-      dot.style.animation = `fadeIn 0.3s ease ${0.1 * i + 1}s forwards`;
-      svg.appendChild(dot);
-    });
-
-    // X-axis labels
-    labels.forEach((label, i) => {
-      if (i >= points.length) return;
-      const text = createSVGElement('text', {
-        x: points[i].x, y: height - 8,
-        'text-anchor': 'middle', fill: 'var(--text-tertiary)',
-        'font-size': '11', 'font-family': 'var(--font-body)'
-      });
-      text.textContent = label;
-      svg.appendChild(text);
-    });
-
-    chartContainer.appendChild(svg);
   }
+
+  /* === SVG Wave Chart (Novel Area Chart) === */
+  function initWaveChart() {
+    document.querySelectorAll('.wave-chart').forEach(container => {
+      const data = JSON.parse(container.dataset.values || '[]');
+      const labels = JSON.parse(container.dataset.labels || '[]');
+      if (!data.length) return;
+
+      container.innerHTML = '';
+      const width = container.offsetWidth || 500;
+      const height = 250;
+      const padding = { top: 20, right: 30, bottom: 40, left: 40 };
+      const chartW = width - padding.left - padding.right;
+      const chartH = height - padding.top - padding.bottom;
+
+      const maxVal = Math.max(...data) * 1.1;
+      const svg = createSVGElement('svg', { width, height, viewBox: `0 0 ${width} ${height}` });
+
+      const defs = createSVGElement('defs', {});
+      const gradient = createSVGElement('linearGradient', { id: 'waveGradient', x1: '0%', y1: '0%', x2: '0%', y2: '100%' });
+      gradient.appendChild(createSVGElement('stop', { offset: '0%', 'stop-color': 'var(--color-primary)', 'stop-opacity': '0.3' }));
+      gradient.appendChild(createSVGElement('stop', { offset: '100%', 'stop-color': 'var(--color-primary)', 'stop-opacity': '0' }));
+      defs.appendChild(gradient);
+      svg.appendChild(defs);
+
+      const points = data.map((val, i) => ({
+        x: padding.left + (i / (data.length - 1)) * chartW,
+        y: padding.top + chartH - (val / maxVal) * chartH
+      }));
+
+      let d = `M ${points[0].x} ${points[0].y}`;
+      for (let i = 0; i < points.length - 1; i++) {
+          const curr = points[i];
+          const next = points[i + 1];
+          const cpX = curr.x + (next.x - curr.x) / 2;
+          d += ` C ${cpX} ${curr.y}, ${cpX} ${next.y}, ${next.x} ${next.y}`;
+      }
+
+      const fillPath = d + ` L ${points[points.length - 1].x} ${padding.top + chartH} L ${points[0].x} ${padding.top + chartH} Z`;
+      svg.appendChild(createSVGElement('path', { d: fillPath, fill: 'url(#waveGradient)', opacity: '0.8' }));
+      
+      const strokeEl = createSVGElement('path', { d: d, fill: 'none', stroke: 'var(--color-primary)', 'stroke-width': '3', 'stroke-linecap': 'round' });
+      strokeEl.style.animation = 'fadeIn 1s ease forwards';
+      svg.appendChild(strokeEl);
+
+      labels.forEach((label, i) => {
+          const text = createSVGElement('text', {
+              x: points[i].x, y: height - 10, 'text-anchor': 'middle', fill: 'var(--text-tertiary)', 'font-size': '12'
+          });
+          text.textContent = label;
+          svg.appendChild(text);
+      });
+
+      container.appendChild(svg);
+    });
+  }
+
+  /* === SVG Bar Chart === */
 
   /* === SVG Donut Chart === */
   function initDonutChart() {
@@ -324,6 +313,7 @@ const Dashboard = (() => {
       const data = JSON.parse(container.dataset.values || '[]');
       if (!data.length) return;
 
+      container.innerHTML = '';
       const size = 200;
       const radius = 80;
       const thickness = 20;
@@ -338,25 +328,24 @@ const Dashboard = (() => {
       data.forEach((item, i) => {
         const slicePercent = (item.value / total);
         const dashArray = (slicePercent * circumference);
-        const dashOffset = -currentAngle / 360 * (2 * Math.PI * radius); // Simplified for this logic
 
         const circle = createSVGElement('circle', {
           cx: center, cy: center, r: radius - thickness / 2,
           fill: 'none', stroke: item.color || 'var(--color-primary)',
           'stroke-width': thickness,
           'stroke-dasharray': `${dashArray} ${circumference}`,
-          'stroke-dashoffset': 0,
+          'stroke-dashoffset': dashArray,
           transform: `rotate(${currentAngle} ${center} ${center})`,
           'stroke-linecap': 'butt'
         });
 
-        // Animation
-        circle.style.opacity = '0';
         circle.style.transition = 'stroke-dashoffset 1s ease, opacity 0.5s ease';
-        
         svg.appendChild(circle);
         
-        // Cumulative angle
+        setTimeout(() => {
+            circle.style.strokeDashoffset = '0';
+        }, 300 + (i * 100));
+
         currentAngle += (slicePercent * 360);
       });
 
@@ -369,11 +358,6 @@ const Dashboard = (() => {
       svg.appendChild(totalLabel);
 
       container.appendChild(svg);
-      
-      // Trigger animation
-      setTimeout(() => {
-        svg.querySelectorAll('circle').forEach(c => c.style.opacity = '1');
-      }, 100);
     });
   }
 
@@ -384,6 +368,7 @@ const Dashboard = (() => {
       const labels = JSON.parse(container.dataset.labels || '[]');
       if (!data.length) return;
 
+      container.innerHTML = '';
       const size = 300;
       const center = size / 2;
       const radius = 100;
@@ -450,48 +435,63 @@ const Dashboard = (() => {
     if (!container) return;
 
     const data = [
-      [2, 5, 8, 3, 1, 0, 4], // 9AM
-      [4, 9, 3, 6, 8, 3, 2], // 11AM
-      [7, 3, 9, 1, 5, 8, 4], // 1PM
-      [3, 6, 2, 8, 4, 3, 9], // 3PM
-      [8, 4, 7, 3, 9, 2, 5], // 5PM
-      [9, 8, 4, 2, 6, 9, 3]  // 7PM
+      [2, 5, 8, 3, 1, 0, 4], [4, 9, 3, 6, 8, 3, 2], [7, 3, 9, 1, 5, 8, 4],
+      [3, 6, 2, 8, 4, 3, 9], [8, 4, 7, 3, 9, 2, 5], [9, 8, 4, 2, 6, 9, 3]
     ];
 
-    const size = { w: container.offsetWidth, h: 180 };
-    const svg = createSVGElement('svg', { width: '100%', height: size.h });
+    container.innerHTML = '';
+    const width = container.offsetWidth || 500;
+    const height = 180;
+    const svg = createSVGElement('svg', { width: '100%', height, viewBox: `0 0 ${width} ${height}` });
     
     const rows = data.length;
     const cols = 7;
     const padding = 4;
-    const cellW = (container.offsetWidth - (cols * padding)) / cols;
-    const cellH = (size.h - (rows * padding)) / rows;
+    const cellW = (width - (cols * padding)) / cols;
+    const cellH = (height - (rows * padding)) / rows;
 
     data.forEach((row, ri) => {
       row.forEach((val, ci) => {
         const opacity = val / 10;
         const rect = createSVGElement('rect', {
-          x: ci * (cellW + padding),
-          y: ri * (cellH + padding),
-          width: cellW, height: cellH,
-          rx: 4, ry: 4,
-          fill: 'var(--color-primary)',
-          'fill-opacity': opacity === 0 ? 0.05 : opacity
+          x: ci * (cellW + padding), y: ri * (cellH + padding),
+          width: cellW, height: cellH, rx: 4, ry: 4,
+          fill: 'var(--color-primary)', 'fill-opacity': opacity === 0 ? 0.05 : opacity
         });
-        
-        // Tooltip interaction
-        rect.addEventListener('mouseenter', (e) => {
-          rect.style.stroke = 'var(--color-accent)';
-          rect.style.strokeWidth = '2px';
-        });
-        rect.addEventListener('mouseleave', () => {
-          rect.style.stroke = 'none';
-        });
-
         svg.appendChild(rect);
       });
     });
+    container.appendChild(svg);
+  }
 
+  /* === SVG Attendance Heatmap === */
+  function initAttendanceHeatMap() {
+    const container = document.querySelector('.attendance-heatmap');
+    if (!container) return;
+
+    const data = [[1,0,1,1,1,1,0], [1,1,1,0,1,1,0], [0,1,1,1,1,0,0], [1,1,1,1,1,1,0], [1,1,0,1,1,1,0]];
+    container.innerHTML = '';
+    const width = container.offsetWidth || 500;
+    const height = 140;
+    const svg = createSVGElement('svg', { width: '100%', height, viewBox: `0 0 ${width} ${height}` });
+    
+    const rows = data.length;
+    const cols = 7;
+    const padding = 4;
+    const cellW = (width - (cols * padding)) / cols;
+    const cellH = (height - (rows * padding)) / rows;
+
+    data.forEach((row, ri) => {
+      row.forEach((val, ci) => {
+        const fill = val === 1 ? 'var(--color-primary)' : 'var(--border-color)';
+        const rect = createSVGElement('rect', {
+          x: ci * (cellW + padding), y: ri * (cellH + padding),
+          width: cellW, height: cellH, rx: 4, ry: 4, fill: fill,
+          'fill-opacity': val === 1 ? (Math.random() * 0.4 + 0.6) : 1
+        });
+        svg.appendChild(rect);
+      });
+    });
     container.appendChild(svg);
   }
 
@@ -558,6 +558,146 @@ const Dashboard = (() => {
     chatInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') sendMessage();
     });
+  }
+
+  /* === SVG Concentric Goal Rings === */
+  function initGoalRings() {
+    const container = document.querySelector('.goal-rings');
+    if (!container) return;
+
+    const goals = [
+        { label: 'Technique', percent: 85, color: 'var(--color-primary)' },
+        { label: 'Rhythm', percent: 65, color: 'var(--color-accent)' },
+        { label: 'Stamina', percent: 90, color: '#48BB78' }
+    ];
+
+    const size = 260;
+    const center = size / 2;
+    const baseRadius = 100;
+    const thickness = 20;
+    const spacing = 28;
+
+    const svg = createSVGElement('svg', { width: size, height: size, viewBox: `0 0 ${size} ${size}` });
+
+    goals.forEach((goal, i) => {
+        const r = baseRadius - (i * spacing);
+        const circ = 2 * Math.PI * r;
+        
+        // Background track
+        svg.appendChild(createSVGElement('circle', {
+            cx: center, cy: center, r: r,
+            fill: 'none', stroke: 'var(--border-color)', 'stroke-width': thickness, opacity: '0.3'
+        }));
+
+        // Progress bar
+        const ring = createSVGElement('circle', {
+            cx: center, cy: center, r: r,
+            fill: 'none', stroke: goal.color, 'stroke-width': thickness,
+            'stroke-dasharray': circ, 'stroke-dashoffset': circ,
+            'stroke-linecap': 'round', transform: `rotate(-90 ${center} ${center})`
+        });
+
+        ring.style.transition = 'stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1)';
+        svg.appendChild(ring);
+
+        // Label on ring
+        const label = createSVGElement('text', {
+            x: center, y: center - r + 5,
+            'text-anchor': 'middle', fill: 'white', 'font-size': '10', 'font-weight': 'bold'
+        });
+        label.textContent = goal.percent + '%';
+        label.style.opacity = '0';
+        label.style.transition = 'opacity 0.5s ease 1.5s';
+        /** svg.appendChild(label); **/
+
+        setTimeout(() => {
+            ring.style.strokeDashoffset = circ - (goal.percent / 100) * circ;
+            label.style.opacity = '1';
+        }, 100 + (i * 200));
+    });
+
+    container.appendChild(svg);
+  }
+
+  /* === SVG Hexagon Badges === */
+  function initBadges() {
+    const container = document.querySelector('.hexagon-badges');
+    if (!container) return;
+
+    const badges = [
+        { icon: '\uf005', color: 'gold', label: 'Pro' },
+        { icon: '\uf06d', color: '#ff4d4d', label: 'Streak' },
+        { icon: '\uf11b', color: '#00ccff', label: 'Master' },
+        { icon: '\uf121', color: '#cc33ff', label: 'Logic' },
+        { icon: '\uf0e7', color: 'orange', label: 'Fast' }
+    ];
+
+    const svgSize = 300;
+    const svg = createSVGElement('svg', { width: '100%', height: '100%', viewBox: `0 0 ${svgSize} ${svgSize}` });
+    
+    // Hexagon math
+    const hexWidth = 60;
+    const hexHeight = 70;
+    const center = svgSize / 2;
+
+    const positions = [
+        { x: center, y: center },
+        { x: center - hexWidth * 0.8, y: center - hexHeight / 2 },
+        { x: center + hexWidth * 0.8, y: center - hexHeight / 2 },
+        { x: center - hexWidth * 0.8, y: center + hexHeight / 2 },
+        { x: center + hexWidth * 0.8, y: center + hexHeight / 2 }
+    ];
+
+    positions.forEach((pos, i) => {
+        const badge = badges[i];
+        const group = createSVGElement('g', { transform: `translate(${pos.x}, ${pos.y})` });
+        
+        // Polygon points for hex
+        const points = '0,-30 26,-15 26,15 0,30 -26,15 -26,-15';
+        const hex = createSVGElement('polygon', {
+            points: points, fill: 'var(--bg-card)', stroke: badge.color, 'stroke-width': '2'
+        });
+        
+        const icon = createSVGElement('text', {
+            x: 0, y: 5, 'text-anchor': 'middle', 'dominant-baseline': 'middle',
+            'font-family': '"Font Awesome 6 Free"', 'font-weight': '900', fill: badge.color, 'font-size': '20'
+        });
+        icon.textContent = badge.icon;
+
+        group.appendChild(hex);
+        group.appendChild(icon);
+        
+        group.style.opacity = '0';
+        group.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(0)`;
+        group.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        
+        svg.appendChild(group);
+
+        setTimeout(() => {
+            group.style.opacity = '1';
+            group.style.transform = `translate(${pos.x}px, ${pos.y}px) scale(1)`;
+        }, 500 + (i * 150));
+    });
+
+    container.appendChild(svg);
+  }
+
+  /* === User Level Progress Banner === */
+  function initLevelProgress() {
+    const ring = document.querySelector('.level-progress-ring');
+    const text = document.querySelector('.level-progress-text');
+    if (!ring) return;
+
+    const radius = 50;
+    const circumference = 2 * Math.PI * radius;
+    ring.style.strokeDasharray = circumference;
+    ring.style.strokeDashoffset = circumference;
+
+    const percent = 78; // Current progress to Level 12
+    setTimeout(() => {
+        ring.style.strokeDashoffset = circumference - (percent / 100) * circumference;
+        if (text) animateValue(text, 0, percent, 2000, '%');
+    }, 500);
   }
 
   function escapeHtml(str) {

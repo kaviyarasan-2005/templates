@@ -7,7 +7,7 @@ const getNavMenu = (isRoot) => {
     return `
         <ul class="navbar__menu">
           <li class="navbar__item navbar__dropdown">
-            <a href="${r}index.html" class="navbar__link navbar__dropdown-toggle">Home <i class="fas fa-chevron-down"></i></a>
+            <a href="${r}index.html" class="navbar__link navbar__dropdown-toggle">Home</a>
             <ul class="navbar__dropdown-menu">
               <li><a href="${r}index.html" class="navbar__dropdown-item">Home 1</a></li>
               <li><a href="${p}home-2.html" class="navbar__dropdown-item">Home 2</a></li>
@@ -15,14 +15,14 @@ const getNavMenu = (isRoot) => {
           </li>
           <li class="navbar__item"><a href="${p}about.html" class="navbar__link">About</a></li>
           <li class="navbar__item navbar__dropdown">
-            <a href="${p}services.html" class="navbar__link navbar__dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+            <a href="${p}services.html" class="navbar__link navbar__dropdown-toggle">Services</a>
             <ul class="navbar__dropdown-menu">
               <li><a href="${p}services.html" class="navbar__dropdown-item">Services</a></li>
               <li><a href="${p}service-detail.html" class="navbar__dropdown-item">Service Details</a></li>
             </ul>
           </li>
           <li class="navbar__item navbar__dropdown">
-            <a href="${p}blog.html" class="navbar__link navbar__dropdown-toggle">Blog <i class="fas fa-chevron-down"></i></a>
+            <a href="${p}blog.html" class="navbar__link navbar__dropdown-toggle">Blog</a>
             <ul class="navbar__dropdown-menu">
               <li><a href="${p}blog.html" class="navbar__dropdown-item">Blogs</a></li>
               <li><a href="${p}blog-detail.html" class="navbar__dropdown-item">Blog Details</a></li>
@@ -30,7 +30,7 @@ const getNavMenu = (isRoot) => {
           </li>
           <li class="navbar__item"><a href="${p}pricing.html" class="navbar__link">Pricing</a></li>
           <li class="navbar__item navbar__dropdown">
-            <a href="#" class="navbar__link navbar__dropdown-toggle">Dashboard <i class="fas fa-chevron-down"></i></a>
+            <a href="#" class="navbar__link navbar__dropdown-toggle">Dashboard</a>
             <ul class="navbar__dropdown-menu">
               <li><a href="${p}admin-dashboard.html" class="navbar__dropdown-item">Admin</a></li>
               <li><a href="${p}dashboard.html" class="navbar__dropdown-item">Dashboard</a></li>
@@ -74,7 +74,7 @@ function processFiles(dir) {
             if (content.match(innerRegex)) {
                 const logoHtml = `<a href="${isRoot ? 'index.html' : '../index.html'}" class="navbar__logo">
           <div class="navbar__logo-icon"><i class="fas fa-music"></i></div>
-          <div class="navbar__logo-text"><span>Élan</span></div>
+          <div class="navbar__logo-text"><span>Alan</span></div>
         </a>`;
                 
                 const newInner = `<div class="navbar__inner">

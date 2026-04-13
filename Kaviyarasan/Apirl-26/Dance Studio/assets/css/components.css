@@ -142,9 +142,9 @@
   cursor: pointer;
 }
 
-.navbar__dropdown-toggle .chevron {
-  transition: transform var(--transition-fast);
-  font-size: 10px;
+.navbar__dropdown-toggle .chevron,
+.navbar__dropdown-toggle .fa-chevron-down {
+  display: none;
 }
 
 .navbar__dropdown:hover .chevron,

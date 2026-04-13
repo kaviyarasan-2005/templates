@@ -5,9 +5,9 @@
 
 /* === Base Direction & Fonts === */
 [dir="rtl"] {
-  --font-body: 'Cairo', 'Inter', sans-serif;
-  --font-heading: 'Amiri', 'Playfair Display', serif;
-  --font-accent: 'Amiri', 'Dancing Script', serif;
+  --font-body: 'Inter', 'Cairo', sans-serif;
+  --font-heading: 'Playfair Display', 'Amiri', serif;
+  --font-accent: 'Dancing Script', 'Amiri', serif;
   
   font-family: var(--font-body);
 }
