@@ -1088,7 +1088,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 .search-bar .form-input { flex: 1; }
 
 /* Filter Tags */
-.filter-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-bottom: var(--space-4); }
+.filter-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-bottom: var(--space-4); justify-content: center; }
 .filter-tag {
   padding: 6px 16px;
   border-radius: var(--border-radius-full);

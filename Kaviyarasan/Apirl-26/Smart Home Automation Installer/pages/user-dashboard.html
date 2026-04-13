@@ -15,8 +15,8 @@
   <style>
     /* User Dashboard Specific Overrides */
     :root {
-      --color-primary: #10B981; /* Emerald Green for User Dashboard */
-      --color-primary-rgb: 16, 185, 129;
+      /* Palette unified with main site */
+      --color-primary: var(--color-primary); 
     }
     
     .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1000;}
@@ -217,8 +217,8 @@
         <div class="infograph-card">
           <h4>Security Status</h4>
           <div style="text-align:center; padding:var(--space-2) 0;">
-            <svg xmlns="http://www.w3.org/2000/svg" style="width:48px; height:48px; color:#10B981" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            <p style="font-weight:bold; color:#10B981">System Armed</p>
+            <svg xmlns="http://www.w3.org/2000/svg" style="width:48px; height:48px; color:var(--color-success)" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <p style="font-weight:bold; color:var(--color-success)">System Armed</p>
           </div>
         </div>
         <div class="infograph-card">
@@ -231,12 +231,15 @@
         </div>
         <div class="infograph-card">
           <h4>Water Usage</h4>
-          <div style="text-align:center; padding-top:8px;">
-            <svg viewBox="0 0 36 36" style="width:80px; height:80px; transform:rotate(-90deg);">
+          <div style="position: relative; width: 80px; height: 80px; margin: var(--space-2) auto 0;">
+            <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg); display: block;">
               <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--border-color)" stroke-width="3" />
               <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#2563EB" stroke-width="3" stroke-dasharray="65, 100" stroke-linecap="round" />
             </svg>
-            <div style="margin-top:-50px; padding-bottom:20px;"><strong style="font-size:16px;">65%</strong><br><span style="font-size:9px; color:var(--text-tertiary);">Weekly Goal</span></div>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%; line-height: 1;">
+              <strong style="font-size: 16px; display: block;">65%</strong>
+              <span style="font-size: 9px; color: var(--text-tertiary); display: block; margin-top: 2px;">Weekly Goal</span>
+            </div>
           </div>
         </div>
       </div>
@@ -268,14 +271,14 @@
         <div class="room-card">
           <div class="room-card__header">
             <h4 class="room-card__title">Living Room</h4>
-            <span style="width:8px; height:8px; background:#10B981; border-radius:50%;"></span>
+            <span style="width:8px; height:8px; background:var(--color-success); border-radius:50%;"></span>
           </div>
           <div class="room-card__stats"><span>72°F</span><span>45% RH</span></div>
         </div>
         <div class="room-card">
           <div class="room-card__header">
             <h4 class="room-card__title">Bedroom</h4>
-            <span style="width:8px; height:8px; background:#10B981; border-radius:50%;"></span>
+            <span style="width:8px; height:8px; background:var(--color-success); border-radius:50%;"></span>
           </div>
           <div class="room-card__stats"><span>68°F</span><span>50% RH</span></div>
         </div>
@@ -289,7 +292,7 @@
         <div class="room-card">
           <div class="room-card__header">
             <h4 class="room-card__title">Home Office</h4>
-            <span style="width:8px; height:8px; background:#10B981; border-radius:50%;"></span>
+            <span style="width:8px; height:8px; background:var(--color-success); border-radius:50%;"></span>
           </div>
           <div class="room-card__stats"><span>71°F</span><span>42% RH</span></div>
         </div>
@@ -301,7 +304,7 @@
         <table class="data-table data-table--compact" style="margin:0; border:none;">
           <thead><tr><th>Event</th><th>Room</th><th>Time</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td>Motion Detected</td><td>Backyard</td><td>10:42 AM</td><td><span class="badge" style="background:rgba(16,185,129,0.1); color:#10B981;">Recorded</span></td></tr>
+            <tr><td>Motion Detected</td><td>Backyard</td><td>10:42 AM</td><td><span class="badge" style="background:rgba(var(--color-success-rgb, 16, 185, 129), 0.1); color:var(--color-success);">Recorded</span></td></tr>
             <tr><td>Door Unlocked</td><td>Front Porch</td><td>08:15 AM</td><td><span class="badge" style="background:rgba(37,99,235,0.1); color:#2563EB;">Marcus</span></td></tr>
             <tr><td>Routine Triggered</td><td>Whole Home</td><td>06:00 AM</td><td><span class="badge" style="background:rgba(245,158,11,0.1); color:#F59E0B;">Wake Up</span></td></tr>
           </tbody>
