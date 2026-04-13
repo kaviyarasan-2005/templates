@@ -56,12 +56,11 @@
 
     .filter-pills {
       display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
       gap: var(--space-2);
-      overflow-x: auto;
       padding-bottom: var(--space-2);
-      scrollbar-width: none;
     }
-    .filter-pills::-webkit-scrollbar { display: none; }
     .pill {
       flex-shrink: 0;
       padding: 6px 16px;
@@ -213,7 +212,7 @@
   <section class="section">
     <div class="container">
       <!-- Category Filters -->
-      <div class="filter-pills mb-5 animate-on-scroll fade-up">
+      <div class="filter-pills mb-5 animate-on-scroll fade-up" style="justify-content:center;">
         <button class="pill active" data-cat="all">All Posts</button>
         <button class="pill" data-cat="design-tips">Design Tips</button>
         <button class="pill" data-cat="trends">Trends 2026</button>
