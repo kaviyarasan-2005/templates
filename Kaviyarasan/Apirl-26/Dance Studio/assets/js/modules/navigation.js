@@ -29,14 +29,23 @@ const Navigation = (() => {
       });
     });
 
-    // Close dropdowns on outside click (desktop)
+    // Close dropdowns and mobile menu on outside click
     document.addEventListener('click', (e) => {
-      if (window.innerWidth > 768) return;
-      document.querySelectorAll('.navbar__dropdown.open').forEach(dd => {
-        if (!dd.contains(e.target)) {
-          dd.classList.remove('open');
+      // Mobile menu outside click
+      if (window.innerWidth <= 768 && mobileMenu && mobileMenu.classList.contains('open')) {
+        if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+          toggleMobileMenu();
         }
-      });
+      }
+
+      // Dropdown outside click
+      if (window.innerWidth > 768) {
+        document.querySelectorAll('.navbar__dropdown.open').forEach(dd => {
+          if (!dd.contains(e.target)) {
+            dd.classList.remove('open');
+          }
+        });
+      }
     });
 
     // Scroll handler
