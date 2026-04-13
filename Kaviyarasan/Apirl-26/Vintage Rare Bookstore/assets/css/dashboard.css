@@ -1191,3 +1191,5 @@ tbody tr:last-child td { border-bottom: none; }
 .radar-area:hover {
     fill: rgba(212,175,55,0.4);
 }
+
+@media (max-width: 1024px) { #sidebar-toggle-fixed { display: flex !important; } }

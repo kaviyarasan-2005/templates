@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile — Dashboard | VintStore</title>
+  <title>My Profile â€” Dashboard | VintStore</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/favicons/favicon.svg">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/dashboard.css">
@@ -31,6 +31,7 @@
   </style>
 </head>
 <body class="dashboard-body">
+  <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Toggle sidebar" style="position:fixed; top:12px; left:12px; z-index:1000; background:var(--accent); color:var(--text-primary); border:none; padding:10px; border-radius:var(--border-radius); cursor:pointer; display:none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
   <div class="sidebar-overlay" aria-hidden="true"></div>
   <aside class="sidebar" role="navigation" aria-label="Dashboard sidebar">
     <div class="sidebar__header">
@@ -49,60 +50,7 @@
   </aside>
 
   <div class="dashboard-main">
-      <header class="navbar" role="banner">
-    <div class="container">
-      <div class="navbar__inner">
-        <!-- Logo -->
-        <a href="index.html" class="navbar__logo" aria-label="VintStore — Home"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 2H6a3 3 0 0 0-3 3v14a3 3 0 0 0 6 3h13V2zM6 4h11v14H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm0 13h11v1H6a1 1 0 0 1 0-2z"/></svg>
-          <span class="navbar__logo-text">VintStore</span>
-        </a>
-
-        <!-- Desktop Nav -->
-        <ul class="navbar__nav" role="list">
-          <li class="nav-item has-dropdown">
-            <a href="#" class="nav-link " aria-haspopup="true" aria-expanded="false">Home <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="index.html" role="menuitem">General Services</a></li>
-              <li><a href="home-saas.html" role="menuitem">SaaS / Agency</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item has-dropdown">
-            <a href="services.html" class="nav-link" aria-haspopup="true">Services <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="services.html" role="menuitem">All Services</a></li>
-              <li><a href="service-details.html" role="menuitem">Book Appraisal</a></li>
-              <li><a href="service-details.html" role="menuitem">Restoration</a></li>
-            </ul>
-          </li>
-          <li class="nav-item has-dropdown">
-            <a href="blog.html" class="nav-link" aria-haspopup="true">Blog <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="blog.html" role="menuitem">All Articles</a></li>
-              <li><a href="blog-details.html" role="menuitem">Latest Post</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="nav-item has-dropdown">
-            <a href="admin-dashboard.html" class="nav-link" aria-haspopup="true">Dashboard <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="admin-dashboard.html" role="menuitem">Admin View</a></li>
-              <li><a href="user-dashboard.html" role="menuitem">User View</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <!-- Actions -->
-        <div class="navbar__actions">
-          <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Toggle sidebar" style="margin-right:12px;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><button id="rtl-toggle" class="nav-icon-btn" aria-label="Switch to RTL layout" title="Toggle RTL/LTR"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
-          <button id="theme-toggle" class="nav-icon-btn" aria-label="Switch to dark mode" title="Toggle theme"><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
-          <a href="login.html" class="btn btn-primary btn-sm">Login</a>
-          <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
-        </div>
-      </div>
-    </div>
-  </header>
+      
 
     <div class="dashboard-content">
       <div class="profile-layout">
@@ -116,7 +64,7 @@
             <input type="file" id="avatar-input" accept="image/*" style="display:none" aria-label="Upload profile picture">
           </div>
           <div class="profile-name">Dr. Catherine Hartley</div>
-          <div class="profile-role-badge">⭐ Super Admin</div>
+          <div class="profile-role-badge">â­ Super Admin</div>
           <div class="profile-stats">
             <div class="p-stat"><div class="p-stat__num" data-counter data-target="47">0</div><div class="p-stat__label">Orders</div></div>
             <div class="p-stat"><div class="p-stat__num" data-counter data-target="12">0</div><div class="p-stat__label">Appraisals</div></div>
@@ -125,7 +73,7 @@
           </div>
           <div class="plan-badge">
             <h4>Current Plan</h4>
-            <p>Connoisseur ✦</p>
+            <p>Connoisseur âœ¦</p>
           </div>
           <a href="pricing.html" class="btn btn-outline btn-full btn-sm">Manage Plan</a>
           <div style="margin-top:var(--space-lg);padding-top:var(--space-lg);border-top:1px solid var(--border)">
@@ -169,10 +117,10 @@
 
           <!-- Order History -->
           <div class="dashboard-widget">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-lg);padding-bottom:var(--space-md);border-bottom:1px solid var(--border)"><h3 style="font-family:var(--font-heading);font-size:1.125rem;margin:0">Order History</h3><button class="btn btn-ghost btn-sm" style="font-size:0.8125rem">View All →</button></div>
-            <div class="order-history-item"><span class="badge badge-success">Completed</span><div><div style="font-weight:600;font-family:var(--font-ui);font-size:0.875rem">1st Ed. Mrs Dalloway (1925)</div><div style="font-size:0.75rem;color:var(--text-muted)">28 Apr 2024</div></div><span style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">£2,400</span><button class="action-btn">View</button></div>
-            <div class="order-history-item"><span class="badge badge-success">Completed</span><div><div style="font-weight:600;font-family:var(--font-ui);font-size:0.875rem">Illuminated MS — Appraisal Report</div><div style="font-size:0.75rem;color:var(--text-muted)">15 Mar 2024</div></div><span style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">£250</span><button class="action-btn">View</button></div>
-            <div class="order-history-item"><span class="badge badge-warning">Processing</span><div><div style="font-weight:600;font-family:var(--font-ui);font-size:0.875rem">Victorian Poetry — Full Restoration</div><div style="font-size:0.75rem;color:var(--text-muted)">02 Mar 2024</div></div><span style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">£780</span><button class="action-btn">View</button></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-lg);padding-bottom:var(--space-md);border-bottom:1px solid var(--border)"><h3 style="font-family:var(--font-heading);font-size:1.125rem;margin:0">Order History</h3><button class="btn btn-ghost btn-sm" style="font-size:0.8125rem">View All â†’</button></div>
+            <div class="order-history-item"><span class="badge badge-success">Completed</span><div><div style="font-weight:600;font-family:var(--font-ui);font-size:0.875rem">1st Ed. Mrs Dalloway (1925)</div><div style="font-size:0.75rem;color:var(--text-muted)">28 Apr 2024</div></div><span style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">Â£2,400</span><button class="action-btn">View</button></div>
+            <div class="order-history-item"><span class="badge badge-success">Completed</span><div><div style="font-weight:600;font-family:var(--font-ui);font-size:0.875rem">Illuminated MS â€” Appraisal Report</div><div style="font-size:0.75rem;color:var(--text-muted)">15 Mar 2024</div></div><span style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">Â£250</span><button class="action-btn">View</button></div>
+            <div class="order-history-item"><span class="badge badge-warning">Processing</span><div><div style="font-weight:600;font-family:var(--font-ui);font-size:0.875rem">Victorian Poetry â€” Full Restoration</div><div style="font-size:0.75rem;color:var(--text-muted)">02 Mar 2024</div></div><span style="font-family:var(--font-ui);font-weight:700;color:var(--accent)">Â£780</span><button class="action-btn">View</button></div>
           </div>
 
           <!-- User Infographics Section 1 -->
@@ -180,8 +128,8 @@
             <div class="dashboard-widget">
               <div class="widget-header"><h3 class="widget-title">Restoration Journey</h3></div>
               <div class="infog-journey">
-                <div class="journey-step completed"><div class="journey-dot">✓</div><div class="journey-label">Received</div></div>
-                <div class="journey-step completed"><div class="journey-dot">✓</div><div class="journey-label">Cleaned</div></div>
+                <div class="journey-step completed"><div class="journey-dot">âœ“</div><div class="journey-label">Received</div></div>
+                <div class="journey-step completed"><div class="journey-dot">âœ“</div><div class="journey-label">Cleaned</div></div>
                 <div class="journey-step active"><div class="journey-dot">!</div><div class="journey-label">Restored</div></div>
                 <div class="journey-step"><div class="journey-dot"></div><div class="journey-label">Shipped</div></div>
               </div>
@@ -237,7 +185,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 2H6a3 3 0 0 0-3 3v14a3 3 0 0 0 6 3h13V2zM6 4h11v14H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm0 13h11v1H6a1 1 0 0 1 0-2z"/></svg>
             <span class="navbar__logo-text">VintStore</span>
           </a>
-          <p class="footer__tagline">Preserving the world's literary heritage since 1978. Every book tells a story — we help you find yours.</p>
+          <p class="footer__tagline">Preserving the world's literary heritage since 1978. Every book tells a story â€” we help you find yours.</p>
           <div class="footer__social">
             <a href="#" aria-label="Twitter / X"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
             <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -275,12 +223,12 @@
             <li><a href="404.html">404 Page</a></li>
           </ul>
           <div style="margin-top:var(--space-lg)">
-            <p style="color:rgba(245,230,211,0.5);font-size:0.8125rem;font-family:var(--font-ui);">📍 42 Antiquarian Lane<br>London, WC2B 5NA</p>
+            <p style="color:rgba(245,230,211,0.5);font-size:0.8125rem;font-family:var(--font-ui);">ðŸ“ 42 Antiquarian Lane<br>London, WC2B 5NA</p>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2026 VintStore. All rights reserved.</p>
+        <p>Â© 2026 VintStore. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -293,4 +241,6 @@
   <script src="assets/js/rtl-ltr.js" defer></script>
 </body>
 </html>
+
+
 

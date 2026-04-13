@@ -1,5 +1,5 @@
-/**
- * VINTAGE RARE BOOKSTORE — FORMS.JS
+﻿/**
+ * VINTAGE RARE BOOKSTORE â€” FORMS.JS
  * Client-side form validation, password strength, floating labels
  */
 
@@ -217,7 +217,7 @@ function initLoginForm() {
     }
 
     setTimeout(() => {
-      window.location.href = 'dashboard/index.html';
+      window.location.href = 'user-dashboard.html';
     }, 1500);
   });
 }
@@ -241,7 +241,7 @@ function initRegisterForm() {
 
     setTimeout(() => {
       showFormSuccess(form, 'Account created! Redirecting to your dashboard...');
-      setTimeout(() => { window.location.href = 'dashboard/index.html'; }, 2000);
+      setTimeout(() => { window.location.href = 'user-dashboard.html'; }, 2000);
     }, 1500);
   });
 }
@@ -288,3 +288,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initRegisterForm();
   initNewsletterForms();
 });
+
+

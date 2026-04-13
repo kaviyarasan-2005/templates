@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | RV adven Rentals — Transparent Rental Packages</title>
+  <meta name="description" content="Simple, transparent RV rental pricing with no hidden fees. Choose from daily, weekly, and seasonal packages with optional gear add-ons and insurance upgrades." />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+    .pricing-toggle-wrap { display: flex; align-items: center; gap: 16px; justify-content: center; margin-bottom: 48px; }
+    .pricing-toggle-label { font-size: 0.95rem; font-weight: 600; color: var(--color-text-secondary); }
+    .toggle-switch { position: relative; width: 52px; height: 28px; }
+    .toggle-switch input { display: none; }
+    .toggle-slider { position: absolute; inset: 0; background: var(--color-border); border-radius: 99px; cursor: pointer; transition: background 0.3s; }
+    .toggle-slider::after { content: ''; position: absolute; top: 4px; left: 4px; width: 20px; height: 20px; background: white; border-radius: 50%; transition: transform 0.3s; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .toggle-switch input:checked + .toggle-slider { background: var(--color-primary); }
+    .toggle-switch input:checked + .toggle-slider::after { transform: translateX(24px); }
+    .save-badge { background: rgba(39,174,96,0.15); color: var(--color-success); font-size: 0.78rem; font-weight: 700; padding: 4px 12px; border-radius: 99px; }
+    .pricing-card-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+    .pricing-period { font-size: 0.82rem; color: var(--color-text-muted); margin-top: 4px; }
+    .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.7); }
+    .pricing-feature-disabled i { color: rgba(0,0,0,0.25); }
+    .pricing-card.featured .pricing-feature-disabled i { color: rgba(255,255,255,0.3); }
+    .pricing-card.featured .pricing-card-name { color: white; }
+    .comparison-table { width: 100%; border-collapse: collapse; }
+    .comparison-table th { background: var(--color-bg-section); padding: 16px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-primary); border-bottom: 2px solid var(--color-border); }
+    .comparison-table th:first-child { text-align: left; }
+    .comparison-table td { padding: 14px 16px; border-bottom: 1px solid var(--color-border-light); font-size: 0.875rem; text-align: center; color: var(--color-text-secondary); vertical-align: middle; }
+    .comparison-table td:first-child { text-align: left; font-weight: 500; color: var(--color-text-primary); }
+    .comparison-table .highlight-col { background: rgba(46,92,71,0.04); }
+    .comparison-table th.highlight-col { background: rgba(46,92,71,0.1); color: var(--color-primary); }
+    .check-yes { color: var(--color-success); font-size: 1.1rem; }
+    .check-no { color: var(--color-text-muted); font-size: 1.1rem; }
+    .addons-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .addon-card { border: 1.5px solid var(--color-border); border-radius: 16px; padding: 20px; text-align: center; transition: all 0.3s; cursor: pointer; }
+    .addon-card:hover, .addon-card.selected { border-color: var(--color-primary); background: rgba(46,92,71,0.04); }
+    .addon-card.selected .addon-checkbox { background: var(--color-primary); border-color: var(--color-primary); }
+    .addon-checkbox { width: 20px; height: 20px; border: 2px solid var(--color-border); border-radius: 4px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem; transition: all 0.2s; }
+    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 1024px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } .addons-grid { grid-template-columns: repeat(2, 1fr); } .faq-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .pricing-grid { grid-template-columns: 1fr; } .addons-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body class="has-fixed-header">
+  <a class="skip-to-content" href="#main-content">Skip to main content</a>
+  <header>
+    <nav class="navbar navbar-light-bg" aria-label="Main navigation">
+      <div class="navbar-inner">
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand" aria-label="RV adven Rentals Home">
+          <div class="navbar-brand-icon" aria-hidden="true"><i class="fas fa-campground"></i></div>
+          <div class="navbar-brand-text">
+            <span class="navbar-brand-name">RV adven</span>
+            <span class="navbar-brand-tagline">Rentals & Guides</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="navbar-menu">
+          <ul class="navbar-nav" role="list">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" aria-haspopup="true" aria-expanded="false">
+                Home <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="index.html" class="dropdown-item" role="menuitem"><i class="fas fa-home"></i> Home 1</a>
+                <a href="home-adventure.html" class="dropdown-item" role="menuitem"><i class="fas fa-mountain"></i> Home 2</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                Services <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="services.html" class="dropdown-item" role="menuitem"><i class="fas fa-list"></i> Services</a>
+                <a href="service-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-info-circle"></i> Service Details</a>
+              </div>
+            </li>
+            <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                Blogs <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="blog.html" class="dropdown-item" role="menuitem"><i class="fas fa-blog"></i> Blogs</a>
+                <a href="blog-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-file-alt"></i> Blog Details</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                Dashboard <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="admin-dashboard.html" class="dropdown-item" role="menuitem"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
+                <a href="user-dashboard.html" class="dropdown-item" role="menuitem"><i class="fas fa-user"></i> User Dashboard</a>
+              </div>
+            </li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Actions -->
+        <div class="navbar-actions">
+          <button class="navbar-icon-btn" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode" id="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="navbar-icon-btn" data-dir-toggle aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR" id="dir-toggle-btn">
+            <i class="fas fa-globe"></i>
+          </button>
+          <a href="login.html" class="btn btn-secondary btn-sm" id="nav-login">Login</a>
+        </div>
+
+        <!-- Hamburger -->
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-overlay"></div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#" class="mobile-nav-link">Home <i class="fas fa-chevron-down"></i></a>
+    <a href="index.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 1 <i class="fas fa-chevron-right"></i></a>
+    <a href="home-adventure.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 2 <i class="fas fa-chevron-right"></i></a>
+    <a href="services.html" class="mobile-nav-link">Services <i class="fas fa-chevron-right"></i></a>
+    <a href="service-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Service Details <i class="fas fa-chevron-right"></i></a>
+    <a href="pricing.html" class="mobile-nav-link">Pricing <i class="fas fa-chevron-right"></i></a>
+    <a href="blog.html" class="mobile-nav-link">Blogs <i class="fas fa-chevron-right"></i></a>
+    <a href="blog-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Blog Details <i class="fas fa-chevron-right"></i></a>
+    <a href="#" class="mobile-nav-link">Dashboard <i class="fas fa-chevron-down"></i></a>
+    <a href="admin-dashboard.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Admin Dashboard <i class="fas fa-chevron-right"></i></a>
+    <a href="user-dashboard.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">User Dashboard <i class="fas fa-chevron-right"></i></a>
+    <a href="about.html" class="mobile-nav-link">About Us <i class="fas fa-chevron-right"></i></a>
+    <a href="contact.html" class="mobile-nav-link">Contact <i class="fas fa-chevron-right"></i></a>`n    <a href="login.html" class="mobile-nav-link">Login <i class="fas fa-sign-in-alt"></i></a>
+    <div style="margin-top: 16px; display: flex; gap: 8px;">
+      <button class="btn btn-outline" data-theme-toggle style="flex: 1;"><i class="fas fa-moon"></i> Theme</button>
+      <button class="btn btn-outline" data-dir-toggle style="flex: 1;"><i class="fas fa-globe"></i> RTL</button>
+    </div>
+    
+  </nav>
+
+  <main id="main-content">
+    <section class="page-banner" aria-labelledby="pricing-heading">
+      <div class="container">
+        <h1 id="pricing-heading">Simple, Honest Pricing</h1>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span aria-current="page">Pricing</span></nav>
+      </div>
+    </section>
+
+    <!-- PRICING PLANS -->
+    <section class="section" aria-labelledby="plans-heading">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div class="section-label"><i class="fas fa-tag"></i> Our Plans</div>
+          <h2 id="plans-heading" class="section-title">Choose Your Adventure Package</h2>
+          <p class="section-subtitle">No hidden fees. No surprise charges. What you see is what you pay. Switch to weekly pricing and save up to 20%.</p>
+        </div>
+
+        <!-- Toggle -->
+        <div class="pricing-toggle-wrap animate-fade-up">
+          <span class="pricing-toggle-label">Daily</span>
+          <label class="toggle-switch" aria-label="Toggle weekly pricing">
+            <input type="checkbox" data-pricing-toggle id="pricing-period-toggle" />
+            <div class="toggle-slider"></div>
+          </label>
+          <span class="pricing-toggle-label">Weekly</span>
+          <span class="save-badge">Save up to 20%</span>
+        </div>
+
+        <!-- Cards -->
+        <div class="pricing-grid stagger">
+          <!-- Starter -->
+          <div class="pricing-card animate-fade-up">
+            <div class="pricing-card-name">Explorer</div>
+            <p style="font-size:0.82rem;color:var(--color-text-muted);margin-top:4px;">Perfect for couples & solo travelers</p>
+            <div style="margin: 24px 0;">
+              <span class="pricing-price" data-price-base="$149" data-price-alt="$989">$149</span>
+              <span class="pricing-period" data-period-label="">per day</span>
+              <div style="font-size:0.78rem;color:var(--color-text-muted);margin-top:4px;">Class B Campervans & Pop-ups</div>
+            </div>
+            <div class="pricing-features">
+              <div class="pricing-feature"><i class="fas fa-check"></i> Up to 2 passengers</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> 100 free miles/day</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Basic insurance included</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Kitchen starter kit</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> 24/7 phone support</div>
+              <div class="pricing-feature pricing-feature-disabled" style="opacity:0.5;"><i class="fas fa-times"></i> Priority booking</div>
+              <div class="pricing-feature pricing-feature-disabled" style="opacity:0.5;"><i class="fas fa-times"></i> Concierge planning</div>
+              <div class="pricing-feature pricing-feature-disabled" style="opacity:0.5;"><i class="fas fa-times"></i> Free gear add-on</div>
+            </div>
+            <a href="services.html" class="btn btn-outline w-full" style="margin-top: 28px;" id="starter-plan-btn">Choose Explorer</a>
+          </div>
+
+          <!-- Pro — Featured -->
+          <div class="pricing-card featured animate-fade-up">
+            <div style="text-align:center;margin-bottom:16px;"><span class="badge" style="background:rgba(241,196,15,0.2);color:var(--color-accent);border:1px solid rgba(241,196,15,0.4);">⭐ Most Popular</span></div>
+            <div class="pricing-card-name">Adventurer</div>
+            <p style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin-top:4px;">Best for families & small groups</p>
+            <div style="margin: 24px 0;">
+              <span class="pricing-price" data-price-base="$249" data-price-alt="$1,649">$249</span>
+              <span class="pricing-period" data-period-label="">per day</span>
+              <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:4px;">Class C Motorhomes & Trailers</div>
+            </div>
+            <div class="pricing-features">
+              <div class="pricing-feature"><i class="fas fa-check"></i> Up to 6 passengers</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> 150 free miles/day</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Comprehensive insurance</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Full kitchen package</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> 24/7 chat + phone support</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Priority booking access</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Campsite recommendations</div>
+              <div class="pricing-feature pricing-feature-disabled" style="opacity:0.5;"><i class="fas fa-times"></i> Free gear add-on</div>
+            </div>
+            <a href="services.html" class="btn btn-secondary w-full" style="margin-top: 28px;" id="pro-plan-btn">Choose Adventurer</a>
+          </div>
+
+          <!-- Premier -->
+          <div class="pricing-card animate-fade-up">
+            <div class="pricing-card-name">Premier</div>
+            <p style="font-size:0.82rem;color:var(--color-text-muted);margin-top:4px;">The full luxury experience</p>
+            <div style="margin: 24px 0;">
+              <span class="pricing-price" data-price-base="$379" data-price-alt="$2,499">$379</span>
+              <span class="pricing-period" data-period-label="">per day</span>
+              <div style="font-size:0.78rem;color:var(--color-text-muted);margin-top:4px;">Class A Motorhomes · Premium Fleet</div>
+            </div>
+            <div class="pricing-features">
+              <div class="pricing-feature"><i class="fas fa-check"></i> Up to 8 passengers</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Unlimited mileage</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Premium + collision coverage</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Luxury kitchen kit</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Dedicated advisor</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Priority booking access</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> Full itinerary planning</div>
+              <div class="pricing-feature"><i class="fas fa-check"></i> 1 free gear add-on package</div>
+            </div>
+            <a href="services.html" class="btn btn-outline w-full" style="margin-top: 28px;" id="premier-plan-btn">Choose Premier</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="section section-alt" aria-labelledby="compare-heading">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div class="section-label"><i class="fas fa-table"></i> Comparison</div>
+          <h2 id="compare-heading" class="section-title">Plan Comparison</h2>
+        </div>
+        <div class="table-wrap animate-fade-up">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th style="min-width:200px;">Feature</th>
+                <th>Explorer</th>
+                <th class="highlight-col">Adventurer ⭐</th>
+                <th>Premier</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Maximum Passengers</td><td>2</td><td class="highlight-col">6</td><td>8</td></tr>
+              <tr><td>Vehicle Class</td><td>Class B / Pop-up</td><td class="highlight-col">Class C / Trailer</td><td>Class A</td></tr>
+              <tr><td>Daily Mileage</td><td>100 miles</td><td class="highlight-col">150 miles</td><td>Unlimited</td></tr>
+              <tr><td>Insurance Level</td><td>Basic</td><td class="highlight-col">Comprehensive</td><td>Premium + Collision</td></tr>
+              <tr><td>Kitchen Kit</td><td>Starter</td><td class="highlight-col">Full</td><td>Luxury</td></tr>
+              <tr><td>24/7 Support</td><td><i class="fas fa-check check-yes"></i></td><td class="highlight-col"><i class="fas fa-check check-yes"></i></td><td><i class="fas fa-check check-yes"></i></td></tr>
+              <tr><td>Priority Booking</td><td><i class="fas fa-times check-no"></i></td><td class="highlight-col"><i class="fas fa-check check-yes"></i></td><td><i class="fas fa-check check-yes"></i></td></tr>
+              <tr><td>Concierge Planning</td><td><i class="fas fa-times check-no"></i></td><td class="highlight-col"><i class="fas fa-times check-no"></i></td><td><i class="fas fa-check check-yes"></i></td></tr>
+              <tr><td>Free Gear Add-on</td><td><i class="fas fa-times check-no"></i></td><td class="highlight-col"><i class="fas fa-times check-no"></i></td><td><i class="fas fa-check check-yes"></i></td></tr>
+              <tr><td>Minimum Rental</td><td>2 nights</td><td class="highlight-col">2 nights</td><td>3 nights</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADD-ONS -->
+    <section class="section" aria-labelledby="addons-heading">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div class="section-label"><i class="fas fa-plus-circle"></i> Extras</div>
+          <h2 id="addons-heading" class="section-title">Gear & Service Add-Ons</h2>
+          <p class="section-subtitle">Customize your adventure. Add what you need — nothing you don't.</p>
+        </div>
+        <div class="addons-grid stagger">
+          <div class="addon-card animate-fade-up" id="addon-camping" onclick="this.classList.toggle('selected');this.querySelector('.addon-checkbox').innerHTML=this.classList.contains('selected')?'<i class=&quot;fas fa-check&quot;></i>':''">
+            <div class="addon-checkbox"></div>
+            <div style="font-size:1.75rem;margin-bottom:10px;">🏕️</div>
+            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Camping Essentials</div>
+            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Chairs, lanterns, BBQ grill, fire starter</div>
+            <div style="font-weight:800;color:var(--color-primary);">+$45/trip</div>
+          </div>
+          <div class="addon-card animate-fade-up" id="addon-bikes" onclick="this.classList.toggle('selected')">
+            <div class="addon-checkbox"></div>
+            <div style="font-size:1.75rem;margin-bottom:10px;">🚵</div>
+            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Bike Rack + 2 Bikes</div>
+            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Rear rack + 2 trail bikes with helmets</div>
+            <div style="font-weight:800;color:var(--color-primary);">+$89/trip</div>
+          </div>
+          <div class="addon-card animate-fade-up" id="addon-kayak" onclick="this.classList.toggle('selected')">
+            <div class="addon-checkbox"></div>
+            <div style="font-size:1.75rem;margin-bottom:10px;">🛶</div>
+            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Kayak Package</div>
+            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">2-person inflatable kayak + paddles</div>
+            <div style="font-weight:800;color:var(--color-primary);">+$75/trip</div>
+          </div>
+          <div class="addon-card animate-fade-up" id="addon-wifi" onclick="this.classList.toggle('selected')">
+            <div class="addon-checkbox"></div>
+            <div style="font-size:1.75rem;margin-bottom:10px;">📡</div>
+            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Starlink WiFi</div>
+            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Satellite internet in remote areas</div>
+            <div style="font-weight:800;color:var(--color-primary);">+$55/trip</div>
+          </div>
+          <div class="addon-card animate-fade-up" id="addon-solar" onclick="this.classList.toggle('selected')">
+            <div class="addon-checkbox"></div>
+            <div style="font-size:1.75rem;margin-bottom:10px;">☀️</div>
+            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Off-Grid Solar Kit</div>
+            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">400W panels + 200Ah lithium battery</div>
+            <div style="font-weight:800;color:var(--color-primary);">+$99/trip</div>
+          </div>
+          <div class="addon-card animate-fade-up" id="addon-generator" onclick="this.classList.toggle('selected')">
+            <div class="addon-checkbox"></div>
+            <div style="font-size:1.75rem;margin-bottom:10px;">⚡</div>
+            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Portable Generator</div>
+            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">3500W inverter generator + fuel can</div>
+            <div style="font-weight:800;color:var(--color-primary);">+$65/trip</div>
+          </div>
+          <div class="addon-card animate-fade-up" id="addon-insurance" onclick="this.classList.toggle('selected')">
+            <div class="addon-checkbox"></div>
+            <div style="font-size:1.75rem;margin-bottom:10px;">🛡️</div>
+            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Damage Waiver+</div>
+            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Reduces liability to $0 — full coverage</div>
+            <div style="font-weight:800;color:var(--color-primary);">+$35/day</div>
+          </div>
+          <div class="addon-card animate-fade-up" id="addon-delivery" onclick="this.classList.toggle('selected')">
+            <div class="addon-checkbox"></div>
+            <div style="font-size:1.75rem;margin-bottom:10px;">🚚</div>
+            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">RV Delivery & Setup</div>
+            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">We set up at your campsite, you enjoy</div>
+            <div style="font-weight:800;color:var(--color-primary);">+$149 flat</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING FAQ -->
+    <section class="section section-alt" aria-labelledby="pricing-faq-heading">
+      <div class="container">
+        <div class="section-header animate-fade-up"><div class="section-label"><i class="fas fa-question-circle"></i> FAQ</div><h2 id="pricing-faq-heading" class="section-title">Pricing FAQs</h2></div>
+        <div class="faq-grid accordion-group animate-fade-up">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Are there any hidden fees?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Never. Our pricing is 100% transparent. The only extras are optional: damage waiver, mileage overages (clearly disclosed before booking), and any add-ons you choose.</div></div></div>
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">What's included in the base price?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Your base price includes the vehicle, basic insurance, your choice of kitchen kit, generator fuel for the first tank, and 24/7 support access. No additional per-person fees.</div></div></div>
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Do you charge for extra miles?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Explorer and Adventurer plans include 100–150 miles/day at no charge. Once exceeded, the rate is $0.35/mile. Premier includes unlimited miles.</div></div></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">What payment methods do you accept?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">All major credit cards, debit cards, PayPal, and Apple/Google Pay. A credit card is required for the security deposit hold at the time of pickup.</div></div></div>
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Can I cancel or change my booking?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Changes and cancellations are free up to 72 hours before pickup for all plans. Cancellations within 72 hours receive a 50% refund. Premier plan gets an extended 5-day window.</div></div></div>
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Is a security deposit required?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Yes — a refundable hold of $500–$2,500 depending on vehicle class is placed on your credit card at pickup. It's released within 5–7 business days after satisfactory return.</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section section" aria-labelledby="pricing-cta-heading">
+      <div class="container" style="text-align: center;">
+        <div class="animate-fade-up" style="max-width:560px;margin:0 auto;">
+          <h2 id="pricing-cta-heading">Not Sure Which Plan?</h2>
+          <p style="margin:16px 0 36px;">Our trip advisors love helping you find the perfect fit. No sales pressure - just honest advice.</p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-secondary btn-lg" id="pricing-cta-contact-btn"><i class="fas fa-headset"></i> Talk to an Advisor</a>
+            <a href="services.html" class="btn btn-outline-white btn-lg" id="pricing-cta-browse-btn"><i class="fas fa-rv"></i> Browse Fleet</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- ===== FOOTER ===== -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon"><i class="fas fa-campground"></i></div>
+            <span class="footer-logo-text">RV adven Rentals</span>
+          </div>
+          <p class="footer-desc">Your trusted partner for premium RV and campervan rentals. Creating unforgettable road stories since 2010.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="services.html" class="footer-link"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="pricing.html" class="footer-link"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+            <li><a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html" class="footer-link"><i class="fas fa-chevron-right"></i> Adventure Guides</a></li>
+            <li><a href="blog.html" class="footer-link"><i class="fas fa-chevron-right"></i> Campsite Finder</a></li>
+            <li><a href="pricing.html" class="footer-link"><i class="fas fa-chevron-right"></i> Rental FAQ</a></li>
+            <li><a href="admin-dashboard.html" class="footer-link"><i class="fas fa-chevron-right"></i> Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer-link"><i class="fas fa-chevron-right"></i> Mobile App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><i class="fas fa-map-marker-alt"></i> 123 Adventure Lane, Denver CO 80202</li>
+            <li><a href="tel:+18007823368" class="footer-link"><i class="fas fa-phone"></i> +1 (800) 782-3368</a></li>
+            <li><a href="mailto:hello@rvadventure.com" class="footer-link"><i class="fas fa-envelope"></i> hello@rvadventure.com</a></li>
+            <li class="footer-link"><i class="fas fa-clock"></i> Mon–Sun: 7AM – 9PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="justify-content: center; text-align: center;">
+        <span>© 2024 RV adven Rentals. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,287 @@
+﻿/* ============================================================
+   RV ADVEN RENTALS - Dark Mode Overrides
+   Activated via: [data-theme="dark"] on <html> element
+   ============================================================ */
+
+[data-theme="dark"] {
+  --color-bg-light: #0F1117;
+  --color-bg-dark: #070A0F;
+  --color-bg-card: #1A1E2E;
+  --color-bg-section: #141824;
+  --color-border: #2A2F42;
+  --color-border-light: #232840;
+
+  --color-text-primary: #E8EDF5;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.2);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,0.6), 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Body */
+[data-theme="dark"] body {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-primary);
+}
+
+/* Navbar */
+[data-theme="dark"] .navbar.scrolled {
+  background: rgba(15, 17, 23, 0.95);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .navbar.navbar-light-bg {
+  background: rgba(15, 17, 23, 0.97);
+}
+
+[data-theme="dark"] .navbar-brand-name {
+  color: #E8EDF5;
+}
+
+[data-theme="dark"] .nav-link {
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active {
+  color: var(--color-primary-light);
+  background: rgba(61, 122, 97, 0.12);
+}
+
+[data-theme="dark"] .hamburger span {
+  background: var(--color-text-primary);
+}
+
+/* Dropdown */
+[data-theme="dark"] .dropdown-menu {
+  background: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .dropdown-item {
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+  background: rgba(61, 122, 97, 0.12);
+  color: var(--color-primary-light);
+}
+
+/* Mobile Nav */
+[data-theme="dark"] .mobile-nav {
+  background: var(--color-bg-card);
+}
+
+[data-theme="dark"] .mobile-nav-link {
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .mobile-nav-link:hover {
+  color: var(--color-primary-light);
+}
+
+/* Cards */
+[data-theme="dark"] .card {
+  background: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .card-title {
+  color: var(--color-text-primary);
+}
+
+/* Buttons */
+[data-theme="dark"] .btn-outline {
+  color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+}
+
+[data-theme="dark"] .btn-outline:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+[data-theme="dark"] .btn-ghost {
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .btn-ghost:hover {
+  background: var(--color-bg-section);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .btn-google {
+  background: #1e1e2e;
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+/* Forms */
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .form-textarea {
+  background: var(--color-bg-section);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .form-input:focus,
+[data-theme="dark"] .form-select:focus,
+[data-theme="dark"] .form-textarea:focus {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 3px rgba(61, 122, 97, 0.15);
+}
+
+[data-theme="dark"] .form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Section Alt */
+[data-theme="dark"] .section-alt {
+  background: var(--color-bg-section);
+}
+
+/* Page Banner */
+[data-theme="dark"] .page-banner {
+  background: linear-gradient(135deg, #0A1A12 0%, #1E3D2F 100%);
+}
+
+/* Hero Search */
+[data-theme="dark"] .hero-search {
+  background: rgba(26, 30, 46, 0.97);
+}
+
+[data-theme="dark"] .search-field input,
+[data-theme="dark"] .search-field select {
+  background: var(--color-bg-section);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+/* Accordion */
+[data-theme="dark"] .accordion-item {
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .accordion-header {
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .accordion-header:hover {
+  background: var(--color-bg-section);
+}
+
+[data-theme="dark"] .accordion-content {
+  background: var(--color-bg-section);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .accordion-icon {
+  background: var(--color-bg-section);
+}
+
+/* Pricing Card */
+[data-theme="dark"] .pricing-card {
+  background: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .pricing-card:hover {
+  border-color: var(--color-primary-light);
+}
+
+/* Testimonial */
+[data-theme="dark"] .testimonial-card {
+  background: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+/* Data Table */
+[data-theme="dark"] .data-table th {
+  background: var(--color-bg-section);
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .data-table td {
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .data-table tr:hover td {
+  background: rgba(61, 122, 97, 0.04);
+}
+
+[data-theme="dark"] .table-wrap {
+  border-color: var(--color-border);
+}
+
+/* Tags */
+[data-theme="dark"] .tag {
+  background: var(--color-bg-section);
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+/* Skeleton */
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(90deg, #1a1e2e 25%, #242840 50%, #1a1e2e 75%);
+  background-size: 200% 100%;
+}
+
+/* Headings */
+[data-theme="dark"] h1, [data-theme="dark"] h2,
+[data-theme="dark"] h3, [data-theme="dark"] h4 {
+  color: var(--color-text-primary);
+}
+
+/* Divider */
+[data-theme="dark"] .divider {
+  background: var(--color-border);
+}
+
+/* Icon Buttons */
+[data-theme="dark"] .navbar-icon-btn {
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .navbar-icon-btn:hover {
+  color: var(--color-primary-light);
+}
+
+/* Feature Icons */
+[data-theme="dark"] .feature-icon-primary {
+  background: rgba(61, 122, 97, 0.15);
+}
+
+/* Dashboard sidebar */
+[data-theme="dark"] .sidebar {
+  background: #0F1420;
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .sidebar-link {
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .sidebar-link:hover,
+[data-theme="dark"] .sidebar-link.active {
+  background: rgba(61, 122, 97, 0.12);
+  color: var(--color-primary-light);
+}
+
+/* Stats dark card */
+[data-theme="dark"] .stat-card {
+  background: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+/* Footer stays dark regardless */
+[data-theme="dark"] .footer {
+  background: #040608;
+}

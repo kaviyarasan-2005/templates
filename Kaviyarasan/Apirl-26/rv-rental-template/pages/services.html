@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | RV adven Rentals — Browse Our Fleet</title>
+  <meta name="description" content="Browse 500+ premium RVs and campervans. Filter by vehicle type, sleeping capacity, price, and amenities. Instant availability check and booking." />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    .services-layout { display: grid; grid-template-columns: 280px 1fr; gap: 32px; align-items: start; }
+    .filter-sidebar { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 20px; padding: 28px; position: sticky; top: calc(var(--navbar-height) + 16px); }
+    .filter-group { margin-bottom: 28px; }
+    .filter-group-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted); margin-bottom: 14px; }
+    .filter-checks { display: flex; flex-direction: column; gap: 10px; }
+    .filter-check { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    .filter-check input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--color-primary); border-radius: 4px; cursor: pointer; }
+    .filter-check label { font-size: 0.875rem; color: var(--color-text-secondary); cursor: pointer; }
+    .price-range { display: flex; align-items: center; gap: 10px; }
+    .price-range input[type="range"] { flex: 1; accent-color: var(--color-primary); }
+    .fleet-controls { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+    .fleet-search { position: relative; flex: 1; max-width: 320px; }
+    .fleet-search input { width: 100%; padding-left: 44px; }
+    .fleet-search i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--color-text-muted); }
+    .fleet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .rv-card { background: var(--color-bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: all 0.3s ease; }
+    .rv-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .rv-card-img { position: relative; overflow: hidden; }
+    .rv-card-img img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.4s ease; }
+    .rv-card:hover .rv-card-img img { transform: scale(1.05); }
+    .rv-badge { position: absolute; top: 12px; left: 12px; }
+    .rv-wishlist { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); cursor: pointer; border: none; transition: all 0.2s ease; }
+    .rv-wishlist:hover, .rv-wishlist.active { color: var(--color-error); background: white; }
+    .rv-card-body { padding: 20px; flex: 1; }
+    .rv-card-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--color-text-primary); margin-bottom: 8px; }
+    .rv-specs { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+    .rv-spec-item { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: var(--color-text-muted); }
+    .amenities { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .amenity-tag { background: rgba(46,92,71,0.08); color: var(--color-primary); font-size: 0.72rem; padding: 3px 10px; border-radius: 99px; font-weight: 600; }
+    .rv-card-footer { padding: 16px 20px; border-top: 1px solid var(--color-border-light); display: flex; align-items: center; justify-content: space-between; }
+    .view-toggle { display: flex; gap: 4px; }
+    .view-toggle button { width: 38px; height: 38px; border: 1.5px solid var(--color-border); background: var(--color-bg-card); border-radius: 8px; cursor: pointer; color: var(--color-text-muted); transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; }
+    .view-toggle button.active { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+    .results-count { font-size: 0.875rem; color: var(--color-text-muted); }
+    .sort-select { height: 42px; padding: 0 40px 0 14px; border: 1.5px solid var(--color-border); border-radius: 10px; font-size: 0.875rem; color: var(--color-text-primary); background: var(--color-bg-card); cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2395A5A6' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+    @media (max-width: 1024px) { .services-layout { grid-template-columns: 1fr; } .filter-sidebar { position: static; display: none; } .filter-sidebar.mobile-open { display: block; } .fleet-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .fleet-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="has-fixed-header">
+  <a class="skip-to-content" href="#main-content">Skip to main content</a>
+
+  <header>
+    <nav class="navbar navbar-light-bg" aria-label="Main navigation">
+      <div class="navbar-inner">
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand" aria-label="RV adven Rentals Home">
+          <div class="navbar-brand-icon" aria-hidden="true"><i class="fas fa-campground"></i></div>
+          <div class="navbar-brand-text">
+            <span class="navbar-brand-name">RV adven</span>
+            <span class="navbar-brand-tagline">Rentals & Guides</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="navbar-menu">
+          <ul class="navbar-nav" role="list">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" aria-haspopup="true" aria-expanded="false">
+                Home <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="index.html" class="dropdown-item" role="menuitem"><i class="fas fa-home"></i> Home 1</a>
+                <a href="home-adventure.html" class="dropdown-item" role="menuitem"><i class="fas fa-mountain"></i> Home 2</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                Services <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="services.html" class="dropdown-item" role="menuitem"><i class="fas fa-list"></i> Services</a>
+                <a href="service-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-info-circle"></i> Service Details</a>
+              </div>
+            </li>
+            <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                Blogs <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="blog.html" class="dropdown-item" role="menuitem"><i class="fas fa-blog"></i> Blogs</a>
+                <a href="blog-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-file-alt"></i> Blog Details</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                Dashboard <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="admin-dashboard.html" class="dropdown-item" role="menuitem"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
+                <a href="user-dashboard.html" class="dropdown-item" role="menuitem"><i class="fas fa-user"></i> User Dashboard</a>
+              </div>
+            </li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Actions -->
+        <div class="navbar-actions">
+          <button class="navbar-icon-btn" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode" id="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="navbar-icon-btn" data-dir-toggle aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR" id="dir-toggle-btn">
+            <i class="fas fa-globe"></i>
+          </button>
+          <a href="login.html" class="btn btn-secondary btn-sm" id="nav-login">Login</a>
+        </div>
+
+        <!-- Hamburger -->
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-overlay"></div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#" class="mobile-nav-link">Home <i class="fas fa-chevron-down"></i></a>
+    <a href="index.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 1 <i class="fas fa-chevron-right"></i></a>
+    <a href="home-adventure.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 2 <i class="fas fa-chevron-right"></i></a>
+    <a href="services.html" class="mobile-nav-link">Services <i class="fas fa-chevron-right"></i></a>
+    <a href="service-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Service Details <i class="fas fa-chevron-right"></i></a>
+    <a href="pricing.html" class="mobile-nav-link">Pricing <i class="fas fa-chevron-right"></i></a>
+    <a href="blog.html" class="mobile-nav-link">Blogs <i class="fas fa-chevron-right"></i></a>
+    <a href="blog-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Blog Details <i class="fas fa-chevron-right"></i></a>
+    <a href="#" class="mobile-nav-link">Dashboard <i class="fas fa-chevron-down"></i></a>
+    <a href="admin-dashboard.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Admin Dashboard <i class="fas fa-chevron-right"></i></a>
+    <a href="user-dashboard.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">User Dashboard <i class="fas fa-chevron-right"></i></a>
+    <a href="about.html" class="mobile-nav-link">About Us <i class="fas fa-chevron-right"></i></a>
+    <a href="contact.html" class="mobile-nav-link">Contact <i class="fas fa-chevron-right"></i></a>`n    <a href="login.html" class="mobile-nav-link">Login <i class="fas fa-sign-in-alt"></i></a>
+    <div style="margin-top: 16px; display: flex; gap: 8px;">
+      <button class="btn btn-outline" data-theme-toggle style="flex: 1;"><i class="fas fa-moon"></i> Theme</button>
+      <button class="btn btn-outline" data-dir-toggle style="flex: 1;"><i class="fas fa-globe"></i> RTL</button>
+    </div>
+    
+  </nav>
+
+  <main id="main-content">
+    <section class="page-banner" aria-labelledby="services-banner-heading">
+      <div class="container">
+        <h1 id="services-banner-heading">Our Fleet</h1>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span aria-current="page">Services</span></nav>
+      </div>
+    </section>
+
+    <!-- QUICK FILTERS -->
+    <section style="background: var(--color-bg-section); padding: 20px 0; border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: center;">
+          <span style="font-weight: 600; color: var(--color-text-secondary); font-size: 0.875rem;">Filter by type:</span>
+          <button class="tag active" data-filter="all">All Vehicles</button>
+          <button class="tag" data-filter="motorhome">Motorhomes</button>
+          <button class="tag" data-filter="campervan">Campervans</button>
+          <button class="tag" data-filter="trailer">Travel Trailers</button>
+          <button class="tag" data-filter="popup">Pop-up Campers</button>
+          <button class="tag" data-filter="truck">Truck Campers</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Fleet listing">
+      <div class="container">
+        <div class="services-layout">
+          <!-- Sidebar Filters -->
+          <aside class="filter-sidebar" aria-label="Fleet filters">
+            <h2 style="font-size: 1rem; font-weight: 700; margin-bottom: 24px; color: var(--color-text-primary);">Filters</h2>
+            <div class="filter-group">
+              <div class="filter-group-title">Price Per Day</div>
+              <div class="price-range">
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">$50</span>
+                <input type="range" min="50" max="500" value="350" id="price-filter" aria-label="Maximum price per day" />
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);">$500</span>
+              </div>
+              <div style="text-align: center; margin-top: 8px; font-size: 0.875rem; font-weight: 600; color: var(--color-primary);">Up to $<span id="price-val">350</span>/day</div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-group-title">Vehicle Type</div>
+              <div class="filter-checks">
+                <label class="filter-check"><input type="checkbox" checked /> <label>Class A Motorhome</label></label>
+                <label class="filter-check"><input type="checkbox" checked /> <label>Class B Campervan</label></label>
+                <label class="filter-check"><input type="checkbox" checked /> <label>Class C Motorhome</label></label>
+                <label class="filter-check"><input type="checkbox" checked /> <label>Travel Trailer</label></label>
+                <label class="filter-check"><input type="checkbox" /> <label>Pop-up Camper</label></label>
+                <label class="filter-check"><input type="checkbox" /> <label>Truck Camper</label></label>
+              </div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-group-title">Sleeps</div>
+              <div class="filter-checks">
+                <label class="filter-check"><input type="checkbox" /> <label>2 People</label></label>
+                <label class="filter-check"><input type="checkbox" /> <label>3–4 People</label></label>
+                <label class="filter-check"><input type="checkbox" checked /> <label>5–6 People</label></label>
+                <label class="filter-check"><input type="checkbox" /> <label>7+ People</label></label>
+              </div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-group-title">Amenities</div>
+              <div class="filter-checks">
+                <label class="filter-check"><input type="checkbox" checked /> <label>Full Kitchen</label></label>
+                <label class="filter-check"><input type="checkbox" /> <label>Bathroom</label></label>
+                <label class="filter-check"><input type="checkbox" /> <label>Air Conditioning</label></label>
+                <label class="filter-check"><input type="checkbox" /> <label>Solar Power</label></label>
+                <label class="filter-check"><input type="checkbox" /> <label>Pet Friendly</label></label>
+                <label class="filter-check"><input type="checkbox" /> <label>WiFi Ready</label></label>
+              </div>
+            </div>
+            <button class="btn btn-outline w-full" id="clear-filters-btn">Clear All Filters</button>
+          </aside>
+
+          <!-- Fleet Grid -->
+          <div>
+            <div class="fleet-controls">
+              <div class="fleet-search">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input type="text" class="form-input" data-search-input placeholder="Search vehicles..." id="fleet-search-input" aria-label="Search fleet" />
+              </div>
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <span class="results-count">Showing <strong>12</strong> of 500+ vehicles</span>
+                <select class="sort-select" id="sort-select" aria-label="Sort vehicles">
+                  <option>Sort: Recommended</option>
+                  <option>Price: Low to High</option>
+                  <option>Price: High to Low</option>
+                  <option>Newest First</option>
+                  <option>Rating: High to Low</option>
+                </select>
+                <div class="view-toggle" role="group" aria-label="View mode">
+                  <button class="active" title="Grid view" aria-label="Grid view" id="grid-view-btn"><i class="fas fa-th"></i></button>
+                  <button title="List view" aria-label="List view" id="list-view-btn"><i class="fas fa-list"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="fleet-grid" id="fleet-grid">
+              <!-- RV Card template (repeated) -->
+              <article class="rv-card" data-search-item data-category="motorhome">
+                <div class="rv-card-img">
+                  <img src="https://images.unsplash.com/photo-1525543907513-2f9da8898c10?w=600&q=80" alt="Luxury Class A Motorhome" loading="lazy" />
+                  <span class="rv-badge badge badge-secondary">Popular</span>
+                  <button class="rv-wishlist" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="rv-card-body">
+                  <div class="rv-card-title">Tiffin Allegro Bus 45OPP</div>
+                  <div class="stars" aria-label="4.9 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span style="font-size: 0.75rem; color: var(--color-text-muted);">(142 reviews)</span></div>
+                  <div class="rv-specs">
+                    <span class="rv-spec-item"><i class="fas fa-ruler-combined"></i> 45 ft</span>
+                    <span class="rv-spec-item"><i class="fas fa-users"></i> Sleeps 8</span>
+                    <span class="rv-spec-item"><i class="fas fa-snowflake"></i> Dual AC</span>
+                    <span class="rv-spec-item"><i class="fas fa-wifi"></i> WiFi</span>
+                  </div>
+                  <div class="amenities">
+                    <span class="amenity-tag">King Bed</span>
+                    <span class="amenity-tag">Theater Seating</span>
+                    <span class="amenity-tag">Full Bath</span>
+                    <span class="amenity-tag">Washer/Dryer</span>
+                  </div>
+                </div>
+                <div class="rv-card-footer">
+                  <div class="card-price">$349<span>/day</span></div>
+                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv1-detail-btn">View Details</a>
+                </div>
+              </article>
+
+              <article class="rv-card" data-search-item data-category="campervan">
+                <div class="rv-card-img">
+                  <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=600&q=80" alt="Cozy Class B Campervan" loading="lazy" />
+                  <span class="rv-badge badge badge-primary">Best Value</span>
+                  <button class="rv-wishlist" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="rv-card-body">
+                  <div class="rv-card-title">Mercedes Sprinter Adventure</div>
+                  <div class="stars" aria-label="4.8 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span style="font-size: 0.75rem; color: var(--color-text-muted);">(89 reviews)</span></div>
+                  <div class="rv-specs">
+                    <span class="rv-spec-item"><i class="fas fa-ruler-combined"></i> 22 ft</span>
+                    <span class="rv-spec-item"><i class="fas fa-users"></i> Sleeps 2</span>
+                    <span class="rv-spec-item"><i class="fas fa-leaf"></i> Low Fuel</span>
+                    <span class="rv-spec-item"><i class="fas fa-solar-panel"></i> Solar</span>
+                  </div>
+                  <div class="amenities">
+                    <span class="amenity-tag">Pop-top Roof</span>
+                    <span class="amenity-tag">Mini Kitchen</span>
+                    <span class="amenity-tag">Fridge</span>
+                    <span class="amenity-tag">4WD Ready</span>
+                  </div>
+                </div>
+                <div class="rv-card-footer">
+                  <div class="card-price">$195<span>/day</span></div>
+                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv2-detail-btn">View Details</a>
+                </div>
+              </article>
+
+              <article class="rv-card" data-search-item data-category="trailer">
+                <div class="rv-card-img">
+                  <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="Family Travel Trailer" loading="lazy" />
+                  <button class="rv-wishlist" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="rv-card-body">
+                  <div class="rv-card-title">Airstream Globetrotter 30RB</div>
+                  <div class="stars" aria-label="5 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span style="font-size: 0.75rem; color: var(--color-text-muted);">(211 reviews)</span></div>
+                  <div class="rv-specs">
+                    <span class="rv-spec-item"><i class="fas fa-ruler-combined"></i> 30 ft</span>
+                    <span class="rv-spec-item"><i class="fas fa-users"></i> Sleeps 6</span>
+                    <span class="rv-spec-item"><i class="fas fa-plug"></i> Hook-ups</span>
+                  </div>
+                  <div class="amenities">
+                    <span class="amenity-tag">Full Kitchen</span>
+                    <span class="amenity-tag">Bunk Beds</span>
+                    <span class="amenity-tag">Outdoor Shower</span>
+                  </div>
+                </div>
+                <div class="rv-card-footer">
+                  <div class="card-price">$175<span>/day</span></div>
+                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv3-detail-btn">View Details</a>
+                </div>
+              </article>
+
+              <article class="rv-card" data-search-item data-category="campervan">
+                <div class="rv-card-img">
+                  <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Off-Grid Campervan" loading="lazy" />
+                  <span class="rv-badge badge badge-accent" style="color: #7a6000;">New</span>
+                  <button class="rv-wishlist" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="rv-card-body">
+                  <div class="rv-card-title">Ford Transit Off-Grid Pro</div>
+                  <div class="stars" aria-label="4.7 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span style="font-size: 0.75rem; color: var(--color-text-muted);">(54 reviews)</span></div>
+                  <div class="rv-specs">
+                    <span class="rv-spec-item"><i class="fas fa-ruler-combined"></i> 20 ft</span>
+                    <span class="rv-spec-item"><i class="fas fa-users"></i> Sleeps 2</span>
+                    <span class="rv-spec-item"><i class="fas fa-solar-panel"></i> 400W Solar</span>
+                  </div>
+                  <div class="amenities">
+                    <span class="amenity-tag">Off-Grid</span>
+                    <span class="amenity-tag">200Ah Battery</span>
+                    <span class="amenity-tag">Water Tank</span>
+                  </div>
+                </div>
+                <div class="rv-card-footer">
+                  <div class="card-price">$210<span>/day</span></div>
+                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv4-detail-btn">View Details</a>
+                </div>
+              </article>
+
+              <article class="rv-card" data-search-item data-category="motorhome">
+                <div class="rv-card-img">
+                  <img src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?w=600&q=80" alt="Class C Motorhome" loading="lazy" />
+                  <button class="rv-wishlist" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="rv-card-body">
+                  <div class="rv-card-title">Thor Majestic M-28A</div>
+                  <div class="stars" aria-label="4.8 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span style="font-size: 0.75rem; color: var(--color-text-muted);">(97 reviews)</span></div>
+                  <div class="rv-specs">
+                    <span class="rv-spec-item"><i class="fas fa-ruler-combined"></i> 30 ft</span>
+                    <span class="rv-spec-item"><i class="fas fa-users"></i> Sleeps 7</span>
+                    <span class="rv-spec-item"><i class="fas fa-over-bed"></i> Over-Cab Bed</span>
+                  </div>
+                  <div class="amenities"><span class="amenity-tag">Over-Cab Bed</span><span class="amenity-tag">Full Kitchen</span><span class="amenity-tag">AC</span></div>
+                </div>
+                <div class="rv-card-footer">
+                  <div class="card-price">$249<span>/day</span></div>
+                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv5-detail-btn">View Details</a>
+                </div>
+              </article>
+
+              <article class="rv-card" data-search-item data-category="trailer">
+                <div class="rv-card-img">
+                  <img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=600&q=80" alt="Luxury Toy Hauler" loading="lazy" />
+                  <span class="rv-badge badge badge-secondary">Premium</span>
+                  <button class="rv-wishlist" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="rv-card-body">
+                  <div class="rv-card-title">Forest River Forester XL Toy Hauler</div>
+                  <div class="stars" aria-label="4.9 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span style="font-size: 0.75rem; color: var(--color-text-muted);">(73 reviews)</span></div>
+                  <div class="rv-specs"><span class="rv-spec-item"><i class="fas fa-ruler-combined"></i> 38 ft</span><span class="rv-spec-item"><i class="fas fa-users"></i> Sleeps 8</span></div>
+                  <div class="amenities"><span class="amenity-tag">Toy Garage</span><span class="amenity-tag">Patio Deck</span><span class="amenity-tag">King Bed</span></div>
+                </div>
+                <div class="rv-card-footer">
+                  <div class="card-price">$289<span>/day</span></div>
+                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv6-detail-btn">View Details</a>
+                </div>
+              </article>
+            </div>
+
+            <div style="text-align: center; margin-top: 48px;">
+              <a href="#" class="btn btn-outline btn-lg" id="load-more-btn"><i class="fas fa-plus"></i> Load More Vehicles</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- HOW IT WORKS -->
+    <section class="section section-alt" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div class="section-label"><i class="fas fa-route"></i> Simple Process</div>
+          <h2 id="process-heading" class="section-title">Rent Your Adventure in 4 Steps</h2>
+          <p class="section-subtitle">We've streamlined our process so you can spend less time on paperwork and more time on the road.</p>
+        </div>
+        <div class="process-grid stagger">
+          <div class="process-step animate-fade-up">
+            <div class="process-num">1</div>
+            <h3>Pick your Rig</h3>
+            <p>Browse our extensive fleet and filter by size, price, and amenities to find your perfect match.</p>
+          </div>
+          <div class="process-step animate-fade-up">
+            <div class="process-num">2</div>
+            <h3>Book Dates</h3>
+            <p>Select your adventure dates and location. Get instant confirmation and transparent pricing.</p>
+          </div>
+          <div class="process-step animate-fade-up">
+            <div class="process-num">3</div>
+            <h3>Pick up & Guide</h3>
+            <p>Arrive at our hub for a quick walkthrough. We'll show you exactly how everything works.</p>
+          </div>
+          <div class="process-step animate-fade-up">
+            <div class="process-num">4</div>
+            <h3>Hit the Road</h3>
+            <p>Adventure awaits! Enjoy 24/7 support and unlimited roadside assistance on your journey.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIUM AMENITIES -->
+    <section class="section" aria-labelledby="amenities-heading">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div class="section-label"><i class="fas fa-plus-circle"></i> Premium Included</div>
+          <h2 id="amenities-heading" class="section-title">Standard in Every Rental</h2>
+          <p class="section-subtitle">We believe adventure should be comfortable. That's why every rig comes fully equipped at no extra cost.</p>
+        </div>
+        <div class="feature-info-grid stagger">
+          <div class="feature-info-item animate-fade-up">
+            <div class="feature-info-icon"><i class="fas fa-utensils"></i></div>
+            <h3>Gourmet Kitchen</h3>
+            <p>Full set of cookware, utensils, French press, and basic spices included in every motorhome and van.</p>
+          </div>
+          <div class="feature-info-item animate-fade-up">
+            <div class="feature-info-icon"><i class="fas fa-bed"></i></div>
+            <h3>Hotel-Quality Linens</h3>
+            <p>Freshly laundered premium bedding, plush pillows, and organic cotton towels for every passenger.</p>
+          </div>
+          <div class="feature-info-item animate-fade-up">
+            <div class="feature-info-icon"><i class="fas fa-wifi"></i></div>
+            <h3>Starlink Connectivity</h3>
+            <p>High-speed satellite internet available so you can work or stream from the deepest wilderness.</p>
+          </div>
+          <div class="feature-info-item animate-fade-up">
+            <div class="feature-info-icon"><i class="fas fa-solar-panel"></i></div>
+            <h3>Solar Power Ready</h3>
+            <p>Go off-grid with confidence. Most of our fleet features roof-mounted solar panels and lithium batteries.</p>
+          </div>
+          <div class="feature-info-item animate-fade-up">
+            <div class="feature-info-icon"><i class="fas fa-box-open"></i></div>
+            <h3>Adventure Kit</h3>
+            <p>Two camping chairs, an outdoor table, lanterns, and a portable fire pit are included in every booking.</p>
+          </div>
+          <div class="feature-info-item animate-fade-up">
+            <div class="feature-info-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <h3>Custom Itineraries</h3>
+            <p>Get a personalized 5-day adventure guide written by local rangers for your specific destination.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAFETY & MAINTENANCE -->
+    <section class="section section-alt" aria-labelledby="safety-heading">
+      <div class="container">
+        <div class="services-layout" style="grid-template-columns: 1fr 1fr; align-items: center; gap: 64px;">
+          <div class="animate-fade-up">
+            <div class="section-label"><i class="fas fa-check-shield"></i> Trust & Safety</div>
+            <h2 id="safety-heading" class="section-title">Your Safety is Our Top Priority</h2>
+            <p style="margin-bottom: 32px; color: var(--color-text-secondary); line-height: 1.8;">We understand that a road trip is only as good as the vehicle you're in. That's why we maintain the strictest maintenance standards in the industry.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <div style="display: flex; gap: 16px;">
+                <div style="color: var(--color-primary); font-size: 1.5rem;"><i class="fas fa-clipboard-check"></i></div>
+                <div>
+                  <h4 style="margin-bottom: 4px;">150-Point Inspection</h4>
+                  <p style="font-size: 0.9rem; color: var(--color-text-muted);">Every vehicle undergoes a rigorous multi-point check before and after every single rental.</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 16px;">
+                <div style="color: var(--color-primary); font-size: 1.5rem;"><i class="fas fa-tools"></i></div>
+                <div>
+                  <h4 style="margin-bottom: 4px;">24/7 Roadside Assistance</h4>
+                  <p style="font-size: 0.9rem; color: var(--color-text-muted);">Flat tire? Dead battery? One call and our nationwide support network is on its way.</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 16px;">
+                <div style="color: var(--color-primary); font-size: 1.5rem;"><i class="fas fa-file-invoice-dollar"></i></div>
+                <div>
+                  <h4 style="margin-bottom: 4px;">Comprehensive Insurance</h4>
+                  <p style="font-size: 0.9rem; color: var(--color-text-muted);">Every booking includes $1M liability coverage and comprehensive collision protection.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animate-fade-up" style="position: relative;">
+            <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?w=800&q=80" alt="RV maintenance check" style="border-radius: 24px; width: 100%; box-shadow: var(--shadow-xl);" />
+            <div style="position: absolute; bottom: -20px; right: -20px; background: var(--color-primary); color: white; padding: 24px; border-radius: 20px; box-shadow: var(--shadow-lg);">
+              <div style="font-size: 2rem; font-weight: 800;">100%</div>
+              <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">Reliability Score</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLEET COMPARISON -->
+    <section class="section" aria-labelledby="compare-heading">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div class="section-label"><i class="fas fa-columns"></i> Comparison</div>
+          <h2 id="compare-heading" class="section-title">Find Your Perfect Class</h2>
+          <p class="section-subtitle">Not sure which vehicle is right for you? Compare our rig categories at a glance.</p>
+        </div>
+        
+        <div class="comparison-table-wrap animate-fade-up">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Class A Motorhome</th>
+                <th>Class B Campervan</th>
+                <th>Class C Motorhome</th>
+                <th>Travel Trailer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sleeps</strong></td>
+                <td>6–10 People</td>
+                <td>1–2 People</td>
+                <td>4–7 People</td>
+                <td>2–8 People</td>
+              </tr>
+              <tr>
+                <td><strong>Average Length</strong></td>
+                <td>32–45 ft</td>
+                <td>17–22 ft</td>
+                <td>24–32 ft</td>
+                <td>15–35 ft</td>
+              </tr>
+              <tr>
+                <td><strong>Driving Difficulty</strong></td>
+                <td>Advanced</td>
+                <td>Like an SUV</td>
+                <td>Moderate</td>
+                <td>Towing Required</td>
+              </tr>
+              <tr>
+                <td><strong>Full Kitchen</strong></td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> Included</td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> Compact</td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> Included</td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> Included</td>
+              </tr>
+              <tr>
+                <td><strong>Full Bathroom</strong></td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> Luxury Bath</td>
+                <td class="check-no"><i class="fas fa-minus-circle"></i> Wet Bath</td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> Included</td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> Included</td>
+              </tr>
+              <tr>
+                <td><strong>Slide-outs</strong></td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> 2–4 Slides</td>
+                <td class="check-no"><i class="fas fa-times-circle"></i> None</td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> 1–2 Slides</td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> Optional</td>
+              </tr>
+              <tr>
+                <td><strong>Off-Grid Ready</strong></td>
+                <td class="check-no"><i class="fas fa-minus-circle"></i> Best for Parks</td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> Expert Choice</td>
+                <td class="check-no"><i class="fas fa-minus-circle"></i> Moderate</td>
+                <td class="check-yes"><i class="fas fa-check-circle"></i> Specialized</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- ===== FOOTER ===== -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon"><i class="fas fa-campground"></i></div>
+            <span class="footer-logo-text">RV adven Rentals</span>
+          </div>
+          <p class="footer-desc">Your trusted partner for premium RV and campervan rentals. Creating unforgettable road stories since 2010.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="services.html" class="footer-link"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="pricing.html" class="footer-link"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+            <li><a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html" class="footer-link"><i class="fas fa-chevron-right"></i> Adventure Guides</a></li>
+            <li><a href="blog.html" class="footer-link"><i class="fas fa-chevron-right"></i> Campsite Finder</a></li>
+            <li><a href="pricing.html" class="footer-link"><i class="fas fa-chevron-right"></i> Rental FAQ</a></li>
+            <li><a href="admin-dashboard.html" class="footer-link"><i class="fas fa-chevron-right"></i> Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer-link"><i class="fas fa-chevron-right"></i> Mobile App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><i class="fas fa-map-marker-alt"></i> 123 Adventure Lane, Denver CO 80202</li>
+            <li><a href="tel:+18007823368" class="footer-link"><i class="fas fa-phone"></i> +1 (800) 782-3368</a></li>
+            <li><a href="mailto:hello@rvadventure.com" class="footer-link"><i class="fas fa-envelope"></i> hello@rvadventure.com</a></li>
+            <li class="footer-link"><i class="fas fa-clock"></i> Mon–Sun: 7AM – 9PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="justify-content: center; text-align: center;">
+        <span>© 2024 RV adven Rentals. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <button class="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../assets/js/main.js" defer></script>
+  <script>
+    // Price range display
+    const priceFilter = document.getElementById('price-filter');
+    const priceVal = document.getElementById('price-val');
+    if (priceFilter && priceVal) {
+      priceFilter.addEventListener('input', () => priceVal.textContent = priceFilter.value);
+    }
+    // Wishlist toggle
+    document.querySelectorAll('.rv-wishlist').forEach(btn => {
+      btn.addEventListener('click', () => btn.classList.toggle('active'));
+    });
+    // View toggle
+    const gridBtn = document.getElementById('grid-view-btn');
+    const listBtn = document.getElementById('list-view-btn');
+    const fleetGrid = document.getElementById('fleet-grid');
+    if (gridBtn && listBtn) {
+      gridBtn.addEventListener('click', () => { gridBtn.classList.add('active'); listBtn.classList.remove('active'); fleetGrid.style.gridTemplateColumns = ''; });
+      listBtn.addEventListener('click', () => { listBtn.classList.add('active'); gridBtn.classList.remove('active'); fleetGrid.style.gridTemplateColumns = '1fr'; });
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
