@@ -251,6 +251,94 @@
             </div>
           </div>
         </div>
+
+        <!-- Client Infographics Tier 2 -->
+        <div class="charts-grid-expanded" style="margin-top:var(--space-4);">
+          <!-- 5. Budget Utilization -->
+          <div class="chart-card">
+            <div class="chart-header"><span class="chart-title">Budget Utilization</span></div>
+            <div class="budget-wrap" style="display:flex; flex-direction:column; justify-content:center; flex:1;">
+               <div style="font-size:1.75rem;font-weight:700;color:var(--color-primary);text-align:center;">$12,400</div>
+               <div style="font-size:0.75rem;color:var(--color-text-muted);text-align:center;margin-bottom:12px;">of $15,000 budget used</div>
+               <div class="progress-bar-bg" style="height:8px; border-radius:8px; margin:0;"><div class="progress-bar-fill" style="width:82%; border-radius:8px;"></div></div>
+               <div style="display:flex; justify-content:space-between; margin-top:12px; font-size:0.75rem; font-weight:600; color:var(--color-text-secondary);">
+                 <span>Furniture ($8.5k)</span>
+                 <span>Styling ($3.9k)</span>
+               </div>
+            </div>
+          </div>
+
+          <!-- 6. Design Style Composition -->
+          <div class="chart-card">
+            <div class="chart-header"><span class="chart-title">Style Profile</span></div>
+            <p class="text-xs text-secondary mb-2">Based on your Pinterest board.</p>
+            <div class="trend-list" style="margin-top:auto;">
+              <div class="trend-item">
+                <div class="trend-info"><span>Contemporary</span><span>60%</span></div>
+                <div class="trend-bar-bg"><div class="trend-bar-fill" style="width:60%"></div></div>
+              </div>
+              <div class="trend-item">
+                <div class="trend-info"><span>Scandinavian</span><span>25%</span></div>
+                <div class="trend-bar-bg"><div class="trend-bar-fill" style="width:25%; background:var(--color-secondary);"></div></div>
+              </div>
+              <div class="trend-item">
+                <div class="trend-info"><span>Boho Chic</span><span>15%</span></div>
+                <div class="trend-bar-bg"><div class="trend-bar-fill" style="width:15%; background:var(--color-info);"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Logistics Tracker -->
+          <div class="chart-card">
+            <div class="chart-header"><span class="chart-title">Recent Logistics</span></div>
+            <div class="logistics-wrap" style="display:flex; flex-direction:column; justify-content:space-between; flex:1; padding-top:4px;">
+              <div class="logistic-row" style="display:flex; align-items:center; gap:12px;">
+                <div style="width:12px; height:12px; border-radius:50%; background:var(--color-success); flex-shrink:0;"></div>
+                <div style="flex:1; font-size:0.875rem; font-weight:500;">Living Room Sofa</div>
+                <div class="status-badge status-completed" style="font-size:0.6875rem; min-width:70px; text-align:center;">Delivered</div>
+              </div>
+              <div style="width:2px; height:16px; background:var(--color-border); margin-left:5px;"></div>
+              <div class="logistic-row" style="display:flex; align-items:center; gap:12px;">
+                <div style="width:12px; height:12px; border-radius:50%; background:var(--color-info); flex-shrink:0;"></div>
+                <div style="flex:1; font-size:0.875rem; font-weight:500;">Dining Table</div>
+                <div class="status-badge status-progress" style="font-size:0.6875rem; min-width:70px; text-align:center;">In Transit</div>
+              </div>
+              <div style="width:2px; height:16px; background:var(--color-border); margin-left:5px;"></div>
+              <div class="logistic-row" style="display:flex; align-items:center; gap:12px;">
+                <div style="width:12px; height:12px; border-radius:50%; border:2px solid var(--color-primary); background:transparent; flex-shrink:0;"></div>
+                <div style="flex:1; font-size:0.875rem; font-weight:500;">Pendant Lights</div>
+                <div class="status-badge" style="font-size:0.6875rem; background:rgba(0,0,0,0.05); color:var(--color-text-secondary); min-width:70px; text-align:center;">Ordered</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Room-by-Room Breakdown -->
+          <div class="chart-card">
+             <div class="chart-header"><span class="chart-title">Room Readiness</span></div>
+             <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:auto; padding-bottom:8px;">
+               <div style="display:flex; flex-direction:column; align-items:center;">
+                 <div class="donut-wrap" style="position:relative; width:64px; height:64px;">
+                   <svg class="donut-svg" viewBox="0 0 36 36" style="width:100%; height:100%;">
+                     <circle cx="18" cy="18" r="15.915" fill="none" stroke="var(--color-border)" stroke-width="4"/>
+                     <circle cx="18" cy="18" r="15.915" fill="none" stroke="var(--color-primary)" stroke-width="4" stroke-dasharray="90 10" stroke-dashoffset="25"/>
+                   </svg>
+                   <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:0.75rem; font-weight:700; color:var(--color-text-primary);">90%</span>
+                 </div>
+                 <span style="font-size:0.875rem; font-weight:600; margin-top:8px;">Living Rm</span>
+               </div>
+               <div style="display:flex; flex-direction:column; align-items:center;">
+                 <div class="donut-wrap" style="position:relative; width:64px; height:64px;">
+                   <svg class="donut-svg" viewBox="0 0 36 36" style="width:100%; height:100%;">
+                     <circle cx="18" cy="18" r="15.915" fill="none" stroke="var(--color-border)" stroke-width="4"/>
+                     <circle cx="18" cy="18" r="15.915" fill="none" stroke="var(--color-secondary)" stroke-width="4" stroke-dasharray="40 60" stroke-dashoffset="25"/>
+                   </svg>
+                   <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:0.75rem; font-weight:700; color:var(--color-text-primary);">40%</span>
+                 </div>
+                 <span style="font-size:0.875rem; font-weight:600; margin-top:8px;">Kitchen</span>
+               </div>
+             </div>
+          </div>
+        </div>
       </div>
 
       <!-- ========== USER PROJECTS ========== -->

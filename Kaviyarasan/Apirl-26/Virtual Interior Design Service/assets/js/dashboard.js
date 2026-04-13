@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (sidebarToggle && sidebar) {
     sidebarToggle.addEventListener('click', () => {
-      const isMobile = window.innerWidth <= 768;
+      const isMobile = window.innerWidth <= 1024;
       if (isMobile) {
         sidebar.classList.toggle('mobile-open');
         overlay.classList.toggle('active');

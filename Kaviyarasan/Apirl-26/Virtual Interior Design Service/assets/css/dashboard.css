@@ -589,11 +589,11 @@
 .role-btn.active { background: var(--color-bg); color: var(--color-primary); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
 
 /* Responsive mobile sidebar */
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
   .sidebar-toggle-btn { display: none; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .dash-sidebar {
     transform: translateX(-100%);
     width: 260px;
@@ -660,7 +660,7 @@
   right: -20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   [dir="rtl"] .dash-sidebar {
     transform: translateX(100%);
   }
