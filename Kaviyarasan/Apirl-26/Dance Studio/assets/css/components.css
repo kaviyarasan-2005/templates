@@ -140,11 +140,16 @@
 
 .navbar__dropdown-toggle {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
 }
 
 .navbar__dropdown-toggle .chevron,
 .navbar__dropdown-toggle .fa-chevron-down {
-  display: none;
+  font-size: 10px;
+  transition: transform var(--transition-base);
+  opacity: 0.7;
 }
 
 .navbar__dropdown:hover .chevron,
@@ -162,6 +167,8 @@
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-xl);
   padding: var(--space-2);
+  margin: 0;
+  list-style: none;
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
