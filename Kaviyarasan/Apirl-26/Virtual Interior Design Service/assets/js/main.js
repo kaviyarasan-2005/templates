@@ -12,6 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Mobile Dropdown Toggles
+  const mobileDropdownBtns = document.querySelectorAll('.mobile-menu-overlay .dropdown-toggle');
+  mobileDropdownBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const menu = btn.nextElementSibling;
+      if (menu && menu.classList.contains('dropdown-menu')) {
+        menu.classList.toggle('show');
+        btn.classList.toggle('open');
+      }
+    });
+  });
   // Intersection Observer for scroll animations
   const observerOptions = {
     root: null,

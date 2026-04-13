@@ -215,19 +215,39 @@
     <button class="icon-btn mobile-toggle" style="position: absolute; right: var(--space-4); top: var(--space-4);">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>
-    <ul class="navbar-menu">
-      <li class="navbar-item"><a href="home-1.html" class="navbar-link">Home 1</a></li>
-      <li class="navbar-item"><a href="home-2.html" class="navbar-link">Home 2</a></li>
-      <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
-      <li class="navbar-item"><a href="services.html" class="navbar-link">All Services</a></li>
-      <li class="navbar-item"><a href="service-details.html" class="navbar-link">Service Details</a></li>
-      <li class="navbar-item"><a href="pricing.html" class="navbar-link">Pricing</a></li>
-      <li class="navbar-item"><a href="blog.html" class="navbar-link">Blog</a></li>
-      <li class="navbar-item"><a href="blog-details.html" class="navbar-link">Blog Details</a></li>
-      <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
-      <li class="navbar-item"><a href="dashboard-admin.html" class="navbar-link">Admin Dashboard</a></li>
-      <li class="navbar-item"><a href="dashboard-user.html" class="navbar-link">User Dashboard</a></li>
-      <li class="navbar-item"><a href="login.html" class="btn btn-primary">Login</a></li>
+    <ul class="navbar-menu" style="width: 100%;">
+      <li class="navbar-item" style="width: 100%;">
+        <button class="dropdown-toggle" style="width: 100%; justify-content: space-between;">Home <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg></button>
+        <div class="dropdown-menu">
+          <a href="home-1.html" class="dropdown-link">Home 1</a>
+          <a href="home-2.html" class="dropdown-link">Home 2</a>
+        </div>
+      </li>
+      <li class="navbar-item" style="width: 100%;"><a href="about.html" class="navbar-link">About</a></li>
+      <li class="navbar-item" style="width: 100%;">
+        <button class="dropdown-toggle" style="width: 100%; justify-content: space-between;">Services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg></button>
+        <div class="dropdown-menu">
+          <a href="services.html" class="dropdown-link">All Services</a>
+          <a href="service-details.html" class="dropdown-link">Service Details</a>
+        </div>
+      </li>
+      <li class="navbar-item" style="width: 100%;"><a href="pricing.html" class="navbar-link">Pricing</a></li>
+      <li class="navbar-item" style="width: 100%;">
+        <button class="dropdown-toggle" style="width: 100%; justify-content: space-between;">Blog <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg></button>
+        <div class="dropdown-menu">
+          <a href="blog.html" class="dropdown-link">Blog</a>
+          <a href="blog-details.html" class="dropdown-link">Blog Details</a>
+        </div>
+      </li>
+      <li class="navbar-item" style="width: 100%;"><a href="contact.html" class="navbar-link">Contact</a></li>
+      <li class="navbar-item" style="width: 100%;">
+        <button class="dropdown-toggle" style="width: 100%; justify-content: space-between;">Dashboard <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg></button>
+        <div class="dropdown-menu">
+          <a href="dashboard-admin.html" class="dropdown-link">Admin Dashboard</a>
+          <a href="dashboard-user.html" class="dropdown-link">User Dashboard</a>
+        </div>
+      </li>
+      <li class="navbar-item" style="margin-top:1rem; width: 100%;"><a href="login.html" class="btn btn-primary" style="width: 100%;">Login</a></li>
     </ul>
   </div>
 
