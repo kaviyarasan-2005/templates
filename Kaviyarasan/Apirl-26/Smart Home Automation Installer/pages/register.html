@@ -190,7 +190,17 @@
         backdrop-filter: none; 
         border: none; 
         box-shadow: none; 
+        padding: var(--space-4) var(--space-2);
       }
+      .auth-container { padding: var(--space-6) var(--space-2); }
+    }
+    @media (max-width: 400px) {
+      .auth-container { padding: var(--space-5) var(--space-1); }
+      .glass-card { padding: var(--space-3) var(--space-2); background: transparent; border: none; box-shadow: none; backdrop-filter: none; }
+      .social-btn--minimal { padding: 10px 8px; font-size: 11px; gap: 6px; }
+      [dir="rtl"] .form-floating label { left: auto; right: 14px; }
+      [dir="rtl"] .form-floating input:focus ~ label,
+      [dir="rtl"] .form-floating input:not(:placeholder-shown) ~ label { left: auto; right: 14px; }
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />

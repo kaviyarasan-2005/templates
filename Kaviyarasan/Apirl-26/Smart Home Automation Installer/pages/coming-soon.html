@@ -233,6 +233,16 @@
       .countdown-grid { gap: var(--space-1); }
       .coming-soon__inner h1 { font-size: var(--fs-3xl); }
     }
+    @media(max-width:400px) {
+      .page-header { padding: var(--space-2) var(--space-2); }
+      .coming-soon__inner h1 { font-size: var(--fs-2xl); }
+      .coming-soon__inner p { font-size: var(--fs-base); }
+      .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+      .countdown-item__number { font-size: var(--fs-2xl); }
+      form[data-validate] { flex-direction: column; }
+      form[data-validate] input, form[data-validate] button { width: 100%; }
+      .coming-soon { padding: var(--space-12) var(--space-2) var(--space-4); }
+    }
   </style>
 </head>
 <body>

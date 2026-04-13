@@ -39,7 +39,45 @@
     .compare-table td{padding:var(--space-2);border-bottom:1px solid var(--border-color);text-align:center;color:var(--text-secondary);}
     .compare-table td:first-child{text-align:left;color:var(--text-primary);font-weight:var(--fw-medium);}
     .check{color:var(--color-success);} .cross{color:var(--text-tertiary);}
-    @media(max-width:768px){.saas-hero__inner{grid-template-columns:1fr;}.saas-hero h1{font-size:var(--fs-4xl);}.mockup-card{display:none;}}
+
+    /* ===== TABLET (≤ 768px) ===== */
+    @media(max-width:768px){
+      /* Hero layout — single column */
+      .saas-hero{min-height:auto;padding:var(--space-8) 0;}
+      .saas-hero__inner{grid-template-columns:1fr;}
+      .saas-hero h1{font-size:var(--fs-3xl);line-height:1.2;}
+      .saas-hero p{font-size:var(--fs-base);}
+      .mockup-card{display:none;}
+
+      /* Integrations — 3 columns on tablet */
+      .integration-logos-grid{grid-template-columns:repeat(3,1fr) !important;}
+
+      /* Testimonials — 1 column on tablet */
+      .testimonials-grid{grid-template-columns:1fr !important;}
+
+      /* Newsletter form — stack vertically */
+      .newsletter-form{flex-direction:column !important;}
+      .newsletter-form input,.newsletter-form button{width:100%;}
+
+      /* Comparison table — allow horizontal scroll */
+      .compare-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+      .compare-table{min-width:500px;}
+    }
+
+    /* ===== MOBILE (≤ 480px) ===== */
+    @media(max-width:480px){
+      .saas-hero{padding:var(--space-6) 0;}
+      .saas-hero h1{font-size:var(--fs-2xl);}
+      .saas-hero p{font-size:var(--fs-sm);}
+      .hero-badge{font-size:10px;padding:5px 12px;}
+
+      /* Integrations — 2 columns on mobile */
+      .integration-logos-grid{grid-template-columns:repeat(2,1fr) !important;}
+
+      /* Feature cards — tighter on mobile */
+      .feature-card{flex-direction:column;}
+      .feature-card__icon{width:40px;height:40px;}
+    }
   </style>
 </head>
 <body class="has-navbar">
@@ -69,7 +107,7 @@
       <button class="navbar__icon-btn mobile-visible" id="rtl-toggle" aria-label="Toggle RTL layout" title="Toggle RTL/LTR">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       </button>
-      <a href="login.html" class="btn btn-primary btn-sm" style="display:none;" id="nav-cta">Login</a>
+      <a href="login.html" class="btn btn-primary btn-sm" id="nav-cta">Login</a>
       <button class="navbar__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -90,6 +128,7 @@
   <a href="contact.html">Contact</a>
   <a href="dashboard.html">Admin Dashboard</a>
   <a href="user-dashboard.html">User Dashboard</a>
+  <a href="login.html" class="btn btn-primary">Login</a>
 </div>
 
 <!-- HERO -->
@@ -113,7 +152,7 @@
 <section style="padding:var(--space-5) 0;background:var(--bg-card);border-bottom:1px solid var(--border-color);">
   <div class="container">
     <p style="text-align:center;font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:2px;color:var(--text-tertiary);margin-bottom:var(--space-3);">Works with 200+ Devices & Platforms</p>
-    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:var(--space-2);" data-aos="fade-up">
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:var(--space-2);" class="integration-logos-grid" data-aos="fade-up">
       <div class="integration-logo">Google Home</div><div class="integration-logo">Amazon Alexa</div><div class="integration-logo">Apple HomeKit</div><div class="integration-logo">Z-Wave</div><div class="integration-logo">Zigbee</div><div class="integration-logo">Matter</div>
     </div>
   </div>
@@ -138,7 +177,7 @@
 <section class="section-padding" style="background:var(--bg-card);">
   <div class="container">
     <div class="section-header" data-aos="fade-up"><span class="section-header__tag">Compare</span><h2>SmartNest vs. Traditional Systems</h2></div>
-    <div data-aos="fade-up" data-aos-delay="100" style="border:1px solid var(--border-color);border-radius:var(--border-radius-xl);overflow:hidden;">
+    <div class="compare-wrapper" data-aos="fade-up" data-aos-delay="100" style="border:1px solid var(--border-color);border-radius:var(--border-radius-xl);overflow:hidden;">
       <table class="compare-table"><thead><tr><th>Feature</th><th>SmartNest</th><th>Traditional</th><th>DIY</th></tr></thead>
       <tbody>
         <tr><td>Unified App Control</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
@@ -156,7 +195,7 @@
 <section class="section-padding">
   <div class="container">
     <div class="section-header" data-aos="fade-up"><span class="section-header__tag">Reviews</span><h2>Thousands of Happy Smart Homes</h2></div>
-    <div class="grid-4" style="grid-template-columns:repeat(2,1fr);" data-aos="fade-up" data-aos-delay="100">
+    <div class="grid-4 testimonials-grid" style="grid-template-columns:repeat(2,1fr);" data-aos="fade-up" data-aos-delay="100">
       <div class="testimonial-card"><div class="testimonial-card__stars"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testimonial-card__text">"The most intuitive home automation platform I've ever used. Everything just works."</p><div class="testimonial-card__author"><img src="../assets/images/testimonial-avatar-5.jpg" alt="Alex T." class="testimonial-card__avatar"/><div><div class="testimonial-card__name">Alex T.</div><div class="testimonial-card__role">Tech Enthusiast, San Francisco</div></div></div></div>
       <div class="testimonial-card"><div class="testimonial-card__stars"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testimonial-card__text">"Managing 5 rental properties from one dashboard is a game changer."</p><div class="testimonial-card__author"><img src="../assets/images/testimonial-avatar-6.jpg" alt="Rachel W." class="testimonial-card__avatar"/><div><div class="testimonial-card__name">Rachel W.</div><div class="testimonial-card__role">Property Manager, Chicago</div></div></div></div>
       <div class="testimonial-card"><div class="testimonial-card__stars"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testimonial-card__text">"Setup took less than an afternoon and now my home basically runs itself."</p><div class="testimonial-card__author"><img src="../assets/images/testimonial-avatar-7.jpg" alt="David C." class="testimonial-card__avatar"/><div><div class="testimonial-card__name">David C.</div><div class="testimonial-card__role">Busy Professional, New York</div></div></div></div>
@@ -184,7 +223,7 @@
     <span class="section-header__tag">Stay Updated</span>
     <h2>Get Smart Home Tips & Updates</h2>
     <p style="margin-bottom:var(--space-3);">Join 12,000+ homeowners getting weekly smart home tips.</p>
-    <form data-validate style="display:flex;gap:var(--space-1);"><input type="email" class="form-input" placeholder="Your email" required style="flex:1;"/><button type="submit" class="btn btn-primary">Subscribe</button></form>
+    <form data-validate class="newsletter-form" style="display:flex;gap:var(--space-1);"><input type="email" class="form-input" placeholder="Your email" required style="flex:1;"/><button type="submit" class="btn btn-primary">Subscribe</button></form>
   </div>
 </section>
 
@@ -243,6 +282,6 @@
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="../assets/js/main.js"></script>
-<style>@media(max-width:1024px){#nav-cta{display:none!important;}}@media(min-width:1025px){#nav-cta{display:inline-flex!important;}}</style>
+
 </body>
 </html>

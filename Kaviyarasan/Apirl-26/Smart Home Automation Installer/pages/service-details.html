@@ -36,6 +36,12 @@
     .include-list li{display:flex;align-items:center;gap:var(--space-1);font-size:var(--fs-sm);color:var(--text-secondary);padding:6px 0;}
     .include-list li svg{width:16px;height:16px;color:var(--color-success);flex-shrink:0;}
     @media(max-width:1024px){.detail-layout{grid-template-columns:1fr;}.sticky-sidebar{position:relative;top:0;}}
+    @media(max-width:400px){
+      .page-hero{padding:var(--space-6) var(--space-2);}
+      .breadcrumb { flex-wrap: wrap; gap: 4px; font-size: var(--fs-xs); }
+      .pricing-compact-card { padding: var(--space-2); }
+      .detail-img { border-radius: var(--border-radius-lg); }
+    }
   </style>
 </head>
 <body class="has-navbar">
@@ -65,7 +71,7 @@
       <button class="navbar__icon-btn mobile-visible" id="rtl-toggle" aria-label="Toggle RTL layout" title="Toggle RTL/LTR">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       </button>
-      <a href="login.html" class="btn btn-primary btn-sm" style="display:none;" id="nav-cta">Login</a>
+      <a href="login.html" class="btn btn-primary btn-sm" id="nav-cta">Login</a>
       <button class="navbar__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -86,6 +92,7 @@
   <a href="contact.html">Contact</a>
   <a href="dashboard.html">Admin Dashboard</a>
   <a href="user-dashboard.html">User Dashboard</a>
+  <a href="login.html" class="btn btn-primary">Login</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -266,9 +273,6 @@
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="../assets/js/main.js"></script>
-<style>
-  @media (max-width:1024px) { #nav-cta { display: none !important; } }
-  @media (min-width:1025px) { #nav-cta { display: inline-flex !important; } }
-</style>
+
 </body>
 </html>
