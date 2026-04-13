@@ -1005,7 +1005,182 @@ tbody tr:last-child td { border-bottom: none; }
   .dashboard-widget { padding: var(--space-md); overflow-x: hidden; }
 }
 
-@media (max-width: 480px) {
-  .stats-grid { grid-template-columns: 1fr !important; }
-  .dashboard-header__left div { display: none; }
+/* ==========================================================================
+   PREMIUM INFOGRAPHICS — Radial, Timeline, Heatmap, Radar
+   ========================================================================== */
+
+/* 1. Radial Collection Ring */
+.infog-radial {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background: conic-gradient(var(--accent) 0% var(--radial-percent, 0%), var(--border) var(--radial-percent, 0%) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infog-radial::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: var(--bg-card);
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
+}
+
+.infog-radial__content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+.infog-radial__value {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: block;
+    line-height: 1;
+}
+
+.infog-radial__label {
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* 2. Journey Timeline */
+.infog-journey {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: var(--space-xl) 0;
+    padding: 0 var(--space-md);
+}
+
+.infog-journey::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: var(--space-xl);
+    right: var(--space-xl);
+    height: 2px;
+    background: var(--border);
+    z-index: 1;
+}
+
+.journey-step {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 60px;
+}
+
+.journey-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-sm);
+    transition: all var(--transition-base);
+}
+
+.journey-step.active .journey-dot {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--bg-primary);
+    box-shadow: 0 0 0 4px rgba(212,175,55,0.2);
+    animation: dotPulse 2s infinite;
+}
+
+.journey-step.completed .journey-dot {
+    border-color: var(--success);
+    background: var(--success);
+    color: #fff;
+}
+
+@keyframes dotPulse {
+    0% { box-shadow: 0 0 0 0 rgba(212,175,55,0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(212,175,55,0); }
+    100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
+}
+
+.journey-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    font-family: var(--font-ui);
+}
+
+.journey-step.active .journey-label { color: var(--text-primary); }
+
+/* 3. Activity Heatmap */
+.infog-heatmap {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 4px;
+    margin-top: var(--space-md);
+}
+
+.heatmap-cell {
+    aspect-ratio: 1;
+    background: var(--bg-secondary);
+    border-radius: 2px;
+    cursor: crosshair;
+    transition: transform 0.2s ease;
+    position: relative;
+}
+
+.heatmap-cell:hover {
+    transform: scale(1.3);
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+}
+
+.heatmap-cell[data-level="1"] { background: rgba(212,175,55,0.1); }
+.heatmap-cell[data-level="2"] { background: rgba(212,175,55,0.3); }
+.heatmap-cell[data-level="3"] { background: rgba(212,175,55,0.6); }
+.heatmap-cell[data-level="4"] { background: var(--accent); }
+
+/* 4. Radar Profile SVG-CSS */
+.infog-radar {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radar-svg {
+    overflow: visible;
+}
+
+.radar-grid {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 1;
+}
+
+.radar-area {
+    fill: rgba(212,175,55,0.2);
+    stroke: var(--accent);
+    stroke-width: 2;
+    transition: all 0.5s ease;
+}
+
+.radar-area:hover {
+    fill: rgba(212,175,55,0.4);
 }

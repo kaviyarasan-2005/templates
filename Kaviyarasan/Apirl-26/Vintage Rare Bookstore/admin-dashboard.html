@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard | VintStore</title>
   <meta name="description" content="Admin dashboard for VintStore — Monitor analytics, orders, users, and messages.">
-  <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/dashboard.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicons/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
   <style>
     /* Sparkline containers */
     .sparkline { width: 100%; min-height: 60px; }
@@ -54,8 +54,7 @@
   <!-- Sidebar -->
   <aside class="sidebar" role="navigation" aria-label="Dashboard sidebar">
     <div class="sidebar__header">
-      <a href="../index.html" class="sidebar__logo" aria-label="Go to main site">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="36" height="36"><rect width="40" height="40" rx="7" fill="#8B4513"/><rect x="7" y="6" width="19" height="28" rx="2" fill="#D4AF37"/><rect x="9" y="8" width="15" height="24" rx="1" fill="#FDF8F0"/><rect x="11" y="13" width="11" height="1.5" rx="0.75" fill="#8B4513"/><rect x="27" y="8" width="6" height="24" rx="1" fill="#5D3A1A"/></svg>
+      <a href="index.html" class="sidebar__logo" aria-label="Go to main site"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 2H6a3 3 0 0 0-3 3v14a3 3 0 0 0 6 3h13V2zM6 4h11v14H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm0 13h11v1H6a1 1 0 0 1 0-2z"/></svg>
         <span class="sidebar__logo-text">VintStore</span>
       </a>
     </div>
@@ -68,17 +67,14 @@
 
     <nav class="sidebar__nav" aria-label="Admin navigation">
       <ul class="sidebar-nav-list" role="list">
-        <li><a href="index.html" class="sidebar-nav-link active" id="nav-dashboard"><svg class="sidebar-nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span>Dashboard</span></a></li>
-        <li><a href="users.html" class="sidebar-nav-link" id="nav-users"><svg class="sidebar-nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Users</span><span class="sidebar-badge">24</span></a></li>
-        <li><a href="orders.html" class="sidebar-nav-link" id="nav-orders"><svg class="sidebar-nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Orders</span><span class="sidebar-badge sidebar-badge--warning">7</span></a></li>
-        <li><a href="messages.html" class="sidebar-nav-link" id="nav-messages"><svg class="sidebar-nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Messages</span><span class="sidebar-badge sidebar-badge--danger">3</span></a></li>
-        <li><a href="profile.html" class="sidebar-nav-link" id="nav-profile"><svg class="sidebar-nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></a></li>
+        <li><a href="admin-dashboard.html" class="sidebar-nav-link active" id="nav-dashboard"><svg class="sidebar-nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span>Dashboard</span></a></li>
+        <li><a href="user-dashboard.html" class="sidebar-nav-link" id="nav-profile"><svg class="sidebar-nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></a></li>
       </ul>
 
       <div class="sidebar-section-label">Settings</div>
       <ul class="sidebar-nav-list" role="list">
         <li><a href="#" class="sidebar-nav-link"><svg class="sidebar-nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 1.41 14.84"/><path d="M4.93 4.93a10 10 0 0 0-1.41 14.84"/></svg><span>Settings</span></a></li>
-        <li><a href="../login.html" class="sidebar-nav-link"><svg class="sidebar-nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span>Logout</span></a></li>
+        <li><a href="login.html" class="sidebar-nav-link"><svg class="sidebar-nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span>Logout</span></a></li>
       </ul>
     </nav>
 
@@ -96,48 +92,60 @@
   <!-- Main -->
   <div class="dashboard-main">
     <!-- Top bar -->
-    <header class="dashboard-header" role="banner">
-      <div class="dashboard-header__left">
-        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Toggle sidebar">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <div>
-          <h1 style="font-size:1.25rem;margin:0;font-family:var(--font-heading)">Dashboard Overview</h1>
-          <div style="font-size:0.8125rem;color:var(--text-muted);font-family:var(--font-ui)">Welcome back, Dr. Hartley — Sunday, April 28, 2024</div>
+      <header class="navbar" role="banner">
+    <div class="container">
+      <div class="navbar__inner">
+        <!-- Logo -->
+        <a href="index.html" class="navbar__logo" aria-label="VintStore — Home"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 2H6a3 3 0 0 0-3 3v14a3 3 0 0 0 6 3h13V2zM6 4h11v14H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm0 13h11v1H6a1 1 0 0 1 0-2z"/></svg>
+          <span class="navbar__logo-text">VintStore</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <ul class="navbar__nav" role="list">
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link " aria-haspopup="true" aria-expanded="false">Home <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="index.html" role="menuitem">General Services</a></li>
+              <li><a href="home-saas.html" role="menuitem">SaaS / Agency</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="services.html" class="nav-link" aria-haspopup="true">Services <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="services.html" role="menuitem">All Services</a></li>
+              <li><a href="service-details.html" role="menuitem">Book Appraisal</a></li>
+              <li><a href="service-details.html" role="menuitem">Restoration</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="blog.html" class="nav-link" aria-haspopup="true">Blog <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="blog.html" role="menuitem">All Articles</a></li>
+              <li><a href="blog-details.html" role="menuitem">Latest Post</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="admin-dashboard.html" class="nav-link" aria-haspopup="true">Dashboard <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="admin-dashboard.html" role="menuitem">Admin View</a></li>
+              <li><a href="user-dashboard.html" role="menuitem">User View</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="navbar__actions">
+          <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Toggle sidebar" style="margin-right:12px;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><button id="rtl-toggle" class="nav-icon-btn" aria-label="Switch to RTL layout" title="Toggle RTL/LTR"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+          <button id="theme-toggle" class="nav-icon-btn" aria-label="Switch to dark mode" title="Toggle theme"><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+          <a href="login.html" class="btn btn-primary btn-sm">Login</a>
+          <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
         </div>
       </div>
-      <div class="dashboard-header__right">
-        <button id="rtl-toggle" class="nav-icon-btn dash-icon-btn" aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
-        <button id="theme-toggle" class="nav-icon-btn dash-icon-btn" aria-label="Toggle theme">
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
-        </button>
-        <div style="position:relative">
-          <button class="notif-btn dash-icon-btn" aria-label="Notifications">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-            <span class="notif-badge" aria-label="3 new notifications">3</span>
-          </button>
-          <div class="notif-panel">
-            <div class="notif-panel__header">Notifications <span class="badge badge-warning" style="font-size:0.7rem">3 new</span></div>
-            <div class="notif-item"><div class="notif-dot" style="background:var(--accent)"></div><div><div class="notif-text">New appraisal request from E. Whitmore</div><div class="notif-time">5 min ago</div></div></div>
-            <div class="notif-item"><div class="notif-dot" style="background:var(--success)"></div><div><div class="notif-text">Order #2841 completed successfully</div><div class="notif-time">1 hour ago</div></div></div>
-            <div class="notif-item"><div class="notif-dot" style="background:var(--error)"></div><div><div class="notif-text">Payment failed for Order #2839</div><div class="notif-time">3 hours ago</div></div></div>
-          </div>
-        </div>
-        <div style="position:relative">
-          <button class="profile-btn" aria-label="Profile menu" style="display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;color:var(--text-primary)">
-            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary-light),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--font-heading)">C</div>
-            <span style="font-family:var(--font-ui);font-size:0.875rem;font-weight:600">Dr. Hartley</span>
-          </button>
-          <div class="profile-panel">
-            <a href="profile.html" class="profile-panel__item">👤 View Profile</a>
-            <a href="#" class="profile-panel__item">⚙️ Settings</a>
-            <a href="../index.html" class="profile-panel__item">🌐 Visit Site</a>
-            <a href="../login.html" class="profile-panel__item" style="color:var(--error)">🚪 Log Out</a>
-          </div>
-        </div>
-      </div>
-    </header>
+    </div>
+  </header>
 
     <!-- Content -->
     <div class="dashboard-content">
@@ -194,10 +202,10 @@
         <div class="dashboard-widget reveal">
           <div class="widget-header"><h3 class="widget-title">Quick Actions</h3></div>
           <div class="quick-actions">
-            <a href="orders.html" class="quick-btn"><span class="quick-btn__icon">📦</span><span class="quick-btn__label">New Order</span></a>
-            <a href="users.html" class="quick-btn"><span class="quick-btn__icon">👤</span><span class="quick-btn__label">Add User</span></a>
-            <a href="messages.html" class="quick-btn"><span class="quick-btn__icon">💬</span><span class="quick-btn__label">Messages</span></a>
-            <a href="../service-details.html" class="quick-btn"><span class="quick-btn__icon">📚</span><span class="quick-btn__label">Catalogue</span></a>
+            <a href="#" class="quick-btn"><span class="quick-btn__icon">📦</span><span class="quick-btn__label">New Order</span></a>
+            <a href="#" class="quick-btn"><span class="quick-btn__icon">👤</span><span class="quick-btn__label">Add User</span></a>
+            <a href="#" class="quick-btn"><span class="quick-btn__icon">💬</span><span class="quick-btn__label">Messages</span></a>
+            <a href="service-details.html" class="quick-btn"><span class="quick-btn__icon">📚</span><span class="quick-btn__label">Catalogue</span></a>
           </div>
           <!-- Recent activity -->
           <div style="margin-top:var(--space-xl)">
@@ -262,13 +270,67 @@
         </div>
       </div>
 
+      <!-- New Infographics Section -->
+      <div class="dashboard-two-col" style="margin-top:var(--space-xl)">
+        <!-- Info 4: Acquisition Journey -->
+        <div class="dashboard-widget reveal">
+          <div class="widget-header"><h3 class="widget-title">Acquisition Pipeline</h3></div>
+          <div class="infog-journey">
+            <div class="journey-step completed"><div class="journey-dot">✓</div><div class="journey-label">Search</div></div>
+            <div class="journey-step completed"><div class="journey-dot">✓</div><div class="journey-label">Verify</div></div>
+            <div class="journey-step active"><div class="journey-dot">!</div><div class="journey-label">Appraise</div></div>
+            <div class="journey-step"><div class="journey-dot"></div><div class="journey-label">Acquire</div></div>
+          </div>
+        </div>
+        <!-- Info 5: Radial Inventory Ring -->
+        <div class="dashboard-widget reveal" style="animation-delay:0.1s">
+          <div class="widget-header"><h3 class="widget-title">Inventory Health</h3></div>
+          <div class="infog-radial" style="--radial-percent: 85%">
+            <div class="infog-radial__content">
+              <span class="infog-radial__value">85%</span>
+              <span class="infog-radial__label">Optimal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-two-col" style="margin-top:var(--space-xl)">
+        <!-- Info 6: Activity Heatmap -->
+        <div class="dashboard-widget reveal">
+          <div class="widget-header"><h3 class="widget-title">Global Site Traffic</h3></div>
+          <div class="infog-heatmap">
+            <!-- Render 14x5 grid cells with varying levels -->
+            <div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div>
+            <div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="2"></div>
+            <div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div>
+            <div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div>
+            <div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div>
+          </div>
+        </div>
+        <!-- Info 7: Era Radar -->
+        <div class="dashboard-widget reveal" style="animation-delay:0.1s">
+          <div class="widget-header"><h3 class="widget-title">Market Demand by Era</h3></div>
+          <div class="infog-radar">
+            <svg class="radar-svg" viewBox="0 0 100 100" width="160" height="160">
+              <!-- Rings -->
+              <circle class="radar-grid" cx="50" cy="50" r="10"></circle>
+              <circle class="radar-grid" cx="50" cy="50" r="20"></circle>
+              <circle class="radar-grid" cx="50" cy="50" r="30"></circle>
+              <circle class="radar-grid" cx="50" cy="50" r="40"></circle>
+              <!-- Data Shape (Pentagon sample) -->
+              <polygon class="radar-area" points="50,10 88,38 74,82 26,82 12,38"></polygon>
+            </svg>
+          </div>
+        </div>
+      </div>
+
       <!-- Recent Orders Table -->
       <div class="dashboard-widget reveal" style="margin-top:var(--space-xl)">
         <div class="widget-header">
           <h3 class="widget-title">Recent Orders</h3>
           <div style="display:flex;gap:var(--space-sm)">
             <input type="text" class="table-filter-input" data-target="orders-table" placeholder="Filter orders..." style="padding:6px 14px;border-radius:var(--border-radius);border:1px solid var(--border);font-family:var(--font-ui);font-size:0.875rem;background:var(--bg-secondary);color:var(--text-primary)">
-            <a href="orders.html" class="btn btn-primary btn-sm">View All</a>
+            <button class="btn btn-primary btn-sm">View All</button>
           </div>
         </div>
         <div class="table-wrapper" style="overflow-x:auto">
@@ -284,13 +346,69 @@
           </table>
         </div>
       </div>
+    
+    
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 2H6a3 3 0 0 0-3 3v14a3 3 0 0 0 6 3h13V2zM6 4h11v14H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm0 13h11v1H6a1 1 0 0 1 0-2z"/></svg>
+            <span class="navbar__logo-text">VintStore</span>
+          </a>
+          <p class="footer__tagline">Preserving the world's literary heritage since 1978. Every book tells a story — we help you find yours.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Twitter / X"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__heading">Explore</h3>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__heading">Services</h3>
+          <ul class="footer__links">
+            <li><a href="service-details.html">Book Appraisal</a></li>
+            <li><a href="service-details.html">Restoration</a></li>
+            <li><a href="service-details.html">Book Sourcing</a></li>
+            <li><a href="service-details.html">Conservation</a></li>
+            <li><a href="service-details.html">Estate Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__heading">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="coming-soon.html">Coming Soon</a></li>
+            <li><a href="404.html">404 Page</a></li>
+          </ul>
+          <div style="margin-top:var(--space-lg)">
+            <p style="color:rgba(245,230,211,0.5);font-size:0.8125rem;font-family:var(--font-ui);">📍 42 Antiquarian Lane<br>London, WC2B 5NA</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 VintStore. All rights reserved.</p>
+      </div>
     </div>
-    <!-- End content -->
+  </footer>
+  </div>
   </div>
 
-  <script src="../assets/js/main.js" defer></script>
-  <script src="../assets/js/animations.js" defer></script>
-  <script src="../assets/js/dashboard.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/dashboard.js" defer></script>
   <script src="assets/js/rtl-ltr.js" defer></script>
 </body>
 </html>

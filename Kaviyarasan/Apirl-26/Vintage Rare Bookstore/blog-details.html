@@ -1,4 +1,4 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,12 +48,83 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <header class="navbar" role="banner"><div class="container"><div class="navbar__inner">
-    <a href="index.html" class="navbar__logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><rect width="40" height="40" rx="7" fill="#8B4513"/><rect x="7" y="6" width="19" height="28" rx="2" fill="#D4AF37"/><rect x="9" y="8" width="15" height="24" rx="1" fill="#FDF8F0"/><rect x="11" y="13" width="11" height="1.5" rx="0.75" fill="#8B4513"/><rect x="27" y="8" width="6" height="24" rx="1" fill="#5D3A1A"/></svg><span class="navbar__logo-text">VintStore</span></a>
-    <ul class="navbar__nav" role="list"><li class="nav-item"><a href="index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="about.html" class="nav-link">About</a></li><li class="nav-item"><a href="services.html" class="nav-link">Services</a></li><li class="nav-item"><a href="blog.html" class="nav-link active">Blog</a></li><li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li><li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li></ul>
-    <div class="navbar__actions"><button id="rtl-toggle" class="nav-icon-btn" aria-label="Toggle RTL"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button><button id="theme-toggle" class="nav-icon-btn" aria-label="Toggle theme"><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></button><a href="login.html" class="btn btn-primary btn-sm">Login</a><button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
-  </div></div></header>
-  <nav id="mobile-nav" class="mobile-nav"><ul class="mobile-nav__links"><li><a href="index.html" class="nav-link">Home</a></li><li><a href="blog.html" class="nav-link active">Blog</a></li><li><a href="services.html" class="nav-link">Services</a></li><li><a href="contact.html" class="nav-link">Contact</a></li></ul><div class="mobile-nav__footer"><a href="login.html" class="btn btn-primary btn-full">Login</a></div></nav>
+          <header class="navbar" role="banner">
+    <div class="container">
+      <div class="navbar__inner">
+        <!-- Logo -->
+        <a href="admin-dashboard.html" class="navbar__logo" aria-label="VintStore ó Home"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 2H6a3 3 0 0 0-3 3v14a3 3 0 0 0 6 3h13V2zM6 4h11v14H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm0 13h11v1H6a1 1 0 0 1 0-2z"/></svg>
+          <span class="navbar__logo-text">VintStore</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <ul class="navbar__nav" role="list">
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link " aria-haspopup="true" aria-expanded="false">Home <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="admin-dashboard.html" role="menuitem">General Services</a></li>
+              <li><a href="dashboard/home-saas.html" role="menuitem">SaaS / Agency</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="dashboard/about.html" class="nav-link">About</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="dashboard/services.html" class="nav-link" aria-haspopup="true">Services <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="dashboard/services.html" role="menuitem">All Services</a></li>
+              <li><a href="dashboard/service-details.html" role="menuitem">Book Appraisal</a></li>
+              <li><a href="dashboard/service-details.html" role="menuitem">Restoration</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="dashboard/blog.html" class="nav-link" aria-haspopup="true">Blog <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="dashboard/blog.html" role="menuitem">All Articles</a></li>
+              <li><a href="dashboard/blog-details.html" role="menuitem">Latest Post</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="dashboard/pricing.html" class="nav-link">Pricing</a></li>
+          <li class="nav-item"><a href="dashboard/contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="admin-dashboard.html" class="nav-link" aria-haspopup="true">Dashboard <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="admin-dashboard.html" role="menuitem">Admin View</a></li>
+              <li><a href="user-dashboard.html" role="menuitem">User View</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="navbar__actions">
+          <button id="rtl-toggle" class="nav-icon-btn" aria-label="Switch to RTL layout" title="Toggle RTL/LTR"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+          <button id="theme-toggle" class="nav-icon-btn" aria-label="Switch to dark mode" title="Toggle theme"><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+          <a href="dashboard/login.html" class="btn btn-primary btn-sm">Login</a>
+          <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+          <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <ul class="mobile-nav__links" role="list">
+      <li>
+        <button class="nav-link mobile-sub-toggle" style="width:100%;border:none;background:none;cursor:pointer;font-family:var(--font-ui);font-size:1rem;font-weight:500;color:var(--text-primary);text-align:left;">
+          Home
+          <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <ul class="mobile-sub-menu">
+          <li><a href="admin-dashboard.html">General Services</a></li>
+          <li><a href="dashboard/home-saas.html">SaaS / Agency</a></li>
+        </ul>
+      </li>
+      <li><a href="dashboard/about.html" class="nav-link">About</a></li>
+      <li><a href="dashboard/services.html" class="nav-link">Services</a></li>
+      <li><a href="dashboard/blog.html" class="nav-link">Blog</a></li>
+      <li><a href="dashboard/pricing.html" class="nav-link">Pricing</a></li>
+      <li><a href="dashboard/contact.html" class="nav-link">Contact</a></li>
+      <li><a href="admin-dashboard.html" class="nav-link">Dashboard</a></li>
+    </ul>
+    <div class="mobile-nav__footer">
+      <a href="dashboard/login.html" class="btn btn-primary btn-full">Login</a>
+    </div>
+  </nav>
 
   <main id="main-content">
     <!-- Hero Image -->
@@ -76,11 +147,11 @@
           </div>
         </div>
 
-        <p class="lead">"First edition" are two of the most exciting ‚Äî and most frequently misused ‚Äî words in book collecting. Understanding what they truly mean can be the difference between a sound investment and a costly mistake.</p>
+        <p class="lead">"First edition" are two of the most exciting ó and most frequently misused ó words in book collecting. Understanding what they truly mean can be the difference between a sound investment and a costly mistake.</p>
 
         <h2>What Is a First Edition?</h2>
-        <p>A first edition is, in its simplest definition, a book printed in its first print run. However, this definition becomes considerably more nuanced when applied to the complex world of rare book collecting. The terms "first edition," "first printing," "first impression," and "first state" are often conflated ‚Äî but each has specific meaning.</p>
-        <p>A first edition contains all printings of a book that use the same setting of type. Within a first edition, there may be multiple impressions (printings), each potentially differing in subtle ways. Collectors typically prize the "first impression" ‚Äî the very first printing of the first edition ‚Äî above all others.</p>
+        <p>A first edition is, in its simplest definition, a book printed in its first print run. However, this definition becomes considerably more nuanced when applied to the complex world of rare book collecting. The terms "first edition," "first printing," "first impression," and "first state" are often conflated ó but each has specific meaning.</p>
+        <p>A first edition contains all printings of a book that use the same setting of type. Within a first edition, there may be multiple impressions (printings), each potentially differing in subtle ways. Collectors typically prize the "first impression" ó the very first printing of the first edition ó above all others.</p>
 
         <h2>How to Identify a First Printing</h2>
         <p>Different publishers use different methods to identify first printings. Here are the most common:</p>
@@ -89,10 +160,10 @@
         <p>Many modern publishers explicitly state "First Edition," "First Printing," or "First Published [year]" on the copyright page. If the book is a reprint, it will typically note the printing history.</p>
 
         <h3>2. Number Lines</h3>
-        <p>From approximately the 1970s onwards, many publishers began using "number lines" ‚Äî a series of numbers on the copyright page such as <em>10 9 8 7 6 5 4 3 2 1</em>. The lowest number indicates the printing. If "1" is present, it is likely a first printing. The first number to be removed in a reprint is the "1."</p>
+        <p>From approximately the 1970s onwards, many publishers began using "number lines" ó a series of numbers on the copyright page such as <em>10 9 8 7 6 5 4 3 2 1</em>. The lowest number indicates the printing. If "1" is present, it is likely a first printing. The first number to be removed in a reprint is the "1."</p>
 
         <h3>3. Points of Issue</h3>
-        <p>For older books, bibliographers have identified specific characteristics ‚Äî called "points" ‚Äî that distinguish the first printing from later ones. These might include:</p>
+        <p>For older books, bibliographers have identified specific characteristics ó called "points" ó that distinguish the first printing from later ones. These might include:</p>
         <ul style="padding-left:var(--space-xl);color:var(--text-secondary);line-height:2;font-size:0.9375rem">
           <li>Specific typographical errors present only in the first printing</li>
           <li>Particular binding colours or materials</li>
@@ -106,7 +177,7 @@
         <p>For 20th-century books, the dust jacket is often more valuable than the book itself. A Hemingway first edition in fine condition with a pristine dust jacket might command ten times the price of the same book without its jacket.</p>
 
         <h3>Provenance and Association Copies</h3>
-        <p>Provenance ‚Äî the ownership history of a book ‚Äî can significantly enhance value. An "association copy" is one that belonged to, or was signed by, a person of note. A George Orwell presentation copy inscribed to his publisher, for instance, would command a substantial premium over a standard first edition.</p>
+        <p>Provenance ó the ownership history of a book ó can significantly enhance value. An "association copy" is one that belonged to, or was signed by, a person of note. A George Orwell presentation copy inscribed to his publisher, for instance, would command a substantial premium over a standard first edition.</p>
 
         <!-- Author Bio -->
         <div class="author-bio-card">
@@ -119,9 +190,9 @@
         <!-- Share -->
         <div class="post-share">
           <span>Share:</span>
-          <button class="share-btn" onclick="navigator.share && navigator.share({title:document.title,url:location.href})">üì§ Share</button>
-          <button class="share-btn">üê¶ Twitter</button>
-          <button class="share-btn">üíº LinkedIn</button>
+          <button class="share-btn" onclick="navigator.share && navigator.share({title:document.title,url:location.href})">?? Share</button>
+          <button class="share-btn">?? Twitter</button>
+          <button class="share-btn">?? LinkedIn</button>
         </div>
       </article>
 
@@ -147,10 +218,66 @@
           <div class="tag-cloud"><a href="#" class="tag">First Editions</a><a href="#" class="tag">Collecting</a><a href="#" class="tag">Identification</a><a href="#" class="tag">Provenance</a><a href="#" class="tag">Condition</a><a href="#" class="tag">Guides</a></div>
         </div>
       </aside>
-    </div></div></section>
-  </main>
-
-  <footer class="footer" role="contentinfo"><div class="container"><div class="footer__grid"><div class="footer__brand"><a href="index.html" class="navbar__logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40"><rect width="40" height="40" rx="7" fill="#D4AF37"/><rect x="7" y="6" width="19" height="28" rx="2" fill="#8B4513"/><rect x="9" y="8" width="15" height="24" rx="1" fill="#FDF8F0"/><rect x="27" y="8" width="6" height="24" rx="1" fill="#5D3A1A"/></svg><span class="navbar__logo-text">VintStore</span></a><p class="footer__tagline">Preserving the world's literary heritage since 1978.</p></div><div><h3 class="footer__heading">Explore</h3><ul class="footer__links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li></ul></div><div><h3 class="footer__heading">Services</h3><ul class="footer__links"><li><a href="service-details.html">Appraisal</a></li><li><a href="service-details.html">Restoration</a></li></ul></div><div><h3 class="footer__heading">Contact</h3><ul class="footer__links"><li><a href="contact.html">Get in Touch</a></li></ul></div></div><div class="footer__bottom"><p>&copy; 2024 VintStore. All rights reserved.</p></div></div></footer>
+    </d  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 2H6a3 3 0 0 0-3 3v14a3 3 0 0 0 6 3h13V2zM6 4h11v14H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm0 13h11v1H6a1 1 0 0 1 0-2z"/></svg>
+            <span class="navbar__logo-text">VintStore</span>
+          </a>
+          <p class="footer__tagline">Preserving the world's literary heritage since 1978. Every book tells a story ó we help you find yours.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Twitter / X"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__heading">Explore</h3>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__heading">Services</h3>
+          <ul class="footer__links">
+            <li><a href="service-details.html">Book Appraisal</a></li>
+            <li><a href="service-details.html">Restoration</a></li>
+            <li><a href="service-details.html">Book Sourcing</a></li>
+            <li><a href="service-details.html">Conservation</a></li>
+            <li><a href="service-details.html">Estate Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__heading">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="coming-soon.html">Coming Soon</a></li>
+            <li><a href="404.html">404 Page</a></li>
+          </ul>
+          <div style="margin-top:var(--space-lg)">
+            <p style="color:rgba(245,230,211,0.5);font-size:0.8125rem;font-family:var(--font-ui);">?? 42 Antiquarian Lane<br>London, WC2B 5NA</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 VintStore. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>ed.</p>
+      </div>
+    </div>
+  </footer>
   <script src="assets/js/main.js" defer></script><script src="assets/js/animations.js" defer></script><script src="assets/js/rtl-ltr.js" defer></script><script src="assets/js/forms.js" defer></script>
 </body>
 </html>
+
+
