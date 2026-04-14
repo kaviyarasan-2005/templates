@@ -403,11 +403,13 @@ textarea.form-control {
 }
 
 .mobile-menu-overlay .btn.btn-primary {
-  display: block;
+  display: flex !important;
   width: 100%;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
   margin-top: 12px;
 }
+
 
 /* Footer */
 .footer {
