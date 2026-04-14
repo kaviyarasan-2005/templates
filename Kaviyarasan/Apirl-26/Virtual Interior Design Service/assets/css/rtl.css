@@ -4,16 +4,16 @@
   /* Text alignment */
   body { text-align: right; }
 
-  /* Navbar */
-  .navbar .container { flex-direction: row-reverse; }
-  .navbar-menu { flex-direction: row-reverse; }
-  .navbar-actions { flex-direction: row-reverse; }
+  /* Navbar (Standard dir="rtl" handles this) */
+  .navbar .container { /* flex-direction handled by dir="rtl" */ }
+
 
   /* Dropdowns align to right */
   .dropdown-menu { left: auto; right: 0; }
 
   /* Logo icon */
-  .navbar-brand { flex-direction: row-reverse; }
+  .navbar-brand { /* naturally flipped */ }
+
 
   /* Hero text */
   .hero-content { text-align: right; }

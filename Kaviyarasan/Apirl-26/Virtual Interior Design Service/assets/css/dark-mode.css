@@ -144,6 +144,18 @@
   color: #ffffff !important;
 }
 
+/* Theme Toggle Icons */
+[data-theme="dark"] .sun-icon {
+  color: #FFD700; /* Golden sun color */
+}
+[data-theme="dark"] .moon-icon {
+  color: var(--color-primary);
+}
+[data-theme="dark"] #themeToggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
 /* Smooth transition for all theme changes */
 body,
 body * {
