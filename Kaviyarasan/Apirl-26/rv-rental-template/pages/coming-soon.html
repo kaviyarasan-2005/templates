@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -11,45 +11,72 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <style>
     html, body { height: 100%; margin: 0; }
-    .coming-soon-page { min-height: 100vh; background: linear-gradient(160deg, #071410 0%, #0D2818 40%, #1A3A2A 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .coming-soon-page { min-height: 100vh; background: linear-gradient(160deg, #f0f9f4 0%, #e8f5ee 50%, #f5f7fa 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    [data-theme="dark"] .coming-soon-page { background: linear-gradient(160deg, #071410 0%, #0D2818 40%, #1A3A2A 100%); }
+    
     /* Background particles */
-    .cs-bg-stars { position: fixed; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.04; animation: starsMove 60s linear infinite; pointer-events: none; }
+    .cs-bg-stars { position: fixed; inset: 0; background-image: radial-gradient(circle, var(--color-primary) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.1; animation: starsMove 60s linear infinite; pointer-events: none; }
+    [data-theme="dark"] .cs-bg-stars { background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px); opacity: 0.04; }
     @keyframes starsMove { from { background-position: 0 0; } to { background-position: 60px 60px; } }
-    .cs-glow { position: fixed; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(46,92,71,0.2) 0%, transparent 70%); pointer-events: none; }
+    
+    .cs-glow { position: fixed; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(46,92,71,0.08) 0%, transparent 70%); pointer-events: none; }
+    [data-theme="dark"] .cs-glow { background: radial-gradient(circle, rgba(46,92,71,0.2) 0%, transparent 70%); }
+    
     .cs-content { position: relative; z-index: 2; text-align: center; max-width: 680px; padding: 48px 24px; }
-    .cs-logo { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 48px; }
-    .cs-logo-icon { width: 56px; height: 56px; background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.6rem; }
-    .cs-logo-name { color: white; font-family: 'Montserrat',sans-serif; font-weight: 800; font-size: 1.3rem; }
-    .cs-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(241,196,15,0.1); border: 1px solid rgba(241,196,15,0.3); border-radius: 99px; padding: 6px 16px; color: var(--color-accent); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
-    .cs-title { color: white; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
-    .cs-title span { background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .cs-desc { color: rgba(255,255,255,0.7); font-size: 1.05rem; line-height: 1.7; margin-bottom: 48px; }
+    .cs-logo { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 48px; text-decoration: none; }
+    .cs-logo-icon { width: 56px; height: 56px; background: var(--color-primary); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.6rem; }
+    [data-theme="dark"] .cs-logo-icon { background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+    .cs-logo-name { color: var(--color-text-primary); font-family: 'Montserrat',sans-serif; font-weight: 800; font-size: 1.3rem; }
+    [data-theme="dark"] .cs-logo-name { color: white; }
+    
+    .cs-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(241,196,15,0.1); border: 1px solid rgba(241,196,15,0.3); border-radius: 99px; padding: 6px 16px; color: var(--color-warning); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
+    [data-theme="dark"] .cs-badge { color: var(--color-accent); }
+    .cs-title { color: var(--color-text-primary); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+    [data-theme="dark"] .cs-title { color: white; }
+    .cs-title span { background: linear-gradient(135deg, var(--color-warning), var(--color-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    [data-theme="dark"] .cs-title span { background: linear-gradient(135deg, var(--color-accent), var(--color-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    
+    .cs-desc { color: var(--color-text-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 48px; }
+    [data-theme="dark"] .cs-desc { color: rgba(255,255,255,0.7); }
+    
     .countdown-timer { display: flex; gap: 20px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap; }
     .countdown-unit { min-width: 90px; }
-    .countdown-number { background: rgba(255,255,255,0.06); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 20px 16px; font-family: 'Montserrat',sans-serif; font-size: 2rem; font-weight: 900; color: white; display: block; font-variant-numeric: tabular-nums; }
-    .countdown-label { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 8px; }
+    .countdown-number { background: var(--color-bg-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); border-radius: 16px; padding: 20px 16px; font-family: 'Montserrat',sans-serif; font-size: 2rem; font-weight: 900; color: var(--color-primary); display: block; font-variant-numeric: tabular-nums; }
+    [data-theme="dark"] .countdown-number { background: rgba(255,255,255,0.06); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.12); color: white; box-shadow: none; }
+    .countdown-label { display: block; font-size: 0.72rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 8px; }
+    [data-theme="dark"] .countdown-label { color: rgba(255,255,255,0.5); }
+    
     .cs-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto 48px; }
-    .cs-form input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white; backdrop-filter: blur(8px); }
-    .cs-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .cs-form input { flex: 1; background: var(--color-bg-card); border: 1px solid var(--color-border); color: var(--color-text-primary); box-shadow: var(--shadow-sm); }
+    [data-theme="dark"] .cs-form input { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white; backdrop-filter: blur(8px); box-shadow: none; }
+    
     .cs-socials { display: flex; justify-content: center; gap: 14px; margin-bottom: 40px; }
-    .cs-social { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 0.2s ease; }
-    .cs-social:hover { background: rgba(255,255,255,0.15); color: white; transform: translateY(-2px); }
-    .cs-footer { color: rgba(255,255,255,0.35); font-size: 0.78rem; }
-    .cs-footer a { color: rgba(255,255,255,0.55); }
-    .theme-toggle-fixed { position: fixed; top: 20px; right: 20px; z-index: 100; }
+    .cs-social { width: 44px; height: 44px; border-radius: 50%; background: var(--color-bg-card); border: 1px solid var(--color-border); color: var(--color-text-secondary); display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 0.2s ease; box-shadow: var(--shadow-sm); }
+    [data-theme="dark"] .cs-social { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); box-shadow: none; }
+    .cs-social:hover { background: var(--color-primary) !important; color: white !important; transform: translateY(-2px); border-color: var(--color-primary) !important; }
+    
+    .cs-footer { color: var(--color-text-muted); font-size: 0.78rem; margin-top: 20px; }
+    [data-theme="dark"] .cs-footer { color: rgba(255,255,255,0.35); }
+    .cs-footer a { color: var(--color-text-secondary); text-decoration: none; }
+    [data-theme="dark"] .cs-footer a { color: rgba(255,255,255,0.55); }
+    .cs-footer a:hover { color: var(--color-primary); }
+    [data-theme="dark"] .cs-footer a:hover { color: white; }
+    
     .progress-bar-wrap { margin-bottom: 32px; }
-    .progress-bar-label { color: rgba(255,255,255,0.6); font-size: 0.82rem; margin-bottom: 10px; }
-    .progress-bar { height: 4px; background: rgba(255,255,255,0.08); border-radius: 99px; overflow: hidden; }
+    .progress-bar-label { color: var(--color-text-secondary); font-size: 0.82rem; margin-bottom: 10px; }
+    [data-theme="dark"] .progress-bar-label { color: rgba(255,255,255,0.6); }
+    .progress-bar { height: 6px; background: rgba(0,0,0,0.06); border-radius: 99px; overflow: hidden; }
+    [data-theme="dark"] .progress-bar { background: rgba(255,255,255,0.08); height: 4px; }
     .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: 99px; width: 73%; animation: progressGrow 2s ease-out; }
     @keyframes progressGrow { from { width: 0; } to { width: 73%; } }
   </style>
 </head>
 <body>
-  <div class="auth-toggles" style="position:fixed; top:20px; right:20px; z-index:100; display:flex; gap:10px;">
-    <button class="navbar-icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+  <div class="auth-toggles" style="position:fixed; top:24px; inset-inline-end:24px; z-index:100; display:flex; gap:12px;">
+    <button class="navbar-icon-btn" data-theme-toggle aria-label="Toggle dark mode" style="background: var(--color-bg-card); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); border-radius: 12px; width: 44px; height: 44px;">
       <i class="fas fa-moon"></i>
     </button>
-    <button class="navbar-icon-btn" data-dir-toggle aria-label="Toggle RTL/LTR">
+    <button class="navbar-icon-btn" data-dir-toggle aria-label="Toggle RTL/LTR" style="background: var(--color-bg-card); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); border-radius: 12px; width: 44px; height: 44px;">
       <i class="fas fa-globe"></i>
     </button>
   </div>
@@ -100,7 +127,7 @@
         <input type="email" class="form-input" id="cs-email" placeholder="your@email.com" aria-label="Email for early access" />
         <button class="btn btn-secondary" id="cs-notify-btn"><i class="fas fa-bell"></i> Notify Me</button>
       </div>
-      <p style="color:rgba(255,255,255,0.4);font-size:0.75rem;margin-top:-32px;margin-bottom:40px;">Join 3,200+ adventure seekers on the waitlist. No spam, ever.</p>
+      <p style="color:var(--color-text-muted);font-size:0.75rem;margin-top:-32px;margin-bottom:40px;">Join 3,200+ adventure seekers on the waitlist. No spam, ever.</p>
 
       <!-- Socials -->
       <div class="cs-socials">
