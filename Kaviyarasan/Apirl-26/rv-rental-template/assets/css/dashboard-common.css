@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    RV ADVEN RENTALS - Common Dashboard Styles
    ============================================================ */
 
@@ -210,6 +210,51 @@
   z-index: 100;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+.topbar-welcome {
+  display: block;
+}
+
+.topbar-mobile-brand {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.topbar-mobile-brand-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.topbar-mobile-brand-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+}
+
+.dash-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .topbar-welcome {
+    display: none;
+  }
+  .topbar-mobile-brand {
+    display: flex;
+  }
 }
 
 .dash-content {
