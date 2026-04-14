@@ -78,14 +78,25 @@
     .dash-topbar-right { display: flex; align-items: center; gap: 10px; }
 
 
-    .two-col { display:grid; grid-template-columns:1fr 1.5fr; gap:24px; margin-bottom:24px; }
-    .bottom-grid { display:grid; grid-template-columns:1.5fr 1fr; gap:24px; }
+    .two-col { display:grid; grid-template-columns:1fr 1.5fr; gap:24px; margin-bottom:24px; min-width: 0; }
+    .two-col > div { min-width: 0; }
+    .bottom-grid { display:grid; grid-template-columns:1.5fr 1fr; gap:24px; min-width: 0; }
+    .bottom-grid > div { min-width: 0; }
     .section-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1rem; color:var(--color-text-primary); }
 
     @media(max-width:1440px){ .infographics-grid{grid-template-columns:repeat(2,1fr);} }
     @media(max-width:1200px){ .two-col{grid-template-columns:1fr;} .bottom-grid{grid-template-columns:1fr;} }
     @media(max-width:1024px){ .user-welcome-card{grid-template-columns:1fr;} .saved-rvs-grid{grid-template-columns:repeat(2,1fr);} }
-    @media(max-width:600px)  { .infographics-grid{grid-template-columns:1fr;} .toggle-label{display:none;} .saved-rvs-grid{grid-template-columns:1fr;} }
+    @media(max-width:600px)  { 
+      .infographics-grid, .two-col, .bottom-grid { gap: 16px; }
+      .infographics-grid{grid-template-columns:1fr;} 
+      .toggle-label{display:none;} 
+      .saved-rvs-grid{grid-template-columns:1fr;} 
+    }
+    @media(max-width:480px) {
+      .dash-content { padding: 16px 14px; }
+      .loyalty-card, .info-card { padding: 20px 16px; }
+    }
   </style>
 </head>
 <body>
@@ -161,8 +172,8 @@
       <!-- Welcome Hero -->
       <div class="user-welcome-card animate-fade-up">
         <div>
-          <h1 style="font-family:'Montserrat',sans-serif;font-size:1.9rem;font-weight:800;margin-bottom:14px;">Adventure Awaits!</h1>
-          <p style="font-size:1rem;opacity:.9;line-height:1.6;margin-bottom:22px;">Your next trip to <strong>Zion National Park</strong> is just around the corner. We've prepared a custom guide for your route.</p>
+          <h1 style="font-family:'Montserrat',sans-serif;font-size:1.9rem;font-weight:800;margin-bottom:14px;color:white;">Adventure Awaits!</h1>
+          <p style="font-size:1rem;opacity:.9;line-height:1.6;margin-bottom:22px;color:white;">Your next trip to <strong>Zion National Park</strong> is just around the corner. We've prepared a custom guide for your route.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;">
             <a href="#" class="btn btn-secondary">View Itinerary</a>
             <a href="#" class="btn btn-outline-white">Manage Booking</a>
@@ -236,17 +247,17 @@
           <div class="info-card-title"><i class="fas fa-compass"></i> Recommended For You</div>
           <div style="display:flex;gap:14px;overflow-x:auto;padding-bottom:8px;">
             <div style="min-width:180px;background:var(--color-bg-section);padding:10px;border-radius:12px;">
-              <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=200&q=80" style="width:100%;height:72px;object-fit:cover;border-radius:8px;margin-bottom:8px;" alt="Airstream" />
+              <img src="../assets/images/travel-homes-scaled.webp" style="width:100%;height:72px;object-fit:cover;border-radius:8px;margin-bottom:8px;" alt="Airstream" />
               <div style="font-size:.82rem;font-weight:700;">Airstream Flying Cloud</div>
               <div style="font-size:.72rem;color:var(--color-primary);font-weight:600;">$180/day</div>
             </div>
             <div style="min-width:180px;background:var(--color-bg-section);padding:10px;border-radius:12px;">
-              <img src="https://images.unsplash.com/photo-1554110397-9bac083977c6?w=200&q=80" style="width:100%;height:72px;object-fit:cover;border-radius:8px;margin-bottom:8px;" alt="Winnebago" />
+              <img src="../assets/images/IMG_8244.webp" style="width:100%;height:72px;object-fit:cover;border-radius:8px;margin-bottom:8px;" alt="Winnebago" />
               <div style="font-size:.82rem;font-weight:700;">Winnebago Revel</div>
               <div style="font-size:.72rem;color:var(--color-primary);font-weight:600;">$210/day</div>
             </div>
             <div style="min-width:180px;background:var(--color-bg-section);padding:10px;border-radius:12px;">
-              <img src="https://images.unsplash.com/photo-1422405062d17-0619e99e4c39?w=200&q=80" style="width:100%;height:72px;object-fit:cover;border-radius:8px;margin-bottom:8px;" alt="Teardrop" />
+              <img src="../assets/images/travel-homes-scaled.webp" style="width:100%;height:72px;object-fit:cover;border-radius:8px;margin-bottom:8px;" alt="Nucamp Teardrop" />
               <div style="font-size:.82rem;font-weight:700;">Nucamp Teardrop</div>
               <div style="font-size:.72rem;color:var(--color-primary);font-weight:600;">$95/day</div>
             </div>
@@ -263,7 +274,7 @@
           </div>
           <div class="saved-rvs-grid">
             <div class="saved-rv-card animate-fade-up">
-              <img class="saved-rv-img" src="https://images.unsplash.com/photo-1481938583240-3bd14378f447?w=400&q=80" alt="Ford Transit" />
+              <img class="saved-rv-img" src="../assets/images/2024_Rent_ScenicImages_Van_1024x768_2.jpg" alt="Ford Transit Westfalia" />
               <div class="saved-rv-body">
                 <div style="font-size:.875rem;font-weight:700;">Ford Transit Westfalia</div>
                 <div style="display:flex;justify-content:space-between;margin-top:8px;">
