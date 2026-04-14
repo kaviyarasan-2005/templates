@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    RV ADVEN RENTALS - Main JavaScript
    Version: 1.0.0
    ============================================================ */
@@ -236,7 +236,8 @@ const Navbar = {
 
   highlightActive() {
     const current = location.pathname.split('/').pop() || 'index.html';
-    $$('.nav-link, .mobile-nav-link').forEach(link => {
+    $$('.nav-link, .mobile-nav-link, .dash-nav-link').forEach(link => {
+      link.classList.remove('active');
       const href = link.getAttribute('href') || '';
       if (href && (href.endsWith(current) || (current === '' && href.endsWith('index.html')))) {
         link.classList.add('active');

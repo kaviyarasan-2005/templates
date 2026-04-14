@@ -1892,6 +1892,11 @@ p {
 .comparison-table .check-no { color: var(--color-text-muted); opacity: 0.5; }
 
 @media (max-width: 1024px) {
+  .nav-link i.fa-chevron-down,
+  .mobile-nav-link i.fa-chevron-down,
+  .mobile-nav-link i.fa-chevron-right {
+    display: none !important;
+  }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .process-step::after { display: none; }
   .feature-info-grid { grid-template-columns: repeat(2, 1fr); }
