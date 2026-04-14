@@ -1,0 +1,133 @@
+/* rtl.css — Right-to-left layout overrides */
+
+[dir="rtl"] {
+  /* Text alignment */
+  body { text-align: right; }
+
+  /* Navbar (Standard dir="rtl" handles this) */
+  .navbar .container { /* flex-direction handled by dir="rtl" */ }
+
+
+  /* Dropdowns align to right */
+  .dropdown-menu { left: auto; right: 0; }
+
+  /* Logo icon */
+  .navbar-brand { /* naturally flipped */ }
+
+
+  /* Hero text */
+  .hero-content { text-align: right; }
+
+  /* Card body text */
+  .card-body { text-align: right; }
+
+  /* Story grid flip */
+  .story-grid { direction: rtl; }
+
+  /* Contact layout */
+  .contact-layout { direction: rtl; }
+  .contact-info-item { flex-direction: row-reverse; }
+
+  /* Service layout sidebar changes side */
+  .service-layout { direction: rtl; }
+
+  /* Breadcrumb */
+  .breadcrumb { flex-direction: row-reverse; }
+
+  /* Blog meta */
+  .blog-meta { flex-direction: row-reverse; }
+  .read-time { margin-left: 0; margin-right: auto; }
+
+  /* Article meta and share */
+  .article-meta { flex-direction: row-reverse; }
+  .share-bar { margin-left: 0; margin-right: auto; }
+
+  /* Timeline */
+  .timeline { padding-left: 0; padding-right: var(--space-6); }
+  .timeline::before { left: auto; right: 20px; }
+  .timeline-icon {
+    left: auto;
+    right: calc(20px - var(--space-6) - 16px);
+  }
+
+  /* Accordion */
+  .accordion-btn { flex-direction: row-reverse; }
+
+  /* Dashboard sidebar moves to right */
+  .dash-sidebar {
+    left: auto;
+    right: 0;
+    border-right: none;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .dash-main {
+    margin-left: 0;
+    margin-right: 260px;
+  }
+
+  .dash-main.collapsed {
+    margin-right: 80px;
+    margin-left: 0;
+  }
+
+  @media (max-width: 768px) {
+    .dash-sidebar {
+      transform: translateX(100%);
+    }
+    .dash-sidebar.mobile-open {
+      transform: translateX(0);
+    }
+    .dash-main,
+    .dash-main.collapsed {
+      margin-right: 0 !important;
+    }
+  }
+
+  /* Nav items flow */
+  .nav-link { flex-direction: row-reverse; }
+  .nav-badge { margin-left: 0; margin-right: auto; }
+
+  /* Form label alignment */
+  .form-label { text-align: right; }
+
+  /* Button icons */
+  .btn svg { margin-right: 0; margin-left: var(--space-2); }
+
+  /* Stat card */
+  .stat-card { flex-direction: row-reverse; }
+  .stat-change { text-align: right; }
+
+  /* Table cells */
+  .data-table th, .data-table td { text-align: right; }
+
+  /* Footer links */
+  .footer-links { text-align: right; }
+  .footer-grid { direction: rtl; }
+
+  /* Charts */
+  .css-bar-chart { flex-direction: row-reverse; }
+
+  /* Blog card img overlay */
+  .category-badge { float: right; }
+
+  /* Social sharing */
+  .share-bar { flex-direction: row-reverse; }
+
+  /* Scroll progress (stays left → right for reading direction) */
+
+  /* Sidebar header */
+  .sidebar-header { /* handles naturally */ }
+
+
+  /* Pricing toggles */
+  .pricing-toggle { flex-direction: row-reverse; }
+
+  /* Filter pills */
+  .filter-pills { flex-direction: row-reverse; }
+
+  /* Navbar link underline originates from right */
+  .navbar-link::after {
+    transform-origin: right;
+  }
+}

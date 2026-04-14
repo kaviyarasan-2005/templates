@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Smart Home — Control Panel | SmartNest</title>
+  <meta name="description" content="Manage your smart devices, scenes, and energy usage from your personal SmartNest dashboard." />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link rel="stylesheet" href="../assets/css/rtl.css" />
+  <style>
+    /* User Dashboard Specific Overrides */
+    :root {
+      /* Unified with site-wide blue palette */
+      --color-primary: #2563EB; 
+      --color-primary-rgb: 37, 99, 235;
+    }
+    
+    .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1000;}
+    .sidebar-overlay.open{display:block;}
+    .sidebar-logo{display:flex;align-items:center;gap:var(--space-1);text-decoration:none;padding:var(--space-2);margin-bottom:var(--space-2);border-bottom:1px solid var(--border-color);}
+    .sidebar-logo img{height:32px;width:32px;}
+    .sidebar-logo span{font-family:var(--font-heading);font-size:var(--fs-lg);font-weight:var(--fw-bold);color:var(--text-primary);}
+    .sidebar-logo span span{color:var(--color-primary);}
+    
+
+
+    /* Scene Buttons */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    .scene-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: var(--space-3);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    .scene-btn:hover { border-color: var(--color-primary); transform: translateY(-2px); }
+    .scene-btn svg { width: 24px; height: 24px; color: var(--color-primary); margin-bottom: 8px; }
+    .scene-btn h4 { font-size: var(--fs-sm); margin: 0; }
+
+    /* Device Toggles */
+    .device-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-3);
+    }
+    .device-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: var(--space-3);
+      border-radius: var(--border-radius-xl);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .device-info h4 { margin: 0; font-size: var(--fs-base); }
+    .device-info p { margin: 0; font-size: var(--fs-xs); color: var(--text-tertiary); }
+    
+    /* Toggle Switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--border-color);
+      transition: .4s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px; width: 18px;
+      inset-inline-start: 3px; bottom: 3px;
+      background-color: #fff;
+      transition: .4s;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+    input:checked + .slider { background-color: var(--color-primary); }
+    input:checked + .slider:before { 
+      transform: translateX(20px); 
+    }
+    [dir="rtl"] input:checked + .slider:before {
+      transform: translateX(-20px);
+    }
+
+    .infograph-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-3); margin-bottom: var(--space-3); }
+    .infograph-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: var(--space-3); min-width: 0; overflow: hidden; position: relative; }
+
+    /* Gauge / Radial Styles */
+    .gauge-container { display: flex; justify-content: space-around; align-items: center; margin-top: 12px; }
+    .gauge { text-align: center; }
+    .gauge-circle { width: 60px; height: 60px; border-radius: 50%; border: 4px solid var(--border-color); border-top-color: var(--color-primary); margin: 0 auto 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; }
+    
+    /* Room Card Grid */
+    .room-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-2); margin-top: 12px; }
+    .room-card { background: var(--bg-card-hover); padding: 12px; border-radius: var(--border-radius); border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 4px; }
+    .room-card__header { display: flex; justify-content: space-between; align-items: center; }
+    .room-card__title { font-size: 13px; font-weight: bold; margin: 0; }
+    .room-card__stats { font-size: 11px; color: var(--text-tertiary); display: flex; gap: 8px; }
+
+    /* Signal Strength */
+    .signal { display: flex; align-items: flex-end; gap: 2px; height: 16px; margin-left: 8px; }
+    .signal-bar { width: 3px; background: var(--border-color); border-radius: 1px; }
+    .signal-bar.active { background: var(--color-primary); }
+    .signal-bar:nth-child(1) { height: 4px; }
+    .signal-bar:nth-child(2) { height: 8px; }
+    .signal-bar:nth-child(3) { height: 12px; }
+    .signal-bar:nth-child(4) { height: 16px; }
+
+    @media (max-width: 1024px) {
+      .dashboard__sidebar { top: 0; height: 100vh; z-index: 1100; }
+      .dashboard__main { margin-left: 0; padding-top: 0; overflow-x: hidden; }
+      [dir="rtl"] .dashboard__main { margin-right: 0; }
+      .dashboard-header { position: static; padding: var(--space-3) 0; width: 100%; margin: 0; }
+      .dashboard-header.scrolled { margin: 0 0 var(--space-3); width: 100%; padding: var(--space-2) 0; border-radius: 0; border-bottom: 1px solid var(--border-color); }
+      #sidebar-toggle { display: block !important; }
+    }
+    @media (max-width: 640px) {
+      .scene-grid { grid-template-columns: 1fr 1fr; }
+      .dashboard-header h1 { font-size: var(--fs-xl); }
+      .dashboard-header p { display: none; } /* Hide subtitle on mobile for space */
+      .dashboard-header { gap: var(--space-1); }
+      .dashboard__main { padding: 0 var(--space-2); }
+      .header-actions { gap: var(--space-1); }
+      .navbar__icon-btn { width: 32px; height: 32px; }
+      .header-user { padding: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="dashboard__sidebar" id="dashboard-sidebar">
+      <a href="index.html" class="sidebar-logo">
+        <img src="../assets/images/logo.svg" alt="SmartNest" />
+        Smart<span>Nest</span>
+      </a>
+
+      <p style="font-size:var(--fs-xs); color:var(--text-tertiary); margin: var(--space-2) 0; padding:0 8px;">MY HOME</p>
+      <a href="#" class="sidebar-nav__item active"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Home Status</a>
+      <a href="#" class="sidebar-nav__item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2"/></svg>My Devices</a>
+      <a href="#" class="sidebar-nav__item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Energy Usage</a>
+      <a href="#" class="sidebar-nav__item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Security</a>
+
+      <p style="font-size:var(--fs-xs); color:var(--text-tertiary); margin: var(--space-2) 0; padding:0 8px;">PREFERENCES</p>
+      <a href="#" class="sidebar-nav__item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>Support</a>
+      <a href="#" class="sidebar-nav__item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Profile</a>
+
+      <div style="margin-top:auto; padding-top:var(--space-3); border-top:1px solid var(--border-color);">
+        <a href="index.html" class="sidebar-nav__item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Back to Site</a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard__main">
+      <div class="dashboard-header">
+        <div style="display:flex;align-items:center;gap:var(--space-2);">
+          <button id="sidebar-toggle" style="display:none;background:none;border:none;color:var(--text-primary);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+          <div><h1 style="font-family:var(--font-heading); font-size:var(--fs-2xl);">My Smart Home</h1><p style="font-size:var(--fs-sm);color:var(--text-tertiary);">All systems functional • Austin, TX</p></div>
+        </div>
+
+        <div class="header-search">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" placeholder="Search devices, routines..." />
+        </div>
+
+        <div class="header-actions">
+          <button class="navbar__icon-btn notif-btn" aria-label="Notifications"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></button>
+          <button class="navbar__icon-btn" id="theme-toggle" aria-label="Toggle Theme"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="theme-icon"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2"/></svg></button>
+          <button class="navbar__icon-btn" id="rtl-toggle" aria-label="Toggle RTL"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+          
+          <div class="header-user">
+            <span>Marcus Chen</span>
+            <img src="../assets/images/testimonial-avatar-1.jpg" alt="Marcus Chen" />
+          </div>
+        </div>
+      </div>
+
+      <!-- QUICK SCENES -->
+      <h3 style="margin-bottom: var(--space-2);">Quick Scenes</h3>
+      <div class="scene-grid">
+        <div class="scene-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2"/></svg><h4>I'm Awake</h4></div>
+        <div class="scene-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><h4>Movie Night</h4></div>
+        <div class="scene-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><h4>Away Mode</h4></div>
+        <div class="scene-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg><h4>Goodnight</h4></div>
+      </div>
+
+      <!-- INSIGHTS -->
+      <div class="infograph-grid">
+        <div class="infograph-card">
+          <h4>Energy Savings</h4>
+          <div style="height: 100px; margin-top: var(--space-2); position: relative;">
+            <svg viewBox="0 0 100 40" style="width: 100%; height: 100%;" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="energyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color: var(--color-primary); stop-opacity: 0.3" />
+                  <stop offset="100%" style="stop-color: var(--color-primary); stop-opacity: 0" />
+                </linearGradient>
+              </defs>
+              <path d="M0 40 L0 30 Q 15 25, 25 32 T 50 15 T 75 25 T 100 10 L 100 40 Z" fill="url(#energyGrad)" />
+              <path d="M0 30 Q 15 25, 25 32 T 50 15 T 75 25 T 100 10" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" />
+              <circle cx="50" cy="15" r="3" fill="#fff" stroke="var(--color-primary)" stroke-width="2" />
+              <text x="52" y="10" font-size="6" fill="var(--text-primary)" font-weight="bold">Peak Savings</text>
+            </svg>
+          </div>
+          <p style="font-size: var(--fs-xs); color: var(--text-tertiary); margin-top: 8px;">Saved $42.50 this month</p>
+        </div>
+        <div class="infograph-card">
+          <h4>Security Status</h4>
+          <div style="text-align:center; padding:var(--space-2) 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" style="width:48px; height:48px; color:var(--color-success)" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <p style="font-weight:bold; color:var(--color-success)">System Armed</p>
+          </div>
+        </div>
+        <div class="infograph-card">
+          <h4>Air Quality</h4>
+          <div class="gauge-container">
+            <div class="gauge"><div class="gauge-circle">420<br>PPM</div><span class="fs-xs">CO2</span></div>
+            <div class="gauge"><div class="gauge-circle" style="border-top-color:#3B82F6">55%</div><span class="fs-xs">Humid</span></div>
+            <div class="gauge"><div class="gauge-circle" style="border-top-color:#F59E0B">72°F</div><span class="fs-xs">Temp</span></div>
+          </div>
+        </div>
+        <div class="infograph-card">
+          <h4>Water Usage</h4>
+          <div style="position: relative; width: 80px; height: 80px; margin: var(--space-2) auto 0;">
+            <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg); display: block;">
+              <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--border-color)" stroke-width="3" />
+              <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#2563EB" stroke-width="3" stroke-dasharray="65, 100" stroke-linecap="round" />
+            </svg>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%; line-height: 1;">
+              <strong style="font-size: 16px; display: block;">65%</strong>
+              <span style="font-size: 9px; color: var(--text-tertiary); display: block; margin-top: 2px;">Weekly Goal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEVICE CONTROLS -->
+      <h3 style="margin: var(--space-4) 0 var(--space-2);">Your Devices</h3>
+      <div class="device-grid">
+        <div class="device-card">
+          <div class="device-info"><h4>Main Hallway Light</h4><p>Hue Smart Bulb • On</p></div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+        <div class="device-card">
+          <div class="device-info"><h4>Living Room AC</h4><p>Nest Thermostat • 72°F</p></div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+        <div class="device-card">
+          <div class="device-info"><h4>Front Door Lock</h4><p>August Smart Lock • Locked</p></div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+        <div class="device-card">
+          <div class="device-info"><h4>Garden Sprinklers</h4><p>Rachio Hub • Off</p></div>
+          <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+        </div>
+      </div>
+
+      <!-- ROOM CONDITIONS -->
+      <h3 style="margin: var(--space-4) 0 var(--space-2);">Room Conditions</h3>
+      <div class="room-grid">
+        <div class="room-card">
+          <div class="room-card__header">
+            <h4 class="room-card__title">Living Room</h4>
+            <span style="width:8px; height:8px; background:var(--color-success); border-radius:50%;"></span>
+          </div>
+          <div class="room-card__stats"><span>72°F</span><span>45% RH</span></div>
+        </div>
+        <div class="room-card">
+          <div class="room-card__header">
+            <h4 class="room-card__title">Bedroom</h4>
+            <span style="width:8px; height:8px; background:var(--color-success); border-radius:50%;"></span>
+          </div>
+          <div class="room-card__stats"><span>68°F</span><span>50% RH</span></div>
+        </div>
+        <div class="room-card">
+          <div class="room-card__header">
+            <h4 class="room-card__title">Kitchen</h4>
+            <span style="width:8px; height:8px; background:#F59E0B; border-radius:50%;"></span>
+          </div>
+          <div class="room-card__stats"><span>75°F</span><span>60% RH</span></div>
+        </div>
+        <div class="room-card">
+          <div class="room-card__header">
+            <h4 class="room-card__title">Home Office</h4>
+            <span style="width:8px; height:8px; background:var(--color-success); border-radius:50%;"></span>
+          </div>
+          <div class="room-card__stats"><span>71°F</span><span>42% RH</span></div>
+        </div>
+      </div>
+
+      <!-- RECENT ALERTS -->
+      <h3 style="margin: var(--space-4) 0 var(--space-2);">Recent Activity</h3>
+      <div class="infograph-card" style="padding:0;">
+        <table class="data-table data-table--compact" style="margin:0; border:none;">
+          <thead><tr><th>Event</th><th>Room</th><th>Time</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Motion Detected</td><td>Backyard</td><td>10:42 AM</td><td><span class="badge" style="background:rgba(var(--color-success-rgb, 16, 185, 129), 0.1); color:var(--color-success);">Recorded</span></td></tr>
+            <tr><td>Door Unlocked</td><td>Front Porch</td><td>08:15 AM</td><td><span class="badge" style="background:rgba(37,99,235,0.1); color:#2563EB;">Marcus</span></td></tr>
+            <tr><td>Routine Triggered</td><td>Whole Home</td><td>06:00 AM</td><td><span class="badge" style="background:rgba(245,158,11,0.1); color:#F59E0B;">Wake Up</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Simple toggle for mobile sidebar
+    const toggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('dashboard-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    
+    if(toggle) {
+      toggle.addEventListener('click', () => {
+        sidebar.classList.add('open');
+        overlay.classList.add('open');
+      });
+    }
+    if(overlay) {
+      overlay.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+      });
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.dashboard-header');
+      if (header) {
+        if (window.scrollY > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

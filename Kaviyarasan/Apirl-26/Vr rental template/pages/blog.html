@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adventure Guides & Blog | RV adven Rentals</title>
+  <meta name="description" content="Explore our RV adventure guides, road trip tips, campsite reviews, and destination inspiration. Plan your perfect campervan journey." />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    .blog-layout { display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; }
+    .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .blog-card { background: var(--color-bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: all 0.3s ease; display: flex; flex-direction: column; height: 100%; }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .blog-card-img { overflow: hidden; position: relative; }
+    .blog-card-img img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.4s ease; }
+    .blog-card:hover .blog-card-img img { transform: scale(1.05); }
+    .blog-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-meta { display: flex; align-items: center; gap: 12px; font-size: 0.78rem; color: var(--color-text-muted); margin-bottom: 10px; flex-wrap: wrap; }
+    .blog-card-meta span { display: flex; align-items: center; gap: 5px; }
+    .blog-card-title { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary); line-height: 1.4; margin-bottom: 10px; }
+    .blog-card-title a { color: inherit; transition: color 0.2s; }
+    .blog-card-title a:hover { color: var(--color-primary); }
+    .blog-card-actions { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border-light); }
+    .author-mini { display: flex; align-items: center; gap: 8px; }
+    .author-mini img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+    .author-mini-name { font-size: 0.8rem; font-weight: 600; color: var(--color-text-primary); }
+    .blog-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+    .blog-card.featured .blog-card-img img { height: 100%; min-height: 300px; }
+    .blog-card.featured .blog-card-body { padding: 36px; }
+    .blog-sidebar { position: sticky; top: calc(var(--navbar-height) + 16px); display: flex; flex-direction: column; gap: 28px; }
+    .sidebar-widget { background: var(--color-bg-card); border: 1px solid var(--color-border-light); border-radius: 20px; padding: 24px; }
+    .sidebar-widget-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-primary); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--color-primary); display: inline-block; }
+    .recent-post { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--color-border-light); }
+    .recent-post:last-child { border-bottom: none; }
+    .recent-post-img { width: 68px; height: 58px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+    .recent-post-title { font-size: 0.82rem; font-weight: 600; color: var(--color-text-primary); line-height: 1.4; }
+    .recent-post-date { font-size: 0.72rem; color: var(--color-text-muted); margin-top: 4px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .category-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--color-border-light); font-size: 0.875rem; }
+    .category-item:last-child { border-bottom: none; }
+    .category-count { background: var(--color-bg-section); padding: 2px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 600; color: var(--color-text-muted); }
+    @media (max-width: 1024px) { .blog-layout { grid-template-columns: 1fr; } .blog-sidebar { position: static; } .blog-card.featured { grid-template-columns: 1fr; } .blog-card.featured .blog-card-img img { height: 250px; } }
+    @media (max-width: 640px) { .blog-grid { grid-template-columns: 1fr; } .blog-card.featured { grid-column: auto; } }
+  </style>
+</head>
+<body class="has-fixed-header">
+  <a class="skip-to-content" href="#main-content">Skip to main content</a>
+  <header>
+    <nav class="navbar navbar-light-bg" aria-label="Main navigation">
+      <div class="navbar-inner">
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand" aria-label="RV adven Rentals Home">
+          <div class="navbar-brand-icon" aria-hidden="true"><i class="fas fa-campground"></i></div>
+          <div class="navbar-brand-text">
+            <span class="navbar-brand-name">RV adven</span>
+            <span class="navbar-brand-tagline">Rentals & Guides</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="navbar-menu">
+          <ul class="navbar-nav" role="list">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" aria-haspopup="true" aria-expanded="false">
+                Home <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="index.html" class="dropdown-item" role="menuitem"><i class="fas fa-home"></i> Home 1</a>
+                <a href="home-adventure.html" class="dropdown-item" role="menuitem"><i class="fas fa-mountain"></i> Home 2</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                Services <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="services.html" class="dropdown-item" role="menuitem"><i class="fas fa-list"></i> Services</a>
+                <a href="service-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-info-circle"></i> Service Details</a>
+              </div>
+            </li>
+            <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                Blogs <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="blog.html" class="dropdown-item" role="menuitem"><i class="fas fa-blog"></i> Blogs</a>
+                <a href="blog-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-file-alt"></i> Blog Details</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                Dashboard <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu" role="menu">
+                <a href="admin-dashboard.html" class="dropdown-item" role="menuitem"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
+                <a href="user-dashboard.html" class="dropdown-item" role="menuitem"><i class="fas fa-user"></i> User Dashboard</a>
+              </div>
+            </li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Actions -->
+        <div class="navbar-actions">
+          <button class="navbar-icon-btn" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode" id="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="navbar-icon-btn" data-dir-toggle aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR" id="dir-toggle-btn">
+            <i class="fas fa-globe"></i>
+          </button>
+          <a href="login.html" class="btn btn-secondary btn-sm" id="nav-login">Login</a>
+        </div>
+
+        <!-- Hamburger -->
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-overlay"></div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#" class="mobile-nav-link">Home <i class="fas fa-chevron-down"></i></a>
+    <a href="index.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 1 <i class="fas fa-chevron-right"></i></a>
+    <a href="home-adventure.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 2 <i class="fas fa-chevron-right"></i></a>
+    <a href="services.html" class="mobile-nav-link">Services <i class="fas fa-chevron-right"></i></a>
+    <a href="service-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Service Details <i class="fas fa-chevron-right"></i></a>
+    <a href="pricing.html" class="mobile-nav-link">Pricing <i class="fas fa-chevron-right"></i></a>
+    <a href="blog.html" class="mobile-nav-link">Blogs <i class="fas fa-chevron-right"></i></a>
+    <a href="blog-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Blog Details <i class="fas fa-chevron-right"></i></a>
+    <a href="#" class="mobile-nav-link">Dashboard <i class="fas fa-chevron-down"></i></a>
+    <a href="admin-dashboard.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Admin Dashboard <i class="fas fa-chevron-right"></i></a>
+    <a href="user-dashboard.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">User Dashboard <i class="fas fa-chevron-right"></i></a>
+    <a href="about.html" class="mobile-nav-link">About Us <i class="fas fa-chevron-right"></i></a>
+    <a href="contact.html" class="mobile-nav-link">Contact <i class="fas fa-chevron-right"></i></a>`n    <a href="login.html" class="mobile-nav-link">Login <i class="fas fa-sign-in-alt"></i></a>
+    <div style="margin-top: 16px; display: flex; gap: 8px;">
+      <button class="btn btn-outline" data-theme-toggle style="flex: 1;"><i class="fas fa-moon"></i> Theme</button>
+      <button class="btn btn-outline" data-dir-toggle style="flex: 1;"><i class="fas fa-globe"></i> RTL</button>
+    </div>
+    
+  </nav>
+
+  <main id="main-content">
+    <section class="page-banner" aria-labelledby="blog-banner-heading">
+      <div class="container">
+        <h1 id="blog-banner-heading">Adventure Guides</h1>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span aria-current="page">Adventure Guides</span></nav>
+      </div>
+    </section>
+
+    <!-- FILTERS BAR -->
+    <div style="background: var(--color-bg-section); padding: 20px 0; border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="tag active" data-filter="all">All</button>
+            <button class="tag" data-filter="destination">Destinations</button>
+            <button class="tag" data-filter="tips">Road Trip Tips</button>
+            <button class="tag" data-filter="gear">Gear Reviews</button>
+            <button class="tag" data-filter="seasonal">Seasonal</button>
+            <button class="tag" data-filter="family">Family</button>
+          </div>
+          <div style="position: relative;">
+            <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--color-text-muted);pointer-events:none;" aria-hidden="true"></i>
+            <input type="text" class="form-input" data-search-input placeholder="Search guides..." style="padding-left:40px;width:240px;" id="blog-search-input" aria-label="Search blog posts" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" aria-label="Blog posts">
+      <div class="container">
+        <div class="blog-layout">
+          <!-- Blog Posts -->
+          <div>
+            <div class="blog-grid" id="blog-grid">
+              <!-- Featured Post -->
+              <article class="blog-card featured animate-fade-up" data-search-item data-category="destination">
+                <div class="blog-card-img">
+                  <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?w=800&q=80" alt="Yellowstone campsite aerial view" loading="lazy" />
+                  <span style="position:absolute;top:16px;left:16px;" class="badge badge-secondary">Featured</span>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-meta">
+                    <span class="badge badge-primary">Destination</span>
+                    <span><i class="fas fa-clock"></i> 12 min read</span>
+                    <span><i class="fas fa-calendar"></i> Nov 15, 2024</span>
+                  </div>
+                  <h2 class="blog-card-title"><a href="blog-detail.html">The Ultimate Yellowstone RV Guide: 14 Days, 500 Miles & Every Geyser Basin</a></h2>
+                  <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.6;margin-bottom:16px;">A comprehensive first-timer's guide to navigating America's original national park in a Class A motorhome, with insider campsite picks, wildlife timing charts, and day-by-day itineraries.</p>
+                  <div class="blog-card-actions">
+                    <div class="author-mini">
+                      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80" alt="Priya Nair" loading="lazy" />
+                      <div><div class="author-mini-name">Priya Nair</div><div style="font-size:0.72rem;color:var(--color-text-muted);">Head of Experiences</div></div>
+                    </div>
+                    <a href="blog-detail.html" class="btn btn-primary btn-sm" id="featured-read-btn">Read Guide <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Post 2 -->
+              <article class="blog-card animate-fade-up" data-search-item data-category="tips">
+                <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1504233529578-6d46baba6d34?w=600&q=80" alt="RV on desert highway" loading="lazy" /></div>
+                <div class="blog-card-body">
+                  <div class="blog-card-meta"><span class="badge badge-accent" style="color:#7a6000;">Road Trip Tips</span><span><i class="fas fa-clock"></i> 6 min read</span></div>
+                  <h3 class="blog-card-title"><a href="blog-detail.html">10 First-Timer RV Driving Mistakes (And How to Avoid Them)</a></h3>
+                  <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">From misjudging clearances to forgetting to dump — these are the rookie mistakes that turn road trips into roadblocks.</p>
+                  <div class="blog-card-actions">
+                    <div class="author-mini"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=80" alt="Marcus Reid" loading="lazy" /><div><div class="author-mini-name">Marcus Reid</div><div style="font-size:0.72rem;color:var(--color-text-muted);">CEO & Co-Founder</div></div></div>
+                    <a href="blog-detail.html" class="btn btn-outline btn-sm" id="post2-read-btn">Read <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Post 3 -->
+              <article class="blog-card animate-fade-up" data-search-item data-category="gear">
+                <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=600&q=80" alt="Camping gear laid out" loading="lazy" /></div>
+                <div class="blog-card-body">
+                  <div class="blog-card-meta"><span class="badge badge-info">Gear Reviews</span><span><i class="fas fa-clock"></i> 8 min read</span></div>
+                  <h3 class="blog-card-title"><a href="blog-detail.html">Best Solar Setups for Off-Grid RV advens in 2024</a></h3>
+                  <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">Everything you need to know about sizing, installing and monitoring solar on a motorhome — tested in real conditions.</p>
+                  <div class="blog-card-actions">
+                    <div class="author-mini"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Daniel Park" loading="lazy" /><div><div class="author-mini-name">Daniel Park</div><div style="font-size:0.72rem;color:var(--color-text-muted);">CTO</div></div></div>
+                    <a href="blog-detail.html" class="btn btn-outline btn-sm" id="post3-read-btn">Read <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Post 4 -->
+              <article class="blog-card animate-fade-up" data-search-item data-category="family">
+                <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=600&q=80" alt="Family hiking near RV" loading="lazy" /></div>
+                <div class="blog-card-body">
+                  <div class="blog-card-meta"><span class="badge badge-success">Family</span><span><i class="fas fa-clock"></i> 7 min read</span></div>
+                  <h3 class="blog-card-title"><a href="blog-detail.html">How to Plan a Family RV Road Trip Kids Actually Beg to Repeat</a></h3>
+                  <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">Strategies, packing lists, and activity ideas that transform a cross-country drive into the family adventure they'll talk about for decades.</p>
+                  <div class="blog-card-actions">
+                    <div class="author-mini"><img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=80&q=80" alt="Layla Torres" loading="lazy" /><div><div class="author-mini-name">Layla Torres</div><div style="font-size:0.72rem;color:var(--color-text-muted);">COO & Co-Founder</div></div></div>
+                    <a href="blog-detail.html" class="btn btn-outline btn-sm" id="post4-read-btn">Read <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Post 5 -->
+              <article class="blog-card animate-fade-up" data-search-item data-category="destination">
+                <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=600&q=80" alt="Zion canyon at dawn" loading="lazy" /></div>
+                <div class="blog-card-body">
+                  <div class="blog-card-meta"><span class="badge badge-primary">Destination</span><span><i class="fas fa-clock"></i> 9 min read</span></div>
+                  <h3 class="blog-card-title"><a href="blog-detail.html">Zion to Bryce: The Utah Gigaloop in a Campervan</a></h3>
+                  <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">Five national parks, 900 miles and some of the most jaw-dropping geology on earth. Our detailed itinerary with budget breakdown.</p>
+                  <div class="blog-card-actions">
+                    <div class="author-mini"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80" alt="Priya Nair" loading="lazy" /><div><div class="author-mini-name">Priya Nair</div></div></div>
+                    <a href="blog-detail.html" class="btn btn-outline btn-sm" id="post5-read-btn">Read <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Post 6 -->
+              <article class="blog-card animate-fade-up" data-search-item data-category="seasonal">
+                <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=600&q=80" alt="Winter RV camping in snow" loading="lazy" /></div>
+                <div class="blog-card-body">
+                  <div class="blog-card-meta"><span class="badge badge-info">Seasonal</span><span><i class="fas fa-clock"></i> 5 min read</span></div>
+                  <h3 class="blog-card-title"><a href="blog-detail.html">Winter RV Camping: The Complete Cold-Weather Survival Guide</a></h3>
+                  <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">Your pipes won't freeze. Your battery won't die. Here's everything you need to camp comfortably through the coldest months.</p>
+                  <div class="blog-card-actions">
+                    <div class="author-mini"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=80" alt="Marcus Reid" loading="lazy" /><div><div class="author-mini-name">Marcus Reid</div></div></div>
+                    <a href="blog-detail.html" class="btn btn-outline btn-sm" id="post6-read-btn">Read <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Pagination -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 48px;" role="navigation" aria-label="Blog pagination">
+              <button class="btn btn-ghost btn-sm" aria-label="Previous page"><i class="fas fa-chevron-left"></i></button>
+              <button class="btn btn-primary btn-sm" aria-current="page" aria-label="Page 1">1</button>
+              <button class="btn btn-ghost btn-sm" aria-label="Page 2">2</button>
+              <button class="btn btn-ghost btn-sm" aria-label="Page 3">3</button>
+              <span style="color:var(--color-text-muted);">…</span>
+              <button class="btn btn-ghost btn-sm" aria-label="Page 12">12</button>
+              <button class="btn btn-ghost btn-sm" aria-label="Next page"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="blog-sidebar" aria-label="Blog sidebar">
+            <div class="sidebar-widget">
+              <div class="sidebar-widget-title">Search</div>
+              <div style="position:relative;">
+                <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--color-text-muted);pointer-events:none;" aria-hidden="true"></i>
+                <input type="text" class="form-input" placeholder="Search articles..." style="padding-left:40px;" aria-label="Search articles" id="sidebar-search" />
+              </div>
+            </div>
+            <div class="sidebar-widget">
+              <div class="sidebar-widget-title">Categories</div>
+              <div>
+                <div class="category-item"><a href="#" style="color:var(--color-text-secondary);">Destinations</a><span class="category-count">48</span></div>
+                <div class="category-item"><a href="#" style="color:var(--color-text-secondary);">Road Trip Tips</a><span class="category-count">32</span></div>
+                <div class="category-item"><a href="#" style="color:var(--color-text-secondary);">Gear Reviews</a><span class="category-count">27</span></div>
+                <div class="category-item"><a href="#" style="color:var(--color-text-secondary);">Family Adventures</a><span class="category-count">19</span></div>
+                <div class="category-item"><a href="#" style="color:var(--color-text-secondary);">Seasonal Guides</a><span class="category-count">15</span></div>
+                <div class="category-item"><a href="#" style="color:var(--color-text-secondary);">Budget Travel</a><span class="category-count">11</span></div>
+              </div>
+            </div>
+            <div class="sidebar-widget">
+              <div class="sidebar-widget-title">Recent Posts</div>
+              <div>
+                <div class="recent-post"><img class="recent-post-img" src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=150&q=80" alt="Pacific Coast" loading="lazy" /><div><div class="recent-post-title"><a href="blog-detail.html" style="color:inherit;">Pacific Coast in 10 Days: The Perfect Campervan Itinerary</a></div><div class="recent-post-date">Dec 2, 2024</div></div></div>
+                <div class="recent-post"><img class="recent-post-img" src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=150&q=80" alt="Smoky Mountains" loading="lazy" /><div><div class="recent-post-title"><a href="blog-detail.html" style="color:inherit;">Smoky Mountains Fall Foliage: Timing Is Everything</a></div><div class="recent-post-date">Nov 28, 2024</div></div></div>
+                <div class="recent-post"><img class="recent-post-img" src="https://images.unsplash.com/photo-1463003416389-296a1ad37ca0?w=150&q=80" alt="Budget camping" loading="lazy" /><div><div class="recent-post-title"><a href="blog-detail.html" style="color:inherit;">How to RV for Under $100/Day (Including Rental)</a></div><div class="recent-post-date">Nov 20, 2024</div></div></div>
+              </div>
+            </div>
+            <div class="sidebar-widget">
+              <div class="sidebar-widget-title">Popular Tags</div>
+              <div class="tag-cloud">
+                <a href="#" class="tag">Yellowstone</a><a href="#" class="tag">Pacific Coast</a><a href="#" class="tag">National Parks</a><a href="#" class="tag">Solar Power</a><a href="#" class="tag">Family RV</a><a href="#" class="tag">Budget Tips</a><a href="#" class="tag">Winter Camping</a><a href="#" class="tag">Off-Grid</a><a href="#" class="tag">Class A</a><a href="#" class="tag">Campervans</a>
+              </div>
+            </div>
+            <div class="sidebar-widget" style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); border: none;">
+              <div style="color: white;">
+                <div style="font-weight: 700; font-size: 1rem; margin-bottom: 8px;">📬 Get Weekly Guides</div>
+                <p style="font-size: 0.82rem; color: rgba(255,255,255,0.8); margin-bottom: 16px;">New adventure stories delivered fresh every Thursday.</p>
+                <input type="email" class="form-input" placeholder="your@email.com" style="margin-bottom:10px;" aria-label="Email for newsletter" id="sidebar-newsletter-email" />
+                <button class="btn btn-secondary w-full btn-sm" id="sidebar-subscribe-btn">Subscribe Free</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- MEET THE EXPERTS -->
+    <section class="section section-alt" aria-labelledby="authors-heading">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div class="section-label"><i class="fas fa-users"></i> Experts</div>
+          <h2 id="authors-heading" class="section-title">Meet Our Adventure Experts</h2>
+          <p class="section-subtitle">The rangers, travelers, and techies who bring you the best road trip wisdom in the industry.</p>
+        </div>
+        <div class="author-grid stagger">
+          <div class="author-card animate-fade-up">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80" alt="Priya Nair" class="author-avatar" />
+            <div class="author-name">Priya Nair</div>
+            <div class="author-role">Chief Experience Officer</div>
+            <p style="font-size:0.875rem;color:var(--color-text-secondary);margin-bottom:20px;">10+ years exploring National Parks. Expert in Class A logistics.</p>
+            <a href="#" class="btn btn-outline btn-sm w-full"><i class="fas fa-plus"></i> Follow</a>
+          </div>
+          <div class="author-card animate-fade-up">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80" alt="Marcus Reid" class="author-avatar" />
+            <div class="author-name">Marcus Reid</div>
+            <div class="author-role">CEO & Lead Driver</div>
+            <p style="font-size:0.875rem;color:var(--color-text-secondary);margin-bottom:20px;">Former truck driver turned RV enthusiast. Safety & tech specialist.</p>
+            <a href="#" class="btn btn-outline btn-sm w-full"><i class="fas fa-plus"></i> Follow</a>
+          </div>
+          <div class="author-card animate-fade-up">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Daniel Park" class="author-avatar" />
+            <div class="author-name">Daniel Park</div>
+            <div class="author-role">Solar & Off-Grid Tech</div>
+            <p style="font-size:0.875rem;color:var(--color-text-secondary);margin-bottom:20px;">Living full-time in a Class B. Master of everything solar.</p>
+            <a href="#" class="btn btn-outline btn-sm w-full"><i class="fas fa-plus"></i> Follow</a>
+          </div>
+          <div class="author-card animate-fade-up">
+            <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=200&q=80" alt="Layla Torres" class="author-avatar" />
+            <div class="author-name">Layla Torres</div>
+            <div class="author-role">COO & Family Travel</div>
+            <p style="font-size:0.875rem;color:var(--color-text-secondary);margin-bottom:20px;">Mom of three. Professional road trip planner for families.</p>
+            <a href="#" class="btn btn-outline btn-sm w-full"><i class="fas fa-plus"></i> Follow</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVENTURE GALLERY -->
+    <section class="section" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div class="section-label"><i class="fas fa-camera"></i> Visual Journey</div>
+          <h2 id="gallery-heading" class="section-title">Adventure Gallery</h2>
+          <p class="section-subtitle">Real moments from our community. Tag us #RVAdventure to be featured.</p>
+        </div>
+        <div class="media-gallery stagger">
+          <div class="media-item animate-fade-up">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80" alt="Mountain sunset" />
+            <div class="media-overlay">
+              <div style="color:white; font-size:0.8rem;"><i class="fab fa-instagram"></i> @mountaineer</div>
+            </div>
+          </div>
+          <div class="media-item animate-fade-up">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="Lake reflection" />
+            <div class="media-overlay">
+              <div style="color:white; font-size:0.8rem;"><i class="fab fa-instagram"></i> @lake_life</div>
+            </div>
+          </div>
+          <div class="media-item animate-fade-up">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80" alt="Forest road" />
+            <div class="media-overlay">
+              <div style="color:white; font-size:0.8rem;"><i class="fab fa-instagram"></i> @forest_rover</div>
+            </div>
+          </div>
+          <div class="media-item animate-fade-up">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="Sunlight through trees" />
+            <div class="media-overlay">
+              <div style="color:white; font-size:0.8rem;"><i class="fab fa-instagram"></i> @valley_hiker</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL WIDTH SUBSCRIBE -->
+    <section class="section" aria-label="Subscribe">
+      <div class="container">
+        <div class="subscribe-full animate-fade-up">
+          <div style="max-width: 600px; margin: 0 auto; position: relative; z-index: 1;">
+            <div class="section-label" style="justify-content:center; color: var(--color-primary);"><i class="fas fa-envelope-open-text"></i> Newsletter</div>
+            <h2 class="section-title">Get the World's Best Road Trip Guides</h2>
+            <p class="section-subtitle" style="margin: 0 auto 32px;">Join 25,000+ adventurers who receive our weekly "Hidden Gems" list and gear recommendations every Thursday.</p>
+            <form style="display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
+              <input type="email" class="form-input" placeholder="Enter your email address" style="flex: 1; min-width: 250px; background: white;" aria-label="Email for newsletter" />
+              <button type="submit" class="btn btn-primary btn-lg" style="flex-shrink: 0;">Join the Community</button>
+            </form>
+            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 16px;">We respect your privacy. Unsubscribe at any time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- ===== FOOTER ===== -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon"><i class="fas fa-campground"></i></div>
+            <span class="footer-logo-text">RV adven Rentals</span>
+          </div>
+          <p class="footer-desc">Your trusted partner for premium RV and campervan rentals. Creating unforgettable road stories since 2010.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="services.html" class="footer-link"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="pricing.html" class="footer-link"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+            <li><a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html" class="footer-link"><i class="fas fa-chevron-right"></i> Adventure Guides</a></li>
+            <li><a href="blog.html" class="footer-link"><i class="fas fa-chevron-right"></i> Campsite Finder</a></li>
+            <li><a href="pricing.html" class="footer-link"><i class="fas fa-chevron-right"></i> Rental FAQ</a></li>
+            <li><a href="admin-dashboard.html" class="footer-link"><i class="fas fa-chevron-right"></i> Dashboard</a></li>
+            <li><a href="coming-soon.html" class="footer-link"><i class="fas fa-chevron-right"></i> Mobile App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><i class="fas fa-map-marker-alt"></i> 123 Adventure Lane, Denver CO 80202</li>
+            <li><a href="tel:+18007823368" class="footer-link"><i class="fas fa-phone"></i> +1 (800) 782-3368</a></li>
+            <li><a href="mailto:hello@rvadventure.com" class="footer-link"><i class="fas fa-envelope"></i> hello@rvadventure.com</a></li>
+            <li class="footer-link"><i class="fas fa-clock"></i> Mon–Sun: 7AM – 9PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="justify-content: center; text-align: center;">
+        <span>© 2024 RV adven Rentals. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+

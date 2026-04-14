@@ -1,0 +1,65 @@
+/* animations.css: Keyframes and Scroll triggered animations */
+
+/* Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIcon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Base utility classes for intersection observer */
+.animate-on-scroll {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Add these classes via JS when in view */
+.is-visible.fade-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.is-visible.fade-left {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.is-visible.scale-in {
+  animation: scaleIn 0.6s ease forwards;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }

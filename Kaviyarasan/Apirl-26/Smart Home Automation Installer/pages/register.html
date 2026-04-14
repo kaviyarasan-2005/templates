@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account — SmartNest</title>
+  <style>
+    /* 
+       ============================================
+       CENTERED IMMERSIVE MESH DESIGN
+       ============================================ 
+    */
+    :root {
+      --mesh-color-1: rgba(37, 99, 235, 0.4);
+      --mesh-color-2: rgba(56, 189, 248, 0.3);
+      --mesh-color-3: rgba(139, 92, 246, 0.3);
+    }
+    [data-theme="dark"] {
+      --mesh-color-1: rgba(30, 58, 138, 0.6);
+      --mesh-color-2: rgba(7, 89, 133, 0.4);
+      --mesh-color-3: rgba(76, 29, 149, 0.4);
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-y: auto;
+      font-family: var(--font-body);
+    }
+
+    .mesh-bg {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-body);
+      z-index: -1;
+      overflow: hidden;
+    }
+    .mesh-blob {
+      position: absolute;
+      width: 60vmax;
+      height: 60vmax;
+      background: radial-gradient(circle, var(--color), transparent 70%);
+      filter: blur(80px);
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 20s infinite alternate;
+    }
+    .mesh-blob--1 { --color: var(--mesh-color-1); top: -10%; left: -10%; animation-delay: 0s; }
+    .mesh-blob--2 { --color: var(--mesh-color-2); top: 50%; right: -10%; animation-delay: -5s; }
+    .mesh-blob--3 { --color: var(--mesh-color-3); bottom: -10%; left: 30%; animation-delay: -10s; }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(10vw, 10vh) scale(1.1); }
+    }
+
+    .auth-container {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-8) var(--space-4);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Minimal Topbar */
+    .auth-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .auth-nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      font-weight: var(--fw-bold);
+      font-size: var(--fs-xl);
+    }
+    .auth-nav__logo img { width: 32px; height: 32px; }
+
+    /* Ultra Glass Card */
+    .glass-card {
+      width: 100%;
+      max-width: 480px;
+      background: rgba(var(--bg-card-rgb, 255, 255, 255), 0.65);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: var(--border-radius-xl);
+      padding: var(--space-5);
+      box-shadow: 
+        0 4px 6px -1px rgba(0,0,0,0.05),
+        0 20px 25px -5px rgba(0,0,0,0.1),
+        0 10px 10px -5px rgba(0,0,0,0.04);
+      animation: cardIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-theme="dark"] .glass-card {
+      background: rgba(30, 41, 59, 0.6);
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+
+    @keyframes cardIn {
+      0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .social-btn--minimal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px;
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      transition: all var(--transition-base);
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: var(--space-2);
+    }
+    .social-btn--minimal:hover { 
+      background: var(--bg-card-hover); 
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: var(--space-3) 0;
+      font-size: var(--fs-xs);
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .auth-divider::before, .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    .form-floating {
+      position: relative;
+      margin-bottom: var(--space-2);
+    }
+    .form-floating label {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      transform: translateY(-50%);
+      font-size: var(--fs-sm);
+      color: var(--text-tertiary);
+      transition: all 0.2s ease;
+      pointer-events: none;
+    }
+    .form-floating input:focus ~ label,
+    .form-floating input:not(:placeholder-shown) ~ label {
+      top: 4px;
+      font-size: 10px;
+      font-weight: var(--fw-bold);
+      color: var(--color-primary);
+    }
+    .form-floating .form-input {
+      padding: 22px 14px 10px;
+      height: auto;
+    }
+
+    @media (max-width: 480px) {
+      .glass-card { 
+        background: transparent; 
+        backdrop-filter: none; 
+        border: none; 
+        box-shadow: none; 
+        padding: var(--space-4) var(--space-2);
+      }
+      .auth-container { padding: var(--space-6) var(--space-2); }
+    }
+    @media (max-width: 400px) {
+      .auth-container { padding: var(--space-5) var(--space-1); }
+      .glass-card { padding: var(--space-3) var(--space-2); background: transparent; border: none; box-shadow: none; backdrop-filter: none; }
+      .social-btn--minimal { padding: 10px 8px; font-size: 11px; gap: 6px; }
+      [dir="rtl"] .form-floating label { left: auto; right: 14px; }
+      [dir="rtl"] .form-floating input:focus ~ label,
+      [dir="rtl"] .form-floating input:not(:placeholder-shown) ~ label { left: auto; right: 14px; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link rel="stylesheet" href="../assets/css/rtl.css" />
+</head>
+<body>
+
+  <!-- MESH BACKGROUND -->
+  <div class="mesh-bg">
+    <div class="mesh-blob mesh-blob--1"></div>
+    <div class="mesh-blob mesh-blob--2"></div>
+    <div class="mesh-blob mesh-blob--3"></div>
+  </div>
+
+  <div class="auth-container">
+    <!-- NAV -->
+    <header class="auth-nav">
+      <a href="index.html" class="auth-nav__logo" aria-label="SmartNest Home">
+        <img src="../assets/images/logo.svg" alt="SmartNest Logo" />
+        SmartNest
+      </a>
+      <div style="display:flex; gap: 8px;">
+        <button class="navbar__icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="theme-icon"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <button class="navbar__icon-btn" id="rtl-toggle" aria-label="Toggle RTL layout">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- CARD -->
+    <main class="glass-card">
+      <div style="text-align:center; margin-bottom: var(--space-4);">
+        <a href="index.html" style="display:inline-flex; align-items:center; gap:12px; margin-bottom: var(--space-2); text-decoration: none;">
+          <img src="../assets/images/logo.svg" alt="Logo" style="width:40px; height:40px;" />
+          <span style="font-family:var(--font-heading); font-size:var(--fs-2xl); font-weight:var(--fw-bold); color:var(--text-primary);">SmartNest</span>
+        </a>
+        <h1 style="font-family: var(--font-heading); font-size: var(--fs-xl); margin: 0; opacity: 0.9;">Create Account</h1>
+        <p style="color:var(--text-secondary); font-size: var(--fs-sm);">Join our smart home community today</p>
+      </div>
+
+      <button class="social-btn--minimal">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 0 0 1 12c0 1.77.42 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Sign up with Google
+      </button>
+
+      <div class="auth-divider">or register with email</div>
+
+      <form>
+        <div class="form-floating">
+          <input type="text" id="reg-name" class="form-input" placeholder=" " required />
+          <label for="reg-name">Full Name</label>
+        </div>
+        <div class="form-floating">
+          <input type="email" id="reg-email" class="form-input" placeholder=" " required />
+          <label for="reg-email">Email Address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" id="reg-password" class="form-input" placeholder=" " required />
+          <label for="reg-password">Password</label>
+        </div>
+        
+        <div style="display:flex; align-items:flex-start; gap: 8px; margin-bottom: var(--space-4); padding: 0 4px;">
+          <input type="checkbox" id="terms" required style="accent-color: var(--color-primary); margin-top: 3px;" />
+          <label for="terms" style="font-size: var(--fs-xs); color: var(--text-secondary); line-height: 1.4;">
+            I agree to the <a href="#" style="color: var(--color-primary); font-weight: var(--fw-semibold); text-decoration: none;">Terms of Service</a> and <a href="#" style="color: var(--color-primary); font-weight: var(--fw-semibold); text-decoration: none;">Privacy Policy</a>.
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg w-full" style="padding: 14px; font-weight: var(--fw-bold); box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);">
+          Create Account
+        </button>
+      </form>
+
+      <p style="text-align:center; margin-top: var(--space-5); font-size: var(--fs-sm); color: var(--text-secondary);">
+        Already have an account? <a href="login.html" style="color: var(--color-primary); font-weight: var(--fw-bold); text-decoration: none;">Sign in</a>
+      </p>
+    </main>
+
+    <!-- Footer-like credit -->
+    <footer style="margin-top: var(--space-4); font-size: 11px; color: var(--text-tertiary); opacity: 0.8;">
+      © 2026 SmartNest Automation Ecosystem. All rights reserved.
+    </footer>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

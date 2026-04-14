@@ -1,0 +1,274 @@
+/* ============================================================
+   RV ADVEN RENTALS - RTL (Right-to-Left) Overrides
+   Activated via: dir="rtl" on <html> element
+   ============================================================ */
+
+[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Navigation */
+/* Removed incorrect flex-direction overrides to allow native RTL flex behavior */
+
+[dir="rtl"] .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .mobile-nav {
+  right: auto;
+  left: -100%;
+}
+
+[dir="rtl"] .mobile-nav.open {
+  left: 0;
+  right: auto;
+}
+
+[dir="rtl"] .nav-link.active::after {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* Section Label */
+[dir="rtl"] .section-label {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .section-label::before {
+  order: 1;
+}
+
+/* Footer */
+[dir="rtl"] .footer-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-links {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-link {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer-bottom {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer-bottom-links {
+  flex-direction: row-reverse;
+}
+
+/* Cards */
+[dir="rtl"] .card-meta {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .card-footer {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .card-badge {
+  left: auto;
+  right: var(--space-3);
+}
+
+/* Hero */
+[dir="rtl"] .hero-label {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-actions {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .trust-badges {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .trust-badge {
+  flex-direction: row-reverse;
+}
+
+/* Buttons */
+[dir="rtl"] .btn {
+  flex-direction: row-reverse;
+}
+
+/* Accordion */
+[dir="rtl"] .accordion-header {
+  flex-direction: row-reverse;
+}
+
+/* Breadcrumb */
+[dir="rtl"] .breadcrumb {
+  flex-direction: row-reverse;
+}
+
+/* Testimonials */
+[dir="rtl"] .testimonial-author {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .testimonial-quote {
+  left: auto;
+  right: var(--space-6);
+}
+
+/* Pricing */
+[dir="rtl"] .pricing-features {
+  text-align: right;
+}
+
+[dir="rtl"] .pricing-feature {
+  flex-direction: row-reverse;
+}
+
+/* Forms */
+[dir="rtl"] .form-group {
+  text-align: right;
+}
+
+[dir="rtl"] .form-input,
+[dir="rtl"] .form-select,
+[dir="rtl"] .form-textarea {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .form-error {
+  flex-direction: row-reverse;
+}
+
+/* Search */
+[dir="rtl"] .hero-search-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .search-field {
+  text-align: right;
+}
+
+/* Stats */
+[dir="rtl"] .stats-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .stat-item {
+  border-right: none;
+  border-left: 1px solid rgba(255,255,255,0.15);
+}
+
+[dir="rtl"] .stat-item:last-child {
+  border-left: none;
+}
+
+/* Arrows & directional icons */
+[dir="rtl"] .fa-arrow-right::before {
+  content: "\f060"; /* arrow-left */
+}
+
+[dir="rtl"] .fa-arrow-left::before {
+  content: "\f061"; /* arrow-right */
+}
+
+[dir="rtl"] .fa-chevron-right::before {
+  content: "\f053"; /* chevron-left */
+}
+
+[dir="rtl"] .fa-chevron-left::before {
+  content: "\f054"; /* chevron-right */
+}
+
+/* Table */
+[dir="rtl"] .data-table th,
+[dir="rtl"] .data-table td {
+  text-align: right;
+}
+
+/* Sidebar (Dashboard) */
+[dir="rtl"] .sidebar {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--color-border);
+  transform: translateX(100%);
+}
+
+[dir="rtl"] .sidebar.open {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .sidebar-link {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sidebar-link .sidebar-icon {
+  margin-right: 0;
+  margin-left: var(--space-3);
+}
+
+/* Feature Cards */
+[dir="rtl"] .feature-card {
+  text-align: right;
+}
+
+/* Blog Card */
+[dir="rtl"] .blog-card-meta {
+  flex-direction: row-reverse;
+}
+
+/* Scroll to Top */
+[dir="rtl"] .scroll-top {
+  right: auto;
+  left: var(--space-6);
+}
+
+/* Progress */
+[dir="rtl"] .progress-fill {
+  background: linear-gradient(270deg, var(--color-primary), var(--color-primary-light));
+}
+
+/* Timeline */
+[dir="rtl"] .timeline {
+  direction: rtl;
+}
+
+[dir="rtl"] .timeline-item {
+  flex-direction: row-reverse;
+}
+
+/* Navbar Brand */
+/* Removed to allow native RTL flex behavior */
+
+[dir="rtl"] .navbar-brand-text {
+  text-align: right;
+}
+
+/* Member / team cards */
+[dir="rtl"] .team-socials {
+  flex-direction: row-reverse;
+}
+
+/* Contact */
+[dir="rtl"] .contact-item {
+  flex-direction: row-reverse;
+}
+
+/* Grid flow stays same but internal alignment flips */
+[dir="rtl"] .grid {
+  direction: rtl;
+}
+
+/* Avatar group */
+[dir="rtl"] .avatar-group img {
+  margin-left: 0;
+  margin-right: -10px;
+}
+
+[dir="rtl"] .avatar-group img:first-child {
+  margin-right: 0;
+}

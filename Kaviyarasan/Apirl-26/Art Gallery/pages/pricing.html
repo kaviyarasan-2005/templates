@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memberships &amp; Tickets — Aurelia</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{gold:'#D4AF37',burgundy:'#722F37',copper:'#B87333'},fontFamily:{heading:['Playfair Display','Georgia','serif'],body:['Inter','system-ui','sans-serif']}}}}</script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <style>
+    /* Critical Mobile Fixes */
+    @media (max-width: 640px) {
+      .navbar__logo-suffix { display: none !important; }
+      .navbar__actions .btn--primary, 
+      .navbar__actions #theme-toggle, 
+      .navbar__actions #rtl-toggle { display: none !important; }
+      .navbar__inner { padding-inline: 16px !important; }
+      .navbar__logo { font-size: 1.1rem !important; }
+      .navbar__actions { gap: 0 !important; }
+      body { overflow-x: hidden !important; width: 100% !important; position: relative !important; }
+      * { max-width: 100vw !important; }
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="home-main.html" class="navbar__logo"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg><span>Aurelia</span></a>
+      <div class="navbar__links">
+        <div class="navbar__dropdown">
+          <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="navbar__dropdown-menu" role="menu">
+            <a href="home-main.html" class="navbar__dropdown-item" role="menuitem">Home 1</a>
+            <a href="home-exhibition.html" class="navbar__dropdown-item" role="menuitem">Home 2</a>
+          </div>
+        </div>
+        <a href="about.html" class="navbar__link">About Us</a>
+        <div class="navbar__dropdown">
+          <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Services <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="navbar__dropdown-menu" role="menu">
+            <a href="services.html" class="navbar__dropdown-item" role="menuitem">Services Overview</a>
+            <a href="service-detail.html" class="navbar__dropdown-item" role="menuitem">Service Details</a>
+          </div>
+        </div>
+        <div class="navbar__dropdown">
+          <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Blog <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="navbar__dropdown-menu" role="menu">
+            <a href="blog.html" class="navbar__dropdown-item" role="menuitem">Blog Grid</a>
+            <a href="blog-detail.html" class="navbar__dropdown-item" role="menuitem">Blog Details</a>
+          </div>
+        </div>
+        <a href="pricing.html" class="navbar__link">Pricing</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+        <div class="navbar__dropdown">
+          <a href="#" class="navbar__link navbar__dropdown-trigger" aria-expanded="false">Dashboard <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="navbar__dropdown-menu" role="menu">
+            <a href="dashboard.html#user" class="navbar__dropdown-item" role="menuitem">User Dashboard</a>
+            <a href="dashboard.html#admin" class="navbar__dropdown-item" role="menuitem">Admin Dashboard</a>
+          </div>
+        </div>
+      </div>
+      <div class="navbar__actions">
+        <button class="navbar__icon-btn" id="rtl-toggle" aria-label="Toggle RTL/LTR">
+          <svg style="pointer-events:none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </button>
+        <button class="navbar__icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg style="pointer-events:none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="login.html" class="btn btn--primary btn--sm mobile-hidden">Login</a>
+      </div>
+      <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="navbar__mobile-menu" aria-hidden="true">
+      <a href="home-main.html" class="navbar__link">Home 1</a>
+      <a href="home-exhibition.html" class="navbar__link">Home 2</a>
+      <a href="about.html" class="navbar__link">About Us</a>
+      <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
+      <a href="services.html" class="navbar__link">Services Overview</a>
+      <a href="service-detail.html" class="navbar__link">Service Details</a>
+      <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
+      <a href="blog.html" class="navbar__link">Blog Grid</a>
+      <a href="blog-detail.html" class="navbar__link">Blog Details</a>
+      <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
+      <a href="pricing.html" class="navbar__link">Pricing</a>
+      <a href="contact.html" class="navbar__link">Contact</a>
+      <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
+      <a href="dashboard.html#user" class="navbar__link">User Dashboard</a>
+      <a href="dashboard.html#admin" class="navbar__link">Admin Dashboard</a>
+      <div style="display:flex;gap:12px;margin-top:16px;">
+        <button class="navbar__icon-btn" onclick="document.getElementById('rtl-toggle').click()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+        <button class="navbar__icon-btn" onclick="document.getElementById('theme-toggle').click()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      </div>
+      <a href="login.html" class="btn btn--primary" style="margin-top:8px;">Login</a>
+    </div>
+  </nav>
+
+  <section class="page-offset" style="text-align:center;padding-top:120px;padding-bottom:40px;">
+
+    <div class="container reveal">
+      <span class="badge badge--gold" style="margin-bottom:16px;">Visitor Information</span>
+      <h1 style="font-size:clamp(2.5rem,5vw,3.5rem);margin-bottom:16px;">Tickets &amp; Memberships</h1>
+      <p style="max-width:600px;margin:0 auto;color:var(--color-text-secondary);line-height:1.8;">General admission is always free. Enhance your experience with guided tours or join our community as a member.</p>
+    </div>
+  </section>
+
+  <!-- PRICING CARDS -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      
+      <!-- Toggle (Monthly/Annually conceptual) -->
+      <div style="display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:48px;" class="reveal">
+        <span style="font-weight:500;">Individual</span>
+        <label style="position:relative;display:inline-block;width:56px;height:32px;cursor:pointer;">
+          <input type="checkbox" style="opacity:0;width:0;height:0;" id="pricing-toggle">
+          <span style="position:absolute;inset:0;background:var(--color-border);border-radius:16px;transition:.4s;"></span>
+          <span style="position:absolute;content:'';height:24px;width:24px;left:4px;bottom:4px;background:#fff;border-radius:50%;transition:.4s;box-shadow:0 2px 4px rgba(0,0,0,0.2);"></span>
+        </label>
+        <span style="font-weight:500;">Corporate</span>
+      </div>
+
+      <style>
+        input:checked + span { background: var(--color-primary); }
+        input:checked + span + span { transform: translateX(24px); }
+      </style>
+
+      <div class="grid grid--3" data-stagger>
+        <!-- Card 1 -->
+        <div class="card stagger-child" style="padding:40px 32px;border:1px solid var(--color-border);background:var(--color-bg);display:flex;flex-direction:column;">
+          <h3 style="font-size:1.5rem;margin-bottom:8px;">Guided Tour</h3>
+          <p style="color:var(--color-text-secondary);font-size:0.875rem;margin-bottom:24px;">Perfect for first-time visitors</p>
+          <div style="display:flex;justify-content:center;align-items:baseline;gap:2px;margin-bottom:32px;">
+            <span style="font-size:1.5rem;font-weight:700;color:var(--color-primary);">$</span>
+            <span id="price-1" style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">25</span>
+            <span id="period-1" style="color:var(--color-text-secondary);font-size:0.875rem;margin-left:4px;">/ person</span>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px;flex:1;">
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 1-hour guided walkthrough</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Curatorial insights</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Exhibition brochure</li>
+          </ul>
+          <button class="btn btn--secondary" style="width:100%;">Book Tour</button>
+        </div>
+
+        <!-- Card 2 (Popular) -->
+        <div class="card stagger-child" style="padding:40px 32px;border:2px solid var(--color-primary);background:var(--color-bg);position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;transform:scale(1.02);box-shadow:var(--shadow-xl);z-index:2;">
+          <h3 style="font-size:1.5rem;margin-bottom:8px;">Patron Member</h3>
+          <p style="color:var(--color-text-secondary);font-size:0.875rem;margin-bottom:24px;">For art enthusiasts</p>
+          <div style="display:flex;justify-content:center;align-items:baseline;gap:2px;margin-bottom:32px;">
+            <span style="font-size:1.5rem;font-weight:700;color:var(--color-primary);">$</span>
+            <span id="price-2" style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">150</span>
+            <span style="color:var(--color-text-secondary);font-size:0.875rem;margin-left:4px;">/ year</span>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px;flex:1;">
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Unlimited free bringing of guests</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Invites to opening receptions</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 10% discount on framing</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Early access to acquisitions</li>
+          </ul>
+          <button class="btn btn--primary" style="width:100%;">Join as Patron</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card stagger-child" style="padding:40px 32px;border:1px solid var(--color-border);background:var(--color-bg);display:flex;flex-direction:column;">
+          <h3 style="font-size:1.5rem;margin-bottom:8px;">Benefactor</h3>
+          <p style="color:var(--color-text-secondary);font-size:0.875rem;margin-bottom:24px;">For established collectors</p>
+          <div style="display:flex;justify-content:center;align-items:baseline;gap:2px;margin-bottom:32px;">
+            <span style="font-size:1.5rem;font-weight:700;color:var(--color-primary);">$</span>
+            <span id="price-3" style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">500</span>
+            <span style="color:var(--color-text-secondary);font-size:0.875rem;margin-left:4px;">/ year</span>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px;flex:1;">
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> All Patron benefits</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Private artist studio visits</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Complimentary exhibition catalogs</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Private collection advisory</li>
+          </ul>
+          <button class="btn btn--secondary" style="width:100%;">Join as Benefactor</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER TRUNCATED FOR BREVITY IN THESE UTILITY PAGES -->
+  <!-- FOOTER START -->
+  <footer class="footer" id="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- About -->
+        <div>
+          <a href="home-main.html" style="display:flex;align-items:center;gap:8px;margin-bottom:16px;text-decoration:none;">
+            <svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#D4AF37"/><path d="M18 8L26 28H10L18 8Z" fill="white" opacity="0.9"/><circle cx="18" cy="20" r="4" fill="white" opacity="0.7"/></svg>
+            <span style="font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:#fff;"><span style="color:var(--color-primary);">Aurelia</span></span>
+          </a>
+          <p style="font-size:0.875rem;line-height:1.7;margin-bottom:16px;">A premier contemporary art gallery dedicated to showcasing exceptional artworks and nurturing emerging talent since 1998.</p>
+          <div class="footer__socials">
+            <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4>Quick Links</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;">
+            <li><a href="home-main.html" style="font-size:0.875rem;">Home</a></li>
+            <li><a href="about.html" style="font-size:0.875rem;">About Us</a></li>
+            <li><a href="services.html" style="font-size:0.875rem;">Services</a></li>
+            <li><a href="blog.html" style="font-size:0.875rem;">Blog</a></li>
+            <li><a href="pricing.html" style="font-size:0.875rem;">Pricing</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4>Contact</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+            <li style="display:flex;align-items:center;gap:8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              42 Gallery Row, NY 10012
+            </li>
+            <li style="display:flex;align-items:center;gap:8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +1 (212) 555-0198
+            </li>
+            <li style="display:flex;align-items:center;gap:8px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              hello@aurelia.com
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4>Newsletter</h4>
+          <p style="font-size:0.875rem;margin-bottom:16px;">Get exhibition previews and exclusive invites delivered to your inbox.</p>
+          <form class="newsletter">
+            <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+            <button type="submit" class="btn btn--primary btn--sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Aurelia. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('pricing-toggle');
+      const p1 = document.getElementById('price-1');
+      const p2 = document.getElementById('price-2');
+      const p3 = document.getElementById('price-3');
+      const pd1 = document.getElementById('period-1');
+
+      const prices = {
+        individual: { p1: '25', p2: '150', p3: '500', pd1: '/ person' },
+        corporate: { p1: '200', p2: '1200', p3: '5000', pd1: '/ group (10)' }
+      };
+
+      if (toggle) {
+        toggle.addEventListener('change', () => {
+          const type = toggle.checked ? 'corporate' : 'individual';
+          
+          // Add transition effect
+          [p1, p2, p3, pd1].forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(-5px)';
+            el.style.transition = 'opacity 0.2s, transform 0.2s';
+          });
+
+          setTimeout(() => {
+            p1.textContent = prices[type].p1;
+            p2.textContent = prices[type].p2;
+            p3.textContent = prices[type].p3;
+            pd1.textContent = prices[type].pd1;
+
+            [p1, p2, p3, pd1].forEach(el => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            });
+          }, 200);
+        });
+      }
+    });
+  </script>
+  <script type="module" src="../assets/js/main.js"></script>
+  <script type="module" src="../assets/js/animations.js"></script>
+</body>
+</html>

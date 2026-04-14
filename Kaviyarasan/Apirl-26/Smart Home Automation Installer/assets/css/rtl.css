@@ -1,0 +1,126 @@
+/* ============================================
+   RTL LAYOUT OVERRIDES (Natural Flow)
+   ============================================ */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* --- Global Utilities --- */
+[dir="rtl"] .text-left { text-align: right; }
+[dir="rtl"] .text-right { text-align: left; }
+
+/* --- Navbar (Main) --- */
+/* Removed row-reverse to allow natural RTL swap: Logo(Right), Buttons(Left) */
+[dir="rtl"] .navbar__links a.active::after { left: 0; right: 0; }
+
+/* --- Dropdowns --- */
+[dir="rtl"] .nav-dropdown__menu { left: auto; right: 0; transform: translateY(8px); }
+[dir="rtl"] .nav-dropdown.open .nav-dropdown__menu { transform: translateY(0); }
+[dir="rtl"] .nav-dropdown__trigger svg { margin-left: 0; margin-right: 4px; }
+
+/* --- Header & Search (Dashboard) --- */
+[dir="rtl"] .header-search svg { left: auto; right: 12px; }
+[dir="rtl"] .header-search input { padding: 10px 36px 10px 12px; text-align: right; }
+[dir="rtl"] .notif-btn::after { left: 8px; right: auto; }
+[dir="rtl"] .header-user { padding-left: 4px; padding-right: 12px; }
+
+/* --- Buttons --- */
+[dir="rtl"] .btn svg { transform: scaleX(-1); }
+
+/* --- Cards & Grid --- */
+[dir="rtl"] .card__link { justify-content: flex-start; }
+[dir="rtl"] .card__link svg { transform: rotate(180deg); margin-left: 0; margin-right: 4px; }
+[dir="rtl"] .feature-card { text-align: right; }
+[dir="rtl"] .feature-card__icon { margin-left: initial; margin-right: 0; }
+
+/* --- Forms & Login --- */
+[dir="rtl"] .form-label { text-align: right; }
+[dir="rtl"] .form-input { text-align: right; }
+[dir="rtl"] .form-floating label { left: auto; right: 14px; }
+[dir="rtl"] .form-floating input:focus ~ label,
+[dir="rtl"] .form-floating input:not(:placeholder-shown) ~ label { 
+  left: auto; 
+  right: 14px; 
+}
+
+/* --- Timeline --- */
+[dir="rtl"] .timeline { padding-left: 0; padding-right: var(--space-4); border-left: none; }
+[dir="rtl"] .timeline::before { left: auto; right: 15px; }
+[dir="rtl"] .timeline__dot { left: auto; right: -25px; }
+
+/* --- Dashboard Sidebar --- */
+[dir="rtl"] .dashboard__sidebar { 
+  left: auto; 
+  right: 0; 
+  border-right: none; 
+  border-left: 1px solid var(--border-color); 
+}
+[dir="rtl"] .dashboard__sidebar.collapsed { transform: translateX(100%); }
+[dir="rtl"] .dashboard__main { margin-left: 0; margin-right: 260px; }
+[dir="rtl"] .sidebar-nav__item { justify-content: flex-start; gap: 12px; }
+
+/* --- Pricing Switch --- */
+[dir="rtl"] .pricing-toggle__switch::after { left: auto; right: 3px; }
+[dir="rtl"] .pricing-toggle__switch.active::after { transform: translateX(-22px); }
+
+/* --- Table & Data --- */
+[dir="rtl"] .data-table th,
+[dir="rtl"] .data-table td { text-align: right; }
+[dir="rtl"] .compare-table th:first-child,
+[dir="rtl"] .compare-table td:first-child { text-align: right; }
+
+/* --- Mobile Nav --- */
+[dir="rtl"] .mobile-nav { text-align: right; }
+[dir="rtl"] .navbar__hamburger { margin-right: auto; margin-left: 0; }
+
+/* --- Footer --- */
+[dir="rtl"] .footer__grid { direction: rtl; }
+[dir="rtl"] .footer__social { justify-content: flex-start; }
+[dir="rtl"] .footer__links a { text-align: right; }
+
+/* Responsive Dashboard RTL */
+@media (max-width: 1280px) {
+  [dir="rtl"] .dashboard-grid-main { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 1024px) {
+  [dir="rtl"] .dashboard__main { margin-right: 0; }
+  [dir="rtl"] .dashboard__sidebar { right: auto; left: 0; transform: translateX(-100%); }
+  [dir="rtl"] .dashboard__sidebar.open { transform: translateX(0); }
+  [dir="rtl"] .dashboard-header.scrolled { padding: var(--space-2) 16px !important; }
+}
+
+/* ===== RTL MOBILE (≤768px) ===== */
+@media (max-width: 768px) {
+  /* Mobile nav login button in RTL */
+  [dir="rtl"] .mobile-nav { text-align: right; }
+  [dir="rtl"] .mobile-nav .btn { text-align: center; }
+
+  /* Hero buttons direction in RTL mobile */
+  [dir="rtl"] .hero__buttons { flex-direction: row; }
+
+  /* Footer grid RTL mobile */
+  [dir="rtl"] .footer__grid { direction: rtl; }
+
+  /* Section header RTL */
+  [dir="rtl"] .section-header { text-align: center; }
+
+  /* Timeline RTL mobile */
+  [dir="rtl"] .timeline { padding-right: var(--space-4); padding-left: 0; }
+  [dir="rtl"] .timeline::before { right: 15px; left: auto; }
+  [dir="rtl"] .timeline__dot { right: -25px; left: auto; }
+}
+
+/* ===== RTL MOBILE (≤400px) ===== */
+@media (max-width: 400px) {
+  [dir="rtl"] .hero__buttons { flex-direction: column; align-items: stretch; }
+  [dir="rtl"] .hero__buttons .btn { justify-content: center; width: 100%; }
+
+  /* Pricing toggle RTL */
+  [dir="rtl"] .pricing-toggle { flex-direction: row; }
+
+  /* Auth nav RTL on very small screens */
+  [dir="rtl"] .auth-nav { flex-direction: row-reverse; }
+}

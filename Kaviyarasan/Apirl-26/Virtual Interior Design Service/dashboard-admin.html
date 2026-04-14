@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura - Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <script src="assets/js/theme-toggle.js"></script>
+</head>
+<body>
+
+<!-- Mobile Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Dashboard Wrapper -->
+<div class="dash-wrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="dash-sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="home-1.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span class="sidebar-header-title">Aura</span>
+      </a>
+    </div>
+
+    <!-- Unified Nav -->
+    <nav class="sidebar-nav">
+      <p class="nav-section-label">Aura Studio</p>
+      <ul>
+        <li class="nav-item"><a href="#" class="nav-link active" onclick="switchSection('admin-overview',this)">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span class="nav-label">Overview</span>
+        </a></li>
+        <li class="nav-item"><a href="#" class="nav-link" onclick="switchSection('admin-orders',this)">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <span class="nav-label">All Orders</span>
+          <span class="nav-badge">3</span>
+        </a></li>
+      </ul>
+      <p class="nav-section-label">Management</p>
+      <ul>
+        <li class="nav-item"><a href="#" class="nav-link" onclick="switchSection('admin-users',this)">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span class="nav-label">User Base</span>
+        </a></li>
+        <li class="nav-item"><a href="#" class="nav-link" onclick="switchSection('admin-messages',this)">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span class="nav-label">Studio Messaging</span>
+          <span class="nav-badge">7</span>
+        </a></li>
+      </ul>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div style="padding:var(--space-3);border-top:1px solid var(--color-border);margin-top:auto;">
+      <a href="home-1.html" class="nav-link" style="margin:0;">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        <span class="nav-label">Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN AREA ===== -->
+  <div class="dash-main" id="dashMain">
+
+    <!-- Header -->
+    <header class="dash-header">
+      <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <div class="dash-search">
+        <svg class="dash-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" placeholder="Search projects, orders...">
+      </div>
+
+      <div class="dash-header-actions">
+        <!-- Globe/RTL Toggle -->
+        <button class="header-icon-btn" id="langToggle" aria-label="Toggle language direction">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="header-icon-btn" id="themeToggle" aria-label="Toggle theme">
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg>
+        </button>
+
+        <!-- Notifications -->
+        <button class="header-icon-btn" aria-label="Notifications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <span class="notif-dot"></span>
+        </button>
+
+        <!-- Profile -->
+        <img src="https://i.pravatar.cc/96?img=47" alt="Profile" class="user-avatar">
+      </div>
+    </header>
+
+    <!-- ===== DASHBOARD CONTENT ===== -->
+    <div class="dash-content">
+
+      <!-- ========== ADMIN OVERVIEW ========== -->
+      <div id="admin-overview" class="dash-section">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-4);">
+          <div>
+            <h2 style="margin-bottom:4px;">Admin Dashboard&lrm;</h2>
+            <p class="text-secondary text-sm">Good morning, Elena. Here's your studio overview.&lrm;</p>
+          </div>
+          <a href="contact.html" class="btn btn-primary" style="height:38px;padding:0 16px;font-size:0.875rem;">+ New Project</a>
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(13,115,119,0.1);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+            </div>
+            <div>
+              <div class="stat-value" data-target="1248">0</div>
+              <div class="stat-label">Total Users</div>
+              <div class="stat-change stat-up">▲ 12% this month</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(23,162,184,0.1);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-info)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+            </div>
+            <div>
+              <div class="stat-value" data-target="84">0</div>
+              <div class="stat-label">Active Orders</div>
+              <div class="stat-change stat-up">▲ 8% this month</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(212,175,55,0.1);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <div>
+              <div class="stat-value" data-prefix="$" data-target="94200">0</div>
+              <div class="stat-label">Revenue (Apr)</div>
+              <div class="stat-change stat-up">▲ 22% vs last month</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:rgba(220,53,69,0.1);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div>
+              <div class="stat-value" data-target="17">0</div>
+              <div class="stat-label">Unread Messages</div>
+              <div class="stat-change stat-down">▼ needs attention</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid (4+ Infographics) -->
+        <div class="charts-grid-expanded">
+          <!-- 1. Monthly Revenue (Bar) -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <span class="chart-title">Monthly Revenue</span>
+            </div>
+            <div class="css-bar-chart" id="revenueChart">
+              <div class="bar-wrap"><div class="bar" style="height:55%"></div><span class="bar-lbl">Jan</span></div>
+              <div class="bar-wrap"><div class="bar" style="height:72%"></div><span class="bar-lbl">Feb</span></div>
+              <div class="bar-wrap"><div class="bar" style="height:48%"></div><span class="bar-lbl">Mar</span></div>
+              <div class="bar-wrap"><div class="bar" style="height:90%"></div><span class="bar-lbl">Apr</span></div>
+              <div class="bar-wrap"><div class="bar" style="height:63%"></div><span class="bar-lbl">May</span></div>
+              <div class="bar-wrap"><div class="bar" style="height:80%"></div><span class="bar-lbl">Jun</span></div>
+            </div>
+          </div>
+
+          <!-- 2. Service Mix (Donut) -->
+          <div class="chart-card">
+            <div class="chart-header"><span class="chart-title">Service Mix</span></div>
+            <div class="donut-wrap">
+              <svg class="donut-svg" viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="#E9ECEF" stroke-width="3.5"/>
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="var(--color-primary)" stroke-width="3.5" stroke-dasharray="45 55" stroke-dashoffset="25"/>
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="var(--color-secondary)" stroke-width="3.5" stroke-dasharray="30 70" stroke-dashoffset="-20"/>
+              </svg>
+              <div class="donut-legend">
+                <div class="donut-item"><div class="donut-dot" style="background:var(--color-primary)"></div><span class="text-sm">Residential (45%)</span></div>
+                <div class="donut-item"><div class="donut-dot" style="background:var(--color-secondary)"></div><span class="text-sm">Commercial (30%)</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Project Momentum (Radial Gauge) - NEW -->
+          <div class="chart-card">
+            <div class="chart-header"><span class="chart-title">Project Momentum</span></div>
+            <div class="gauge-wrap">
+              <div class="gauge-base">
+                <div class="gauge-fill" style="transform: rotate(135deg);"></div>
+                <div class="gauge-center">
+                  <div class="gauge-value">84%</div>
+                  <div class="gauge-label">On Track</div>
+                </div>
+              </div>
+              <p class="text-xs text-secondary mt-3 text-center">Velocity increased by 15% vs last week</p>
+            </div>
+          </div>
+
+          <!-- 4. Design Style Trends (Horizontal Bar) - NEW -->
+          <div class="chart-card">
+            <div class="chart-header"><span class="chart-title">Popular Styles</span></div>
+            <div class="trend-list">
+              <div class="trend-item">
+                <div class="trend-info"><span>Minimalist</span><span>68%</span></div>
+                <div class="trend-bar-bg"><div class="trend-bar-fill" style="width:68%"></div></div>
+              </div>
+              <div class="trend-item">
+                <div class="trend-info"><span>Industrial</span><span>42%</span></div>
+                <div class="trend-bar-bg"><div class="trend-bar-fill" style="width:42%; background:var(--color-secondary);"></div></div>
+              </div>
+              <div class="trend-item">
+                <div class="trend-info"><span>Biophilic</span><span>25%</span></div>
+                <div class="trend-bar-bg"><div class="trend-bar-fill" style="width:25%; background:var(--color-info);"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="table-card">
+          <div class="table-header">
+            <h4>Recent Orders</h4>
+            <div style="display:flex;gap:8px;">
+              <input type="text" placeholder="Search orders..." class="form-control" style="height:32px;width:180px;font-size:0.8125rem;">
+              <button class="btn btn-outline" style="height:32px;padding:0 12px;font-size:0.8125rem;">Export CSV</button>
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Client</th>
+                  <th>Service</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:600; color:var(--color-primary);">#AD-1042</td>
+                  <td><div style="display:flex;align-items:center;gap:8px;"><img src="https://i.pravatar.cc/32?img=1" style="width:28px;height:28px;border-radius:50%;"> Sarah Jenkins</div></td>
+                  <td>Full Home Makeover</td>
+                  <td>Apr 10, 2026</td>
+                  <td style="font-weight:600;">$2,499</td>
+                  <td><span class="status-badge status-progress">In Progress</span></td>
+                  <td><button class="btn btn-outline" style="height:28px;padding:0 10px;font-size:0.75rem;">View</button></td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600; color:var(--color-primary);">#AD-1041</td>
+                  <td><div style="display:flex;align-items:center;gap:8px;"><img src="https://i.pravatar.cc/32?img=11" style="width:28px;height:28px;border-radius:50%;"> Mark Thompson</div></td>
+                  <td>Office Space Planning</td>
+                  <td>Apr 8, 2026</td>
+                  <td style="font-weight:600;">$1,899</td>
+                  <td><span class="status-badge status-completed">Completed</span></td>
+                  <td><button class="btn btn-outline" style="height:28px;padding:0 10px;font-size:0.75rem;">View</button></td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600; color:var(--color-primary);">#AD-1040</td>
+                  <td><div style="display:flex;align-items:center;gap:8px;"><img src="https://i.pravatar.cc/32?img=5" style="width:28px;height:28px;border-radius:50%;"> Emily Riviera</div></td>
+                  <td>Kitchen Renovation</td>
+                  <td>Apr 5, 2026</td>
+                  <td style="font-weight:600;">$999</td>
+                  <td><span class="status-badge status-pending">Pending</span></td>
+                  <td><button class="btn btn-outline" style="height:28px;padding:0 10px;font-size:0.75rem;">View</button></td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600; color:var(--color-primary);">#AD-1039</td>
+                  <td><div style="display:flex;align-items:center;gap:8px;"><img src="https://i.pravatar.cc/32?img=17" style="width:28px;height:28px;border-radius:50%;"> James Liu</div></td>
+                  <td>Palette Consultation</td>
+                  <td>Apr 2, 2026</td>
+                  <td style="font-weight:600;">$499</td>
+                  <td><span class="status-badge status-cancelled">Cancelled</span></td>
+                  <td><button class="btn btn-outline" style="height:28px;padding:0 10px;font-size:0.75rem;">View</button></td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600; color:var(--color-primary);">#AD-1038</td>
+                  <td><div style="display:flex;align-items:center;gap:8px;"><img src="https://i.pravatar.cc/32?img=25" style="width:28px;height:28px;border-radius:50%;"> Priya Sharma</div></td>
+                  <td>Full Home Makeover</td>
+                  <td>Mar 30, 2026</td>
+                  <td style="font-weight:600;">$3,200</td>
+                  <td><span class="status-badge status-completed">Completed</span></td>
+                  <td><button class="btn btn-outline" style="height:28px;padding:0 10px;font-size:0.75rem;">View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Pagination -->
+          <div style="padding:var(--space-3) var(--space-4);border-top:1px solid var(--color-border);display:flex;justify-content:space-between;align-items:center;">
+            <span class="text-sm text-secondary">Showing 5 of 84 orders</span>
+            <div style="display:flex;gap:4px;">
+              <button class="page-btn" style="width:32px;height:32px;border:1px solid var(--color-border);border-radius:6px;background:transparent;cursor:pointer;">&laquo;</button>
+              <button class="page-btn active" style="width:32px;height:32px;border-radius:6px;background:var(--color-primary);color:white;border:none;cursor:pointer;">1</button>
+              <button class="page-btn" style="width:32px;height:32px;border:1px solid var(--color-border);border-radius:6px;background:transparent;cursor:pointer;">2</button>
+              <button class="page-btn" style="width:32px;height:32px;border:1px solid var(--color-border);border-radius:6px;background:transparent;cursor:pointer;">&raquo;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== ADMIN ORDERS ========== -->
+      <div id="admin-orders" class="dash-section" style="display:none;">
+        <h2 style="margin-bottom:var(--space-4);">All Orders</h2>
+        <div class="table-card">
+          <div class="table-header"><h4>Order Management</h4></div>
+          <p class="text-secondary" style="padding:var(--space-4);">Full order list view — same structure as above with expanded filters.</p>
+        </div>
+      </div>
+
+      <!-- ========== ADMIN USERS ========== -->
+      <div id="admin-users" class="dash-section" style="display:none;">
+        <h2 style="margin-bottom:var(--space-4);">User Management</h2>
+        <div class="table-card">
+          <div class="table-header"><h4>Registered Users</h4><button class="btn btn-primary" style="height:34px;padding:0 14px;font-size:0.8125rem;">Invite User</button></div>
+          <div style="overflow-x:auto;">
+            <table class="data-table">
+              <thead><tr><th>User</th><th>Email</th><th>Role</th><th>Joined</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:8px;"><img src="https://i.pravatar.cc/32?img=1" style="width:32px;height:32px;border-radius:50%;"> Sarah Jenkins</div></td>
+                  <td class="text-secondary text-sm">sarah@example.com</td>
+                  <td><span class="status-badge status-progress">Client</span></td>
+                  <td class="text-sm text-secondary">Jan 14, 2026</td>
+                  <td><span class="status-badge status-completed">Active</span></td>
+                  <td><button class="btn btn-outline" style="height:28px;padding:0 10px;font-size:0.75rem;">Manage</button></td>
+                </tr>
+                <tr>
+                  <td><div style="display:flex;align-items:center;gap:8px;"><img src="https://i.pravatar.cc/32?img=11" style="width:32px;height:32px;border-radius:50%;"> Mark Thompson</div></td>
+                  <td class="text-secondary text-sm">mark@example.com</td>
+                  <td><span class="status-badge status-progress">Client</span></td>
+                  <td class="text-sm text-secondary">Feb 3, 2026</td>
+                  <td><span class="status-badge status-completed">Active</span></td>
+                  <td><button class="btn btn-outline" style="height:28px;padding:0 10px;font-size:0.75rem;">Manage</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== ADMIN MESSAGES ========== -->
+      <div id="admin-messages" class="dash-section" style="display:none;">
+        <h2 style="margin-bottom:var(--space-4);">Messages</h2>
+        <div class="chart-card">
+          <p class="text-secondary">Chat interface — unread message threads from clients.</p>
+          <div style="margin-top:var(--space-3);display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--color-surface);border-radius:12px;">
+              <img src="https://i.pravatar.cc/48?img=1" style="width:44px;height:44px;border-radius:50%;">
+              <div style="flex:1;"><div style="font-weight:600; font-size:0.9375rem;">Sarah Jenkins</div><div class="text-sm text-secondary">I love the 3D renders! Can we adjust...</div></div>
+              <span class="nav-badge">2</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--color-surface);border-radius:12px;">
+              <img src="https://i.pravatar.cc/48?img=11" style="width:44px;height:44px;border-radius:50%;">
+              <div style="flex:1;"><div style="font-weight:600; font-size:0.9375rem;">Mark Thompson</div><div class="text-sm text-secondary">Thanks for the quick turnaround!</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div><!-- end dash-content -->
+  </div><!-- end dash-main -->
+</div><!-- end dash-wrapper -->
+
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

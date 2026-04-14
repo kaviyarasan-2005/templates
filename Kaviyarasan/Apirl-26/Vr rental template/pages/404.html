@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | RV adven Rentals</title>
+  <meta name="description" content="Oops! The page you're looking for has gone off-grid. Find your way back with popular links or our search tool." />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    .error-page { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 48px 24px; position: relative; overflow: hidden; }
+    .error-bg { position: fixed; inset: 0; background: linear-gradient(160deg, #f0f9f4 0%, #e8f5ee 50%, #f5f7fa 100%); z-index: -1; }
+    [data-theme="dark"] .error-bg { background: linear-gradient(160deg, #0d1f16 0%, #0a1410 100%); }
+    .error-illustration { font-size: 8rem; margin-bottom: 32px; animation: float 3s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+    .error-code { font-family: 'Montserrat', sans-serif; font-size: clamp(5rem, 15vw, 9rem); font-weight: 900; color: var(--color-primary); opacity: 0.12; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); line-height: 1; pointer-events: none; user-select: none; white-space: nowrap; }
+    .error-content { position: relative; z-index: 1; max-width: 560px; }
+    .error-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; color: var(--color-text-primary); margin-bottom: 16px; }
+    .error-desc { font-size: 1.05rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 36px; }
+    .error-search { display: flex; gap: 10px; max-width: 420px; margin: 0 auto 40px; }
+    .error-search input { flex: 1; }
+    .popular-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <a class="skip-to-content" href="#main-content">Skip to main content</a>
+
+  <main id="main-content" class="error-page">
+    <div class="error-bg" aria-hidden="true"></div>
+    <div class="error-code" aria-hidden="true">404</div>
+
+    <!-- Top Corner Actions -->
+    <div style="position: absolute; top: 24px; inset-inline-end: 24px; display: flex; gap: 12px; z-index: 10;">
+      <button class="navbar-icon-btn" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode" style="background: var(--color-bg-card); box-shadow: var(--shadow-sm);">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="navbar-icon-btn" data-dir-toggle aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR" style="background: var(--color-bg-card); box-shadow: var(--shadow-sm);">
+        <i class="fas fa-globe"></i>
+      </button>
+    </div>
+
+    <!-- Centered Brand -->
+    <a href="index.html" class="navbar-brand" style="margin-bottom: 32px; display: inline-flex; align-items: center; justify-content: center; z-index: 10; position: relative;" aria-label="RV adven Rentals Home">
+      <div class="navbar-brand-icon" aria-hidden="true"><i class="fas fa-campground"></i></div>
+      <div class="navbar-brand-text" style="text-align: left;">
+        <span class="navbar-brand-name">RV adven</span>
+        <span class="navbar-brand-tagline">Rentals & Guides</span>
+      </div>
+    </a>
+
+    <div class="error-illustration" aria-hidden="true" role="img">🏕️</div>
+
+    <div class="error-content animate-fade-up">
+      <h1 class="error-title">You've Gone Off the Map!</h1>
+      <p class="error-desc">Looks like this road leads nowhere. The page you're searching for has either moved, or it's enjoying a well-deserved camping trip without a forwarding address.</p>
+
+      <!-- Search -->
+      <div class="error-search" role="search">
+        <input type="text" class="form-input" id="error-search" placeholder="Search for RVs, guides, locations..." aria-label="Search our site" />
+        <button class="btn btn-primary" id="error-search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+      </div>
+
+      <!-- Actions -->
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;">
+        <a href="index.html" class="btn btn-primary btn-lg" id="go-home-btn"><i class="fas fa-home"></i> Back to Home</a>
+        <a href="services.html" class="btn btn-outline btn-lg" id="browse-fleet-btn"><i class="fas fa-rv"></i> Browse Fleet</a>
+      </div>
+
+      <!-- Popular Links -->
+      <div>
+        <p style="font-size:0.82rem;color:var(--color-text-muted);margin-bottom:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Popular Destinations</p>
+        <div class="popular-links">
+          <a href="services.html" class="tag">🚐 Class A Motorhomes</a>
+          <a href="services.html" class="tag">🚌 Class B Campervans</a>
+          <a href="blog.html" class="tag">🏔️ Yellowstone Guide</a>
+          <a href="blog.html" class="tag">🌊 Pacific Coast Highway</a>
+          <a href="pricing.html" class="tag">💰 Pricing Plans</a>
+          <a href="contact.html" class="tag">📞 Contact Us</a>
+          <a href="about.html" class="tag">👥 About Us</a>
+          <a href="admin-dashboard.html" class="tag">📊 Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../assets/js/main.js" defer></script>
+  <script>
+    document.getElementById('error-search-btn')?.addEventListener('click', () => {
+      const q = document.getElementById('error-search')?.value?.trim();
+      if (q) window.location.href = 'services.html?q=' + encodeURIComponent(q);
+    });
+    document.getElementById('error-search')?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('error-search-btn').click();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+

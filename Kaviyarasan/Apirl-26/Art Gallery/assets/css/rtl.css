@@ -1,0 +1,91 @@
+/* ============================================
+   ART GALLERY — RTL LAYOUT OVERRIDES
+   Applied via [dir="rtl"] on <html>
+/* ============================================
+   ART GALLERY — RTL LAYOUT OVERRIDES
+   Applied via [dir="rtl"] on <html>
+   ============================================ */
+
+[dir="rtl"] {
+  --body-line-height: 1.8;
+}
+
+[dir="rtl"] body {
+  letter-spacing: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+[dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+  letter-spacing: 0;
+}
+
+/* Navbar */
+[dir="rtl"] .navbar__dropdown-menu { left: auto; right: 0; }
+[dir="rtl"] .navbar__mobile-menu .navbar__link {
+  transform: translateX(-30px);
+}
+[dir="rtl"] .navbar__mobile-menu.active .navbar__link {
+  transform: translateX(0);
+}
+
+/* Directional icons */
+[dir="rtl"] .icon-directional { transform: scaleX(-1); }
+[dir="rtl"] .card__link svg { transform: scaleX(-1); }
+[dir="rtl"] .breadcrumb__sep { transform: scaleX(-1); }
+
+/* Timeline */
+[dir="rtl"] .timeline { padding-left: 0; padding-right: var(--space-8); }
+[dir="rtl"] .timeline::before { left: auto; right: 16px; }
+[dir="rtl"] .timeline__dot {
+  left: auto;
+  right: calc(-1 * var(--space-8) + 8px);
+}
+
+/* Footer */
+[dir="rtl"] .footer__grid { direction: rtl; }
+
+/* Auth */
+
+/* Forms */
+[dir="rtl"] .form-group__label {
+  left: auto;
+  right: var(--space-2);
+}
+
+/* Contact split */
+
+/* Breadcrumb */
+
+/* Tables */
+[dir="rtl"] .data-table th { text-align: right; }
+
+/* Accordion */
+[dir="rtl"] .accordion__trigger { text-align: right; }
+
+/* Misc */
+[dir="rtl"] .text-gradient { direction: rtl; }
+
+
+/* Drop Cap RTL override */
+[dir="rtl"] .drop-cap {
+  float: right;
+  margin-right: 0;
+  margin-left: 12px;
+
+/* Auth Pages */
+[dir="rtl"] .auth-page {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .auth-card__toggles {
+  right: auto;
+  left: 0;
+}
+[dir="rtl"] .auth-page__highlight-side::before {
+  right: auto;
+  left: -50%;
+}
+[dir="rtl"] .auth-features {
+  text-align: right;
+}

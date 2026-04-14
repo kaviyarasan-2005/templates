@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard | RV adven Rentals</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/favicon.svg" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link rel="stylesheet" href="../assets/css/dashboard-common.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+  <style>
+    /* Global Fluidity Fix */
+    .dash-main { max-width: 100%; overflow-x: hidden; }
+    canvas { max-width: 100% !important; height: auto !important; }
+
+    /* Welcome hero */
+    .user-welcome-card {
+      background:linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));
+      border-radius:24px; padding:36px; color:white;
+      display:grid; grid-template-columns:1fr 280px; gap:32px;
+      align-items:center; margin-bottom:24px;
+      position:relative; overflow:hidden;
+    }
+    .user-welcome-card::after {
+      content:''; position:absolute; top:-40%; right:-8%;
+      width:380px; height:380px;
+      background:rgba(255,255,255,.05); border-radius:50%; pointer-events:none;
+    }
+    .next-trip-card {
+      background:white; border-radius:18px; padding:20px;
+      color:var(--color-text-primary); box-shadow:var(--shadow-xl); position:relative; z-index:1;
+    }
+    .next-trip-badge {
+      background:var(--color-secondary); color:white;
+      padding:4px 12px; border-radius:99px; font-size:.72rem; font-weight:700;
+      display:inline-block; margin-bottom:10px;
+    }
+
+    /* 4 infographics grid */
+    .infographics-grid {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:20px; margin-bottom:24px;
+      min-width: 0;
+    }
+    .infographics-grid > div { min-width: 0; }
+    .info-card-title {
+      font-weight:700; font-size:.9rem; color:var(--color-text-primary);
+      margin-bottom:16px; display:flex; align-items:center; gap:8px;
+    }
+    .info-card-title i { color:var(--color-primary); }
+
+    /* Gauge */
+    .gauge-wrap { position:relative; height:160px; }
+    .gauge-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+    .gauge-value { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.5rem; color:var(--color-text-primary); line-height:1; }
+    .gauge-sub   { font-size:.65rem; color:var(--color-text-muted); margin-top:3px; text-align:center; }
+
+    /* Mini chart canvases */
+    .chart-mini { position:relative; height:140px; }
+
+    /* Loyalty card */
+    .loyalty-card {
+      background:var(--color-bg-card); border:1px solid var(--color-border-light);
+      border-radius:20px; padding:24px;
+    }
+    .loyalty-progress-track { height:10px; background:var(--color-bg-section); border-radius:99px; overflow:hidden; margin:10px 0 6px; }
+    .loyalty-progress-fill  { height:100%; background:linear-gradient(to right,var(--color-secondary),var(--color-accent)); border-radius:99px; width:65%; }
+
+    /* Saved RVs */
+    .saved-rvs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .saved-rv-card  { background:var(--color-bg-card); border-radius:14px; border:1px solid var(--color-border-light); overflow:hidden; transition:.3s; }
+    .saved-rv-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+    .saved-rv-img   { height:130px; width:100%; object-fit:cover; }
+    .saved-rv-body  { padding:14px; }
+    .dash-topbar-right { display: flex; align-items: center; gap: 10px; }
+
+
+    .two-col { display:grid; grid-template-columns:1fr 1.5fr; gap:24px; margin-bottom:24px; min-width: 0; }
+    .two-col > div { min-width: 0; }
+    .bottom-grid { display:grid; grid-template-columns:1.5fr 1fr; gap:24px; min-width: 0; }
+    .bottom-grid > div { min-width: 0; }
+    .section-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1rem; color:var(--color-text-primary); }
+
+    @media(max-width:1440px){ .infographics-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:1200px){ .two-col{grid-template-columns:1fr;} .bottom-grid{grid-template-columns:1fr;} }
+    @media(max-width:1024px){ .user-welcome-card{grid-template-columns:1fr;} .saved-rvs-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:600px)  { 
+      .infographics-grid, .two-col, .bottom-grid { gap: 16px; }
+      .infographics-grid{grid-template-columns:1fr;} 
+      .toggle-label{display:none;} 
+      .saved-rvs-grid{grid-template-columns:1fr;} 
+    }
+    @media(max-width:480px) {
+      .dash-content { padding: 16px 14px; }
+      .loyalty-card, .info-card { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="dash-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dash-sidebar" aria-label="Dashboard navigation">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="dash-brand">
+        <div class="dash-brand-icon"><i class="fas fa-campground"></i></div>
+        <div>
+          <div class="dash-brand-name">RV adven</div>
+          <div class="dash-brand-sub">My Dashboard</div>
+        </div>
+      </a>
+    </div>
+    <div class="dash-user-section">
+      <img class="dash-user-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80" alt="Sarah Jenkins" />
+      <div class="dash-user-info">
+        <div class="dash-user-name">Sarah Jenkins</div>
+        <div class="dash-user-role">Gold Member</div>
+      </div>
+    </div>
+    <nav class="dash-nav" aria-label="Dashboard menu">
+      <div class="dash-nav-section show-mobile" style="padding: 0 16px 16px;">
+        <a href="index.html" class="btn btn-secondary btn-sm" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px;">
+          <i class="fas fa-rv"></i> Plan New Trip
+        </a>
+      </div>
+      <div class="dash-nav-section">
+        <div class="dash-nav-section-title">Account</div>
+        <a href="user-dashboard.html" class="dash-nav-link active"><i class="fas fa-home"></i> Overview</a>
+        <a href="#" class="dash-nav-link"><i class="fas fa-calendar-alt"></i> My Bookings</a>
+        <a href="#" class="dash-nav-link"><i class="fas fa-heart"></i> Saved RVs</a>
+      </div>
+      <div class="dash-nav-section">
+        <div class="dash-nav-section-title">Rewards</div>
+        <a href="#" class="dash-nav-link"><i class="fas fa-award"></i> Loyalty Points</a>
+        <a href="#" class="dash-nav-link"><i class="fas fa-user-cog"></i> Profile Settings</a>
+      </div>
+    </nav>
+    <div class="dash-sidebar-footer">
+      <a href="login.html"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+    </div>
+  </aside>
+  <!-- END SIDEBAR -->
+
+  <div class="dash-overlay" id="dash-overlay"></div>
+
+  <!-- MAIN -->
+  <div class="dash-main">
+
+    <!-- Topbar -->
+    <div class="dash-topbar">
+      <div class="dash-topbar-left">
+        <button class="dash-sidebar-toggle" id="dash-sidebar-toggle" aria-label="Toggle sidebar"><i class="fas fa-bars"></i></button>
+        
+        <!-- Desktop Welcome -->
+        <div class="topbar-welcome">
+          <div class="topbar-title">Welcome Back, Sarah!</div>
+          <div class="topbar-breadcrumb">Ready for your next adventure?</div>
+        </div>
+
+        <!-- Mobile Brand -->
+        <a href="index.html" class="topbar-mobile-brand">
+          <div class="topbar-mobile-brand-icon"><i class="fas fa-campground"></i></div>
+          <div class="topbar-mobile-brand-name">RV adven</div>
+        </a>
+      </div>
+      <div class="dash-topbar-right">
+        <!-- Dark/Light toggle -->
+        <button class="navbar-icon-btn" id="theme-toggle" title="Toggle Dark Mode" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <!-- LTR/RTL toggle -->
+        <button class="navbar-icon-btn" id="dir-toggle" title="Toggle RTL/LTR" aria-label="Toggle RTL/LTR">
+          <i class="fas fa-globe"></i>
+        </button>
+        <a href="index.html" class="btn btn-secondary btn-sm hide-mobile" style="white-space:nowrap;"><i class="fas fa-rv"></i> Plan New Trip</a>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="dash-content">
+
+      <!-- Welcome Hero -->
+      <div class="user-welcome-card animate-fade-up">
+        <div>
+          <h1 style="font-family:'Montserrat',sans-serif;font-size:1.9rem;font-weight:800;margin-bottom:14px;color:white;">Adventure Awaits!</h1>
+          <p style="font-size:1rem;opacity:.9;line-height:1.6;margin-bottom:22px;color:white;">Your next trip to <strong>Zion National Park</strong> is just around the corner. We've prepared a custom guide for your route.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="#" class="btn btn-secondary">View Itinerary</a>
+            <a href="#" class="btn btn-outline-white">Manage Booking</a>
+          </div>
+        </div>
+        <div class="next-trip-card">
+          <div class="next-trip-badge">Upcoming Rental</div>
+          <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=400&q=80" style="width:100%;height:110px;object-fit:cover;border-radius:10px;margin-bottom:14px;" alt="RV" />
+          <div style="font-weight:700;margin-bottom:4px;">Mercedes-Benz Sprinter</div>
+          <div style="font-size:.82rem;color:var(--color-text-muted);margin-bottom:10px;"><i class="fas fa-calendar-alt"></i> Dec 18 â€“ Dec 24 (6 Days)</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--color-border-light);">
+            <span style="font-size:.78rem;font-weight:600;">Trip Status:</span>
+            <span class="badge badge-success">Confirmed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 INFOGRAPHICS -->
+      <div class="infographics-grid">
+
+        <!-- 1: Adventure Miles gauge -->
+        <div class="info-card animate-fade-up">
+          <div class="info-card-title"><i class="fas fa-route"></i> Adventure Miles</div>
+          <div class="gauge-wrap">
+            <canvas id="userMilesGauge" aria-label="Adventure miles gauge"></canvas>
+            <div class="gauge-center">
+              <div class="gauge-value" data-counter="4820">4,820</div>
+              <div class="gauge-sub">Miles in 2024<br>96% of goal</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2: Spending bar chart -->
+        <div class="info-card animate-fade-up">
+          <div class="info-card-title"><i class="fas fa-wallet"></i> Rent Spending</div>
+          <div class="chart-mini"><canvas id="userSpendingChart" aria-label="Spending chart"></canvas></div>
+        </div>
+
+        <!-- 3: Terrain donut -->
+        <div class="info-card animate-fade-up">
+          <div class="info-card-title"><i class="fas fa-mountain"></i> Terrain Types</div>
+          <div class="chart-mini"><canvas id="userTerrainChart" aria-label="Terrain chart"></canvas></div>
+        </div>
+
+        <!-- 4: Reward points line -->
+        <div class="info-card animate-fade-up">
+          <div class="info-card-title"><i class="fas fa-bolt"></i> Reward Velocity</div>
+          <div class="chart-mini"><canvas id="userPointsChart" aria-label="Points chart"></canvas></div>
+        </div>
+
+      </div>
+      <!-- END 4 infographics -->
+
+      <!-- Loyalty + Recommendations -->
+      <div class="two-col">
+        <div class="loyalty-card animate-fade-up">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="font-weight:700;">Loyalty Program</div>
+            <div style="color:var(--color-primary);font-weight:800;font-size:1.2rem;">3,450 pts</div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:.75rem;margin-top:14px;">
+              <span style="color:var(--color-text-muted);">Gold Status</span>
+              <span style="font-weight:600;">1,550 pts to Platinum</span>
+            </div>
+            <div class="loyalty-progress-track"><div class="loyalty-progress-fill"></div></div>
+          </div>
+          <p style="font-size:.8rem;color:var(--color-text-muted);margin-top:14px;">You've unlocked <strong>15% OFF</strong> on your next booking! Use code <span style="color:var(--color-primary);font-weight:700;">GOLD2024</span></p>
+        </div>
+        <div class="info-card animate-fade-up">
+          <div class="info-card-title"><i class="fas fa-compass"></i> Recommended For You</div>
+          <div style="display:flex;gap:14px;overflow-x:auto;padding-bottom:8px;">
+            <div style="min-width:180px;background:var(--color-bg-section);padding:10px;border-radius:12px;">
+              <img src="../assets/images/travel-homes-scaled.webp" style="width:100%;height:72px;object-fit:cover;border-radius:8px;margin-bottom:8px;" alt="Airstream" />
+              <div style="font-size:.82rem;font-weight:700;">Airstream Flying Cloud</div>
+              <div style="font-size:.72rem;color:var(--color-primary);font-weight:600;">$180/day</div>
+            </div>
+            <div style="min-width:180px;background:var(--color-bg-section);padding:10px;border-radius:12px;">
+              <img src="../assets/images/IMG_8244.webp" style="width:100%;height:72px;object-fit:cover;border-radius:8px;margin-bottom:8px;" alt="Winnebago" />
+              <div style="font-size:.82rem;font-weight:700;">Winnebago Revel</div>
+              <div style="font-size:.72rem;color:var(--color-primary);font-weight:600;">$210/day</div>
+            </div>
+            <div style="min-width:180px;background:var(--color-bg-section);padding:10px;border-radius:12px;">
+              <img src="../assets/images/travel-homes-scaled.webp" style="width:100%;height:72px;object-fit:cover;border-radius:8px;margin-bottom:8px;" alt="Nucamp Teardrop" />
+              <div style="font-size:.82rem;font-weight:700;">Nucamp Teardrop</div>
+              <div style="font-size:.72rem;color:var(--color-primary);font-weight:600;">$95/day</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saved RVs + History -->
+      <div class="bottom-grid">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <div class="section-title">My Saved RVs</div>
+            <a href="#" style="font-size:.85rem;color:var(--color-primary);font-weight:600;">View All</a>
+          </div>
+          <div class="saved-rvs-grid">
+            <div class="saved-rv-card animate-fade-up">
+              <img class="saved-rv-img" src="../assets/images/2024_Rent_ScenicImages_Van_1024x768_2.jpg" alt="Ford Transit Westfalia" />
+              <div class="saved-rv-body">
+                <div style="font-size:.875rem;font-weight:700;">Ford Transit Westfalia</div>
+                <div style="display:flex;justify-content:space-between;margin-top:8px;">
+                  <span style="font-size:.8rem;color:var(--color-primary);font-weight:700;">$145/day</span>
+                  <i class="fas fa-heart" style="color:var(--color-secondary);"></i>
+                </div>
+              </div>
+            </div>
+            <div class="saved-rv-card animate-fade-up">
+              <img class="saved-rv-img" src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&q=80" alt="Thor Majestic" />
+              <div class="saved-rv-body">
+                <div style="font-size:.875rem;font-weight:700;">Thor Majestic 23A</div>
+                <div style="display:flex;justify-content:space-between;margin-top:8px;">
+                  <span style="font-size:.8rem;color:var(--color-primary);font-weight:700;">$185/day</span>
+                  <i class="fas fa-heart" style="color:var(--color-secondary);"></i>
+                </div>
+              </div>
+            </div>
+            <div class="saved-rv-card animate-fade-up">
+              <img class="saved-rv-img" src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?w=400&q=80" alt="Tiffin" />
+              <div class="saved-rv-body">
+                <div style="font-size:.875rem;font-weight:700;">Tiffin Allegro Red</div>
+                <div style="display:flex;justify-content:space-between;margin-top:8px;">
+                  <span style="font-size:.8rem;color:var(--color-primary);font-weight:700;">$320/day</span>
+                  <i class="fas fa-heart" style="color:var(--color-secondary);"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-card">
+          <div style="font-weight:700;margin-bottom:16px;">Rental History</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--color-border-light);">
+              <div style="width:38px;height:38px;border-radius:8px;background:var(--color-bg-section);display:flex;align-items:center;justify-content:center;color:var(--color-primary);font-size:1rem;"><i class="fas fa-check-circle"></i></div>
+              <div style="flex:1;">
+                <div style="font-size:.85rem;font-weight:700;">California Coast Road Trip</div>
+                <div style="font-size:.75rem;color:var(--color-text-muted);">Sept 2024 â€¢ 8 Days â€¢ $1,240</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--color-border-light);">
+              <div style="width:38px;height:38px;border-radius:8px;background:var(--color-bg-section);display:flex;align-items:center;justify-content:center;color:var(--color-primary);font-size:1rem;"><i class="fas fa-check-circle"></i></div>
+              <div style="flex:1;">
+                <div style="font-size:.85rem;font-weight:700;">Smoky Mountains Getaway</div>
+                <div style="font-size:.75rem;color:var(--color-text-muted);">May 2024 â€¢ 4 Days â€¢ $680</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:38px;height:38px;border-radius:8px;background:var(--color-bg-section);display:flex;align-items:center;justify-content:center;color:var(--color-primary);font-size:1rem;"><i class="fas fa-check-circle"></i></div>
+              <div style="flex:1;">
+                <div style="font-size:.85rem;font-weight:700;">Winter Ski Trip â€“ Aspen</div>
+                <div style="font-size:.75rem;color:var(--color-text-muted);">Feb 2024 â€¢ 5 Days â€¢ $945</div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="btn btn-outline btn-sm" style="margin-top:18px;width:100%;text-align:center;">Download Receipts</a>
+        </div>
+      </div>
+
+    </div><!-- end dash-content -->
+  </div><!-- end dash-main -->
+
+</div><!-- end dash-layout -->
+
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/dashboard.js" defer></script>
+<script>
+  // Theme toggle
+  const themeBtn = document.getElementById('theme-toggle');
+  function syncTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const icon = themeBtn.querySelector('i');
+    if (icon) {
+      icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+  }
+  themeBtn.addEventListener('click', () => { 
+    window.RVApp?.ThemeManager?.toggle(); 
+    setTimeout(syncTheme, 50); 
+  });
+  document.addEventListener('DOMContentLoaded', () => setTimeout(syncTheme, 120));
+
+  // RTL toggle
+  const dirBtn = document.getElementById('dir-toggle');
+  function syncDir() {
+    const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+    // No icon change for RTL usually, but ensures consistency
+  }
+  dirBtn.addEventListener('click', () => { 
+    window.RVApp?.DirectionManager?.toggle(); 
+    setTimeout(syncDir, 50); 
+  });
+  document.addEventListener('DOMContentLoaded', () => setTimeout(syncDir, 120));
+
+  // Sidebar toggle
+  document.getElementById('dash-sidebar-toggle')?.addEventListener('click', () => {
+    document.getElementById('dash-sidebar').classList.toggle('open');
+    document.getElementById('dash-overlay').classList.toggle('open');
+  });
+  document.getElementById('dash-overlay')?.addEventListener('click', () => {
+    document.getElementById('dash-sidebar').classList.remove('open');
+    document.getElementById('dash-overlay').classList.remove('open');
+  });
+</script>
+</body>
+</html>

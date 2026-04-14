@@ -1,0 +1,140 @@
+/* ============================================
+   DARK MODE THEME OVERRIDES
+   ============================================ */
+
+[data-theme="dark"] {
+  --bg-body: #0F172A;
+  --bg-body-rgb: 15, 23, 42;
+  --bg-card: #1E293B;
+  --bg-card-rgb: 30, 41, 59;
+  --bg-card-hover: #334155;
+  --bg-nav: rgba(15, 23, 42, 0.95);
+  --bg-footer: #020617;
+  --bg-input: #1E293B;
+  --bg-skeleton: #334155;
+
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-tertiary: #64748B;
+  --text-link: #60A5FA;
+
+  --border-color: #334155;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] img {
+  filter: brightness(0.92) contrast(1.05);
+}
+
+[data-theme="dark"] .navbar {
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .social-btn--google {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .map-placeholder {
+  background: #334155;
+}
+
+[data-theme="dark"] .auth-page__visual-side {
+  background: linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%);
+}
+
+[data-theme="dark"] .pricing-toggle__switch {
+  background: #475569;
+}
+
+[data-theme="dark"] .filter-tag {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+/* ===== DARK MODE — ADDITIONAL COMPONENT OVERRIDES ===== */
+
+/* Skeleton loader — brighter shimmer in dark mode */
+[data-theme="dark"] .skeleton::after {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+}
+
+/* Form inputs */
+[data-theme="dark"] .form-input {
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+[data-theme="dark"] .form-input::placeholder { color: var(--text-tertiary); }
+[data-theme="dark"] .form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Mobile Nav dark background */
+[data-theme="dark"] .mobile-nav {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+[data-theme="dark"] .mobile-nav a { color: var(--text-primary); border-bottom-color: var(--border-color); }
+
+/* Accordion dark */
+[data-theme="dark"] .accordion__item { border-color: var(--border-color); }
+[data-theme="dark"] .accordion__trigger { background: var(--bg-card); color: var(--text-primary); }
+[data-theme="dark"] .accordion__trigger:hover { background: var(--bg-card-hover); }
+[data-theme="dark"] .accordion__content__inner { color: var(--text-secondary); }
+
+/* Pricing card dark */
+[data-theme="dark"] .pricing-card { background: var(--bg-card); border-color: var(--border-color); }
+[data-theme="dark"] .pricing-card.popular { border-color: var(--color-primary); }
+[data-theme="dark"] .pricing-card__price { color: var(--text-primary); }
+
+/* CTA Banner — keep readable in dark mode */
+[data-theme="dark"] .cta-banner { background: linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%); }
+
+/* Data table dark */
+[data-theme="dark"] .data-table th { color: var(--text-secondary); border-bottom-color: var(--border-color); }
+[data-theme="dark"] .data-table td { border-bottom-color: var(--border-color); color: var(--text-secondary); }
+
+/* Stats bar — darker gradient in dark mode */
+[data-theme="dark"] .stats-bar {
+  background: linear-gradient(135deg, #1E3A8A, #1E40AF);
+}
+
+/* Coming soon page dark */
+[data-theme="dark"] .coming-social a {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* Badge contrast fix in dark mode */
+[data-theme="dark"] .badge--primary { background: rgba(96, 165, 250, 0.15); color: #60A5FA; }
+[data-theme="dark"] .badge--success { background: rgba(16, 185, 129, 0.15); color: #34D399; }
+[data-theme="dark"] .badge--warning { background: rgba(245, 158, 11, 0.15); color: #FCD34D; }
+[data-theme="dark"] .badge--danger { background: rgba(239, 68, 68, 0.15); color: #FCA5A5; }
+
+/* Search bar dark */
+[data-theme="dark"] .header-search input {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+[data-theme="dark"] .header-search input:focus { background: var(--bg-card-hover); }
+
+/* Testimonial card dark */
+[data-theme="dark"] .testimonial-card { background: var(--bg-card); border-color: var(--border-color); }
+
+/* Hero overlay adjustment in dark mode */
+/* Dashboard Header scrolled state in dark mode */
+[data-theme="dark"] .dashboard-header.scrolled {
+  background: rgba(30, 41, 59, 0.85) !important;
+}
+
+[data-theme="dark"] .hero__overlay {
+  background: linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(15,52,148,0.8) 100%);
+}
+
