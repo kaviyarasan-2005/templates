@@ -17,21 +17,23 @@
     apply(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
-      const icon = document.getElementById('theme-icon');
-      if (icon) {
-        icon.innerHTML = theme === 'dark'
-          ? '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>'
-          : '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>';
-      }
+      const icons = document.querySelectorAll('#theme-icon');
+      icons.forEach(icon => {
+        if (icon) {
+          icon.innerHTML = theme === 'dark'
+            ? '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" fill="currentColor"/>'
+            : '<circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>';
+        }
+      });
     },
     bindToggle() {
-      const btn = document.getElementById('theme-toggle');
-      if (btn) {
+      const btns = document.querySelectorAll('#theme-toggle');
+      btns.forEach(btn => {
         btn.addEventListener('click', () => {
           const current = document.documentElement.getAttribute('data-theme');
           this.apply(current === 'dark' ? 'light' : 'dark');
         });
-      }
+      });
     }
   };
 

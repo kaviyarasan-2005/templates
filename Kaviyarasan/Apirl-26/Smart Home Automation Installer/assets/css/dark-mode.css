@@ -4,7 +4,9 @@
 
 [data-theme="dark"] {
   --bg-body: #0F172A;
+  --bg-body-rgb: 15, 23, 42;
   --bg-card: #1E293B;
+  --bg-card-rgb: 30, 41, 59;
   --bg-card-hover: #334155;
   --bg-nav: rgba(15, 23, 42, 0.95);
   --bg-footer: #020617;
@@ -127,6 +129,11 @@
 [data-theme="dark"] .testimonial-card { background: var(--bg-card); border-color: var(--border-color); }
 
 /* Hero overlay adjustment in dark mode */
+/* Dashboard Header scrolled state in dark mode */
+[data-theme="dark"] .dashboard-header.scrolled {
+  background: rgba(30, 41, 59, 0.85) !important;
+}
+
 [data-theme="dark"] .hero__overlay {
   background: linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(15,52,148,0.8) 100%);
 }
