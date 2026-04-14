@@ -279,37 +279,6 @@
   color: var(--text-primary);
 }
 
-/* Collapse Toggle Button */
-.sidebar-collapse-btn {
-  position: absolute;
-  top: calc(var(--dash-header-height) + var(--space-lg));
-  right: -16px;
-  width: 32px;
-  height: 32px;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border);
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: all var(--transition-base);
-}
-.sidebar-collapse-btn:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--text-primary);
-}
-.sidebar-collapse-btn svg {
-  width: 16px;
-  height: 16px;
-  transition: transform var(--transition-base);
-}
-.sidebar.collapsed .sidebar-collapse-btn svg {
-  transform: rotate(180deg);
-}
-
 /* ===== DASH MAIN CONTENT ===== */
 .dash-main {
   margin-left: var(--sidebar-width);
@@ -336,6 +305,16 @@
   align-items: center;
   padding: 0 var(--space-lg);
   gap: var(--space-md);
+}
+
+.mobile-toggle-btn {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .mobile-toggle-btn {
+    display: flex;
+  }
 }
 
 .dash-header__breadcrumb {

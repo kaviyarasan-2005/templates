@@ -15,20 +15,13 @@ const Sidebar = {
   init() {
     this.el = document.querySelector('.sidebar');
     this.overlay = document.querySelector('.sidebar-overlay');
-    this.collapseBtn = document.querySelector('.sidebar-collapse-btn');
     const mobileToggle = document.getElementById('sidebar-toggle');
 
     if (!this.el) return;
 
-    // Restore state
-    const collapsed = localStorage.getItem(this.KEY) === 'collapsed';
-    if (collapsed && window.innerWidth > 1024) this.collapse(false);
-
-    // Sidebar collapse button removed; re-routing mobileToggle to handle both
+    // Sidebar collapse logic removed for desktop; keeping only mobile toggle
     mobileToggle?.addEventListener('click', () => {
-      if (window.innerWidth > 1024) {
-        this.toggleCollapse();
-      } else {
+      if (window.innerWidth <= 1024) {
         this.toggleMobile();
       }
     });

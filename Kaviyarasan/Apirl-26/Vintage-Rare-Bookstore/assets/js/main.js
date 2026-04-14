@@ -218,7 +218,7 @@ function animateCounter(el) {
     const progress = Math.min(elapsed / duration, 1);
     // easeOut cubic
     const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = prefix + Math.round(eased * target).toLocaleString() + suffix;
+    el.textContent = prefix + Math.round(eased * target).toLocaleString('en-IN') + suffix;
     if (progress < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);

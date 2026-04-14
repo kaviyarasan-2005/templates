@@ -166,29 +166,50 @@
 [dir="rtl"] .sidebar {
   left: auto;
   right: 0;
+  border-right: none;
+  border-left: 1px solid rgba(255,255,255,0.06);
 }
+
 [dir="rtl"] .dashboard-main,
 [dir="rtl"] .dash-main {
-  margin-left: 0;
-  margin-right: var(--sidebar-width);
+  margin-left: 0 !important;
+  margin-right: var(--sidebar-width) !important;
 }
+
 [dir="rtl"] .sidebar.collapsed ~ .dashboard-main,
 [dir="rtl"] .sidebar.collapsed ~ .dash-main {
-  margin-right: var(--sidebar-collapsed-width);
+  margin-left: 0 !important;
+  margin-right: var(--sidebar-collapsed-width) !important;
 }
 
 [dir="rtl"] .sidebar-nav-link {
   flex-direction: row-reverse;
 }
 
-[dir="rtl"] #sidebar-toggle,
-[dir="rtl"] .sidebar-toggle {
+[dir="rtl"] .sidebar-toggle-btn {
   left: auto;
-  right: calc(var(--sidebar-width) - 18px);
+  right: 12px;
 }
 
-[dir="rtl"] .sidebar.collapsed ~ .dashboard-main #sidebar-toggle {
-  right: calc(var(--sidebar-collapsed-width) - 18px);
+
+
+/* Dashboard Header RTL */
+[dir="rtl"] .dash-header__breadcrumb {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .dash-header__breadcrumb svg {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .profile-btn {
+  flex-direction: row-reverse;
+  padding: 4px 4px 4px 12px;
+}
+
+[dir="rtl"] .profile-btn svg:last-child {
+  margin-left: auto;
+  margin-right: 0;
 }
 
 /* ===== GRIDS / FLEX RTL ===== */
