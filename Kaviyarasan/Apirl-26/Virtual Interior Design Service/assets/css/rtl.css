@@ -117,7 +117,8 @@
   /* Scroll progress (stays left → right for reading direction) */
 
   /* Sidebar header */
-  .sidebar-header { flex-direction: row-reverse; }
+  .sidebar-header { /* handles naturally */ }
+
 
   /* Pricing toggles */
   .pricing-toggle { flex-direction: row-reverse; }

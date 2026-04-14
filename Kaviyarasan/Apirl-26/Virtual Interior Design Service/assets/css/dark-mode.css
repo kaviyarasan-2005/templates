@@ -78,18 +78,28 @@
   color: var(--color-text-secondary);
 }
 
-[data-theme="dark"] .hero-about,
+[data-theme="dark"] .hero-about {
+  background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1510627489930-0c1b0bfb6785?auto=format&fit=crop&w=1920&q=80') center/cover;
+  color: #ffffff;
+}
+
 [data-theme="dark"] .hero-services,
-[data-theme="dark"] .pricing-header {
+[data-theme="dark"] .pricing-header,
+[data-theme="dark"] .contact-hero {
   background: var(--color-surface);
   color: #ffffff;
 }
 
+
+
+
 [data-theme="dark"] .hero-about h1,
 [data-theme="dark"] .hero-services h1,
-[data-theme="dark"] .pricing-header h1 {
+[data-theme="dark"] .pricing-header h1,
+[data-theme="dark"] .contact-hero h1 {
   color: #ffffff;
 }
+
 
 [data-theme="dark"] .dash-sidebar,
 [data-theme="dark"] .dash-header {
