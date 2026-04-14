@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    RV ADVEN RENTALS - RTL (Right-to-Left) Overrides
    Activated via: dir="rtl" on <html> element
    ============================================================ */
@@ -9,17 +9,7 @@
 }
 
 /* Navigation */
-[dir="rtl"] .navbar-inner {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .navbar-nav {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .navbar-actions {
-  flex-direction: row-reverse;
-}
+/* Removed incorrect flex-direction overrides to allow native RTL flex behavior */
 
 [dir="rtl"] .dropdown-menu {
   left: auto;
@@ -252,9 +242,7 @@
 }
 
 /* Navbar Brand */
-[dir="rtl"] .navbar-brand {
-  flex-direction: row-reverse;
-}
+/* Removed to allow native RTL flex behavior */
 
 [dir="rtl"] .navbar-brand-text {
   text-align: right;
