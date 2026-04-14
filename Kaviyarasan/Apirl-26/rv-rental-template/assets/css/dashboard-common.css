@@ -257,6 +257,13 @@
   }
 }
 
+/* Visibility Utilities */
+.show-mobile { display: none !important; }
+@media (max-width: 640px) {
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: block !important; }
+}
+
 .dash-content {
   padding: 24px 28px;
   flex: 1;
