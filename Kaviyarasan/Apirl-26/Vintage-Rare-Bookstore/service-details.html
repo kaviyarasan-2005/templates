@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +10,6 @@
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
   <style>
-    .page-hero{background:linear-gradient(135deg,var(--primary-dark),var(--bg-dark));padding:calc(var(--nav-height)+var(--space-4xl)) 0 var(--space-4xl);color:#fff;position:relative;overflow:hidden}
-    .page-hero::after{content:'';position:absolute;inset:0;background:url('assets/images/books/appraisal.png') center/cover;opacity:0.12}
-    .page-hero .container{position:relative;z-index:1}
-    .page-hero h1{color:#fff}
     .detail-layout{display:grid;grid-template-columns:1fr 320px;gap:var(--space-3xl);align-items:start}
     .detail-main{}
     .detail-sidebar{display:flex;flex-direction:column;gap:var(--space-lg);position:sticky;top:calc(var(--nav-height)+var(--space-lg))}
@@ -114,8 +110,33 @@
     </div>
   </nav>
 
-  <main id="main-content">
-    <div class="page-hero"><div class="container"><nav aria-label="Breadcrumb"><ul class="breadcrumb" style="margin-bottom:var(--space-lg)"><li><a href="index.html" style="color:rgba(255,255,255,0.6)">Home</a></li><li><svg class="breadcrumb-sep" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></li><li><a href="services.html" style="color:rgba(255,255,255,0.6)">Services</a></li><li><svg class="breadcrumb-sep" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></li><li>Service Details</li></ul></nav><span class="card__tag" style="margin-bottom:var(--space-md)">Expert Service</span><h1 class="reveal">Professional Service Details</h1><p class="reveal" style="color:rgba(255,255,255,0.75);max-width:600px">Authoritative valuations by certified bibliographers — for insurance, estate, or sale purposes.</p></div></div>
+  <main id="main-content" class="page-content">
+    <section class="hero" aria-label="Service Details Hero">
+      <div class="hero__bg" aria-hidden="true" style="background-image: url('assets/images/books/appraisal.png'); opacity: 0.2;"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="particles-container" aria-hidden="true"></div>
+      <!-- Floating books -->
+      <div class="hero__float hero__float--1" aria-hidden="true">🔍</div>
+      <div class="hero__float hero__float--2" aria-hidden="true">📜</div>
+      <div class="hero__float hero__float--3" aria-hidden="true">🖋️</div>
+      <div class="hero__float hero__float--4" aria-hidden="true">💎</div>
+      <div class="container">
+        <div class="hero__content">
+          <nav aria-label="Breadcrumb" style="display: flex; justify-content: center; margin-bottom: var(--space-lg);">
+            <ul class="breadcrumb" style="color: rgba(255,255,255,0.7);">
+              <li><a href="index.html" style="color: inherit;">Home</a></li>
+              <li class="breadcrumb-sep">/</li>
+              <li><a href="services.html" style="color: inherit;">Services</a></li>
+              <li class="breadcrumb-sep">/</li>
+              <li style="color: #fff; font-weight: 500;">Service Details</li>
+            </ul>
+          </nav>
+          <span class="hero__eyebrow reveal">Expert Appraisal Service</span>
+          <h1 class="hero__title reveal">Professional<br> Service Details</h1>
+          <p class="hero__subtitle reveal">Authoritative valuations by certified bibliographers — providing the standard for insurance, estate, and sale purposes worldwide.</p>
+        </div>
+      </div>
+    </section>
 
     <section class="section"><div class="container"><div class="detail-layout">
       <div class="detail-main reveal">
@@ -154,7 +175,9 @@
         <div class="sidebar-widget"><h4>Related Services</h4><a href="service-details.html" class="related-link">?? Book Restoration</a><a href="service-details.html" class="related-link">?? Book Sourcing</a><a href="service-details.html" class="related-link">?? Conservation</a><a href="service-details.html" class="related-link">?? Estate Services</a></div>
         <div class="sidebar-widget"><h4>Download Brochure</h4><p style="font-size:0.9375rem;color:var(--text-secondary);margin-bottom:var(--space-lg)">Full service guide with pricing and sample reports.</p><a href="#" class="btn btn-outline btn-full btn-sm">?? Download PDF</a></div>
       </aside>
-    </div></d  <footer class="footer" role="contentinfo">
+    </div></div></section>
+
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
@@ -200,15 +223,12 @@
             <li><a href="404.html">404 Page</a></li>
           </ul>
           <div style="margin-top:var(--space-lg)">
-            <p style="color:rgba(245,230,211,0.5);font-size:0.8125rem;font-family:var(--font-ui);">?? 42 Antiquarian Lane<br>London, WC2B 5NA</p>
+            <p style="color:rgba(245,230,211,0.5);font-size:0.8125rem;font-family:var(--font-ui);">📍 42 Antiquarian Lane<br>London, WC2B 5NA</p>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
         <p>© 2026 VintStore. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>>
       </div>
     </div>
   </footer>
