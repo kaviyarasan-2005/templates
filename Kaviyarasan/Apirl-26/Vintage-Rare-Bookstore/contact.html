@@ -10,8 +10,6 @@
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
   <style>
-    .page-hero{background:linear-gradient(135deg,var(--primary-dark),var(--bg-dark));padding:calc(var(--nav-height)+var(--space-4xl)) 0 var(--space-4xl);color:#fff;text-align:center;position:relative;overflow:hidden}
-    .page-hero h1{color:#fff}.page-hero p{color:rgba(255,255,255,0.75);max-width:560px;margin:var(--space-md) auto 0}
     .contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:var(--space-3xl);align-items:start}
     .contact-info h3{margin-bottom:var(--space-lg)}
     .contact-item{display:flex;gap:var(--space-md);align-items:flex-start;margin-bottom:var(--space-xl)}
@@ -121,8 +119,31 @@
     </div>
   </nav>
 
-  <main id="main-content">
-    <div class="page-hero"><div class="container"><h1 class="reveal">Get In Touch</h1><p class="reveal">Our specialists are ready to assist with appraisals, restoration enquiries, book sourcing, and everything in between.</p></div></div>
+  <main id="main-content" class="page-content">
+    <section class="hero" aria-label="Contact Hero">
+      <div class="hero__bg" aria-hidden="true" style="background-image: url('assets/images/backgrounds/hero-library.png'); opacity: 0.15;"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="particles-container" aria-hidden="true"></div>
+      <!-- Floating icons -->
+      <div class="hero__float hero__float--1" aria-hidden="true">✉️</div>
+      <div class="hero__float hero__float--2" aria-hidden="true">📞</div>
+      <div class="hero__float hero__float--3" aria-hidden="true">📍</div>
+      <div class="hero__float hero__float--4" aria-hidden="true">💬</div>
+      <div class="container">
+        <div class="hero__content">
+          <nav aria-label="Breadcrumb" style="display: flex; justify-content: center; margin-bottom: var(--space-lg);">
+            <ul class="breadcrumb" style="color: rgba(255,255,255,0.7);">
+              <li><a href="index.html" style="color: inherit;">Home</a></li>
+              <li class="breadcrumb-sep">/</li>
+              <li style="color: #fff; font-weight: 500;">Contact</li>
+            </ul>
+          </nav>
+          <span class="hero__eyebrow reveal">Get In Touch</span>
+          <h1 class="hero__title reveal">Contact Our Experts</h1>
+          <p class="hero__subtitle reveal">Our specialists are ready to assist with appraisals, restoration enquiries, book sourcing, and everything in between.</p>
+        </div>
+      </div>
+    </section>
     <section class="section"><div class="container"><div class="contact-layout">
       <!-- Info -->
       <div class="reveal-left">
@@ -188,7 +209,7 @@
         </form>
       </div>
     </div></div></section>
-   <footer class="footer" role="contentinfo">
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
@@ -234,7 +255,7 @@
             <li><a href="404.html">404 Page</a></li>
           </ul>
           <div style="margin-top:var(--space-lg)">
-            <p style="color:rgba(245,230,211,0.5);font-size:0.8125rem;font-family:var(--font-ui);">?? 42 Antiquarian Lane<br>London, WC2B 5NA</p>
+            <p style="color:rgba(245,230,211,0.5);font-size:0.8125rem;font-family:var(--font-ui);">📍 42 Antiquarian Lane<br>London, WC2B 5NA</p>
           </div>
         </div>
       </div>
@@ -245,9 +266,5 @@
   </footer>
   <script src="assets/js/main.js" defer></script><script src="assets/js/animations.js" defer></script><script src="assets/js/rtl-ltr.js" defer></script><script src="assets/js/forms.js" defer></script>
 </body>
-</html>
-
-
-
 
 

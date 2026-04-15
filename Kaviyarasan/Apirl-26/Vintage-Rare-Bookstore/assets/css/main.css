@@ -931,6 +931,7 @@ em { font-style: italic; }
   padding: var(--space-4xl) var(--space-lg);
   width: 100%;
   max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero__eyebrow {

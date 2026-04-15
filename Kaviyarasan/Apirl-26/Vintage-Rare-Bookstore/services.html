@@ -10,11 +10,6 @@
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
   <style>
-    .page-hero { background: linear-gradient(135deg, var(--primary-dark), var(--bg-dark)); padding: calc(var(--nav-height) + var(--space-4xl)) 0 var(--space-4xl); text-align: center; color: #fff; position: relative; overflow: hidden; }
-    .page-hero::after { content:''; position:absolute; inset:0; background:url('assets/images/backgrounds/hero-library.png') center/cover; opacity:0.08; }
-    .page-hero .container { position:relative; z-index:1; }
-    .page-hero h1 { color: #fff; }
-    .page-hero p { color:rgba(255,255,255,0.75); max-width:600px; margin:var(--space-md) auto 0; }
     /* Filter pills */
     .filter-bar { display:flex; gap:var(--space-sm); flex-wrap:wrap; margin-bottom:var(--space-2xl); justify-content:center !important; width:100%; }
     .filter-pill { padding:8px 22px; border-radius:100px; font-family:var(--font-ui); font-size:0.875rem; font-weight:600; border:2px solid var(--border); background:none; color:var(--text-secondary); cursor:pointer; transition:all var(--transition-base); }
@@ -149,14 +144,31 @@
     </div>
   </nav>
 
-  <main id="main-content">
-    <div class="page-hero">
+  <main id="main-content" class="page-content">
+    <section class="hero" aria-label="Services Hero">
+      <div class="hero__bg" aria-hidden="true" style="background-image: url('assets/images/backgrounds/hero-library.png'); opacity: 0.15;"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="particles-container" aria-hidden="true"></div>
+      <!-- Floating icons -->
+      <div class="hero__float hero__float--1" aria-hidden="true">🔍</div>
+      <div class="hero__float hero__float--2" aria-hidden="true">📜</div>
+      <div class="hero__float hero__float--3" aria-hidden="true">🖋️</div>
+      <div class="hero__float hero__float--4" aria-hidden="true">✨</div>
       <div class="container">
-        <nav aria-label="Breadcrumb"><ul class="breadcrumb" style="justify-content:center;margin-bottom:var(--space-lg)"><li><a href="index.html" style="color:rgba(255,255,255,0.6)">Home</a></li><li><svg class="breadcrumb-sep" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></li><li>Services</li></ul></nav>
-        <h1 class="reveal">Our Services</h1>
-        <p class="reveal">Expert care for the world's most precious books — from discovery to preservation.</p>
+        <div class="hero__content">
+          <nav aria-label="Breadcrumb" style="display: flex; justify-content: center; margin-bottom: var(--space-lg);">
+            <ul class="breadcrumb" style="color: rgba(255,255,255,0.7);">
+              <li><a href="index.html" style="color: inherit;">Home</a></li>
+              <li class="breadcrumb-sep">/</li>
+              <li style="color: #fff; font-weight: 500;">Services</li>
+            </ul>
+          </nav>
+          <span class="hero__eyebrow reveal">Expert Solutions</span>
+          <h1 class="hero__title reveal">Our Services</h1>
+          <p class="hero__subtitle reveal">Expert care for the world's most precious books — from discovery to preservation.</p>
+        </div>
       </div>
-    </div>
+    </section>
 
     <section class="section" id="main-content">
       <div class="container">
@@ -259,10 +271,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="cta-parallax"><div class="cta-parallax__bg"></div><div class="container"><div class="cta-parallax__content reveal"><h2>Not Sure Which Service You Need?</h2><p>Our experts are happy to provide a free 30-minute consultation to assess your collection and recommend the best path forward.</p><a href="contact.html" class="btn btn-shimmer btn-lg">Book Free Consultation</a></div></div></section>
-  </main>
-
-    <footer class="footer" role="contentinfo">
+    <section class="cta-parallax"><div class="cta-parallax__bg"></div><div class="container"><div class="cta-parallax__content reveal"><h2>Not Sure Which Service You Need?</h2><p>Our experts are happy to provide a free 30-minute consultation to assess your collection and recommend the best path forward.</p><a href="contact.html" class="btn btn-shimmer btn-lg">Book Free Consultation</a></div></div></sectio  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
@@ -308,7 +317,7 @@
             <li><a href="404.html">404 Page</a></li>
           </ul>
           <div style="margin-top:var(--space-lg)">
-            <p style="color:rgba(245,230,211,0.5);font-size:0.8125rem;font-family:var(--font-ui);">?? 42 Antiquarian Lane<br>London, WC2B 5NA</p>
+            <p style="color:rgba(245,230,211,0.5);font-size:0.8125rem;font-family:var(--font-ui);">📍 42 Antiquarian Lane<br>London, WC2B 5NA</p>
           </div>
         </div>
       </div>
@@ -316,6 +325,7 @@
         <p>© 2026 VintStore. All rights reserved.</p>
       </div>
     </div>
+  </footer>
   </footer>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/animations.js" defer></script>

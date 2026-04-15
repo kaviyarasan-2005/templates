@@ -30,8 +30,8 @@
     }
 
     .saas-hero__left {
-      padding: var(--space-4xl) var(--space-4xl) var(--space-4xl) 0;
-      padding-left: max(var(--space-xl), calc((100vw - 1280px) / 2 + var(--space-lg)));
+      padding: var(--space-4xl);
+      text-align: center;
     }
 
     .saas-hero__right {
@@ -72,7 +72,7 @@
       color: var(--text-secondary);
       max-width: 520px;
       line-height: 1.7;
-      margin-bottom: var(--space-2xl);
+      margin: 0 auto var(--space-2xl);
     }
 
     .saas-hero__metrics {
@@ -80,6 +80,7 @@
       gap: var(--space-xl);
       margin-bottom: var(--space-2xl);
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .saas-metric {
@@ -489,7 +490,6 @@
             <ul class="dropdown-menu" role="menu">
               <li><a href="services.html" role="menuitem">Service</a></li>
               <li><a href="service-details.html" role="menuitem">Service Details</a></li>
-              <li><a href="service-details.html" role="menuitem">Restoration</a></li>
             </ul>
           </li>
           <li class="nav-item has-dropdown">
@@ -597,7 +597,7 @@
           <div class="saas-metric"><span class="saas-metric__num" data-counter data-target="98"
               data-suffix="%">0%</span><span class="saas-metric__label">Satisfied Clients</span></div>
         </div>
-        <div style="display:flex;gap:var(--space-md);flex-wrap:wrap" class="reveal">
+        <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;justify-content:center" class="reveal">
           <a href="register.html" class="btn btn-accent btn-lg">Start Free Trial</a>
           <a href="pricing.html" class="btn btn-outline btn-lg">View Pricing</a>
         </div>
