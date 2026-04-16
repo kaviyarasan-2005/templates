@@ -253,6 +253,35 @@
   flex-direction: row;
 }
 
+/* RTL RESPONSIVE FIXES */
+@media (max-width: 1024px) {
+  [dir="rtl"] .dashboard-main,
+  [dir="rtl"] .dash-main {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .dash-header__breadcrumb { 
+    display: none !important; 
+  }
+  
+  [dir="rtl"] .stats-grid,
+  [dir="rtl"] .dashboard-grid-responsive,
+  [dir="rtl"] .dashboard-two-col {
+    grid-template-columns: 1fr !important;
+  }
+  
+  [dir="rtl"] .sidebar {
+    transform: translateX(100%); /* Sidebar hides to the right in RTL */
+  }
+  
+  [dir="rtl"] .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+}
+
 /* ===== SCROLLBAR RTL ===== */
 [dir="rtl"] ::-webkit-scrollbar {
   direction: rtl;
