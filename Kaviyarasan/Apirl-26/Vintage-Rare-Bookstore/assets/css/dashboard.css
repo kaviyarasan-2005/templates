@@ -1023,11 +1023,19 @@ tbody tr:last-child td { border-bottom: none; }
   .dashboard-two-col { grid-template-columns: 1fr !important; }
 }
 
+.dashboard-grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
 @media (max-width: 768px) {
   .dashboard-header { padding: 0 var(--space-md); flex-wrap: wrap; }
+  .dash-header__breadcrumb { display: none !important; }
   .dashboard-content { padding: var(--space-md); }
-  .stats-grid { grid-template-columns: 1fr 1fr !important; }
-  .dashboard-widget { padding: var(--space-md); overflow-x: hidden; }
+  .stats-grid { grid-template-columns: 1fr !important; }
+  .dashboard-grid-responsive { grid-template-columns: 1fr !important; }
+  .dashboard-widget { padding: var(--space-md); overflow-x: hidden; width: 100%; box-sizing: border-box; }
 }
 
 /* ==========================================================================

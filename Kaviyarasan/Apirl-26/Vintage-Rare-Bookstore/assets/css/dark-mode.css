@@ -96,6 +96,10 @@
   background: rgba(255,255,255,0.04);
 }
 
+[data-theme="dark"] .footer__brand .navbar__logo-text {
+  color: #F5E6D3;
+}
+
 /* Accordion dark */
 [data-theme="dark"] .accordion-trigger,
 [data-theme="dark"] .accordion-item {
@@ -152,6 +156,20 @@
 [data-theme="dark"] .sidebar {
   background: #120F0B;
   border-color: var(--border);
+}
+
+[data-theme="dark"] .sidebar__logo-text,
+[data-theme="dark"] .sidebar-nav-link:hover,
+[data-theme="dark"] .sidebar-user__name {
+  color: #F5E6D3;
+}
+
+[data-theme="dark"] .sidebar-section-label {
+  color: rgba(245, 230, 211, 0.5);
+}
+
+[data-theme="dark"] .sidebar-nav-link {
+  color: rgba(245, 230, 211, 0.75);
 }
 [data-theme="dark"] .dash-header {
   background: var(--bg-card);

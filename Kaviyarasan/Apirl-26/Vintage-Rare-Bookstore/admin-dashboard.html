@@ -154,10 +154,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2.5">
             <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </button>
-      </div>
     </header>
+
     <!-- Content -->
     <div class="dashboard-content">
       <!-- Stats Cards -->
@@ -187,30 +185,52 @@
         </div>
       </div>
 
-      <!-- Grid 2-col -->
-      <div class="dashboard-two-col" style="display:grid;grid-template-columns:1.5fr 1fr;gap:var(--space-xl);margin-top:var(--space-xl)">
-        <!-- Revenue chart -->
-        <div class="dashboard-widget reveal">
-          <div class="widget-header"><h3 class="widget-title">Revenue Overview</h3><span style="font-family:var(--font-ui);font-size:0.8125rem;color:var(--text-muted)">Last 12 months</span></div>
-          <div class="bar-chart">
-            <div class="chart-bar" data-height="60" data-label="May" style="background:linear-gradient(to top,var(--primary),var(--primary-light))"></div>
-            <div class="chart-bar" data-height="75" data-label="Jun"></div>
-            <div class="chart-bar" data-height="82" data-label="Jul"></div>
-            <div class="chart-bar" data-height="68" data-label="Aug"></div>
-            <div class="chart-bar" data-height="90" data-label="Sep"></div>
-            <div class="chart-bar" data-height="95" data-label="Oct"></div>
-            <div class="chart-bar" data-height="85" data-label="Nov"></div>
-            <div class="chart-bar" data-height="110" data-label="Dec"></div>
-            <div class="chart-bar" data-height="98" data-label="Jan"></div>
-            <div class="chart-bar" data-height="120" data-label="Feb"></div>
-            <div class="chart-bar" data-height="105" data-label="Mar"></div>
-            <div class="chart-bar" data-height="130" data-label="Apr" style="background:linear-gradient(to top,var(--accent),var(--accent-hover))"></div>
+      <div class="dashboard-two-col" style="margin-top: var(--space-xl);">
+        <!-- Column 1: Stacked Charts -->
+        <div style="display:flex; flex-direction:column; gap: var(--space-xl);">
+          <!-- Revenue Overview -->
+          <div class="dashboard-widget reveal">
+            <div class="widget-header"><h3 class="widget-title">Revenue Overview</h3><span style="font-family:var(--font-ui);font-size:0.8125rem;color:var(--text-muted)">Last 12 months</span></div>
+            <div class="bar-chart">
+              <div class="chart-bar" data-height="60" data-label="May" style="background:linear-gradient(to top,var(--primary),var(--primary-light))"></div>
+              <div class="chart-bar" data-height="75" data-label="Jun"></div>
+              <div class="chart-bar" data-height="82" data-label="Jul"></div>
+              <div class="chart-bar" data-height="68" data-label="Aug"></div>
+              <div class="chart-bar" data-height="90" data-label="Sep"></div>
+              <div class="chart-bar" data-height="95" data-label="Oct"></div>
+              <div class="chart-bar" data-height="85" data-label="Nov"></div>
+              <div class="chart-bar" data-height="110" data-label="Dec"></div>
+              <div class="chart-bar" data-height="98" data-label="Jan"></div>
+              <div class="chart-bar" data-height="120" data-label="Feb"></div>
+              <div class="chart-bar" data-height="105" data-label="Mar"></div>
+              <div class="chart-bar" data-height="130" data-label="Apr" style="background:linear-gradient(to top,var(--accent),var(--accent-hover))"></div>
+            </div>
+            <div class="chart-labels"></div>
           </div>
-          <div class="chart-labels"></div>
+
+          <!-- Inventory Health Infographic -->
+          <div class="dashboard-widget reveal" style="animation-delay:0.1s">
+            <div class="widget-header"><h3 class="widget-title">Inventory Health</h3></div>
+            <div style="display:flex; align-items:center; gap:var(--space-xl); flex-wrap:wrap">
+              <div class="infog-radial" style="--radial-percent: 85%;">
+                <div class="infog-radial__content">
+                  <span class="infog-radial__value">85%</span>
+                  <span class="infog-radial__label">Optimal</span>
+                </div>
+              </div>
+              <div style="flex:1; min-width:200px">
+                 <div style="display:flex;justify-content:space-between;font-family:var(--font-ui);font-size:0.75rem;margin-bottom:4px;color:var(--text-muted)"><span>Restored</span><span>92%</span></div>
+                 <div style="height:4px;background:var(--bg-secondary);border-radius:2px;overflow:hidden;margin-bottom:var(--space-md)"><div class="hbar-fill" style="width:92%;height:100%;background:var(--success);border-radius:2px"></div></div>
+                 
+                 <div style="display:flex;justify-content:space-between;font-family:var(--font-ui);font-size:0.75rem;margin-bottom:4px;color:var(--text-muted)"><span>Verified</span><span>78%</span></div>
+                 <div style="height:4px;background:var(--bg-secondary);border-radius:2px;overflow:hidden"><div class="hbar-fill" style="width:78%;height:100%;background:var(--accent);border-radius:2px"></div></div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Quick Actions -->
-        <div class="dashboard-widget reveal">
+        <!-- Column 2: Quick Actions & Activity -->
+        <div class="dashboard-widget reveal" style="animation-delay:0.2s">
           <div class="widget-header"><h3 class="widget-title">Quick Actions</h3></div>
           <div class="quick-actions">
             <a href="#" class="quick-btn"><span class="quick-btn__icon">📦</span><span class="quick-btn__label">New Order</span></a>
@@ -222,17 +242,17 @@
           <div style="margin-top:var(--space-xl)">
             <div style="font-family:var(--font-ui);font-size:0.8125rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-md)">Recent Activity</div>
             <div class="activity-list">
-              <div class="activity-item"><div class="activity-dot order">ðŸ›’</div><div><div class="activity-text">Order #2841 — 1st Ed. Woolf <strong>₹2,40,000</strong></div><div class="activity-time">2 hours ago</div></div></div>
-              <div class="activity-item"><div class="activity-dot user">ðŸ‘¤</div><div><div class="activity-text">New member: <strong>Prof. T. Ashford</strong></div><div class="activity-time">4 hours ago</div></div></div>
-              <div class="activity-item"><div class="activity-dot appraisal">ðŸ”</div><div><div class="activity-text">Appraisal submitted for <strong>1923 Yeats</strong></div><div class="activity-time">Yesterday</div></div></div>
+              <div class="activity-item"><div class="activity-dot order">🛒</div><div><div class="activity-text">Order #2841 — 1st Ed. Woolf <strong>₹2,40,000</strong></div><div class="activity-time">2 hours ago</div></div></div>
+              <div class="activity-item"><div class="activity-dot user">👤</div><div><div class="activity-text">New member: <strong>Prof. T. Ashford</strong></div><div class="activity-time">4 hours ago</div></div></div>
+              <div class="activity-item"><div class="activity-dot appraisal">🔍</div><div><div class="activity-text">Appraisal submitted for <strong>1923 Yeats</strong></div><div class="activity-time">Yesterday</div></div></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Infographics 3-col -->
-      <div class="info-grid dashboard-two-col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-xl);margin-top:var(--space-xl)">
-        <!-- Info 1: Pie Chart -->
+      <!-- Infographics Grid: 3-col -->
+      <div class="dashboard-grid-responsive" style="margin-top: var(--space-xl);">
+        <!-- Sales by Era -->
         <div class="dashboard-widget reveal">
           <div class="widget-header"><h3 class="widget-title">Sales by Era</h3></div>
           <div style="display:flex;align-items:center;justify-content:center;gap:var(--space-md);margin-top:var(--space-md)">
@@ -246,7 +266,7 @@
           </div>
         </div>
 
-        <!-- Info 2: H-Bar Chart -->
+        <!-- Regional Demand -->
         <div class="dashboard-widget reveal" style="animation-delay:0.1s">
           <div class="widget-header"><h3 class="widget-title">Regional Demand</h3></div>
           <div style="margin-top:var(--space-md);display:flex;flex-direction:column;gap:12px">
@@ -269,7 +289,7 @@
           </div>
         </div>
 
-        <!-- Info 3: Funnel -->
+        <!-- Appraisal Funnel -->
         <div class="dashboard-widget reveal" style="animation-delay:0.2s">
           <div class="widget-header"><h3 class="widget-title">Appraisal Funnel</h3></div>
           <div style="display:flex;flex-direction:column;align-items:center;margin-top:var(--space-md);gap:4px">
@@ -281,9 +301,9 @@
         </div>
       </div>
 
-      <!-- New Infographics Section -->
-      <div class="dashboard-two-col" style="margin-top:var(--space-xl)">
-        <!-- Info 4: Acquisition Journey -->
+      <!-- Third Row: Acquisition Journey and Other Infographics -->
+      <div class="dashboard-two-col" style="margin-top: var(--space-xl);">
+        <!-- Acquisition Journey -->
         <div class="dashboard-widget reveal">
           <div class="widget-header"><h3 class="widget-title">Acquisition Pipeline</h3></div>
           <div class="infog-journey">
@@ -293,24 +313,11 @@
             <div class="journey-step"><div class="journey-dot"></div><div class="journey-label">Acquire</div></div>
           </div>
         </div>
-        <!-- Info 5: Radial Inventory Ring -->
+        
+        <!-- Global Site Traffic -->
         <div class="dashboard-widget reveal" style="animation-delay:0.1s">
-          <div class="widget-header"><h3 class="widget-title">Inventory Health</h3></div>
-          <div class="infog-radial" style="--radial-percent: 85%">
-            <div class="infog-radial__content">
-              <span class="infog-radial__value">85%</span>
-              <span class="infog-radial__label">Optimal</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="dashboard-two-col" style="margin-top:var(--space-xl)">
-        <!-- Info 6: Activity Heatmap -->
-        <div class="dashboard-widget reveal">
           <div class="widget-header"><h3 class="widget-title">Global Site Traffic</h3></div>
           <div class="infog-heatmap">
-            <!-- Render 14x5 grid cells with varying levels -->
             <div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div>
             <div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="2"></div>
             <div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div>
@@ -318,43 +325,30 @@
             <div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="3"></div><div class="heatmap-cell" data-level="4"></div><div class="heatmap-cell" data-level="2"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="0"></div><div class="heatmap-cell" data-level="1"></div><div class="heatmap-cell" data-level="2"></div>
           </div>
         </div>
-        <!-- Info 7: Era Radar -->
-        <div class="dashboard-widget reveal" style="animation-delay:0.1s">
-          <div class="widget-header"><h3 class="widget-title">Market Demand by Era</h3></div>
-          <div class="infog-radar">
-            <svg class="radar-svg" viewBox="0 0 100 100" width="160" height="160">
-              <!-- Rings -->
-              <circle class="radar-grid" cx="50" cy="50" r="10"></circle>
-              <circle class="radar-grid" cx="50" cy="50" r="20"></circle>
-              <circle class="radar-grid" cx="50" cy="50" r="30"></circle>
-              <circle class="radar-grid" cx="50" cy="50" r="40"></circle>
-              <!-- Data Shape (Pentagon sample) -->
-              <polygon class="radar-area" points="50,10 88,38 74,82 26,82 12,38"></polygon>
-            </svg>
-          </div>
-        </div>
       </div>
 
       <!-- Recent Orders Table -->
-      <div class="dashboard-widget reveal" style="margin-top:var(--space-xl)">
-        <div class="widget-header">
-          <h3 class="widget-title">Recent Orders</h3>
-          <div style="display:flex;gap:var(--space-sm)">
-            <input type="text" class="table-filter-input" data-target="orders-table" placeholder="Filter orders..." style="padding:6px 14px;border-radius:var(--border-radius);border:1px solid var(--border);font-family:var(--font-ui);font-size:0.875rem;background:var(--bg-secondary);color:var(--text-primary)">
-            <button class="btn btn-primary btn-sm">View All</button>
+      <div style="margin-top: var(--space-xl);">
+        <div class="dashboard-widget reveal">
+          <div class="widget-header">
+            <h3 class="widget-title">Recent Orders</h3>
+            <div style="display:flex;gap:var(--space-sm)">
+              <input type="text" class="table-filter-input" data-target="orders-table" placeholder="Filter orders..." style="padding:6px 14px;border-radius:var(--border-radius);border:1px solid var(--border);font-family:var(--font-ui);font-size:0.875rem;background:var(--bg-secondary);color:var(--text-primary)">
+              <button class="btn btn-primary btn-sm">View All</button>
+            </div>
           </div>
-        </div>
-        <div class="table-wrapper" style="overflow-x:auto">
-          <table id="orders-table">
-            <thead><tr><th data-sort="id">#</th><th data-sort="customer">Customer</th><th data-sort="item">Item</th><th data-sort="date">Date</th><th data-sort="amount">Amount</th><th data-sort="status">Status</th><th>Actions</th></tr></thead>
-            <tbody>
-              <tr data-status="completed"><td>#2841</td><td>Eleanor Whitmore</td><td>1st Ed. Mrs Dalloway</td><td>28 Apr 2024</td><td>₹2,40,000</td><td><span class="badge badge-success">Completed</span></td><td><button class="action-btn action-btn--view" data-order-view="2841">View</button></td></tr>
-              <tr data-status="processing"><td>#2840</td><td>Prof. J. Harrington</td><td>Shakespeare Folio (1623)</td><td>27 Apr 2024</td><td>₹18,50,000</td><td><span class="badge badge-warning">Processing</span></td><td><button class="action-btn action-btn--view" data-order-view="2840">View</button></td></tr>
-              <tr data-status="pending"><td>#2839</td><td>Margaret Chen</td><td>Victorian Poetry Collection</td><td>26 Apr 2024</td><td>₹3,20,000</td><td><span class="badge badge-info">Pending</span></td><td><button class="action-btn action-btn--view" data-order-view="2839">View</button></td></tr>
-              <tr data-status="completed"><td>#2838</td><td>Dr. R. Ashford</td><td>Illuminated MS (14th C.)</td><td>25 Apr 2024</td><td>₹9,80,000</td><td><span class="badge badge-success">Completed</span></td><td><button class="action-btn action-btn--view" data-order-view="2838">View</button></td></tr>
-              <tr data-status="cancelled"><td>#2837</td><td>T. Pemberton</td><td>1922 Ulysses (standard)</td><td>24 Apr 2024</td><td>₹4,10,000</td><td><span class="badge badge-danger">Cancelled</span></td><td><button class="action-btn action-btn--view" data-order-view="2837">View</button></td></tr>
-            </tbody>
-          </table>
+          <div class="table-wrapper" style="overflow-x:auto">
+            <table id="orders-table">
+              <thead><tr><th data-sort="id">#</th><th data-sort="customer">Customer</th><th data-sort="item">Item</th><th data-sort="date">Date</th><th data-sort="amount">Amount</th><th data-sort="status">Status</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr data-status="completed"><td>#2841</td><td>Eleanor Whitmore</td><td>1st Ed. Mrs Dalloway</td><td>28 Apr 2024</td><td>₹2,40,000</td><td><span class="badge badge-success">Completed</span></td><td><button class="action-btn action-btn--view" data-order-view="2841">View</button></td></tr>
+                <tr data-status="processing"><td>#2840</td><td>Prof. J. Harrington</td><td>Shakespeare Folio (1623)</td><td>27 Apr 2024</td><td>₹18,50,000</td><td><span class="badge badge-warning">Processing</span></td><td><button class="action-btn action-btn--view" data-order-view="2840">View</button></td></tr>
+                <tr data-status="pending"><td>#2839</td><td>Margaret Chen</td><td>Victorian Poetry Collection</td><td>26 Apr 2024</td><td>₹3,20,000</td><td><span class="badge badge-info">Pending</span></td><td><button class="action-btn action-btn--view" data-order-view="2839">View</button></td></tr>
+                <tr data-status="completed"><td>#2838</td><td>Dr. R. Ashford</td><td>Illuminated MS (14th C.)</td><td>25 Apr 2024</td><td>₹9,80,000</td><td><span class="badge badge-success">Completed</span></td><td><button class="action-btn action-btn--view" data-order-view="2838">View</button></td></tr>
+                <tr data-status="cancelled"><td>#2837</td><td>T. Pemberton</td><td>1922 Ulysses (standard)</td><td>24 Apr 2024</td><td>₹4,10,000</td><td><span class="badge badge-danger">Cancelled</span></td><td><button class="action-btn action-btn--view" data-order-view="2837">View</button></td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
