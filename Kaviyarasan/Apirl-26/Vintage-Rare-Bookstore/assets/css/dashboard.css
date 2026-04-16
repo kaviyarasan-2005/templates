@@ -41,7 +41,8 @@
   display: flex;
   align-items: center;
   padding: 0 var(--space-md);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--border);
+  background: var(--cream);
   flex-shrink: 0;
 }
 
@@ -57,13 +58,14 @@
   width: 36px;
   height: 36px;
   flex-shrink: 0;
+  color: var(--primary);
 }
 
 .sidebar__logo-text {
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 700;
-  color: var(--parchment);
+  color: var(--primary);
   white-space: nowrap;
   opacity: 1;
   transition: opacity var(--transition-base);

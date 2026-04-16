@@ -158,7 +158,6 @@
   border-color: var(--border);
 }
 
-[data-theme="dark"] .sidebar__logo-text,
 [data-theme="dark"] .sidebar-nav-link:hover,
 [data-theme="dark"] .sidebar-user__name {
   color: #F5E6D3;
