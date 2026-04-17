@@ -144,7 +144,10 @@ body {
 }
 
 /* Fix scrollbar overlap on fixed elements */
-body.has-fixed-header {
+body[style*="overflow: hidden"] {
+  padding-right: var(--scrollbar-width, 0px);
+}
+body[style*="overflow: hidden"] .navbar {
   padding-right: var(--scrollbar-width, 0px);
 }
 
@@ -598,6 +601,15 @@ p {
   min-height: 44px;
 }
 
+@media (min-width: 768px) {
+  .mobile-nav {
+    width: 380px;
+  }
+  .mobile-nav-link {
+    padding: var(--space-4) var(--space-6);
+  }
+}
+
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
   background: rgba(46, 92, 71, 0.08);
@@ -615,6 +627,12 @@ p {
 
 .mobile-overlay.open {
   display: block;
+}
+
+/* Hide toggle buttons and their container inside mobile nav */
+.mobile-nav > div:has([data-theme-toggle]),
+.mobile-nav > div[style*="margin-top: 16px"] {
+  display: none !important;
 }
 
 /* ============================================================
@@ -905,7 +923,8 @@ p {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: var(--space-20) 0;
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
 }
 
 .hero-label {
@@ -1892,10 +1911,8 @@ p {
 .comparison-table .check-no { color: var(--color-text-muted); opacity: 0.5; }
 
 @media (max-width: 1024px) {
-  .nav-link i.fa-chevron-down,
-  .mobile-nav-link i.fa-chevron-down,
-  .mobile-nav-link i.fa-chevron-right {
-    display: none !important;
+  .mobile-nav-link i {
+    transition: transform var(--transition-base);
   }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .process-step::after { display: none; }
