@@ -54,7 +54,8 @@
       .timeline-item { grid-template-columns: auto 1fr; }
       .timeline-item:nth-child(odd) .timeline-content:last-child,
       .timeline-item:nth-child(even) .timeline-content:first-child { display: none; }
-      .timeline-item:nth-child(odd) .timeline-content:first-child { text-align: left; order: 2; }
+      .timeline-item:nth-child(odd) .timeline-content:first-child,
+      .timeline-item:nth-child(even) .timeline-content:last-child { text-align: left; order: 2; }
       .timeline-dot { order: 1; }
     }
     @media (max-width: 640px) {

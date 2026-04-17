@@ -29,6 +29,18 @@
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md)}
     @media(max-width:1024px){.contact-layout{grid-template-columns:1fr}}
     @media(max-width:640px){.form-row{grid-template-columns:1fr}.social-links{flex-wrap:wrap}}
+    .faq-grid{display:grid;gap:var(--space-md);max-width:800px;margin:0 auto}
+    .faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--border-radius-lg);overflow:hidden}
+    .faq-summary{padding:var(--space-lg);font-family:var(--font-heading);font-size:1.125rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+    .faq-summary::-webkit-details-marker{display:none}
+    .faq-summary::after{content:'+';font-size:1.5rem;color:var(--accent);transition:transform 0.3s}
+    details[open] .faq-summary::after{transform:rotate(45deg)}
+    .faq-content{padding:0 var(--space-lg) var(--space-lg);color:var(--text-secondary);line-height:1.6}
+    .reps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}
+    .rep-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--border-radius-lg);padding:var(--space-xl);text-align:center;transition:all var(--transition-base)}
+    .rep-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:rgba(212,175,55,0.3)}
+    .rep-icon{font-size:2.5rem;margin-bottom:var(--space-md)}
+    @media(max-width:768px){.reps-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -188,12 +200,7 @@
           <a href="#" class="social-link social-link--ig"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Instagram</a>
         </div>
 
-        <div class="map-container" role="img" aria-label="Map showing location of VintStore at 42 Antiquarian Lane London">
-          <div style="text-align:center;font-family:var(--font-ui);color:var(--text-muted)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:var(--space-md);color:var(--accent)"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <p><strong>42 Antiquarian Lane</strong><br>Bloomsbury, London WC2B 5NA</p>
-          </div>
-        </div>
+
       </div>
 
       <!-- Contact Form -->
@@ -236,6 +243,66 @@
         </form>
       </div>
     </div></div></section>
+
+    <!-- Global Representatives Section -->
+    <section class="section" style="background:var(--bg-secondary)" aria-labelledby="reps-heading">
+      <div class="container">
+        <div class="section-header reveal text-center" style="text-align: center; margin-bottom: var(--space-2xl);">
+          <span class="eyebrow">Global Reach</span>
+          <h2 id="reps-heading">Our International Representatives</h2>
+          <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary); margin-top: var(--space-md);">While our flagship store is in London, our network of experts spans the globe to assist with acquisitions and private viewings.</p>
+        </div>
+        <div class="reps-grid stagger-children">
+          <div class="rep-card reveal">
+            <div class="rep-icon">🗽</div>
+            <h3 style="margin-bottom:8px">New York</h3>
+            <p style="color:var(--text-secondary);margin-bottom:var(--space-md);">Specializing in early American literature and modern first editions.</p>
+            <a href="mailto:ny@vintagerarebookstore.com" style="color:var(--accent);font-weight:600;text-decoration:none">ny@vintagerarebookstore.com</a>
+          </div>
+          <div class="rep-card reveal">
+            <div class="rep-icon">🗼</div>
+            <h3 style="margin-bottom:8px">Paris</h3>
+            <p style="color:var(--text-secondary);margin-bottom:var(--space-md);">Experts in French Romantics, fine bindings, and illuminated manuscripts.</p>
+            <a href="mailto:paris@vintagerarebookstore.com" style="color:var(--accent);font-weight:600;text-decoration:none">paris@vintagerarebookstore.com</a>
+          </div>
+          <div class="rep-card reveal">
+            <div class="rep-icon">⛩️</div>
+            <h3 style="margin-bottom:8px">Tokyo</h3>
+            <p style="color:var(--text-secondary);margin-bottom:var(--space-md);">Our newest office, focusing on Asian antiquities and rare prints.</p>
+            <a href="mailto:tokyo@vintagerarebookstore.com" style="color:var(--accent);font-weight:600;text-decoration:none">tokyo@vintagerarebookstore.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header reveal text-center" style="text-align: center; margin-bottom: var(--space-2xl);">
+          <span class="eyebrow">Common Queries</span>
+          <h2 id="faq-heading">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-grid stagger-children">
+          <details class="faq-item reveal">
+            <summary class="faq-summary">Do you purchase rare books from private collections?</summary>
+            <div class="faq-content">Yes, we are always looking to acquire exceptional single items or entire libraries. Please use the contact form above and select "I Want to Sell Books" as your subject. We will ask for detailed photographs and provenance information before arranging an in-person appraisal.</div>
+          </details>
+          <details class="faq-item reveal">
+            <summary class="faq-summary">How long does a typical book restoration take?</summary>
+            <div class="faq-content">Restoration timelines vary significantly depending on the book's condition and the complexity of the required work. Minor spine repairs may take 2-4 weeks, while comprehensive conservation of severely damaged volumes can take up to 6 months. We will provide a detailed timeline along with our quote.</div>
+          </details>
+          <details class="faq-item reveal">
+            <summary class="faq-summary">Do you offer certificates of authenticity?</summary>
+            <div class="faq-content">Absolutely. Every book purchased from VintStore comes with a comprehensive certificate of authenticity signed by our Chief Curator, detailing the book's condition, historical significance, and any known provenance.</div>
+          </details>
+          <details class="faq-item reveal">
+            <summary class="faq-summary">Can I arrange a private physical viewing at your London store?</summary>
+            <div class="faq-content">Yes, private viewings in our secure reading room can be arranged by appointment for any item in our catalogue exceeding £5,000 in value. Please contact us at least 48 hours in advance so our staff can prepare the materials.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
