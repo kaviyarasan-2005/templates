@@ -249,72 +249,84 @@ const Navbar = {
   initMobileDropdowns() {
     if (!this.mobileNav) return;
     const links = Array.from(this.mobileNav.querySelectorAll('a.mobile-nav-link'));
-    let currentContainer = null;
+    
+    // 1. Identify groups (Parents and their following indented children)
+    const groups = [];
+    let currentGroup = null;
+
+    const isIndented = (l) => {
+      const style = l.getAttribute('style') || '';
+      return style.includes('padding-left: 24px') || l.style.paddingLeft === '24px';
+    };
 
     links.forEach(link => {
-      const isIndented = link.style.paddingLeft === '24px';
-      
-      if (!isIndented) {
-        const nextLink = link.nextElementSibling;
-        const nextIsIndented = nextLink && nextLink.tagName === 'A' && nextLink.style.paddingLeft === '24px';
-
-        if (nextIsIndented) {
-          const icon = link.querySelector('i');
-          if (icon) {
-            icon.className = 'fas fa-chevron-down';
-            icon.style.transition = 'transform 0.3s ease';
-          } else {
-            link.innerHTML += ' <i class="fas fa-chevron-down" style="transition: transform 0.3s ease"></i>';
-          }
-          
-          if (link.getAttribute('href') !== '#') {
-            const clone = link.cloneNode(true);
-            clone.style.paddingLeft = '24px';
-            clone.style.fontSize = '0.9rem';
-            const cloneIcon = clone.querySelector('i');
-            if (cloneIcon) {
-              cloneIcon.className = 'fas fa-chevron-right';
-              cloneIcon.style.transition = '';
-            }
-            link.cloneAppended = clone;
-          }
-          
-          link.setAttribute('href', '#');
-          
-          currentContainer = document.createElement('div');
-          currentContainer.style.display = 'none';
-          currentContainer.style.flexDirection = 'column';
-          currentContainer.style.background = 'rgba(0,0,0,0.02)';
-          currentContainer.style.borderRadius = 'var(--radius-md)';
-          currentContainer.style.overflow = 'hidden';
-          currentContainer.style.marginTop = '4px';
-          currentContainer.style.marginBottom = '4px';
-          
-          link.parentNode.insertBefore(currentContainer, link.nextSibling);
-          
-          if (link.cloneAppended) {
-            currentContainer.appendChild(link.cloneAppended);
-          }
-          
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isOpen = currentContainer.style.display === 'flex';
-            currentContainer.style.display = isOpen ? 'none' : 'flex';
-            const ico = link.querySelector('i');
-            if (ico) ico.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-          });
-        } else {
-          currentContainer = null;
-        }
-      } else if (currentContainer) {
-        currentContainer.appendChild(link);
+      if (!isIndented(link)) {
+        currentGroup = { parent: link, children: [] };
+        groups.push(currentGroup);
+      } else if (currentGroup) {
+        currentGroup.children.push(link);
       }
     });
 
-    const activeLink = Array.from(this.mobileNav.querySelectorAll('a.mobile-nav-link.active')).find(l => l.style.paddingLeft === '24px');
-    if (activeLink && activeLink.parentNode !== this.mobileNav) {
-      activeLink.parentNode.style.display = 'flex';
-      const toggleIco = activeLink.parentNode.previousElementSibling.querySelector('i');
+    // 2. Process groups that actually have children
+    groups.forEach(group => {
+      if (group.children.length === 0) return;
+
+      const { parent, children } = group;
+
+      // Transform parent into toggle
+      const icon = parent.querySelector('i');
+      if (icon) {
+        icon.className = 'fas fa-chevron-down';
+        icon.style.transition = 'transform 0.3s ease';
+      } else {
+        parent.innerHTML += ' <i class="fas fa-chevron-down" style="transition: transform 0.3s ease; margin-left: auto;"></i>';
+      }
+
+      // Clone parent link for actual navigation if it has a real URL
+      if (parent.getAttribute('href') !== '#' && !parent.dataset.hasClone) {
+        const clone = parent.cloneNode(true);
+        clone.style.paddingLeft = '24px';
+        clone.style.fontSize = '0.9rem';
+        const cloneIcon = clone.querySelector('i');
+        if (cloneIcon) {
+          cloneIcon.className = 'fas fa-chevron-right';
+          cloneIcon.style.transition = 'none';
+        }
+        parent.dataset.hasClone = 'true';
+        // Insert clone at start of children
+        children.unshift(clone);
+      }
+
+      parent.setAttribute('href', '#');
+
+      // Create container
+      const container = document.createElement('div');
+      container.className = 'mobile-submenu-container';
+      container.style.cssText = 'display: none; flex-direction: column; background: rgba(0,0,0,0.02); border-radius: var(--radius-md); overflow: hidden; margin: 4px 0;';
+      
+      parent.parentNode.insertBefore(container, parent.nextSibling);
+
+      // Move children into container
+      children.forEach(child => container.appendChild(child));
+
+      // Toggle events
+      parent.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isOpen = container.style.display === 'flex';
+        container.style.display = isOpen ? 'none' : 'flex';
+        const ico = parent.querySelector('i');
+        if (ico) ico.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    });
+
+    // Handle initial active state
+    const activeChild = Array.from(this.mobileNav.querySelectorAll('a.active')).find(l => isIndented(l));
+    if (activeChild && activeChild.parentElement.classList.contains('mobile-submenu-container')) {
+      const container = activeChild.parentElement;
+      container.style.display = 'flex';
+      const toggle = container.previousElementSibling;
+      const toggleIco = toggle?.querySelector('i');
       if (toggleIco) toggleIco.style.transform = 'rotate(180deg)';
     }
   }

@@ -1721,6 +1721,7 @@ p {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-10); }
 
   .navbar-nav { display: none; }
+  .navbar-actions { margin-left: auto; gap: var(--space-1); }
   .hamburger { display: flex; }
   #nav-login { display: none !important; }
 }
