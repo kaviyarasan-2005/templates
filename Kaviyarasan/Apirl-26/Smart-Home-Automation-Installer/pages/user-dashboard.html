@@ -139,7 +139,7 @@
       .dashboard-header h1 { font-size: var(--fs-xl); }
       .dashboard-header p { display: none; } /* Hide subtitle on mobile for space */
       .dashboard-header { gap: var(--space-1); }
-      .dashboard__main { padding: 0 var(--space-2); }
+      .dashboard__main { padding: 0 var(--space-2) var(--space-4); }
       .header-actions { gap: var(--space-1); }
       .navbar__icon-btn { width: 32px; height: 32px; }
       .header-user { padding: 2px; }
@@ -314,14 +314,16 @@
       <!-- RECENT ALERTS -->
       <h3 style="margin: var(--space-4) 0 var(--space-2);">Recent Activity</h3>
       <div class="infograph-card" style="padding:0;">
-        <table class="data-table data-table--compact" style="margin:0; border:none;">
-          <thead><tr><th>Event</th><th>Room</th><th>Time</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>Motion Detected</td><td>Backyard</td><td>10:42 AM</td><td><span class="badge" style="background:rgba(var(--color-success-rgb, 16, 185, 129), 0.1); color:var(--color-success);">Recorded</span></td></tr>
-            <tr><td>Door Unlocked</td><td>Front Porch</td><td>08:15 AM</td><td><span class="badge" style="background:rgba(37,99,235,0.1); color:#2563EB;">Marcus</span></td></tr>
-            <tr><td>Routine Triggered</td><td>Whole Home</td><td>06:00 AM</td><td><span class="badge" style="background:rgba(245,158,11,0.1); color:#F59E0B;">Wake Up</span></td></tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="data-table data-table--compact" style="margin:0; border:none; min-width: 500px;">
+            <thead><tr><th>Event</th><th>Room</th><th>Time</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Motion Detected</td><td>Backyard</td><td>10:42 AM</td><td><span class="badge" style="background:rgba(var(--color-success-rgb, 16, 185, 129), 0.1); color:var(--color-success);">Recorded</span></td></tr>
+              <tr><td>Door Unlocked</td><td>Front Porch</td><td>08:15 AM</td><td><span class="badge" style="background:rgba(37,99,235,0.1); color:#2563EB;">Marcus</span></td></tr>
+              <tr><td>Routine Triggered</td><td>Whole Home</td><td>06:00 AM</td><td><span class="badge" style="background:rgba(245,158,11,0.1); color:#F59E0B;">Wake Up</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </main>
   </div>
