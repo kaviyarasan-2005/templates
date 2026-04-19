@@ -143,6 +143,26 @@
   text-align: left;
 }
 
+@media (max-width: 768px) {
+  [dir="rtl"] .timeline::before {
+    left: auto;
+    right: 20px;
+    transform: translateX(50%);
+  }
+  [dir="rtl"] .timeline-item,
+  [dir="rtl"] .timeline-item:nth-child(even) {
+    padding: 0 var(--space-5) 0 0;
+  }
+  [dir="rtl"] .timeline-dot {
+    left: auto;
+    right: 20px;
+    transform: translateX(50%);
+  }
+  [dir="rtl"] .timeline-item:nth-child(even) .timeline-content {
+    text-align: right;
+  }
+}
+
 /* ============================================================
    BLOG SIDEBAR
    ============================================================ */
