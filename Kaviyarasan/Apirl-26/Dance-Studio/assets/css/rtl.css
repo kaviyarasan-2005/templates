@@ -51,6 +51,8 @@
 [dir="rtl"] .dashboard__sidebar {
   border-inline-end: 1px solid var(--border-color);
   border-inline-start: none;
+  left: auto;
+  right: var(--space-4);
 }
 
 /* === Scroll Progress === */
