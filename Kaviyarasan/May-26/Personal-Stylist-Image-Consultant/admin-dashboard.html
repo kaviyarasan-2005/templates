@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lumière Gallery Admin Dashboard — analytics, exhibition management, revenue tracking, and artist data. Built with native Canvas API charts.">
+  <title>Admin Dashboard — Lumière Gallery</title>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#2F2F2F">  <link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="css/dark-mode.css"><link rel="stylesheet" href="css/rtl.css"><link rel="stylesheet" href="css/animations.css">
+  <script>(function(){var t=localStorage.getItem('lumiere-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);var d=localStorage.getItem('lumiere-dir')||'ltr';document.documentElement.setAttribute('dir',d);})();</script>
+  <style>
+    .dashboard-layout { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; grid-template-rows: auto 1fr; }
+    .dashboard-sidebar { background: var(--bg-primary); border-inline-end: 1px solid var(--border-color); padding: var(--space-6) 0; position: sticky; top: var(--header-height); height: calc(100vh - var(--header-height)); overflow-y: auto; grid-row: 2; transition: transform var(--transition-base); }
+    .dashboard-main { padding: var(--space-8); background: var(--bg-secondary); min-height: calc(100vh - var(--header-height)); grid-row: 2; }
+    .sidebar-link { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-6); font-size: var(--text-sm); font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: background var(--transition-fast), color var(--transition-fast); border-inline-start: 3px solid transparent; }
+    .sidebar-link:hover, .sidebar-link.active { background: var(--bg-secondary); color: var(--text-primary); border-inline-start-color: var(--color-pink); }
+    .sidebar-link.active { font-weight: 700; }
+    .sidebar-section { padding: var(--space-3) var(--space-6) var(--space-1); font-size: var(--text-2xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-block-start: var(--space-4); }
+    .kpi-card { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: var(--space-6); }
+    .kpi-value { font-size: var(--text-3xl); font-weight: 900; color: var(--text-primary); }
+    .kpi-change { font-size: var(--text-xs); font-weight: 600; }
+    .kpi-change.up { color: #22c55e; }
+    .kpi-change.down { color: #ef4444; }
+    .chart-container { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: var(--space-5); }
+    .chart-container canvas { display: block; width: 100%; border-radius: var(--radius-lg); }
+    .dashboard-table { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); overflow: hidden; }
+    .sidebar-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; background: var(--color-pink); color: var(--color-charcoal); font-size: 10px; font-weight: 700; border-radius: 999px; padding-inline: 5px; margin-inline-start: auto; }
+    @media (max-width: 1023px) {
+      .dashboard-layout { grid-template-columns: 1fr; }
+      .dashboard-sidebar { position: fixed; inset-block: 0; inset-inline-start: 0; z-index: 200; width: 280px; transform: translateX(calc(-100% - 10px)); box-shadow: var(--shadow-xl); height: 100%; top: 0; padding-block-start: calc(var(--header-height) + var(--space-4)); }
+      [dir="rtl"] .dashboard-sidebar { inset-inline-start: auto; inset-inline-end: 0; transform: translateX(calc(100% + 10px)); }
+      .dashboard-sidebar.open { transform: translateX(0); }
+      [dir="rtl"] .dashboard-sidebar.open { transform: translateX(0); }
+    }
+    @media (max-width: 768px) {
+      .dashboard-main { padding: var(--space-4); }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 480px) {
+      .kpi-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER --><header class="site-header" role="banner"><div class="header-inner"><a href="index.html" class="site-logo"><div><span class="site-logo__text">Lumière</span><span class="site-logo__sub">Gallery & Exhibition</span></div></a><nav class="primary-nav" aria-label="Main navigation"><div class="nav-dropdown"><a href="index.html" class="nav-link nav-dropdown__trigger">Home</a><div class="nav-dropdown__menu"><a href="index.html" class="nav-dropdown__item">Home Page 1</a><a href="home-2.html" class="nav-dropdown__item">Home Page 2</a></div></div><a href="about.html" class="nav-link">About Us</a><div class="nav-dropdown"><a href="services.html" class="nav-link nav-dropdown__trigger">Services</a><div class="nav-dropdown__menu" role="menu"><a href="services.html" class="nav-dropdown__item" role="menuitem">Services<span class="item-sub">All Services</span></a><a href="service-details.html" class="nav-dropdown__item" role="menuitem">Service Details<span class="item-sub">Individual Service</span></a></div></div><div class="nav-dropdown"><a href="blog.html" class="nav-link nav-dropdown__trigger">Blog</a><div class="nav-dropdown__menu" role="menu"><a href="blog.html" class="nav-dropdown__item" role="menuitem">Blog<span class="item-sub">All Articles</span></a><a href="blog-details.html" class="nav-dropdown__item" role="menuitem">Blog Details<span class="item-sub">Article View</span></a></div></div><a href="contact.html" class="nav-link">Contact</a><a href="pricing.html" class="nav-link">Pricing</a><div class="nav-dropdown"><span class="nav-link nav-dropdown__trigger active" style="cursor:pointer;">Dashboard</span><div class="nav-dropdown__menu"><a href="admin-dashboard.html" class="nav-dropdown__item active">Admin Dashboard<span class="item-sub">Analytics & Management</span></a><a href="user-dashboard.html" class="nav-dropdown__item">User Dashboard<span class="item-sub">Your Bookings & Activity</span></a></div></div></nav><div class="header-controls"><button id="sidebar-toggle" class="ctrl-btn" aria-label="Toggle sidebar" title="Toggle sidebar" style="display:none;">☰</button><button id="globe-toggle" class="ctrl-btn" aria-label="Toggle RTL/LTR layout direction" aria-pressed="false">🌐</button><button id="theme-toggle" class="ctrl-btn" aria-label="Switch to dark mode" style="position:relative;"><span class="theme-icon-label-sun" style="position:absolute;">☀️</span><span class="theme-icon-label-moon" style="position:absolute;display:none;">🌙</span><span class="sr-only">Toggle theme</span></button><a href="login.html" class="btn btn--primary btn--sm">Sign In</a><button id="hamburger" class="hamburger" aria-label="Open navigation menu"><span class="hamburger__line"></span><span class="hamburger__line"></span><span class="hamburger__line"></span></button></div></div></header>
+<div id="menu-backdrop" class="mobile-menu__backdrop" aria-hidden="true"></div>
+<nav id="mobile-menu" class="mobile-menu"><div class="mobile-menu__header"><a href="index.html" class="site-logo"><span class="site-logo__text">Lumière</span></a><button id="mobile-menu-close" class="mobile-menu__close">✕</button></div><div class="mobile-menu__nav"><a href="index.html" class="mobile-nav-link">Home Page 1</a><a href="home-2.html" class="mobile-nav-link">Home Page 2</a><a href="about.html" class="mobile-nav-link">About Us</a><a href="services.html" class="mobile-nav-link">Services</a><a href="service-details.html" class="mobile-nav-link">Service Details</a><a href="blog.html" class="mobile-nav-link">Blog</a><a href="blog-details.html" class="mobile-nav-link">Blog Details</a><a href="contact.html" class="mobile-nav-link">Contact</a><a href="pricing.html" class="mobile-nav-link">Pricing</a><a href="admin-dashboard.html" class="mobile-nav-link active">Admin Dashboard</a><a href="user-dashboard.html" class="mobile-nav-link">User Dashboard</a><a href="login.html" class="mobile-nav-link">Sign In</a></div></nav>
+<div id="sidebar-backdrop" style="position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:199;display:none;opacity:0;transition:opacity 0.3s;" onclick="document.querySelector('.dashboard-sidebar').classList.remove('open');this.style.opacity='0';setTimeout(()=>this.style.display='none',300);"></div>
+
+<main id="main-content">
+<div class="dashboard-layout" style="padding-block-start:var(--header-height);">
+
+  <!-- SIDEBAR -->
+  <aside class="dashboard-sidebar" role="navigation" aria-label="Dashboard navigation" id="dashboard-sidebar">
+    <div style="padding: var(--space-4) var(--space-6) var(--space-2);">
+      <div style="display:flex;align-items:center;gap:var(--space-3);">
+        <img src="images/team/team-1.png" alt="Admin user profile" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--color-pink);" loading="lazy">
+        <div><p style="font-weight:700;font-size:var(--text-sm);color:var(--text-primary);">Eleanor Whitfield</p><p style="font-size:var(--text-xs);color:var(--text-muted);">Gallery Director</p></div>
+      </div>
+    </div>
+
+    <span class="sidebar-section">Overview</span>
+    <a href="#kpi" class="sidebar-link active" onclick="scrollSection(this,'kpi')">📊 Analytics</a>
+    <a href="#visitors-section" class="sidebar-link" onclick="scrollSection(this,'visitors-section')">👥 Visitors</a>
+    <a href="#revenue-section" class="sidebar-link" onclick="scrollSection(this,'revenue-section')">💰 Revenue</a>
+    <a href="#exhibitions-section" class="sidebar-link" onclick="scrollSection(this,'exhibitions-section')">🖼 Exhibitions</a>
+
+    <span class="sidebar-section">Management</span>
+    <a href="#artworks-section" class="sidebar-link" onclick="scrollSection(this,'artworks-section')">🎨 Top Artworks</a>
+    <a href="#inquiries-section" class="sidebar-link" onclick="scrollSection(this,'inquiries-section')">✉ Inquiries <span class="sidebar-badge">7</span></a>
+    <a href="#users-section" class="sidebar-link" onclick="scrollSection(this,'users-section')">👤 Users</a>
+
+    <span class="sidebar-section">Tools</span>
+    <a href="services.html" class="sidebar-link">⚙ Services</a>
+    <a href="pricing.html" class="sidebar-link">💳 Pricing</a>
+    <a href="contact.html" class="sidebar-link">📩 Contact</a>
+    <a href="blog.html" class="sidebar-link">📖 Blog</a>
+
+    <div style="margin-block-start:auto;padding:var(--space-6);">
+      <a href="login.html" class="btn btn--secondary btn--full" style="font-size:var(--text-sm);">Sign Out</a>
+    </div>
+  </aside>
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <div class="dashboard-main">
+
+    <!-- SECTION 1: TOP BAR -->
+    <section id="kpi" aria-label="Dashboard Overview KPIs">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4);margin-block-end:var(--space-6);">
+        <div>
+          <h1 style="font-size:var(--text-2xl);font-weight:800;">Admin Dashboard</h1>
+          <p style="color:var(--text-muted);font-size:var(--text-sm);">Lumière Gallery — 2025 Overview</p>
+        </div>
+        <div style="display:flex;gap:var(--space-3);">
+          <button id="sidebar-toggle-btn" class="btn btn--secondary btn--sm" aria-label="Toggle sidebar" style="display:none;" onclick="document.querySelector('.dashboard-sidebar').classList.toggle('open');const bd=document.getElementById('sidebar-backdrop');if(document.querySelector('.dashboard-sidebar').classList.contains('open')){bd.style.display='block';setTimeout(()=>bd.style.opacity='1',10);}else{bd.style.opacity='0';setTimeout(()=>bd.style.display='none',300);}">
+            ☰ Sidebar
+          </button>
+          <button class="btn btn--secondary btn--sm" onclick="window.print()">⬇ Export PDF</button>
+          <a href="contact.html" class="btn btn--primary btn--sm">+ New Inquiry</a>
+        </div>
+      </div>
+
+      <!-- KPI Grid -->
+      <div class="kpi-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);margin-block-end:var(--space-6);">
+        <div class="kpi-card">
+          <p style="font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-block-end:var(--space-2);">Total Visitors</p>
+          <p class="kpi-value stat-counter" data-target="94200" data-suffix="" data-duration="1800">0</p>
+          <p class="kpi-change up" style="margin-block-start:var(--space-2);">↑ 23.4% vs last year</p>
+        </div>
+        <div class="kpi-card">
+          <p style="font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-block-end:var(--space-2);">Total Revenue</p>
+          <p class="kpi-value" style="font-size:var(--text-2xl);">$<span class="stat-counter" data-target="657" data-suffix="K" data-duration="1800">0K</span></p>
+          <p class="kpi-change up" style="margin-block-start:var(--space-2);">↑ 31.2% vs last year</p>
+        </div>
+        <div class="kpi-card">
+          <p style="font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-block-end:var(--space-2);">Active Exhibitions</p>
+          <p class="kpi-value stat-counter" data-target="12" data-suffix="" data-duration="800">0</p>
+          <p class="kpi-change up" style="margin-block-start:var(--space-2);">↑ 4 new this quarter</p>
+        </div>
+        <div class="kpi-card">
+          <p style="font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-block-end:var(--space-2);">Open Inquiries</p>
+          <p class="kpi-value stat-counter" data-target="7" data-suffix="" data-duration="600">0</p>
+          <p class="kpi-change down" style="margin-block-start:var(--space-2);">↓ 2 from last week</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: VISITOR TRAFFIC (Line Chart) -->
+    <section id="visitors-section" style="margin-block-end:var(--space-6);" aria-label="Visitor Traffic Chart">
+      <div class="chart-container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-block-end:var(--space-4);">
+          <h2 style="font-size:var(--text-lg);font-weight:700;">Visitor Traffic (2025)</h2>
+          <div style="display:flex;gap:var(--space-2);">
+            <button class="btn btn--secondary btn--sm" style="font-size:var(--text-xs);">Monthly</button>
+            <button class="btn btn--ghost btn--sm" style="font-size:var(--text-xs);">Weekly</button>
+          </div>
+        </div>
+        <canvas id="visitors-chart" style="height:240px;" aria-label="Line chart showing monthly visitor traffic throughout 2025" role="img"></canvas>
+      </div>
+    </section>
+
+    <!-- SECTION 3: REVENUE (Bar Chart) + EXHIBITION TYPES (Donut) -->
+    <section id="revenue-section" style="display:grid;grid-template-columns:1.4fr 1fr;gap:var(--space-4);margin-block-end:var(--space-6);" aria-label="Revenue and Exhibition Type Charts">
+      <div class="chart-container">
+        <h2 style="font-size:var(--text-md);font-weight:700;margin-block-end:var(--space-4);">Monthly Revenue ($)</h2>
+        <canvas id="revenue-chart" style="height:220px;" aria-label="Bar chart showing monthly revenue for 2025" role="img"></canvas>
+      </div>
+      <div class="chart-container">
+        <h2 style="font-size:var(--text-md);font-weight:700;margin-block-end:var(--space-4);">Exhibition Types</h2>
+        <canvas id="exhibition-types-chart" style="height:220px;" aria-label="Donut chart showing breakdown of exhibition types" role="img"></canvas>
+      </div>
+    </section>
+
+    <!-- SECTION 4: TOP ARTWORKS (Horizontal Bar) -->
+    <section id="artworks-section" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin-block-end:var(--space-6);" aria-label="Top Artworks Section">
+      <div class="chart-container" id="exhibitions-section">
+        <h2 style="font-size:var(--text-md);font-weight:700;margin-block-end:var(--space-4);">Top Artworks by Views</h2>
+        <canvas id="top-artworks-chart" style="height:220px;" aria-label="Horizontal bar chart of top artworks by views" role="img"></canvas>
+      </div>
+      <div class="dashboard-table" aria-label="Quick Stats Table">
+        <div style="padding:var(--space-5);border-block-end:1px solid var(--border-color);">
+          <h2 style="font-size:var(--text-md);font-weight:700;">Quick Stats</h2>
+        </div>
+        <table class="data-table" style="font-size:var(--text-sm);">
+          <thead><tr><th data-sort>Metric</th><th data-sort>Value</th><th data-sort>Change</th></tr></thead>
+          <tbody>
+            <tr><td>Avg. Time on Site</td><td>4m 32s</td><td style="color:#22c55e;">↑ 12%</td></tr>
+            <tr><td>Bounce Rate</td><td>38.2%</td><td style="color:#22c55e;">↓ 4%</td></tr>
+            <tr><td>New Collectors</td><td>142</td><td style="color:#22c55e;">↑ 28%</td></tr>
+            <tr><td>Return Visitors</td><td>61%</td><td style="color:#22c55e;">↑ 9%</td></tr>
+            <tr><td>Conversion Rate</td><td>3.8%</td><td style="color:#22c55e;">↑ 0.4%</td></tr>
+            <tr><td>Avg. Order Value</td><td>$4,620</td><td style="color:#ef4444;">↓ 2%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INQUIRIES TABLE -->
+    <section id="inquiries-section" style="margin-block-end:var(--space-6);" aria-label="Recent Inquiries">
+      <div class="dashboard-table">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-5);border-block-end:1px solid var(--border-color);">
+          <h2 style="font-size:var(--text-md);font-weight:700;">Recent Inquiries <span class="sidebar-badge" style="margin-inline-start:var(--space-2);">7</span></h2>
+          <a href="contact.html" class="btn btn--secondary btn--sm" style="font-size:var(--text-xs);">View All</a>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="data-table" style="font-size:var(--text-sm);">
+            <thead><tr><th data-sort>Name</th><th data-sort>Service</th><th data-sort>Date</th><th data-sort>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/team/team-1.png" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;" loading="lazy"> Eleanor Whitman</div></td><td>Exhibition Curation</td><td>Apr 18, 2025</td><td><span style="background:#dcfce7;color:#166534;font-size:var(--text-xs);font-weight:600;padding:2px 8px;border-radius:999px;">Open</span></td><td><a href="#" class="btn btn--secondary btn--sm" style="font-size:var(--text-xs);">Reply</a></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/team/team-2.png" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;" loading="lazy"> David Nakamura</div></td><td>Art Consulting</td><td>Apr 17, 2025</td><td><span style="background:#fef9c3;color:#854d0e;font-size:var(--text-xs);font-weight:600;padding:2px 8px;border-radius:999px;">Pending</span></td><td><a href="#" class="btn btn--secondary btn--sm" style="font-size:var(--text-xs);">Reply</a></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/team/team-3.png" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;" loading="lazy"> Amara Osei</div></td><td>Digital Gallery</td><td>Apr 16, 2025</td><td><span style="background:#fee2e2;color:#991b1b;font-size:var(--text-xs);font-weight:600;padding:2px 8px;border-radius:999px;">Urgent</span></td><td><a href="#" class="btn btn--secondary btn--sm" style="font-size:var(--text-xs);">Reply</a></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/team/team-4.png" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;" loading="lazy"> Robert Kim</div></td><td>Event Hosting</td><td>Apr 15, 2025</td><td><span style="background:#f0fdf4;color:#166534;font-size:var(--text-xs);font-weight:600;padding:2px 8px;border-radius:999px;">Open</span></td><td><a href="#" class="btn btn--secondary btn--sm" style="font-size:var(--text-xs);">Reply</a></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/team/team-1.png" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;" loading="lazy"> Marie Leclerc</div></td><td>Exhibition Curation</td><td>Apr 14, 2025</td><td><span style="background:#ede9fe;color:#6d28d9;font-size:var(--text-xs);font-weight:600;padding:2px 8px;border-radius:999px;">In Progress</span></td><td><a href="#" class="btn btn--secondary btn--sm" style="font-size:var(--text-xs);">Reply</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: USERS TABLE -->
+    <section id="users-section" aria-label="User Management">
+      <div class="dashboard-table">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-5);border-block-end:1px solid var(--border-color);flex-wrap:wrap;gap:var(--space-4);">
+          <h2 style="font-size:var(--text-md);font-weight:700;">User Management</h2>
+          <div style="display:flex;gap:var(--space-3);">
+            <input type="search" class="form-input" placeholder="Search users..." aria-label="Search users" style="min-height:36px;font-size:var(--text-sm);">
+            <button class="btn btn--primary btn--sm">+ Add User</button>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="data-table" style="font-size:var(--text-sm);">
+            <thead><tr><th data-sort>User</th><th data-sort>Plan</th><th data-sort>Joined</th><th data-sort>Last Active</th><th data-sort>Bookings</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/team/team-1.png" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;" loading="lazy"><div><p style="font-weight:600;">Eleanor Whitman</p><p style="color:var(--text-muted);font-size:10px;">eleanor@example.com</p></div></div></td><td><span style="background:var(--color-pink);color:var(--color-charcoal);font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;">Pro</span></td><td>Jan 2024</td><td>Today</td><td>12</td><td style="display:flex;gap:var(--space-2);"><a href="#" class="btn btn--secondary btn--sm" style="font-size:10px;">Edit</a><a href="#" class="btn btn--ghost btn--sm" style="font-size:10px;">View</a></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/team/team-2.png" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;" loading="lazy"><div><p style="font-weight:600;">David Nakamura</p><p style="color:var(--text-muted);font-size:10px;">david@meridian.com</p></div></div></td><td><span style="background:#ede9fe;color:#6d28d9;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;">Enterprise</span></td><td>Mar 2024</td><td>Yesterday</td><td>8</td><td style="display:flex;gap:var(--space-2);"><a href="#" class="btn btn--secondary btn--sm" style="font-size:10px;">Edit</a><a href="#" class="btn btn--ghost btn--sm" style="font-size:10px;">View</a></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/team/team-3.png" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;" loading="lazy"><div><p style="font-weight:600;">Amara Osei</p><p style="color:var(--text-muted);font-size:10px;">amara@artist.io</p></div></div></td><td><span style="background:#f1f5f9;color:#475569;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;">Free</span></td><td>Apr 2024</td><td>2 days ago</td><td>3</td><td style="display:flex;gap:var(--space-2);"><a href="#" class="btn btn--secondary btn--sm" style="font-size:10px;">Edit</a><a href="#" class="btn btn--ghost btn--sm" style="font-size:10px;">View</a></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/team/team-4.png" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;" loading="lazy"><div><p style="font-weight:600;">Thomas Delacroix</p><p style="color:var(--text-muted);font-size:10px;">thomas@lumieregallery.com</p></div></div></td><td><span style="background:var(--color-pink);color:var(--color-charcoal);font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;">Pro</span></td><td>Feb 2024</td><td>Today</td><td>6</td><td style="display:flex;gap:var(--space-2);"><a href="#" class="btn btn--secondary btn--sm" style="font-size:10px;">Edit</a><a href="#" class="btn btn--ghost btn--sm" style="font-size:10px;">View</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:var(--space-4) var(--space-5);display:flex;align-items:center;justify-content:space-between;border-block-start:1px solid var(--border-color);flex-wrap:wrap;gap:var(--space-3);">
+          <p style="font-size:var(--text-xs);color:var(--text-muted);">Showing 4 of 142 users</p>
+          <div style="display:flex;gap:var(--space-2);">
+            <button class="btn btn--secondary btn--sm" style="min-width:36px;">‹</button>
+            <button class="btn btn--primary btn--sm" style="min-width:36px;">1</button>
+            <button class="btn btn--secondary btn--sm" style="min-width:36px;">2</button>
+            <button class="btn btn--secondary btn--sm" style="min-width:36px;">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.dashboard-main -->
+</div><!-- /.dashboard-layout -->
+</main>
+
+<!-- FOOTER --><footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="index.html" class="footer-brand"><span class="footer-logo__text">Lumière</span></a><p class="footer-description">Lumière Gallery & Exhibition Space is a premier curator of visual arts experiences, dedicated to connecting extraordinary artists with passionate audiences across the globe.</p></div><div class="footer-col"><h3 class="footer-col__title">Quick Links</h3><ul class="footer-links"><li><a href="index.html" class="footer-link">Home</a></li><li><a href="about.html" class="footer-link">About Us</a></li><li><a href="services.html" class="footer-link">Services</a></li><li><a href="blog.html" class="footer-link">Blog</a></li><li><a href="contact.html" class="footer-link">Contact</a></li><li><a href="pricing.html" class="footer-link">Pricing</a></li></ul></div><div class="footer-col"><h3 class="footer-col__title">Services</h3><ul class="footer-links"><li><a href="service-details.html" class="footer-link">Exhibition Curation</a></li><li><a href="service-details.html" class="footer-link">Digital Gallery</a></li><li><a href="service-details.html" class="footer-link">Art Consulting</a></li><li><a href="service-details.html" class="footer-link">Event Hosting</a></li><li><a href="admin-dashboard.html" class="footer-link">Admin Dashboard</a></li><li><a href="user-dashboard.html" class="footer-link">User Dashboard</a></li></ul></div><div class="footer-col"><h3 class="footer-col__title">Get In Touch</h3><div class="footer-contact-item"><span class="footer-contact-icon">✉</span><span>hello@lumieregallery.com</span></div><div class="footer-contact-item"><span class="footer-contact-icon">✆</span><span>+1 (555) ART-0101</span></div><div class="footer-contact-item"><span class="footer-contact-icon">⌂</span><span>42 Artisan Blvd, New York, NY 10001</span></div><div class="footer-newsletter" style="margin-block-start:var(--space-6);"><h3 class="footer-col__title">Newsletter</h3><form class="newsletter-form"><input type="email" class="form-input" placeholder="Your email" required aria-label="Newsletter email" style="margin-block-end:var(--space-3);"><button type="submit" class="btn btn--primary btn--full" style="background:var(--color-pink);color:var(--color-charcoal);border-color:var(--color-pink);">Subscribe</button><p class="newsletter-success" style="display:none;color:#4ade80;font-size:var(--text-xs);margin-block-start:var(--space-2);">✓ Subscribed!</p></form></div></div></div><div class="footer-bottom"><p class="footer-copyright">© 2025 Lumière Gallery & Exhibition Space. All rights reserved.</p></div></div></footer>
+
+<script src="js/theme-toggle.js"></script><script src="js/rtl-toggle.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script><script src="js/charts.js"></script>
+<script>
+// Show sidebar toggle on tablet/mobile
+if (window.innerWidth <= 1023) {
+  document.getElementById('sidebar-toggle-btn').style.display = 'flex';
+}
+window.addEventListener('resize', () => {
+  document.getElementById('sidebar-toggle-btn').style.display = window.innerWidth <= 1023 ? 'flex' : 'none';
+});
+
+function scrollSection(link, id) {
+  event.preventDefault();
+  document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+  link.classList.add('active');
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>

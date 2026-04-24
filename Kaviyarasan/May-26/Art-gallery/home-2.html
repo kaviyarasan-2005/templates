@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery & Exhibition Space | Niche Exhibition</title>
+  <meta name="description" content="Immerse yourself in our niche collections, spotlighting visionary artists and virtual tours.">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <!-- Favicons (Placeholder links) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <i class="fa-solid fa-palette"></i>
+        <span>Lumina Gallery</span>
+      </a>
+
+      <nav class="nav-menu">
+        <li class="has-dropdown">
+          <a href="#" class="nav-link active">Home <i class="fa-solid fa-chevron-down" style="font-size:0.75em; margin-left:4px;"></i></a>
+          <div class="dropdown-menu">
+            <a href="index.html">Home Page 1 — General</a>
+            <a href="home-2.html" class="active">Home Page 2 — Niche</a>
+          </div>
+        </li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="blog.html" class="nav-link">Journal</a></li>
+        <li><a href="pricing.html" class="nav-link">Membership</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="login.html" class="nav-link">Sign In</a></li>
+      </nav>
+
+      <div class="nav-toggles">
+        <button class="toggle-btn rtl-toggle" aria-label="Toggle RTL/LTR">
+          <i class="fa-solid fa-globe"></i>
+        </button>
+        <button class="toggle-btn theme-toggle" aria-label="Toggle Dark/Light Mode">
+          <i class="fa-regular fa-moon"></i>
+        </button>
+        <button class="toggle-btn mobile-menu-btn" aria-label="Toggle Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Hero (Immersive) -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1578301978018-3005759f48f7?auto=format&fit=crop&q=80&w=1920'); background-size: cover; background-position: center; min-height: 100vh; display: flex; align-items: center; color: #fff;">
+      <div class="container text-center fade-up">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80" alt="Spotlight Icon" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto; margin-bottom: var(--spacing-4); border: 2px solid var(--accent-primary);">
+        <div class="text-sm text-muted mb-2" style="letter-spacing: 2px; text-transform: uppercase;">Exclusive Niche Exhibition</div>
+        <h1 style="color: #fff; margin-bottom: var(--spacing-4); font-size: clamp(3rem, 6vw, 5rem);">Echoes of Silence</h1>
+        <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto var(--spacing-6); color: #ccc;">A profound solo exhibition by Clara Voss, discovering the unseen spaces between noise and quiet.</p>
+        <a href="#spotlight" class="btn btn-primary" style="padding: 1rem 3rem;">Explore Collection</a>
+      </div>
+    </section>
+
+    <!-- Section 2: Current Collection Spotlight -->
+    <section id="spotlight" class="spotlight py-section">
+      <div class="container grid md:grid-cols-2 items-center gap-8 fade-up">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800" alt="Featured Art Piece" loading="lazy">
+        </div>
+        <div>
+          <div class="text-secondary text-sm mb-2" style="font-weight: 600;">Featured Piece</div>
+          <h2 style="font-size: 2.5rem;">The Veiled Silhouette</h2>
+          <p class="text-secondary mb-4">This central piece of the "Echoes of Silence" collection uses striking chiaroscuro techniques to represent the duality of human emotion.</p>
+          <div class="flex gap-4">
+            <div style="background: var(--bg-card); padding: 1rem; border: 1px solid var(--border-color); border-radius: 4px;">
+              <div class="text-muted text-sm">Medium</div>
+              <div style="font-weight: 500;">Oil on Canvas</div>
+            </div>
+            <div style="background: var(--bg-card); padding: 1rem; border: 1px solid var(--border-color); border-radius: 4px;">
+              <div class="text-muted text-sm">Dimensions</div>
+              <div style="font-weight: 500;">120 x 180 cm</div>
+            </div>
+          </div>
+          <a href="service-details.html" class="btn btn-secondary mt-6">View Full Specifications</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Artist Profiles / Curators -->
+    <section class="artist-profile py-section" style="background-color: var(--bg-secondary);">
+      <div class="container text-center fade-up mb-section">
+        <h2>Visionaries Behind the Canvas</h2>
+        <p class="text-secondary">Meet the minds shaping this exhibition</p>
+      </div>
+      <div class="container grid lg:grid-cols-3 fade-up">
+        <div class="card text-center">
+          <div class="img-wrap mx-auto" style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem;">
+            <img src="https://images.unsplash.com/photo-1546452273-0fb66d6233ba?auto=format&fit=crop&w=300&h=300&q=80" alt="Clara Voss">
+          </div>
+          <h3>Clara Voss</h3>
+          <h4 class="text-secondary text-sm" style="margin-bottom: 1rem;">Primary Artist</h4>
+          <p class="text-secondary">Award-winning painter known for emotive abstract expressionism and mastery of shadow.</p>
+        </div>
+        <div class="card text-center">
+          <div class="img-wrap mx-auto" style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem;">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&h=300&q=80" alt="Arthur Reed">
+          </div>
+          <h3>Arthur Reed</h3>
+          <h4 class="text-secondary text-sm" style="margin-bottom: 1rem;">Lead Curator</h4>
+          <p class="text-secondary">Renowned art historian with 20 years of experience curating immersive emotional journeys.</p>
+        </div>
+        <div class="card text-center">
+          <div class="img-wrap mx-auto" style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&h=300&q=80" alt="Sarah Lin">
+          </div>
+          <h3>Sarah Lin</h3>
+          <h4 class="text-secondary text-sm" style="margin-bottom: 1rem;">Exhibition Designer</h4>
+          <p class="text-secondary">Architect of space, ensuring every art piece breathes natively in its designated gallery pocket.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Virtual Tour / Preview -->
+    <section class="virtual-tour py-section">
+      <div class="container fade-up text-center mb-section">
+        <h2>Experience the Gallery Virtually</h2>
+        <p class="text-secondary">Can't visit in person? Take a 360° tour of our exclusive niche space.</p>
+      </div>
+      <div class="container fade-up relative" style="position: relative;">
+        <!-- Virtual Tour Placeholder -->
+        <div class="img-wrap" style="aspect-ratio: 16/9; position: relative;">
+          <img src="https://images.unsplash.com/photo-1563821015694-de48e7156add?auto=format&fit=crop&w=1200&q=80" alt="Gallery 360 View" style="filter: brightness(0.8);">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <button class="btn btn-primary" style="width: 80px; height: 80px; border-radius: 50%; font-size: 2rem; padding: 0;">
+              <i class="fa-solid fa-play" style="margin-left: 5px;"></i>
+            </button>
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          <p class="text-sm text-secondary">Interactive virtual tour is compatible with desktop and VR headsets.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Visitor Information -->
+    <section class="visitor-info py-section" style="background-color: var(--bg-card); border-top: 1px solid var(--border-color);">
+      <div class="container grid md:grid-cols-2 gap-8 fade-up items-center">
+        <div>
+          <h2>Plan Your Visit</h2>
+          <p class="text-secondary mb-6">We invite you to experience "Echoes of Silence" in person. Admissions are managed to ensure a quiet, reflective atmosphere.</p>
+          
+          <div class="mb-4">
+            <h3 style="font-size: 1.25rem;"><i class="fa-regular fa-clock" style="color: var(--accent-primary); width: 24px;"></i> Gallery Hours</h3>
+            <p class="text-secondary">Tue - Sun: 10:00 AM - 6:00 PM<br>Closed on Mondays</p>
+          </div>
+          
+          <div class="mb-6">
+            <h3 style="font-size: 1.25rem;"><i class="fa-solid fa-map-pin" style="color: var(--accent-primary); width: 24px;"></i> Location</h3>
+            <p class="text-secondary">1584 Art Avenue, Cultural District<br>New York, NY 10012</p>
+          </div>
+          
+          <a href="contact.html" class="btn btn-secondary">Get Directions</a>
+        </div>
+        <!-- Map Placeholder -->
+        <div class="img-wrap" style="aspect-ratio: 4/3; border-radius: 8px;">
+          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Map Location Placeholder" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Membership / Patron CTA -->
+    <section class="patron-cta py-section text-center" style="background-color: var(--button-primary-bg); color: var(--button-primary-text);">
+      <div class="container fade-up">
+        <h2 style="color: var(--button-primary-text); margin-bottom: var(--spacing-4);">Become a Patron of the Arts</h2>
+        <p style="max-width: 600px; margin: 0 auto var(--spacing-6); opacity: 0.9;">Join the Lumina Membership program for exclusive private viewings, artist meet-ups, and complimentary access to all special exhibitions.</p>
+        <div class="flex justify-center gap-4">
+          <a href="pricing.html" class="btn" style="background-color: var(--accent-primary); color: #1a1a1a;">View Memberships</a>
+          <a href="contact.html" class="btn btn-secondary" style="border-color: rgba(255,255,255,0.3); color: var(--button-primary-text);">Contact Curator</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
+        <div class="footer-col">
+          <a href="index.html" class="brand mb-4" style="display:inline-flex;">
+            <i class="fa-solid fa-palette"></i>
+            <span>Lumina</span>
+          </a>
+          <p>Curating exceptional contemporary and classic art experiences since 1998.</p>
+        </div>
+        <div class="footer-col pl-4">
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="pricing.html">Membership</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <div class="footer-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="blog.html">Journal</a>
+            <a href="login.html">Sign In</a>
+            <a href="register.html">Register</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="social-links mt-4">
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Lumina Gallery. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

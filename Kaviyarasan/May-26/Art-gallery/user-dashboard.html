@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery | User Dashboard</title>
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body { background-color: var(--bg-secondary); margin: 0; padding: 0; overflow-x: hidden; }
+    
+    .dashboard-layout {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.3s ease;
+      z-index: 100;
+    }
+    html[dir="rtl"] .sidebar { border-right: none; border-left: 1px solid var(--border-color); }
+
+    .sidebar-brand {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      padding: 0 var(--spacing-5);
+      border-bottom: 1px solid var(--border-color);
+      text-decoration: none;
+    }
+
+    .nav-items {
+      flex: 1;
+      padding: var(--spacing-4) 0;
+      overflow-y: auto;
+    }
+    
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+      padding: 0.75rem var(--spacing-5);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+    html[dir="rtl"] .nav-item { border-left: none; border-right: 3px solid transparent; }
+
+    .nav-item:hover, .nav-item.active {
+      color: var(--accent-primary);
+      background-color: var(--bg-secondary);
+      border-left-color: var(--accent-primary);
+    }
+    html[dir="rtl"] .nav-item:hover, html[dir="rtl"] .nav-item.active { border-right-color: var(--accent-primary); }
+
+    .sidebar-footer {
+      padding: var(--spacing-4) var(--spacing-5);
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .top-bar {
+      height: var(--nav-height);
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--spacing-6);
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-4);
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      position: relative;
+    }
+    .badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #e53e3e;
+      color: #fff;
+      font-size: 0.6rem;
+      font-weight: 700;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+    }
+    .user-profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .dashboard-body {
+      flex: 1;
+      padding: var(--spacing-6);
+      overflow-y: auto;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--spacing-4);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: var(--spacing-4);
+      border-radius: 8px;
+    }
+    .stat-title {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      margin-bottom: 8px;
+    }
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-6);
+    }
+    .charts-grid-row2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .chart-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: var(--spacing-4);
+      border-radius: 8px;
+    }
+
+    /* Table styles */
+    .table-responsive {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    html[dir="rtl"] table { text-align: right; }
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    th {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .status-completed { background: #d4edda; color: #155724; }
+    .status-pending { background: #fff3cd; color: #856404; }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        position: fixed;
+        left: -260px;
+        height: 100%;
+      }
+      .sidebar.open { left: 0; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+      html[dir="rtl"] .sidebar { left: auto; right: -260px; }
+      html[dir="rtl"] .sidebar.open { right: 0; }
+      .charts-grid, .charts-grid-row2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <a href="index.html" class="sidebar-brand brand">
+        <i class="fa-solid fa-palette"></i>
+        <span>Lumina</span>
+      </a>
+      <div class="nav-items">
+        <a href="#" class="nav-item active"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-ticket"></i> My Tickets</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-heart"></i> Saved Artworks</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-user"></i> Profile</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Settings</a>
+      </div>
+      <div class="sidebar-footer">
+        <a href="login.html" class="nav-item" style="padding-left: 0; padding-right: 0;"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="top-bar">
+        <button class="icon-btn" id="mobileMenuToggle" style="display: none;"><i class="fa-solid fa-bars"></i></button>
+        <div style="flex: 1;" class="hide-mobile">
+          <h2 style="font-size: 1.25rem; margin: 0; font-family: var(--font-body);">Welcome back, Jane</h2>
+        </div>
+        <div class="top-bar-right">
+          <button class="icon-btn rtl-toggle"><i class="fa-solid fa-globe"></i></button>
+          <button class="icon-btn theme-toggle"><i class="fa-regular fa-moon"></i></button>
+          <button class="icon-btn">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">2</span>
+          </button>
+          <div class="user-profile">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&h=100&q=80" alt="Jane">
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-body">
+        
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-title">Tickets Purchased</div>
+            <div class="stat-value">12</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">Artworks Saved</div>
+            <div class="stat-value">48</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">Exhibitions Attended</div>
+            <div class="stat-value">5</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">Membership Tier</div>
+            <div class="stat-value" style="color: var(--accent-primary);">Patron</div>
+          </div>
+        </div>
+
+        <!-- Charts Row 1 -->
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3 style="font-size: 1.125rem; font-family: var(--font-body);">Gallery Visits Over Time</h3>
+            <div style="height: 300px; width: 100%;">
+              <canvas id="lineChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3 style="font-size: 1.125rem; font-family: var(--font-body);">Favorite Art Categories</h3>
+            <div style="height: 300px; width: 100%; display: flex; justify-content: center;">
+              <canvas id="doughnutChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row 2 -->
+        <div class="charts-grid-row2">
+          <div class="chart-card">
+            <h3 style="font-size: 1.125rem; font-family: var(--font-body);">Monthly Spending (Tickets/Merch)</h3>
+            <div style="height: 250px; width: 100%;">
+              <!-- Compact sized bar chart -->
+              <canvas id="barChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3 style="font-size: 1.125rem; font-family: var(--font-body);">Engagement Metrics</h3>
+            <div style="height: 250px; width: 100%; display: flex; justify-content: center;">
+              <!-- Radar chart -->
+              <canvas id="radarChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity Table -->
+        <div class="chart-card mb-6">
+          <h3 style="font-size: 1.125rem; font-family: var(--font-body); margin-bottom: 1rem;">Recent Transactions</h3>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Description</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#ORD-8901</td>
+                  <td>Gala Night: Winter Reveal (2x Tickets)</td>
+                  <td>Oct 15, 2026</td>
+                  <td>$120.00</td>
+                  <td><span class="status-badge status-completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>#ORD-8854</td>
+                  <td>Renaissance Catalog Premium Edition</td>
+                  <td>Oct 02, 2026</td>
+                  <td>$45.00</td>
+                  <td><span class="status-badge status-completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>#ORD-8712</td>
+                  <td>Private Art Consultation Retainer</td>
+                  <td>Sep 28, 2026</td>
+                  <td>$250.00</td>
+                  <td><span class="status-badge status-pending">In Progress</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Responsive sidebar hack
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    function checkWidth() {
+      if(window.innerWidth <= 1024) {
+        mobileMenuToggle.style.display = 'block';
+      } else {
+        mobileMenuToggle.style.display = 'none';
+        sidebar.classList.remove('open');
+      }
+    }
+    window.addEventListener('resize', checkWidth);
+    checkWidth();
+
+    mobileMenuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+
+    // Chart.js Configurations
+    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-primary').trim() || '#C5A059';
+    const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-primary').trim() || '#1A1A1A';
+    const gridColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim() || '#E6E2D8';
+
+    Chart.defaults.color = textColor;
+    Chart.defaults.font.family = "'Inter', sans-serif";
+
+    // 1. Line Chart
+    new Chart(document.getElementById('lineChart'), {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Visits',
+          data: [1, 2, 0, 3, 2, 4],
+          borderColor: primaryColor,
+          backgroundColor: primaryColor + '33', // 20% opacity
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: gridColor } },
+          y: { grid: { color: gridColor }, beginAtZero: true, ticks: { stepSize: 1 } }
+        }
+      }
+    });
+
+    // 2. Doughnut Chart
+    new Chart(document.getElementById('doughnutChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Abstract', 'Renaissance', 'Modern', 'Sculpture'],
+        datasets: [{
+          data: [40, 20, 25, 15],
+          backgroundColor: [
+            primaryColor,
+            '#e5e7eb',
+            '#9ca3af',
+            '#4b5563'
+          ],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '70%',
+        plugins: {
+          legend: { position: 'bottom' }
+        }
+      }
+    });
+
+    // 3. Bar Chart (Compact)
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        datasets: [{
+          label: 'Amount ($)',
+          data: [80, 150, 45, 120, 250],
+          backgroundColor: primaryColor,
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false } },
+          y: { grid: { color: gridColor }, beginAtZero: true }
+        }
+      }
+    });
+
+    // 4. Radar Chart
+    new Chart(document.getElementById('radarChart'), {
+      type: 'radar',
+      data: {
+        labels: ['Event Mng', 'Ticketing', 'Merch', 'Curation'],
+        datasets: [{
+          label: 'User Interaction',
+          data: [80, 90, 60, 40],
+          borderColor: primaryColor,
+          backgroundColor: primaryColor + '66',
+          pointBackgroundColor: primaryColor
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            angleLines: { color: gridColor },
+            grid: { color: gridColor },
+            pointLabels: { color: textColor },
+            ticks: { display: false, max: 100, min: 0 }
+          }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+  </script>
+</body>
+</html>

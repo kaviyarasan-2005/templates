@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery | 404 Not Found</title>
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-8) 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Back to Home as clickable logo -->
+      <a href="index.html" class="brand">
+        <i class="fa-solid fa-palette"></i>
+        <span>Lumina Gallery</span>
+      </a>
+
+      <div class="nav-toggles">
+        <button class="toggle-btn rtl-toggle" aria-label="Toggle RTL/LTR">
+          <i class="fa-solid fa-globe"></i>
+        </button>
+        <button class="toggle-btn theme-toggle" aria-label="Toggle Dark/Light Mode">
+          <i class="fa-regular fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container text-center fade-up" style="max-width: 800px;">
+      
+      <!-- Hero / Error Message -->
+      <h1 style="font-size: clamp(4rem, 8vw, 8rem); color: var(--accent-primary); margin-bottom: 0; line-height: 1;">404</h1>
+      <h2 style="margin-bottom: var(--spacing-4);">Frame Not Found</h2>
+      <p class="text-secondary mb-6">The gallery space you are looking for has been moved or no longer exists. Perhaps the artwork has been rotated out.</p>
+
+      <!-- Illustration (Real Image) -->
+      <div class="img-wrap mx-auto mb-6" style="max-width: 400px; aspect-ratio: 16/9; border-radius: 8px;">
+        <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=800" alt="Empty Gallery Frame" style="filter: grayscale(100%);">
+      </div>
+
+      <!-- Search Bar -->
+      <form class="mb-6 flex justify-center mx-auto" style="max-width: 400px; position: relative;">
+        <input type="text" placeholder="Search the archives..." style="width: 100%; padding: 0.75rem 1rem 0.75rem 2.5rem; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-card); color: var(--text-primary); font-family: var(--font-body);">
+        <i class="fa-solid fa-search" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+        <button type="submit" class="btn btn-primary" style="margin-left: 8px;">Search</button>
+      </form>
+
+      <!-- Helpful Links -->
+      <div class="mb-6">
+        <p class="text-secondary m-0">Try visiting these collections instead:</p>
+        <div class="flex justify-center gap-4 mt-2">
+          <a href="services.html" class="text-accent" style="color: var(--accent-primary); font-weight: 500;">Services</a>
+          <span class="text-muted">|</span>
+          <a href="blog.html" class="text-accent" style="color: var(--accent-primary); font-weight: 500;">Journal</a>
+          <span class="text-muted">|</span>
+          <a href="pricing.html" class="text-accent" style="color: var(--accent-primary); font-weight: 500;">Membership</a>
+        </div>
+      </div>
+
+      <!-- Contact Support -->
+      <div>
+        <p class="text-sm text-muted">Still lost? <a href="contact.html" style="color: var(--accent-primary); font-weight: 600;">Contact Curatorial Support</a></p>
+      </div>
+      
+    </div>
+  </main>
+
+  <!-- No footer requested, but let's keep it clean or add a very minimal footer for consistency since it's a page layout -->
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

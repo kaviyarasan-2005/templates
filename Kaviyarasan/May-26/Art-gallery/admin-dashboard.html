@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery | Admin Dashboard</title>
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body { background-color: var(--bg-secondary); margin: 0; padding: 0; overflow-x: hidden; }
+    
+    .dashboard-layout {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.3s ease;
+      z-index: 100;
+    }
+    html[dir="rtl"] .sidebar { border-right: none; border-left: 1px solid var(--border-color); }
+
+    .sidebar-brand {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      padding: 0 var(--spacing-5);
+      border-bottom: 1px solid var(--border-color);
+      text-decoration: none;
+    }
+
+    .nav-items {
+      flex: 1;
+      padding: var(--spacing-4) 0;
+      overflow-y: auto;
+    }
+    
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+      padding: 0.75rem var(--spacing-5);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+    html[dir="rtl"] .nav-item { border-left: none; border-right: 3px solid transparent; }
+
+    .nav-item:hover, .nav-item.active {
+      color: var(--button-primary-bg); /* Use primary bg color for active states */
+      background-color: var(--bg-secondary);
+      border-left-color: var(--button-primary-bg);
+    }
+    html[dir="rtl"] .nav-item:hover, html[dir="rtl"] .nav-item.active { border-right-color: var(--button-primary-bg); }
+
+    .sidebar-footer {
+      padding: var(--spacing-4) var(--spacing-5);
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .top-bar {
+      height: var(--nav-height);
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--spacing-6);
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-4);
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      position: relative;
+    }
+    .badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #e53e3e;
+      color: #fff;
+      font-size: 0.6rem;
+      font-weight: 700;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+    }
+    .user-profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .dashboard-body {
+      flex: 1;
+      padding: var(--spacing-6);
+      overflow-y: auto;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--spacing-4);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: var(--spacing-4);
+      border-radius: 8px;
+    }
+    .stat-title {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      margin-bottom: 8px;
+    }
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-6);
+    }
+    .charts-grid-row2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .chart-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: var(--spacing-4);
+      border-radius: 8px;
+    }
+
+    /* Table styles */
+    .table-responsive {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    html[dir="rtl"] table { text-align: right; }
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    th {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .status-completed { background: #d4edda; color: #155724; }
+    .status-pending { background: #fff3cd; color: #856404; }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        position: fixed;
+        left: -260px;
+        height: 100%;
+      }
+      .sidebar.open { left: 0; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+      html[dir="rtl"] .sidebar { left: auto; right: -260px; }
+      html[dir="rtl"] .sidebar.open { right: 0; }
+      .charts-grid, .charts-grid-row2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <a href="index.html" class="sidebar-brand brand">
+        <i class="fa-solid fa-palette"></i>
+        <span>Lumina Admin</span>
+      </a>
+      <div class="nav-items">
+        <a href="#" class="nav-item active"><i class="fa-solid fa-gauge"></i> Overview</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-chart-pie"></i> Analytics</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-users"></i> Users & Patrons</a>
+        <a href="#" class="nav-item"><i class="fa-regular fa-calendar-check"></i> Events</a>
+        <a href="#" class="nav-item"><i class="fa-regular fa-envelope"></i> Messages <span style="background: var(--accent-primary); color: #1a1a1a; padding: 2px 6px; border-radius: 12px; font-size: 0.75rem; margin-left: auto;">5</span></a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Settings</a>
+      </div>
+      <div class="sidebar-footer">
+        <a href="login.html" class="nav-item" style="padding-left: 0; padding-right: 0;"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="top-bar">
+        <button class="icon-btn" id="mobileMenuToggle" style="display: none;"><i class="fa-solid fa-bars"></i></button>
+        <div style="flex: 1;" class="hide-mobile">
+          <h2 style="font-size: 1.25rem; margin: 0; font-family: var(--font-body);">Executive Dashboard</h2>
+        </div>
+        <div class="top-bar-right">
+          <button class="icon-btn rtl-toggle" aria-label="Toggle RTL/LTR"><i class="fa-solid fa-globe"></i></button>
+          <button class="icon-btn theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-regular fa-moon"></i></button>
+          <button class="icon-btn">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">12</span>
+          </button>
+          <div class="user-profile">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80" alt="Admin">
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-body">
+        
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-title">Total Revenue (MTD)</div>
+            <div class="stat-value">$124,500</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">Total Patrons</div>
+            <div class="stat-value">1,240</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">New Inquiries</div>
+            <div class="stat-value">45</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">Upcoming Events</div>
+            <div class="stat-value" style="color: var(--accent-primary);">3</div>
+          </div>
+        </div>
+
+        <!-- Charts Row 1 -->
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3 style="font-size: 1.125rem; font-family: var(--font-body);">Revenue Trajectory</h3>
+            <div style="height: 300px; width: 100%;">
+              <canvas id="lineChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3 style="font-size: 1.125rem; font-family: var(--font-body);">Traffic Sources</h3>
+            <div style="height: 300px; width: 100%; display: flex; justify-content: center;">
+              <canvas id="pieChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row 2 -->
+        <div class="charts-grid-row2">
+          <div class="chart-card">
+            <h3 style="font-size: 1.125rem; font-family: var(--font-body);">Ticket Sales by Category</h3>
+            <div style="height: 250px; width: 100%;">
+              <!-- Compact sized bar chart -->
+              <canvas id="barChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3 style="font-size: 1.125rem; font-family: var(--font-body);">Visitor Demographics Activity</h3>
+            <div style="height: 250px; width: 100%;">
+              <!-- Area chart (Radar or line with fill) -->
+              <canvas id="areaChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity Table -->
+        <div class="chart-card mb-6">
+          <h3 style="font-size: 1.125rem; font-family: var(--font-body); margin-bottom: 1rem;">Recent Orders & Memberships</h3>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Date</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#ORD-8901</td>
+                  <td>Jane Doe</td>
+                  <td>Oct 15, 2026</td>
+                  <td>Event Ticket</td>
+                  <td>$120.00</td>
+                  <td><span class="status-badge status-completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>#ORD-8900</td>
+                  <td>Mark Smith</td>
+                  <td>Oct 15, 2026</td>
+                  <td>Benefactor Tier</td>
+                  <td>$1,200.00</td>
+                  <td><span class="status-badge status-completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>#ORD-8899</td>
+                  <td>Elena Rostova</td>
+                  <td>Oct 14, 2026</td>
+                  <td>Consultation</td>
+                  <td>$250.00</td>
+                  <td><span class="status-badge status-pending">In Progress</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Responsive sidebar hack
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    function checkWidth() {
+      if(window.innerWidth <= 1024) {
+        mobileMenuToggle.style.display = 'block';
+      } else {
+        mobileMenuToggle.style.display = 'none';
+        sidebar.classList.remove('open');
+      }
+    }
+    window.addEventListener('resize', checkWidth);
+    checkWidth();
+
+    mobileMenuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+
+    // Chart.js Configurations
+    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--button-primary-bg').trim() || '#1A1A1A';
+    const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-primary').trim() || '#C5A059';
+    const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-primary').trim() || '#1A1A1A';
+    const gridColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim() || '#E6E2D8';
+
+    Chart.defaults.color = textColor;
+    Chart.defaults.font.family = "'Inter', sans-serif";
+
+    // 1. Line Chart
+    new Chart(document.getElementById('lineChart'), {
+      type: 'line',
+      data: {
+        labels: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        datasets: [{
+          label: 'Revenue',
+          data: [85000, 92000, 110000, 105000, 124500],
+          borderColor: accentColor,
+          backgroundColor: accentColor + '33', // 20% opacity
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: gridColor } },
+          y: { grid: { color: gridColor } }
+        }
+      }
+    });
+
+    // 2. Pie Chart
+    new Chart(document.getElementById('pieChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Direct', 'Organic Search', 'Referral', 'Social'],
+        datasets: [{
+          data: [30, 45, 10, 15],
+          backgroundColor: [
+            accentColor,
+            primaryColor,
+            '#9ca3af',
+            '#4b5563'
+          ],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom' }
+        }
+      }
+    });
+
+    // 3. Bar Chart
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['General Adm', 'Events', 'Memberships', 'Consulting'],
+        datasets: [{
+          label: 'Sales Vol ($k)',
+          data: [42, 38, 25, 19.5],
+          backgroundColor: primaryColor,
+          borderRadius: 4
+        }]
+      },
+      options: {
+        indexAxis: 'y', // Horizontal compact bar chart
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: gridColor } },
+          y: { grid: { display: false } }
+        }
+      }
+    });
+
+    // 4. Area Chart
+    new Chart(document.getElementById('areaChart'), {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Active Patrons',
+          data: [120, 150, 180, 170, 260, 410, 390],
+          borderColor: primaryColor,
+          backgroundColor: primaryColor + '44',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false } },
+          y: { grid: { color: gridColor } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+/* ==========================================================
+   DARK MODE — Supplemental Overrides
+   Main tokens are handled in main.css via [data-theme="dark"]
+   This file adds component-level dark mode refinements.
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   HEADER — Dark Scrolled State
+   ---------------------------------------------------------- */
+[data-theme="dark"] .site-header.scrolled {
+  background-color: rgba(26, 26, 26, 0.95);
+  border-block-end: 1px solid rgba(244, 237, 228, 0.08);
+}
+
+/* ----------------------------------------------------------
+   NAVIGATION DROPDOWN
+   ---------------------------------------------------------- */
+[data-theme="dark"] .nav-dropdown__menu {
+  background: var(--color-charcoal);
+  border-color: rgba(244, 237, 228, 0.1);
+}
+
+[data-theme="dark"] .nav-dropdown__item:hover {
+  background-color: rgba(244, 237, 228, 0.08);
+}
+
+/* ----------------------------------------------------------
+   MOBILE MENU
+   ---------------------------------------------------------- */
+[data-theme="dark"] .mobile-menu {
+  background: var(--color-charcoal);
+}
+
+/* ----------------------------------------------------------
+   CARDS
+   ---------------------------------------------------------- */
+[data-theme="dark"] .card {
+  background: var(--color-charcoal);
+  border-color: rgba(244, 237, 228, 0.08);
+}
+
+[data-theme="dark"] .testimonial-card {
+  background: var(--color-charcoal);
+  border-color: rgba(244, 237, 228, 0.08);
+}
+
+[data-theme="dark"] .kpi-card {
+  background: var(--color-charcoal);
+  border-color: rgba(244, 237, 228, 0.08);
+}
+
+/* ----------------------------------------------------------
+   PRICING CARDS
+   ---------------------------------------------------------- */
+[data-theme="dark"] .pricing-card {
+  background: var(--color-charcoal);
+  border-color: rgba(244, 237, 228, 0.1);
+}
+
+[data-theme="dark"] .pricing-card.featured {
+  border-color: var(--color-pink);
+}
+
+/* ----------------------------------------------------------
+   FORMS
+   ---------------------------------------------------------- */
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-textarea,
+[data-theme="dark"] .form-select {
+  background: rgba(244, 237, 228, 0.04);
+  border-color: rgba(244, 237, 228, 0.12);
+  color: var(--color-beige);
+}
+
+[data-theme="dark"] .form-input::placeholder,
+[data-theme="dark"] .form-textarea::placeholder {
+  color: rgba(244, 237, 228, 0.35);
+}
+
+[data-theme="dark"] .form-input:focus,
+[data-theme="dark"] .form-textarea:focus {
+  border-color: var(--color-pink);
+  background: rgba(244, 237, 228, 0.06);
+  box-shadow: 0 0 0 3px rgba(232, 207, 197, 0.15);
+}
+
+/* ----------------------------------------------------------
+   ACCORDION
+   ---------------------------------------------------------- */
+[data-theme="dark"] .accordion-item {
+  border-color: rgba(244, 237, 228, 0.08);
+}
+
+[data-theme="dark"] .accordion-trigger:hover {
+  background: rgba(244, 237, 228, 0.04);
+}
+
+/* ----------------------------------------------------------
+   TABLES
+   ---------------------------------------------------------- */
+[data-theme="dark"] .data-table th,
+[data-theme="dark"] .data-table td {
+  border-color: rgba(244, 237, 228, 0.08);
+}
+
+[data-theme="dark"] .data-table tr:hover td {
+  background: rgba(244, 237, 228, 0.04);
+}
+
+/* ----------------------------------------------------------
+   DASHBOARD
+   ---------------------------------------------------------- */
+[data-theme="dark"] .dashboard-sidebar {
+  background: var(--color-charcoal);
+  border-inline-end-color: rgba(244, 237, 228, 0.08);
+}
+
+[data-theme="dark"] .dashboard-main {
+  background: #1A1A1A;
+}
+
+[data-theme="dark"] .chart-container {
+  background: var(--color-charcoal);
+  border-color: rgba(244, 237, 228, 0.08);
+}
+
+/* ----------------------------------------------------------
+   SECTION BACKGROUNDS
+   ---------------------------------------------------------- */
+[data-theme="dark"] .section--dark {
+  background: #0D0D0D;
+}
+
+[data-theme="dark"] .section--accent {
+  background: rgba(232, 207, 197, 0.06);
+}
+
+/* ----------------------------------------------------------
+   PAGE HERO OVERLAY
+   ---------------------------------------------------------- */
+[data-theme="dark"] .page-hero__overlay {
+  background: linear-gradient(to bottom, rgba(26,26,26,0.5) 0%, rgba(26,26,26,0.92) 100%);
+}
+
+/* ----------------------------------------------------------
+   GALLERY OVERLAY
+   ---------------------------------------------------------- */
+[data-theme="dark"] .gallery-item__overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 70%);
+}
+
+/* ----------------------------------------------------------
+   CTRL BUTTONS
+   ---------------------------------------------------------- */
+[data-theme="dark"] .ctrl-btn {
+  background: var(--color-charcoal);
+  border-color: rgba(244, 237, 228, 0.15);
+  color: var(--color-beige);
+}
+
+[data-theme="dark"] .ctrl-btn:hover {
+  background: var(--color-pink);
+  color: var(--color-charcoal);
+  border-color: var(--color-pink);
+}
+
+/* ----------------------------------------------------------
+   AUTHOR CARD
+   ---------------------------------------------------------- */
+[data-theme="dark"] .author-card {
+  background: var(--color-charcoal);
+  border-color: rgba(244, 237, 228, 0.08);
+}
+
+/* ----------------------------------------------------------
+   TAGS
+   ---------------------------------------------------------- */
+[data-theme="dark"] .tag {
+  background: rgba(244, 237, 228, 0.08);
+  color: rgba(244, 237, 228, 0.7);
+  border-color: rgba(244, 237, 228, 0.12);
+}
+
+[data-theme="dark"] .tag--active {
+  background: var(--color-pink-subtle);
+  color: var(--color-beige);
+  border-color: var(--color-pink);
+}
+
+/* ----------------------------------------------------------
+   TIMELINE
+   ---------------------------------------------------------- */
+[data-theme="dark"] .timeline-item::before {
+  border-color: #1A1A1A;
+}
+
+/* ----------------------------------------------------------
+   BUTTONS
+   ---------------------------------------------------------- */
+[data-theme="dark"] .btn--secondary {
+  border-color: rgba(244, 237, 228, 0.2);
+  color: var(--color-beige);
+}
+
+[data-theme="dark"] .btn--secondary:hover {
+  background-color: rgba(244, 237, 228, 0.08);
+  border-color: var(--color-pink);
+  color: var(--color-beige);
+}

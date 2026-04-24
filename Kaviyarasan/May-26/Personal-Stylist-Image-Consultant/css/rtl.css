@@ -1,0 +1,183 @@
+/* ==========================================================
+   RTL — Right-to-Left Layout Overrides
+   Uses CSS logical properties throughout.
+   ========================================================== */
+
+/* Direction is set by JS on <html dir="rtl"> */
+
+[dir="rtl"] {
+  direction: rtl;
+}
+
+/* ----------------------------------------------------------
+   NAVIGATION
+   ---------------------------------------------------------- */
+[dir="rtl"] .nav-dropdown__menu {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+
+[dir="rtl"] .mobile-nav-sub {
+  margin-inline-start: 0;
+  margin-inline-end: var(--space-4);
+  border-inline-start: none;
+  border-inline-end: 2px solid var(--color-pink);
+}
+
+/* ----------------------------------------------------------
+   HERO TEXT ALIGNMENT
+   ---------------------------------------------------------- */
+[dir="rtl"] .hero__content,
+[dir="rtl"] .page-hero__content {
+  text-align: start;
+}
+
+[dir="rtl"] .hero__subtitle {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+/* ----------------------------------------------------------
+   TIMELINE (About & Home2) — Logical flip
+   ---------------------------------------------------------- */
+[dir="rtl"] .timeline {
+  padding-inline-start: 0;
+  padding-inline-end: var(--space-8);
+}
+
+[dir="rtl"] .timeline::before {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+
+[dir="rtl"] .timeline-item::before {
+  inset-inline-start: auto;
+  inset-inline-end: calc(-1 * var(--space-8) - 6px);
+}
+
+/* ----------------------------------------------------------
+   CARDS — Arrow / Directional Elements
+   ---------------------------------------------------------- */
+[dir="rtl"] .card-arrow {
+  transform: scaleX(-1);
+}
+
+/* ----------------------------------------------------------
+   PROCESS STEPS — Line direction
+   ---------------------------------------------------------- */
+[dir="rtl"] .process-line {
+  inset-inline-start: auto;
+  inset-inline-end: calc(50% / 1 + 30px);
+}
+
+[dir="rtl"] .process-line__fill {
+  background: linear-gradient(to right, var(--color-pink), var(--color-pink-dark));
+}
+
+/* ----------------------------------------------------------
+   TESTIMONIAL — Quote mark position
+   ---------------------------------------------------------- */
+[dir="rtl"] .testimonial-card::before {
+  inset-inline-start: auto;
+  inset-inline-end: var(--space-6);
+}
+
+/* ----------------------------------------------------------
+   DASHBOARD SIDEBAR
+   ---------------------------------------------------------- */
+[dir="rtl"] .dashboard-sidebar {
+  border-inline-end: none;
+  border-inline-start: 1px solid var(--border-color);
+}
+
+/* ----------------------------------------------------------
+   FOOTER
+   ---------------------------------------------------------- */
+[dir="rtl"] .footer-logo__text,
+[dir="rtl"] .footer-description,
+[dir="rtl"] .footer-col__title {
+  text-align: start;
+}
+
+/* ----------------------------------------------------------
+   FORMS — Text direction
+   ---------------------------------------------------------- */
+[dir="rtl"] .form-input,
+[dir="rtl"] .form-textarea,
+[dir="rtl"] .form-select {
+  text-align: start;
+  direction: rtl;
+}
+
+/* ----------------------------------------------------------
+   ACCORDION — Icon direction
+   ---------------------------------------------------------- */
+[dir="rtl"] .accordion-trigger {
+  flex-direction: row-reverse;
+}
+
+/* ----------------------------------------------------------
+   BREADCRUMB
+   ---------------------------------------------------------- */
+[dir="rtl"] .breadcrumb {
+  flex-direction: row-reverse;
+}
+
+/* ----------------------------------------------------------
+   FONT STACK ADDITIONS for RTL scripts
+   ---------------------------------------------------------- */
+[dir="rtl"] body,
+[dir="rtl"] input,
+[dir="rtl"] button,
+[dir="rtl"] textarea {
+  font-family: "Noto Sans Arabic", "Tahoma", var(--font-stack);
+}
+
+/* ----------------------------------------------------------
+   MOBILE MENU — Logical positioning handled in main.css
+   via inset-inline-start / inset-inline-end
+   (No additional RTL override needed here as
+   main.css already uses logical properties)
+   ---------------------------------------------------------- */
+
+/* ----------------------------------------------------------
+   HEADER CONTROLS — Order flip
+   ---------------------------------------------------------- */
+[dir="rtl"] .header-inner {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .primary-nav {
+  flex-direction: row-reverse;
+}
+
+/* ----------------------------------------------------------
+   GALLERY OVERLAY — Text alignment
+   ---------------------------------------------------------- */
+[dir="rtl"] .gallery-item__overlay {
+  text-align: start;
+}
+
+/* ----------------------------------------------------------
+   CHART ANIMATION — RTL origination
+   The JS charts use dir attribute to mirror draw direction.
+   CSS ensures canvas parent is correctly oriented.
+   ---------------------------------------------------------- */
+[dir="rtl"] canvas.chart-canvas {
+  direction: ltr; /* Canvas itself always rendered LTR internally */
+}
+
+/* ----------------------------------------------------------
+   SPLIT LAYOUT SECTIONS — Flip column order
+   ---------------------------------------------------------- */
+[dir="rtl"] .split-layout {
+  direction: rtl;
+}
+
+[dir="rtl"] .split-layout .split-image {
+  order: 2;
+}
+
+[dir="rtl"] .split-layout .split-content {
+  order: 1;
+}

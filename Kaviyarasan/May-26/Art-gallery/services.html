@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery & Exhibition Space | Services</title>
+  <meta name="description" content="Discover our gallery services including art curation, event hosting, and private viewings.">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <i class="fa-solid fa-palette"></i>
+        <span>Lumina Gallery</span>
+      </a>
+
+      <nav class="nav-menu">
+        <li class="has-dropdown">
+          <a href="#" class="nav-link">Home <i class="fa-solid fa-chevron-down" style="font-size:0.75em; margin-left:4px;"></i></a>
+          <div class="dropdown-menu">
+            <a href="index.html">Home Page 1 — General</a>
+            <a href="home-2.html">Home Page 2 — Niche</a>
+          </div>
+        </li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="services.html" class="nav-link active">Services</a></li>
+        <li><a href="blog.html" class="nav-link">Journal</a></li>
+        <li><a href="pricing.html" class="nav-link">Membership</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="login.html" class="nav-link">Sign In</a></li>
+      </nav>
+
+      <div class="nav-toggles">
+        <button class="toggle-btn rtl-toggle" aria-label="Toggle RTL/LTR">
+          <i class="fa-solid fa-globe"></i>
+        </button>
+        <button class="toggle-btn theme-toggle" aria-label="Toggle Dark/Light Mode">
+          <i class="fa-regular fa-moon"></i>
+        </button>
+        <button class="toggle-btn mobile-menu-btn" aria-label="Toggle Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=1920'); background-size: cover; background-position: center; padding: 200px 0 100px; color: #fff;">
+      <div class="container text-center fade-up">
+        <h1 style="color: #fff; margin-bottom: var(--spacing-4);">Curated Services</h1>
+        <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; color: #e0e0e0;">Beyond exhibition. We offer comprehensive art services for collectors, artists, and event hosts.</p>
+      </div>
+    </section>
+
+    <!-- Section 2: Services Grid (2x2 Balanced) -->
+    <section class="services-grid py-section">
+      <div class="container text-center fade-up mb-section">
+        <h2>Expertise at Your Disposal</h2>
+        <p class="text-secondary mb-8">Tailored solutions to elevate your engagement with fine art</p>
+      </div>
+      <div class="container grid md:grid-cols-2 gap-8 fade-up">
+        <!-- Service 1 -->
+        <div class="card flex-col items-center text-center">
+          <div class="img-wrap mb-4" style="width: 100%; aspect-ratio: 16/9;">
+            <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80" alt="Art Consultation">
+          </div>
+          <h3>Art Consultation</h3>
+          <p class="text-secondary mb-4">Personalized guidance for new and established collectors building their private portfolios.</p>
+          <a href="service-details.html" class="btn btn-secondary mt-auto" style="width: 100%;">Learn More</a>
+        </div>
+        <!-- Service 2 -->
+        <div class="card flex-col items-center text-center">
+          <div class="img-wrap mb-4" style="width: 100%; aspect-ratio: 16/9;">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80" alt="Venue Rental">
+          </div>
+          <h3>Event Space Rental</h3>
+          <p class="text-secondary mb-4">Host your corporate gala, private dinner, or launch event amid our world-class exhibitions.</p>
+          <a href="service-details.html" class="btn btn-secondary mt-auto" style="width: 100%;">Learn More</a>
+        </div>
+        <!-- Service 3 -->
+        <div class="card flex-col items-center text-center">
+          <div class="img-wrap mb-4" style="width: 100%; aspect-ratio: 16/9;">
+            <img src="https://images.unsplash.com/photo-1580136608260-4ebf1f4b2311?auto=format&fit=crop&w=800&q=80" alt="Appraisal">
+          </div>
+          <h3>Authentication & Appraisal</h3>
+          <p class="text-secondary mb-4">Certified valuations and authentication processes provided by our network of art historians.</p>
+          <a href="service-details.html" class="btn btn-secondary mt-auto" style="width: 100%;">Learn More</a>
+        </div>
+        <!-- Service 4 -->
+        <div class="card flex-col items-center text-center">
+          <div class="img-wrap mb-4" style="width: 100%; aspect-ratio: 16/9;">
+            <img src="https://images.unsplash.com/photo-1536643690623-e18e00fcadff?auto=format&fit=crop&w=800&q=80" alt="Restoration">
+          </div>
+          <h3>Conservation & Restoration</h3>
+          <p class="text-secondary mb-4">Expert conservation techniques to preserve and restore classical and contemporary pieces.</p>
+          <a href="service-details.html" class="btn btn-secondary mt-auto" style="width: 100%;">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Process / How We Work -->
+    <section class="process py-section" style="background-color: var(--bg-secondary);">
+      <div class="container text-center fade-up mb-section">
+        <h2>How We Work</h2>
+        <p class="text-secondary">A transparent journey from initial inquiry to execution</p>
+      </div>
+      <div class="container grid md:grid-cols-4 gap-6 fade-up">
+        <!-- Step 1 -->
+        <div class="text-center position-relative">
+          <div style="font-size: 3rem; font-family: var(--font-heading); color: var(--accent-primary); font-weight: 700; opacity: 0.3; margin-bottom: -1rem;">01</div>
+          <h3>Discovery</h3>
+          <p class="text-secondary text-sm">We begin with a thorough discussion of your goals, tastes, and project scope.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="text-center position-relative">
+          <div style="font-size: 3rem; font-family: var(--font-heading); color: var(--accent-primary); font-weight: 700; opacity: 0.3; margin-bottom: -1rem;">02</div>
+          <h3>Proposal</h3>
+          <p class="text-secondary text-sm">Our curators draft a customized portfolio or event blueprint tailored to your needs.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="text-center position-relative">
+          <div style="font-size: 3rem; font-family: var(--font-heading); color: var(--accent-primary); font-weight: 700; opacity: 0.3; margin-bottom: -1rem;">03</div>
+          <h3>Execution</h3>
+          <p class="text-secondary text-sm">We handle logistics, procurement, and setup with uncompromising precision.</p>
+        </div>
+        <!-- Step 4 -->
+        <div class="text-center position-relative">
+          <div style="font-size: 3rem; font-family: var(--font-heading); color: var(--accent-primary); font-weight: 700; opacity: 0.3; margin-bottom: -1rem;">04</div>
+          <h3>Delivery</h3>
+          <p class="text-secondary text-sm">The finalized space or verified canvas is delivered to your utmost satisfaction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Pricing Teaser -->
+    <section class="pricing-teaser py-section" style="border-bottom: 1px solid var(--border-color);">
+      <div class="container grid md:grid-cols-2 gap-8 items-center fade-up">
+        <div>
+          <h2 style="font-size: 2.5rem;">Transparent Packages for Every Collector</h2>
+          <p class="text-secondary mb-6">Whether you're beginning your collection journey or managing an extensive estate, we provide clear, structured tiers for our consultation and concierge services.</p>
+          <ul class="list-check mb-6" style="list-style: none; padding: 0; line-height: 2;">
+            <li><i class="fa-solid fa-check" style="color: var(--accent-primary); margin-right: 8px;"></i> Access to off-market art pieces</li>
+            <li><i class="fa-solid fa-check" style="color: var(--accent-primary); margin-right: 8px;"></i> Free initial 30-minute consultation</li>
+            <li><i class="fa-solid fa-check" style="color: var(--accent-primary); margin-right: 8px;"></i> VIP invitations to gala previews</li>
+          </ul>
+          <a href="pricing.html" class="btn btn-primary">View Pricing Tiers</a>
+        </div>
+        <div class="img-wrap" style="aspect-ratio: 4/4; border-radius: 8px;">
+          <img src="https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&w=800&q=80" alt="Consultation meeting">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: FAQ Accordion -->
+    <section class="faq py-section">
+      <div class="container fade-up text-center mb-section">
+        <h2>Frequently Asked Questions</h2>
+        <p class="text-secondary">Details about our gallery and professional services</p>
+      </div>
+      <div class="container max-w-3xl fade-up" style="max-width: 800px; margin: 0 auto;">
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Do you host private events?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner mt-4">
+                Yes, our Main Hall and Grand Pavilion are available for private event rentals. We can accommodate up to 300 guests for cocktail receptions and 150 for seated dinners. Please contact our event team for availability.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              How do I get an artwork appraised?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner mt-4">
+                Appraisals require an initial high-resolution photograph submission via our contact form. If our historians believe the piece warrants physical inspection, we will schedule a private consultation.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Can I purchase art directly from the exhibition?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner mt-4">
+                Yes, many of our rotating exhibitions feature pieces available for acquisition. Prices are available upon inquiry at the front desk or securely via our private patron portal.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Are you accepting new artists?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner mt-4">
+                We review artist portfolios bi-annually. Please submit your digital portfolio (PDF format only) through our consultation form. Physical submissions are not accepted.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Book a Consultation CTA -->
+    <section class="cta-section py-section text-center" style="background-color: var(--text-primary); color: var(--bg-primary);">
+      <div class="container fade-up">
+        <h2 style="color: var(--bg-primary); margin-bottom: var(--spacing-4);">Ready to Elevate Your Space?</h2>
+        <p style="color: var(--bg-secondary); max-width: 600px; margin: 0 auto var(--spacing-6); opacity: 0.9;">Book a private consultation with our head curator to discuss acquisitions, appraisals, or event hosting.</p>
+        <div class="flex justify-center gap-4">
+          <a href="contact.html" class="btn btn-primary" style="background-color: var(--accent-primary); color: #1a1a1a;">Book Consultation</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
+        <div class="footer-col">
+          <a href="index.html" class="brand mb-4" style="display:inline-flex;">
+            <i class="fa-solid fa-palette"></i>
+            <span>Lumina</span>
+          </a>
+          <p>Curating exceptional contemporary and classic art experiences since 1998.</p>
+        </div>
+        <div class="footer-col pl-4">
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="pricing.html">Membership</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <div class="footer-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="blog.html">Journal</a>
+            <a href="login.html">Sign In</a>
+            <a href="register.html">Register</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="social-links mt-4">
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Lumina Gallery. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

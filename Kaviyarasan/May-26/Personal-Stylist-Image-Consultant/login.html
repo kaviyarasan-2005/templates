@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in or create your Lumière Gallery account to access exclusive exhibitions, manage bookings, and personalise your gallery experience.">
+  <title>Sign In / Register — Lumière Gallery</title>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#2F2F2F">  <link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="css/dark-mode.css"><link rel="stylesheet" href="css/rtl.css"><link rel="stylesheet" href="css/animations.css">
+  <script>(function(){var t=localStorage.getItem('lumiere-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);var d=localStorage.getItem('lumiere-dir')||'ltr';document.documentElement.setAttribute('dir',d);})();</script>
+  <style>
+    .auth-layout { display: grid; grid-template-columns: 1fr 1fr; min-height: 100dvh; }
+    .auth-image-panel { position: relative; overflow: hidden; }
+    .auth-image-panel img { width: 100%; height: 100%; object-fit: cover; }
+    .auth-image-overlay { position: absolute; inset: 0; background: rgba(47,47,47,0.7); display: flex; align-items: flex-end; padding: var(--space-10); }
+    .auth-form-panel { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: var(--space-12) var(--space-10); overflow-y: auto; }
+    .auth-tabs { display: flex; gap: 0; border: 1.5px solid var(--border-color); border-radius: var(--radius-full); overflow: hidden; margin-block-end: var(--space-8); }
+    .auth-tab { padding: var(--space-2) var(--space-8); font-size: var(--text-sm); font-weight: 600; cursor: pointer; transition: background-color var(--transition-base), color var(--transition-base); background: transparent; color: var(--text-muted); border: none; }
+    .auth-tab.active { background: var(--color-pink); color: var(--color-charcoal); }
+    .auth-form { width: 100%; max-width: 420px; }
+    .auth-form-section { animation: fadeIn 0.3s ease; }
+    .social-btn { display: flex; align-items: center; justify-content: center; gap: var(--space-3); width: 100%; padding: var(--space-3) var(--space-4); border: 1.5px solid var(--border-color); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 500; color: var(--text-primary); background: var(--bg-primary); cursor: pointer; transition: border-color var(--transition-base), box-shadow var(--transition-base); min-height: 44px; }
+    .social-btn:hover { border-color: var(--color-pink); box-shadow: var(--shadow-sm); }
+    @media (max-width: 768px) { .auth-layout { grid-template-columns: 1fr; } .auth-image-panel { display: none; } .auth-form-panel { padding: var(--space-10) var(--space-5); } }
+  </style>
+</head>
+<body>
+
+<main id="main-content">
+
+<!-- SECTION 1 & 2: AUTH LAYOUT (Split Screen) -->
+<section class="auth-layout" aria-label="Authentication Layout">
+
+  <!-- Left: Image Panel -->
+  <div class="auth-image-panel" aria-hidden="true">
+    <img src="images/hero/hero-gallery.png" alt="Lumière Gallery interior — sign in to access exclusive features" fetchpriority="high">
+    <div class="auth-image-overlay">
+      <div>
+        <p style="color:rgba(244,237,228,0.6);font-size:var(--text-xs);letter-spacing:0.15em;text-transform:uppercase;margin-block-end:var(--space-3);">Gallery Member Quote</p>
+        <blockquote style="color:var(--color-beige);font-size:var(--text-xl);font-style:italic;line-height:1.6;max-width:400px;">"Being a Lumière member has completely transformed how I engage with and collect art. The access is extraordinary."</blockquote>
+        <p style="color:var(--color-pink);font-weight:600;margin-block-start:var(--space-4);">— Eleanor Whitman, Collector</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Auth Forms -->
+  <div class="auth-form-panel">
+    <div class="auth-form">
+      <a href="index.html" style="text-align:center;display:block;margin-block-end:var(--space-8);"><span style="font-size:var(--text-2xl);font-weight:900;letter-spacing:-0.04em;color:var(--text-primary);">Lumière</span></a>
+
+      <!-- SECTION 2: Tabs -->
+      <div class="auth-tabs" role="tablist" aria-label="Login or Register">
+        <button class="auth-tab active" id="tab-login" role="tab" aria-selected="true" aria-controls="panel-login" onclick="switchTab('login')">Sign In</button>
+        <button class="auth-tab" id="tab-register" role="tab" aria-selected="false" aria-controls="panel-register" onclick="switchTab('register')">Create Account</button>
+      </div>
+
+      <!-- SECTION 2: Login Form -->
+      <div id="panel-login" class="auth-form-section" role="tabpanel" aria-labelledby="tab-login">
+        <h1 style="font-size:var(--text-2xl);font-weight:800;margin-block-end:var(--space-2);">Welcome back</h1>
+        <p style="color:var(--text-muted);font-size:var(--text-sm);margin-block-end:var(--space-6);">Sign in to your Lumière account to continue.</p>
+        <form class="validated-form" id="login-form" novalidate>
+          <div class="form-field">
+            <label class="form-label" for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-input" placeholder="hello@gallery.com" required aria-required="true">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required aria-required="true">
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-block-end:var(--space-6);">
+            <label style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);cursor:pointer;"><input type="checkbox" id="remember-me" aria-label="Remember me"> Remember me</label>
+            <a href="#" style="font-size:var(--text-sm);color:var(--color-pink-dark);font-weight:500;">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full btn--lg">Sign In</button>
+          <p class="form-success-msg" style="display:none;color:#22a367;font-weight:600;text-align:center;margin-block-start:var(--space-4);">✓ Signed in! Redirecting…</p>
+        </form>
+      </div>
+
+      <!-- SECTION 3: Register Form -->
+      <div id="panel-register" class="auth-form-section" role="tabpanel" aria-labelledby="tab-register" style="display:none;">
+        <h2 style="font-size:var(--text-2xl);font-weight:800;margin-block-end:var(--space-2);">Create Account</h2>
+        <p style="color:var(--text-muted);font-size:var(--text-sm);margin-block-end:var(--space-6);">Join 10,000+ art enthusiasts in our community.</p>
+        <form class="validated-form" id="register-form" novalidate>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);">
+            <div class="form-field">
+              <label class="form-label" for="reg-first">First Name</label>
+              <input type="text" id="reg-first" class="form-input" placeholder="First" required aria-required="true">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="reg-last">Last Name</label>
+              <input type="text" id="reg-last" class="form-input" placeholder="Last" required aria-required="true">
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="reg-email">Email Address</label>
+            <input type="email" id="reg-email" class="form-input" placeholder="hello@gallery.com" required aria-required="true">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="reg-password">Password</label>
+            <input type="password" id="reg-password" class="form-input" placeholder="Minimum 8 characters" required aria-required="true">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="reg-confirm">Confirm Password</label>
+            <input type="password" id="reg-confirm" class="form-input" placeholder="Repeat password" required aria-required="true">
+          </div>
+          <label style="display:flex;align-items:flex-start;gap:var(--space-3);font-size:var(--text-sm);margin-block-end:var(--space-6);line-height:1.5;cursor:pointer;"><input type="checkbox" id="reg-terms" required aria-required="true" style="margin-block-start:2px;flex-shrink:0;"> I agree to the <a href="#" style="color:var(--color-pink-dark);">Terms of Service</a> and <a href="#" style="color:var(--color-pink-dark);">Privacy Policy</a></label>
+          <button type="submit" class="btn btn--primary btn--full btn--lg">Create Account</button>
+          <p class="form-success-msg" style="display:none;color:#22a367;font-weight:600;text-align:center;margin-block-start:var(--space-4);">✓ Account created! Welcome to Lumière.</p>
+        </form>
+      </div>
+
+      <!-- SECTION 4: Social Login -->
+      <div style="margin-block-start:var(--space-6);">
+        <div style="position:relative;text-align:center;margin-block:var(--space-5);">
+          <hr style="border-color:var(--border-color);">
+          <span style="position:absolute;top:50%;inset-inline-start:50%;transform:translate(-50%,-50%);background:var(--bg-primary);padding:0 var(--space-3);font-size:var(--text-xs);color:var(--text-muted);">or continue with</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+          <button class="social-btn" aria-label="Continue with Google">🇬 <span>Continue with Google</span></button>
+          <button class="social-btn" aria-label="Continue with Facebook">📘 <span>Continue with Facebook</span></button>
+          <button class="social-btn" aria-label="Continue with Apple">🍎 <span>Continue with Apple</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: BENEFITS LIST -->
+<section class="section" id="member-benefits" style="background:var(--bg-secondary);" aria-label="Member Benefits">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-tag">Why Join?</span>
+      <h2 class="section-title">Member Benefits</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-6);" class="reveal-group">
+      <div class="reveal" style="text-align:center;padding:var(--space-6);">
+        <div style="font-size:2.5rem;margin-block-end:var(--space-4);">🎨</div>
+        <h3 style="font-size:var(--text-md);margin-block-end:var(--space-2);">Exclusive Access</h3>
+        <p style="font-size:var(--text-sm);color:var(--text-secondary);">Private previews, member-only openings, and first access to limited edition prints.</p>
+      </div>
+      <div class="reveal" style="text-align:center;padding:var(--space-6);">
+        <div style="font-size:2.5rem;margin-block-end:var(--space-4);">📅</div>
+        <h3 style="font-size:var(--text-md);margin-block-end:var(--space-2);">Event Updates</h3>
+        <p style="font-size:var(--text-sm);color:var(--text-secondary);">Be first to know about exhibitions, artist talks, and special events.</p>
+      </div>
+      <div class="reveal" style="text-align:center;padding:var(--space-6);">
+        <div style="font-size:2.5rem;margin-block-end:var(--space-4);">📊</div>
+        <h3 style="font-size:var(--text-md);margin-block-end:var(--space-2);">Personal Dashboard</h3>
+        <p style="font-size:var(--text-sm);color:var(--text-secondary);">Track your bookings, saved artworks, and personalise your gallery experience.</p>
+      </div>
+      <div class="reveal" style="text-align:center;padding:var(--space-6);">
+        <div style="font-size:2.5rem;margin-block-end:var(--space-4);">⭐</div>
+        <h3 style="font-size:var(--text-md);margin-block-end:var(--space-2);">Priority Support</h3>
+        <p style="font-size:var(--text-sm);color:var(--text-secondary);">Direct access to our team for purchasing advice and booking assistance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: HELP SECTION -->
+<section class="section" id="auth-help" aria-label="Account Help">
+  <div class="container" style="text-align:center;">
+    <div class="reveal">
+      <h2 style="font-size:var(--text-2xl);margin-block-end:var(--space-4);">Having trouble?</h2>
+      <p style="color:var(--text-secondary);margin-block-end:var(--space-6);">Our support team is here to help. Reach out and we'll get you sorted quickly.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:center;">
+        <a href="mailto:support@lumieregallery.com" class="btn btn--secondary">Email Support</a>
+        <a href="contact.html" class="btn btn--secondary">Contact Page</a>
+        <a href="pricing.html" class="btn btn--secondary">Pricing & Plans</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="js/theme-toggle.js"></script><script src="js/animations.js"></script>
+<script>
+function switchTab(tab) {
+  const loginPanel = document.getElementById('panel-login');
+  const registerPanel = document.getElementById('panel-register');
+  const loginTab = document.getElementById('tab-login');
+  const registerTab = document.getElementById('tab-register');
+  if (tab === 'login') {
+    loginPanel.style.display = 'block';
+    registerPanel.style.display = 'none';
+    loginTab.classList.add('active');
+    registerTab.classList.remove('active');
+    loginTab.setAttribute('aria-selected', 'true');
+    registerTab.setAttribute('aria-selected', 'false');
+  } else {
+    loginPanel.style.display = 'none';
+    registerPanel.style.display = 'block';
+    loginTab.classList.remove('active');
+    registerTab.classList.add('active');
+    loginTab.setAttribute('aria-selected', 'false');
+    registerTab.setAttribute('aria-selected', 'true');
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery | Register</title>
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <style>
+    /* Strict Constraints */
+    body, html {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* NO vertical scrollbar */
+      background-color: var(--bg-primary);
+    }
+    
+    /* Top Right Controls */
+    .auth-controls {
+      position: absolute;
+      top: var(--spacing-4);
+      right: var(--spacing-4);
+      display: flex;
+      gap: var(--spacing-2);
+      z-index: 10;
+    }
+    .auth-controls .toggle-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 8px var(--shadow-color);
+    }
+
+    /* Split Layout */
+    .auth-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* Left side - Form Card */
+    .auth-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-8);
+      background-color: var(--bg-primary);
+      height: 100%;
+      overflow-y: auto; 
+    }
+
+    /* Right side - Image */
+    .auth-image {
+      background-image: url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1920');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .auth-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      padding: var(--spacing-8);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 12px 24px var(--shadow-color);
+      text-align: center;
+      margin: auto; /* ensure centering within scrollable flex child if needed */
+    }
+
+    .auth-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-2);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-6);
+      text-decoration: none;
+    }
+    .auth-brand i { color: var(--accent-primary); font-size: 2.25rem; }
+
+    .input-group {
+      margin-bottom: var(--spacing-4);
+      text-align: left;
+      position: relative;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      transition: border-color 0.3s ease;
+    }
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+    }
+    
+    .input-error {
+      color: #e53e3e;
+      font-size: 0.75rem;
+      position: absolute;
+      bottom: -18px;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .input-group.invalid input, .input-group.invalid select { border-color: #e53e3e; }
+    .input-group.invalid .input-error { opacity: 1; }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: var(--spacing-2);
+    }
+
+    html[dir="rtl"] .auth-controls { left: var(--spacing-4); right: auto; }
+
+    @media (max-width: 768px) {
+      .auth-wrapper { grid-template-columns: 1fr; }
+      .auth-image { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth-controls">
+    <button class="toggle-btn rtl-toggle" aria-label="Toggle RTL/LTR">
+      <i class="fa-solid fa-globe"></i>
+    </button>
+    <button class="toggle-btn theme-toggle" aria-label="Toggle Dark/Light Mode">
+      <i class="fa-regular fa-moon"></i>
+    </button>
+  </div>
+
+  <div class="auth-wrapper">
+    <!-- Panel on Left for variety -->
+    <div class="auth-panel">
+      <div class="auth-card">
+        <a href="index.html" class="auth-brand">
+          <i class="fa-solid fa-palette"></i>
+          <span>Lumina</span>
+        </a>
+        
+        <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Create an Account</h2>
+        <p class="text-secondary text-sm mb-6">Become a patron to access private portals.</p>
+
+        <form id="registerForm" novalidate>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="input-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Jane" required>
+              <span class="input-error" style="bottom: -28px;">First name required.</span>
+            </div>
+            <div class="input-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Doe" required>
+              <span class="input-error" style="bottom: -28px;">Last name required.</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane.doe@example.com" required>
+            <span class="input-error">Please provide a valid email format.</span>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required minlength="8">
+            <span class="input-error">At least 8 characters required.</span>
+          </div>
+
+          <div class="input-group" style="margin-bottom: var(--spacing-6);">
+            <label for="tier">Select Initial Tier</label>
+            <select id="tier" required>
+              <option value="" disabled selected>Select Membership Tier</option>
+              <option value="enthusiast">Enthusiast ($120/yr)</option>
+              <option value="patron">Patron ($450/yr)</option>
+              <option value="benefactor">Benefactor ($1200/yr)</option>
+            </select>
+            <span class="input-error">Please select a tier.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">Register</button>
+        </form>
+
+        <p class="text-sm mt-6 text-secondary">
+          Already a patron? <a href="login.html" style="color: var(--accent-primary); font-weight: 600;">Sign in here</a>
+        </p>
+      </div>
+    </div>
+    <div class="auth-image"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('registerForm');
+      if (form) {
+        const inputs = form.querySelectorAll('input, select');
+        
+        inputs.forEach(input => {
+          input.addEventListener('input', () => {
+            if (input.checkValidity()) {
+              input.parentElement.classList.remove('invalid');
+            } else {
+              if (input.type === 'email' && input.value !== '') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(emailRegex.test(input.value)) {
+                   input.parentElement.classList.remove('invalid');
+                } else {
+                   input.parentElement.classList.add('invalid');
+                }
+              }
+            }
+          });
+        });
+
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          let isValid = true;
+          
+          inputs.forEach(input => {
+            const group = input.parentElement;
+            if (!input.checkValidity()) {
+              group.classList.add('invalid');
+              isValid = false;
+            }
+            if (input.type === 'email' && input.value !== '') {
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailRegex.test(input.value)) {
+                group.classList.add('invalid');
+                isValid = false;
+              }
+            }
+          });
+
+          if (isValid) {
+            window.location.href = 'user-dashboard.html';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

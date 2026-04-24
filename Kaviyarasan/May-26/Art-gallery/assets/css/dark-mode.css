@@ -1,0 +1,41 @@
+.dark-theme {
+  /* ── Dark Theme: Midnight Indigo & Copper ── */
+  --bg-primary: #0F0C0A;          /* near-black warm */
+  --bg-secondary: #1A1510;        /* dark umber */
+  --bg-card: #231D17;             /* rich dark brown-black card */
+  --text-primary: #F0EAE2;        /* warm off-white */
+  --text-secondary: #B8A898;      /* dusty rose-sand */
+  --text-muted: #7A6B5C;          /* muted clay */
+
+  --accent-primary: #E07050;      /* warm copper-terracotta */
+  --accent-hover: #F08060;        /* lighter copper on hover */
+
+  --button-primary-bg: #E07050;   /* copper CTA */
+  --button-primary-text: #0F0C0A;
+  --button-hover-bg: #F08060;
+
+  --link-color: #E07050;
+  --link-hover-color: #F08060;
+
+  --border-color: #3A2E24;        /* dark ember border */
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure images don't look completely washed out in dark mode */
+.dark-theme img {
+  opacity: 0.92;
+  transition: opacity 0.3s ease;
+}
+.dark-theme img:hover {
+  opacity: 1;
+}
+
+/* Adjust secondary buttons for dark theme */
+.dark-theme .btn-secondary {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+.dark-theme .btn-secondary:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}

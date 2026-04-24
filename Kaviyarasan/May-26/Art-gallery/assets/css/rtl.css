@@ -1,0 +1,42 @@
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="rtl"] body {
+  text-align: right;
+}
+
+/* Adjustings margins & paddings for RTL */
+html[dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
+html[dir="rtl"] .mr-auto { margin-left: auto; margin-right: 0; }
+
+html[dir="rtl"] .pr-4 { padding-left: var(--spacing-4); padding-right: 0; }
+html[dir="rtl"] .pl-4 { padding-right: var(--spacing-4); padding-left: 0; }
+
+html[dir="rtl"] .text-left { text-align: right; }
+html[dir="rtl"] .text-right { text-align: left; }
+
+/* Invert icons that have direction */
+html[dir="rtl"] .fa-arrow-right::before {
+  content: "\f060"; /* Font Awesome unicode for arrow-left */
+}
+html[dir="rtl"] .fa-arrow-left::before {
+  content: "\f061"; /* Font Awesome unicode for arrow-right */
+}
+html[dir="rtl"] .fa-chevron-right::before {
+  content: "\f053"; /* chevron-left */
+}
+html[dir="rtl"] .fa-chevron-left::before {
+  content: "\f054"; /* chevron-right */
+}
+
+/* Flexbox logical properties fix for older browsers */
+html[dir="rtl"] .flex-row-reverse {
+  flex-direction: row;
+}
+
+/* Navbar specific overrides */
+html[dir="rtl"] .nav-links {
+  margin-right: auto;
+  margin-left: 0;
+}

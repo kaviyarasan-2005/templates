@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your Lumière Gallery personal dashboard — manage bookings, saved artworks, activity, membership, and account preferences.">
+  <title>My Dashboard — Lumière Gallery</title>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#2F2F2F">  <link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="css/dark-mode.css"><link rel="stylesheet" href="css/rtl.css"><link rel="stylesheet" href="css/animations.css">
+  <script>(function(){var t=localStorage.getItem('lumiere-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);var d=localStorage.getItem('lumiere-dir')||'ltr';document.documentElement.setAttribute('dir',d);})();</script>
+  <style>
+    .dashboard-layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+    .dashboard-sidebar { background: var(--bg-primary); border-inline-end: 1px solid var(--border-color); padding: var(--space-6) 0; position: sticky; top: var(--header-height); height: calc(100vh - var(--header-height)); overflow-y: auto; grid-row: 1; transition: transform var(--transition-base); }
+    .dashboard-main { padding: var(--space-8); background: var(--bg-secondary); }
+    .sidebar-link { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-6); font-size: var(--text-sm); font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: background var(--transition-fast), color var(--transition-fast); border-inline-start: 3px solid transparent; }
+    .sidebar-link:hover, .sidebar-link.active { background: var(--bg-secondary); color: var(--text-primary); border-inline-start-color: var(--color-pink); }
+    .sidebar-link.active { font-weight: 700; }
+    .sidebar-section { padding: var(--space-3) var(--space-6) var(--space-1); font-size: var(--text-2xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-block-start: var(--space-4); }
+    .kpi-card { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: var(--space-5); }
+    .chart-container { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: var(--space-5); }
+    .chart-container canvas { display: block; width: 100%; }
+    .artwork-thumb { width: 56px; height: 56px; object-fit: cover; border-radius: var(--radius-md); }
+    @media (max-width: 1023px) {
+      .dashboard-layout { grid-template-columns: 1fr; }
+      .dashboard-sidebar { position: fixed; inset-block: 0; inset-inline-start: 0; z-index: 200; width: 260px; transform: translateX(calc(-100% - 10px)); box-shadow: var(--shadow-xl); height: 100%; top: 0; padding-block-start: calc(var(--header-height) + var(--space-4)); }
+      [dir="rtl"] .dashboard-sidebar { inset-inline-start: auto; inset-inline-end: 0; transform: translateX(calc(100% + 10px)); }
+      .dashboard-sidebar.open { transform: translateX(0); }
+      [dir="rtl"] .dashboard-sidebar.open { transform: translateX(0); }
+      .dashboard-main { padding: var(--space-5) var(--space-4); }
+    }
+    @media (max-width: 640px) { .user-kpi-grid { grid-template-columns: 1fr 1fr !important; } }
+    @media (max-width: 400px) { .user-kpi-grid { grid-template-columns: 1fr !important; } }
+  </style>
+</head>
+<body>
+<!-- HEADER --><header class="site-header" role="banner"><div class="header-inner"><a href="index.html" class="site-logo"><div><span class="site-logo__text">Lumière</span><span class="site-logo__sub">Gallery & Exhibition</span></div></a><nav class="primary-nav" aria-label="Main navigation"><div class="nav-dropdown"><a href="index.html" class="nav-link nav-dropdown__trigger">Home</a><div class="nav-dropdown__menu"><a href="index.html" class="nav-dropdown__item">Home Page 1</a><a href="home-2.html" class="nav-dropdown__item">Home Page 2</a></div></div><a href="about.html" class="nav-link">About Us</a><div class="nav-dropdown"><a href="services.html" class="nav-link nav-dropdown__trigger">Services</a><div class="nav-dropdown__menu" role="menu"><a href="services.html" class="nav-dropdown__item" role="menuitem">Services<span class="item-sub">All Services</span></a><a href="service-details.html" class="nav-dropdown__item" role="menuitem">Service Details<span class="item-sub">Individual Service</span></a></div></div><div class="nav-dropdown"><a href="blog.html" class="nav-link nav-dropdown__trigger">Blog</a><div class="nav-dropdown__menu" role="menu"><a href="blog.html" class="nav-dropdown__item" role="menuitem">Blog<span class="item-sub">All Articles</span></a><a href="blog-details.html" class="nav-dropdown__item" role="menuitem">Blog Details<span class="item-sub">Article View</span></a></div></div><a href="contact.html" class="nav-link">Contact</a><a href="pricing.html" class="nav-link">Pricing</a><div class="nav-dropdown"><span class="nav-link nav-dropdown__trigger active" style="cursor:pointer;">Dashboard</span><div class="nav-dropdown__menu"><a href="admin-dashboard.html" class="nav-dropdown__item">Admin Dashboard<span class="item-sub">Analytics & Management</span></a><a href="user-dashboard.html" class="nav-dropdown__item active">User Dashboard<span class="item-sub">Your Bookings & Activity</span></a></div></div></nav><div class="header-controls"><button id="globe-toggle" class="ctrl-btn" aria-label="Toggle RTL/LTR layout direction" aria-pressed="false">🌐</button><button id="theme-toggle" class="ctrl-btn" aria-label="Switch to dark mode" style="position:relative;"><span class="theme-icon-label-sun" style="position:absolute;">☀️</span><span class="theme-icon-label-moon" style="position:absolute;display:none;">🌙</span><span class="sr-only">Toggle theme</span></button><a href="login.html" class="btn btn--primary btn--sm">Sign Out</a><button id="hamburger" class="hamburger" aria-label="Open navigation menu"><span class="hamburger__line"></span><span class="hamburger__line"></span><span class="hamburger__line"></span></button></div></div></header>
+<div id="menu-backdrop" class="mobile-menu__backdrop" aria-hidden="true"></div>
+<nav id="mobile-menu" class="mobile-menu"><div class="mobile-menu__header"><a href="index.html" class="site-logo"><span class="site-logo__text">Lumière</span></a><button id="mobile-menu-close" class="mobile-menu__close">✕</button></div><div class="mobile-menu__nav"><a href="index.html" class="mobile-nav-link">Home Page 1</a><a href="home-2.html" class="mobile-nav-link">Home Page 2</a><a href="about.html" class="mobile-nav-link">About Us</a><a href="services.html" class="mobile-nav-link">Services</a><a href="service-details.html" class="mobile-nav-link">Service Details</a><a href="blog.html" class="mobile-nav-link">Blog</a><a href="blog-details.html" class="mobile-nav-link">Blog Details</a><a href="contact.html" class="mobile-nav-link">Contact</a><a href="pricing.html" class="mobile-nav-link">Pricing</a><a href="admin-dashboard.html" class="mobile-nav-link">Admin Dashboard</a><a href="user-dashboard.html" class="mobile-nav-link active">User Dashboard</a><a href="login.html" class="mobile-nav-link">Sign Out</a></div></nav>
+<div id="sidebar-backdrop" style="position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:199;display:none;opacity:0;transition:opacity 0.3s;"></div>
+
+<main id="main-content">
+<div class="dashboard-layout" style="padding-block-start:var(--header-height);">
+
+  <!-- SIDEBAR -->
+  <aside class="dashboard-sidebar" role="navigation" aria-label="User dashboard navigation" id="dashboard-sidebar">
+    <div style="padding:var(--space-4) var(--space-6) var(--space-2);">
+      <div style="display:flex;align-items:center;gap:var(--space-3);">
+        <img src="images/team/team-3.png" alt="Amara Osei user profile" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--color-pink);" loading="lazy">
+        <div><p style="font-weight:700;font-size:var(--text-sm);">Amara Osei</p><p style="font-size:var(--text-xs);color:var(--text-muted);">Professional Plan</p></div>
+      </div>
+    </div>
+    <span class="sidebar-section">My Gallery</span>
+    <a href="#user-overview" class="sidebar-link active">🏠 Overview</a>
+    <a href="#saved-artworks" class="sidebar-link">❤ Saved Artworks</a>
+    <a href="#my-bookings" class="sidebar-link">📅 My Bookings</a>
+    <a href="#my-activity" class="sidebar-link">📊 Activity</a>
+
+    <span class="sidebar-section">Account</span>
+    <a href="#profile-settings" class="sidebar-link">⚙ Profile Settings</a>
+    <a href="#membership-section" class="sidebar-link">💳 Membership</a>
+    <a href="contact.html" class="sidebar-link">💬 Support</a>
+
+    <div style="margin-block-start:auto;padding:var(--space-6);">
+      <a href="login.html" class="btn btn--secondary btn--full" style="font-size:var(--text-sm);">Sign Out</a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="dashboard-main">
+
+    <!-- SECTION 1: GREETING + KPIs -->
+    <section id="user-overview" aria-label="User Dashboard Overview">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4);margin-block-end:var(--space-6);">
+        <div>
+          <h1 style="font-size:var(--text-2xl);font-weight:800;">Welcome back, Amara! 👋</h1>
+          <p style="color:var(--text-muted);font-size:var(--text-sm);">Tuesday, 21 April 2025 — Professional Plan</p>
+        </div>
+        <div style="display:flex;gap:var(--space-3);">
+          <button class="btn btn--secondary btn--sm" onclick="document.querySelector('.dashboard-sidebar').classList.toggle('open');const bd=document.getElementById('sidebar-backdrop');if(document.querySelector('.dashboard-sidebar').classList.contains('open')){bd.style.display='block';setTimeout(()=>bd.style.opacity='1',10);}else{bd.style.opacity='0';setTimeout(()=>bd.style.display='none',300);}" aria-label="Toggle sidebar">☰ Menu</button>
+          <a href="services.html" class="btn btn--primary btn--sm">+ New Booking</a>
+        </div>
+      </div>
+      <div class="user-kpi-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);margin-block-end:var(--space-6);">
+        <div class="kpi-card"><p style="font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-block-end:var(--space-2);">Saved Artworks</p><p style="font-size:var(--text-3xl);font-weight:900;" class="stat-counter" data-target="18">0</p></div>
+        <div class="kpi-card"><p style="font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-block-end:var(--space-2);">Upcoming Events</p><p style="font-size:var(--text-3xl);font-weight:900;" class="stat-counter" data-target="3">0</p></div>
+        <div class="kpi-card"><p style="font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-block-end:var(--space-2);">Total Bookings</p><p style="font-size:var(--text-3xl);font-weight:900;" class="stat-counter" data-target="11">0</p></div>
+        <div class="kpi-card"><p style="font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-block-end:var(--space-2);">Articles Read</p><p style="font-size:var(--text-3xl);font-weight:900;" class="stat-counter" data-target="47">0</p></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ACTIVITY CHART + SAVED ARTWORKS -->
+    <section id="my-activity" style="display:grid;grid-template-columns:1.4fr 1fr;gap:var(--space-4);margin-block-end:var(--space-6);" aria-label="Activity and Saved Artworks">
+      <div class="chart-container">
+        <h2 style="font-size:var(--text-md);font-weight:700;margin-block-end:var(--space-4);">My Activity (2025)</h2>
+        <canvas id="user-activity-chart" style="height:220px;" aria-label="Area chart showing user activity — views, saves, and event attendance over 2025" role="img"></canvas>
+      </div>
+      <div class="chart-container">
+        <h2 style="font-size:var(--text-md);font-weight:700;margin-block-end:var(--space-4);">Monthly Bookings</h2>
+        <canvas id="booking-history-chart" style="height:220px;" aria-label="Bar chart showing monthly booking history" role="img"></canvas>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SAVED ARTWORKS -->
+    <section id="saved-artworks" style="margin-block-end:var(--space-6);" aria-label="Saved Artworks">
+      <div style="background:var(--bg-primary);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-5);border-block-end:1px solid var(--border-color);">
+          <h2 style="font-size:var(--text-md);font-weight:700;">Saved Artworks</h2>
+          <a href="services.html" class="btn btn--secondary btn--sm" style="font-size:var(--text-xs);">Browse Gallery</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--space-4);padding:var(--space-5);">
+          <div style="position:relative;">
+            <img src="images/gallery/artwork-1.png" alt="Saved artwork — Echoes of Autumn by Marcus Chen" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:var(--radius-lg);">
+            <div style="padding:var(--space-2) 0;"><p style="font-size:var(--text-xs);font-weight:600;">Echoes of Autumn</p><p style="font-size:10px;color:var(--text-muted);">Marcus Chen</p></div>
+            <button aria-label="Remove from saved" style="position:absolute;top:6px;inset-inline-end:6px;background:rgba(244,237,228,0.9);border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:12px;">✕</button>
+          </div>
+          <div style="position:relative;">
+            <img src="images/gallery/artwork-2.png" alt="Saved artwork — Stillness in Form by Sofía Delacroix" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:var(--radius-lg);">
+            <div style="padding:var(--space-2) 0;"><p style="font-size:var(--text-xs);font-weight:600;">Stillness in Form</p><p style="font-size:10px;color:var(--text-muted);">Sofía Delacroix</p></div>
+            <button aria-label="Remove from saved" style="position:absolute;top:6px;inset-inline-end:6px;background:rgba(244,237,228,0.9);border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:12px;">✕</button>
+          </div>
+          <div style="position:relative;">
+            <img src="images/gallery/artwork-5.png" alt="Saved artwork — Golden Intersection by Amara Osei" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:var(--radius-lg);">
+            <div style="padding:var(--space-2) 0;"><p style="font-size:var(--text-xs);font-weight:600;">Golden Intersection</p><p style="font-size:10px;color:var(--text-muted);">Amara Osei</p></div>
+            <button aria-label="Remove from saved" style="position:absolute;top:6px;inset-inline-end:6px;background:rgba(244,237,228,0.9);border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:12px;">✕</button>
+          </div>
+          <div style="position:relative;">
+            <img src="images/gallery/artwork-6.png" alt="Saved artwork — The Shore Beyond by Lara Vasquez" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:var(--radius-lg);">
+            <div style="padding:var(--space-2) 0;"><p style="font-size:var(--text-xs);font-weight:600;">The Shore Beyond</p><p style="font-size:10px;color:var(--text-muted);">Lara Vasquez</p></div>
+            <button aria-label="Remove from saved" style="position:absolute;top:6px;inset-inline-end:6px;background:rgba(244,237,228,0.9);border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:12px;">✕</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: MY BOOKINGS TABLE -->
+    <section id="my-bookings" style="margin-block-end:var(--space-6);" aria-label="My Bookings">
+      <div style="background:var(--bg-primary);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-5);border-block-end:1px solid var(--border-color);">
+          <h2 style="font-size:var(--text-md);font-weight:700;">My Bookings</h2>
+          <select class="form-input" style="min-height:36px;font-size:var(--text-xs);width:auto;" aria-label="Filter bookings">
+            <option>All Bookings</option>
+            <option>Upcoming</option>
+            <option>Completed</option>
+            <option>Cancelled</option>
+          </select>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="data-table" style="font-size:var(--text-sm);">
+            <thead><tr><th data-sort>Event</th><th data-sort>Type</th><th data-sort>Date</th><th data-sort>Ticket</th><th data-sort>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/gallery/artwork-5.png" alt="" class="artwork-thumb" loading="lazy"> Golden Intersection Opening</div></td><td>Exhibition</td><td>May 10, 2025</td><td>General — $0</td><td><span style="background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;">Confirmed</span></td><td><button class="btn btn--secondary btn--sm" style="font-size:10px;" onclick="alert('QR code would show here')">QR Code</button></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/gallery/artwork-1.png" alt="" class="artwork-thumb" loading="lazy"> Echoes of Autumn Tour</div></td><td>Guided Tour</td><td>May 18, 2025</td><td>Adult — $25</td><td><span style="background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;">Confirmed</span></td><td><button class="btn btn--secondary btn--sm" style="font-size:10px;" onclick="alert('QR code would show here')">QR Code</button></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/hero/hero-event.png" alt="" class="artwork-thumb" loading="lazy"> Annual Collector Gala</div></td><td>Event</td><td>Jun 5, 2025</td><td>VIP — $180</td><td><span style="background:#fef9c3;color:#854d0e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;">Pending</span></td><td><button class="btn btn--secondary btn--sm" style="font-size:10px;">QR Code</button></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:var(--space-3);"><img src="images/gallery/artwork-3.png" alt="" class="artwork-thumb" loading="lazy"> Figurative Sculpture Workshop</div></td><td>Workshop</td><td>Mar 15, 2025</td><td>General — $45</td><td><span style="background:#f1f5f9;color:#475569;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;">Completed</span></td><td><button class="btn btn--ghost btn--sm" style="font-size:10px;">Review</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: MEMBERSHIP -->
+    <section id="membership-section" style="margin-block-end:var(--space-6);" aria-label="Membership Details">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);">
+        <div style="background:linear-gradient(135deg, var(--color-charcoal) 0%, #4a3f3a 100%);border-radius:var(--radius-xl);padding:var(--space-8);">
+          <p style="color:var(--color-pink);font-size:var(--text-xs);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Current Plan</p>
+          <p style="color:var(--color-beige);font-size:var(--text-3xl);font-weight:900;margin-block:var(--space-2);">Professional</p>
+          <p style="color:rgba(244,237,228,0.6);font-size:var(--text-sm);">$799 / month · Renews Jun 1, 2025</p>
+          <hr style="border-color:rgba(244,237,228,0.1);margin-block:var(--space-5);">
+          <ul style="display:flex;flex-direction:column;gap:var(--space-2);">
+            <li style="color:rgba(244,237,228,0.8);font-size:var(--text-xs);">✓ Up to 12 exhibitions/year</li>
+            <li style="color:rgba(244,237,228,0.8);font-size:var(--text-xs);">✓ Full Collector CRM</li>
+            <li style="color:rgba(244,237,228,0.8);font-size:var(--text-xs);">✓ Catalogue Production (4/yr)</li>
+            <li style="color:rgba(244,237,228,0.8);font-size:var(--text-xs);">✓ 24hr Priority Support</li>
+          </ul>
+          <div style="display:flex;gap:var(--space-3);margin-block-start:var(--space-6);">
+            <a href="pricing.html" class="btn btn--primary btn--sm">Upgrade Plan</a>
+            <button class="btn btn--ghost btn--sm" style="color:rgba(244,237,228,0.5);font-size:var(--text-xs);">Cancel</button>
+          </div>
+        </div>
+        <div style="background:var(--bg-primary);border:1px solid var(--border-color);border-radius:var(--radius-xl);padding:var(--space-8);">
+          <h3 style="font-size:var(--text-md);font-weight:700;margin-block-end:var(--space-5);">Billing History</h3>
+          <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+            <div style="display:flex;justify-content:space-between;font-size:var(--text-sm);padding-block:var(--space-2);border-block-end:1px solid var(--border-color);"><span>May 1, 2025</span><span>Professional</span><span style="font-weight:700;">$799</span><span style="color:#22c55e;font-size:10px;">Paid</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:var(--text-sm);padding-block:var(--space-2);border-block-end:1px solid var(--border-color);"><span>Apr 1, 2025</span><span>Professional</span><span style="font-weight:700;">$799</span><span style="color:#22c55e;font-size:10px;">Paid</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:var(--text-sm);padding-block:var(--space-2);border-block-end:1px solid var(--border-color);"><span>Mar 1, 2025</span><span>Professional</span><span style="font-weight:700;">$799</span><span style="color:#22c55e;font-size:10px;">Paid</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:var(--text-sm);padding-block:var(--space-2);"><span>Feb 1, 2025</span><span>Professional</span><span style="font-weight:700;">$799</span><span style="color:#22c55e;font-size:10px;">Paid</span></div>
+          </div>
+          <button class="btn btn--secondary btn--full btn--sm" style="margin-block-start:var(--space-5);">Download All Invoices</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: PROFILE SETTINGS -->
+    <section id="profile-settings" aria-label="Profile Settings">
+      <div style="background:var(--bg-primary);border:1px solid var(--border-color);border-radius:var(--radius-xl);padding:var(--space-8);">
+        <h2 style="font-size:var(--text-md);font-weight:700;margin-block-end:var(--space-6);">Profile Settings</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);">
+          <div class="form-field">
+            <label class="form-label" for="ps-first">First Name</label>
+            <input type="text" id="ps-first" class="form-input" value="Amara">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="ps-last">Last Name</label>
+            <input type="text" id="ps-last" class="form-input" value="Osei">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="ps-email">Email</label>
+            <input type="email" id="ps-email" class="form-input" value="amara@artist.io">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="ps-phone">Phone</label>
+            <input type="tel" id="ps-phone" class="form-input" value="+233 (0)55 123 4567">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="ps-country">Country</label>
+            <select id="ps-country" class="form-input">
+              <option>Ghana</option><option>United States</option><option>United Kingdom</option><option>France</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="ps-lang">Language</label>
+            <select id="ps-lang" class="form-input">
+              <option>English (US)</option><option>Français</option><option>Español</option><option>العربية</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-block-start:var(--space-6);">
+          <label style="display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);cursor:pointer;margin-block-end:var(--space-3);">
+            <input type="checkbox" checked aria-label="Receive email newsletters"> Receive gallery newsletter and exhibition announcements
+          </label>
+          <label style="display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);cursor:pointer;">
+            <input type="checkbox" aria-label="Receive SMS notifications"> SMS notifications for upcoming events
+          </label>
+        </div>
+        <div style="display:flex;gap:var(--space-3);margin-block-start:var(--space-6);">
+          <button class="btn btn--primary" onclick="this.textContent='✓ Saved!';setTimeout(()=>this.textContent='Save Changes',2000);">Save Changes</button>
+          <button class="btn btn--secondary">Cancel</button>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.dashboard-main -->
+</div><!-- /.dashboard-layout -->
+</main>
+
+<!-- FOOTER --><footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="index.html" class="footer-brand"><span class="footer-logo__text">Lumière</span></a><p class="footer-description">Lumière Gallery & Exhibition Space is a premier curator of visual arts experiences, dedicated to connecting extraordinary artists with passionate audiences across the globe.</p></div><div class="footer-col"><h3 class="footer-col__title">Quick Links</h3><ul class="footer-links"><li><a href="index.html" class="footer-link">Home</a></li><li><a href="about.html" class="footer-link">About Us</a></li><li><a href="services.html" class="footer-link">Services</a></li><li><a href="blog.html" class="footer-link">Blog</a></li><li><a href="contact.html" class="footer-link">Contact</a></li><li><a href="pricing.html" class="footer-link">Pricing</a></li></ul></div><div class="footer-col"><h3 class="footer-col__title">Services</h3><ul class="footer-links"><li><a href="service-details.html" class="footer-link">Exhibition Curation</a></li><li><a href="service-details.html" class="footer-link">Digital Gallery</a></li><li><a href="service-details.html" class="footer-link">Art Consulting</a></li><li><a href="service-details.html" class="footer-link">Event Hosting</a></li><li><a href="admin-dashboard.html" class="footer-link">Admin Dashboard</a></li><li><a href="user-dashboard.html" class="footer-link">User Dashboard</a></li></ul></div><div class="footer-col"><h3 class="footer-col__title">Get In Touch</h3><div class="footer-contact-item"><span class="footer-contact-icon">✉</span><span>hello@lumieregallery.com</span></div><div class="footer-contact-item"><span class="footer-contact-icon">✆</span><span>+1 (555) ART-0101</span></div><div class="footer-contact-item"><span class="footer-contact-icon">⌂</span><span>42 Artisan Blvd, New York, NY 10001</span></div><div class="footer-newsletter" style="margin-block-start:var(--space-6);"><h3 class="footer-col__title">Newsletter</h3><form class="newsletter-form"><input type="email" class="form-input" placeholder="Your email" required aria-label="Newsletter email" style="margin-block-end:var(--space-3);"><button type="submit" class="btn btn--primary btn--full" style="background:var(--color-pink);color:var(--color-charcoal);border-color:var(--color-pink);">Subscribe</button><p class="newsletter-success" style="display:none;color:#4ade80;font-size:var(--text-xs);margin-block-start:var(--space-2);">✓ Subscribed!</p></form></div></div></div><div class="footer-bottom"><p class="footer-copyright">© 2025 Lumière Gallery & Exhibition Space. All rights reserved.</p></div></div></footer>
+
+<script src="js/theme-toggle.js"></script><script src="js/rtl-toggle.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script><script src="js/charts.js"></script>
+</body>
+</html>

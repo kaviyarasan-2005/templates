@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery & Exhibition Space | Membership Pricing</title>
+  <meta name="description" content="Explore our gallery membership tiers, offering exclusive access, previews, and art consultation.">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  
+  <style>
+    .pricing-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: var(--spacing-6) var(--spacing-5);
+      background: var(--bg-card);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px var(--shadow-color);
+    }
+    .pricing-card.premium {
+      border-color: var(--accent-primary);
+      box-shadow: 0 8px 16px var(--shadow-color);
+      position: relative;
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-primary);
+      color: #1a1a1a;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      border-radius: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .pricing-price {
+      font-size: 3rem;
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      margin: var(--spacing-4) 0;
+    }
+    .pricing-price span {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+    }
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--spacing-6);
+      text-align: left;
+    }
+    .pricing-features li {
+      margin-bottom: var(--spacing-2);
+      color: var(--text-secondary);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .comparison-table th, .comparison-table td {
+      padding: var(--spacing-4);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .comparison-table th {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+    .comparison-table .fa-check {
+      color: var(--accent-primary);
+    }
+    .comparison-table .fa-minus {
+      color: var(--text-muted);
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <i class="fa-solid fa-palette"></i>
+        <span>Lumina Gallery</span>
+      </a>
+
+      <nav class="nav-menu">
+        <li class="has-dropdown">
+          <a href="#" class="nav-link">Home <i class="fa-solid fa-chevron-down" style="font-size:0.75em; margin-left:4px;"></i></a>
+          <div class="dropdown-menu">
+            <a href="index.html">Home Page 1 — General</a>
+            <a href="home-2.html">Home Page 2 — Niche</a>
+          </div>
+        </li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="blog.html" class="nav-link">Journal</a></li>
+        <li><a href="pricing.html" class="nav-link active">Membership</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="login.html" class="nav-link">Sign In</a></li>
+      </nav>
+
+      <div class="nav-toggles">
+        <button class="toggle-btn rtl-toggle" aria-label="Toggle RTL/LTR">
+          <i class="fa-solid fa-globe"></i>
+        </button>
+        <button class="toggle-btn theme-toggle" aria-label="Toggle Dark/Light Mode">
+          <i class="fa-regular fa-moon"></i>
+        </button>
+        <button class="toggle-btn mobile-menu-btn" aria-label="Toggle Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section class="hero" style="background-color: var(--bg-secondary); padding: 160px 0 80px; border-bottom: 1px solid var(--border-color);">
+      <div class="container text-center fade-up">
+        <h1 style="margin-bottom: var(--spacing-4);">Gallery Memberships</h1>
+        <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto; color: var(--text-secondary);">Join our community of art lovers and collectors to gain exclusive access and privileges.</p>
+      </div>
+    </section>
+
+    <!-- Section 2: Pricing Cards -->
+    <section class="pricing-cards py-section">
+      <div class="container grid lg:grid-cols-3 gap-8 fade-up">
+        
+        <!-- Tier 1 -->
+        <div class="pricing-card">
+          <h3>Enthusiast</h3>
+          <p class="text-sm text-secondary">Perfect for regular visitors.</p>
+          <div class="pricing-price">$120<span>/year</span></div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> Unlimited museum admission</li>
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> 10% discount at the cafe</li>
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> Advanced notice of events</li>
+            <li><i class="fa-solid fa-minus mr-2"></i> No private previews</li>
+          </ul>
+          <a href="register.html" class="btn btn-secondary mt-auto" style="width: 100%;">Select Tier</a>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="pricing-card premium">
+          <div class="pricing-badge">MOST POPULAR</div>
+          <h3>Patron</h3>
+          <p class="text-sm text-secondary">For the dedicated collector.</p>
+          <div class="pricing-price">$450<span>/year</span></div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> Unlimited admission + 2 guests</li>
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> 20% discount on exhibition catalogs</li>
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> Invitations to private previews</li>
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> 1 hr complimentary art consultation</li>
+          </ul>
+          <a href="register.html" class="btn btn-primary mt-auto" style="width: 100%;">Select Tier</a>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="pricing-card">
+          <h3>Benefactor</h3>
+          <p class="text-sm text-secondary">VIP access and deep curation support.</p>
+          <div class="pricing-price">$1200<span>/year</span></div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> Unlimited admission + 4 guests</li>
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> Private vault viewings</li>
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> VIP gala invitations</li>
+            <li><i class="fa-solid fa-check mr-2" style="color: var(--accent-primary);"></i> Full estate curation support</li>
+          </ul>
+          <a href="register.html" class="btn btn-secondary mt-auto" style="width: 100%;">Select Tier</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 3: Feature Comparison -->
+    <section class="feature-comparison py-section" style="background-color: var(--bg-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container fade-up mb-section text-center">
+        <h2>Detailed Comparison</h2>
+        <p class="text-secondary">Compare features to find the perfect membership level for you.</p>
+      </div>
+      <div class="container fade-up" style="overflow-x: auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width: 40%;">Feature</th>
+              <th class="text-center" style="width: 20%;">Enthusiast</th>
+              <th class="text-center" style="width: 20%;">Patron</th>
+              <th class="text-center" style="width: 20%;">Benefactor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>General Admission</td>
+              <td class="text-center"><i class="fa-solid fa-check"></i></td>
+              <td class="text-center"><i class="fa-solid fa-check"></i></td>
+              <td class="text-center"><i class="fa-solid fa-check"></i></td>
+            </tr>
+            <tr>
+              <td>Guest Passes</td>
+              <td class="text-center">0</td>
+              <td class="text-center">2</td>
+              <td class="text-center">4</td>
+            </tr>
+            <tr>
+              <td>Private Previews</td>
+              <td class="text-center"><i class="fa-solid fa-minus"></i></td>
+              <td class="text-center"><i class="fa-solid fa-check"></i></td>
+              <td class="text-center"><i class="fa-solid fa-check"></i></td>
+            </tr>
+            <tr>
+              <td>Art Consultation</td>
+              <td class="text-center"><i class="fa-solid fa-minus"></i></td>
+              <td class="text-center">1 Hour</td>
+              <td class="text-center">Unlimited</td>
+            </tr>
+            <tr>
+              <td>Gala Invitations</td>
+              <td class="text-center"><i class="fa-solid fa-minus"></i></td>
+              <td class="text-center"><i class="fa-solid fa-minus"></i></td>
+              <td class="text-center"><i class="fa-solid fa-check"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 4: FAQ -->
+    <section class="faq py-section">
+      <div class="container fade-up text-center mb-section">
+        <h2>Membership FAQ</h2>
+      </div>
+      <div class="container max-w-3xl fade-up" style="max-width: 800px; margin: 0 auto;">
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Are memberships tax-deductible?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner mt-4">
+                Yes, Lumina Gallery is a registered 501(c)(3) non-profit organization. A portion of your membership dues (Benefactor level) is tax-deductible.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              How do guest passes work?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner mt-4">
+                Guest passes are digitally attached to your membership card. When checking in, you may bring up to the stipulated number of guests completely free of charge.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Can I upgrade my membership later?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner mt-4">
+                Absolutely. You can upgrade your tier at any point during your annual cycle, and the remaining fee will be prorated.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Trusted By / Logos -->
+    <section class="trusted-by py-section" style="background-color: var(--bg-secondary);">
+      <div class="container fade-up text-center mb-section">
+        <h2>Corporate Members</h2>
+        <p class="text-secondary">Organizations that support our cultural mission</p>
+      </div>
+      <div class="container flex justify-center items-center flex-wrap gap-8 fade-up" style="opacity: 0.6;">
+        <!-- Icons representing corporate logos -->
+        <div class="flex items-center gap-2"><i class="fa-brands fa-apple" style="font-size: 2rem;"></i> <span style="font-family: var(--font-heading); font-weight: 700;">Nova Corp</span></div>
+        <div class="flex items-center gap-2"><i class="fa-solid fa-building-columns" style="font-size: 2rem;"></i> <span style="font-family: var(--font-heading); font-weight: 700;">Global Bank</span></div>
+        <div class="flex items-center gap-2"><i class="fa-brands fa-neos" style="font-size: 2rem;"></i> <span style="font-family: var(--font-heading); font-weight: 700;">Nexus Tech</span></div>
+        <div class="flex items-center gap-2"><i class="fa-solid fa-leaf" style="font-size: 2rem;"></i> <span style="font-family: var(--font-heading); font-weight: 700;">Green Foundation</span></div>
+      </div>
+    </section>
+
+    <!-- Section 6: CTA Get Started -->
+    <section class="cta-section py-section text-center">
+      <div class="container fade-up">
+        <h2 style="margin-bottom: var(--spacing-4);">Ready to Join?</h2>
+        <p style="max-width: 600px; margin: 0 auto var(--spacing-6); color: var(--text-secondary);">Secure your membership today and immediately unlock access to our digital catalog and upcoming private events.</p>
+        <a href="register.html" class="btn btn-primary px-8" style="padding: 1rem 3rem;">Become a Member</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
+        <div class="footer-col">
+          <a href="index.html" class="brand mb-4" style="display:inline-flex;">
+            <i class="fa-solid fa-palette"></i>
+            <span>Lumina</span>
+          </a>
+          <p>Curating exceptional contemporary and classic art experiences since 1998.</p>
+        </div>
+        <div class="footer-col pl-4">
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="pricing.html">Membership</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <div class="footer-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="blog.html">Journal</a>
+            <a href="login.html">Sign In</a>
+            <a href="register.html">Register</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="social-links mt-4">
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Lumina Gallery. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

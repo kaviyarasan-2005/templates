@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery | Art Consultation Services</title>
+  <meta name="description" content="Personalized art consultation for collectors and investors.">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <i class="fa-solid fa-palette"></i>
+        <span>Lumina Gallery</span>
+      </a>
+
+      <nav class="nav-menu">
+        <li class="has-dropdown">
+          <a href="#" class="nav-link">Home <i class="fa-solid fa-chevron-down" style="font-size:0.75em; margin-left:4px;"></i></a>
+          <div class="dropdown-menu">
+            <a href="index.html">Home Page 1 — General</a>
+            <a href="home-2.html">Home Page 2 — Niche</a>
+          </div>
+        </li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="services.html" class="nav-link active">Services</a></li>
+        <li><a href="blog.html" class="nav-link">Journal</a></li>
+        <li><a href="pricing.html" class="nav-link">Membership</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="login.html" class="nav-link">Sign In</a></li>
+      </nav>
+
+      <div class="nav-toggles">
+        <button class="toggle-btn rtl-toggle" aria-label="Toggle RTL/LTR">
+          <i class="fa-solid fa-globe"></i>
+        </button>
+        <button class="toggle-btn theme-toggle" aria-label="Toggle Dark/Light Mode">
+          <i class="fa-regular fa-moon"></i>
+        </button>
+        <button class="toggle-btn mobile-menu-btn" aria-label="Toggle Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1920'); background-size: cover; background-position: center; padding: 200px 0 100px; color: #fff;">
+      <div class="container text-center fade-up">
+        <div class="text-sm text-muted mb-2" style="letter-spacing: 2px; text-transform: uppercase;">Curatorial Services</div>
+        <h1 style="color: #fff; margin-bottom: var(--spacing-4);">Private Art Consultation</h1>
+        <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; color: #e0e0e0;">Strategic guidance for acquiring, placing, and preserving investment-grade artworks.</p>
+      </div>
+    </section>
+
+    <!-- Section 2: In-depth Description -->
+    <section class="service-description py-section" style="background-color: var(--bg-card);">
+      <div class="container grid md:grid-cols-2 gap-8 items-center fade-up">
+        <div class="img-wrap" style="aspect-ratio: 4/5;">
+          <img src="https://images.unsplash.com/photo-1510936111840-65e151ad71bb?auto=format&fit=crop&w=800&q=80" alt="Consultation Strategy">
+        </div>
+        <div>
+          <h2>Elevating the Private Collection</h2>
+          <p class="text-secondary mb-4">Navigating the high-end art market requires nuance, historical insight, and an understanding of spatial dynamics. Our Private Consultation service bridges your aesthetic desires with our deep-rooted industry connections.</p>
+          <p class="text-secondary mb-6">Whether you are curating a modern corporate foyer or expanding a familial estate collection with Renaissance oils, we orchestrate the entire process—from initial sourcing and discreet negotiations to final installation.</p>
+          <div class="grid grid-cols-1 gap-4">
+            <div class="flex items-center gap-4 p-4" style="background-color: var(--bg-secondary); border-radius: 8px;">
+              <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5rem; color: var(--accent-primary);"></i>
+              <div>
+                <h4 style="margin: 0;">Market Intelligence</h4>
+                <p class="text-secondary text-sm m-0">In-depth insights into emerging artists.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4" style="background-color: var(--bg-secondary); border-radius: 8px;">
+              <i class="fa-solid fa-handshake" style="font-size: 1.5rem; color: var(--accent-primary);"></i>
+              <div>
+                <h4 style="margin: 0;">Discreet Acquisition</h4>
+                <p class="text-secondary text-sm m-0">Negotiations conducted with total privacy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Pricing Table -->
+    <section class="service-pricing py-section text-center" style="border-top: 1px solid var(--border-color);">
+      <div class="container fade-up mb-section">
+        <h2>Consultation Scopes</h2>
+        <p class="text-secondary">Transparent engagement models for collectors.</p>
+      </div>
+      <div class="container fade-up" style="max-width: 900px; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead>
+            <tr style="background-color: var(--bg-secondary);">
+              <th style="padding: var(--spacing-4); border-bottom: 2px solid var(--accent-primary);">Service Detail</th>
+              <th style="padding: var(--spacing-4); border-bottom: 2px solid var(--accent-primary);">Advisory Tier</th>
+              <th style="padding: var(--spacing-4); border-bottom: 2px solid var(--accent-primary);">Rate Structure</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: var(--spacing-4); border-bottom: 1px solid var(--border-color);">Initial Evaluation & Collection Mapping</td>
+              <td style="padding: var(--spacing-4); border-bottom: 1px solid var(--border-color); color: var(--text-secondary);">Standard Retainer</td>
+              <td style="padding: var(--spacing-4); border-bottom: 1px solid var(--border-color); font-family: var(--font-heading); font-weight: 600;">$250 / Hour</td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-4); border-bottom: 1px solid var(--border-color);">Estate Curation & Acquisition Strategy</td>
+              <td style="padding: var(--spacing-4); border-bottom: 1px solid var(--border-color); color: var(--text-secondary);">Project Scope</td>
+              <td style="padding: var(--spacing-4); border-bottom: 1px solid var(--border-color); font-family: var(--font-heading); font-weight: 600;">10% Comm.</td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-4); border-bottom: 1px solid var(--border-color);">Investment Portfolio Management</td>
+              <td style="padding: var(--spacing-4); border-bottom: 1px solid var(--border-color); color: var(--text-secondary);">Ongoing Partnership</td>
+              <td style="padding: var(--spacing-4); border-bottom: 1px solid var(--border-color); font-family: var(--font-heading); font-weight: 600;">Custom Quote</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 4: FAQ Section -->
+    <section class="service-faq py-section" style="background-color: var(--bg-secondary);">
+      <div class="container fade-up text-center mb-section">
+        <h2>Service Insights</h2>
+      </div>
+      <div class="container max-w-3xl fade-up" style="max-width: 800px; margin: 0 auto;">
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              How long does an acquisition process take?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner mt-4">
+                Timelines vary wildly based on the rarity of the piece. Acquiring accessible contemporary art can take a few weeks, while sourcing a specific historical masterpiece may take months or years of negotiation.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Do you consult for international clients?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner mt-4">
+                Yes. We handle global logistics, international customs, and ensure full compliance with art export regulations.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Related Services -->
+    <section class="related-services py-section">
+      <div class="container fade-up text-center mb-section">
+        <h2>Explore More</h2>
+      </div>
+      <div class="container grid md:grid-cols-2 lg:grid-cols-2 gap-6 fade-up">
+        <!-- We use simple cards here without overflowing -->
+        <div class="card flex items-center gap-4">
+          <div class="img-wrap" style="width: 100px; height: 100px; flex-shrink: 0;">
+            <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=200&h=200&q=80" alt="Appraisal">
+          </div>
+          <div>
+            <h3>Authentication & Appraisal</h3>
+            <a href="service-details.html" class="text-sm" style="color: var(--accent-primary); font-weight: 600;">View Details <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="card flex items-center gap-4">
+          <div class="img-wrap" style="width: 100px; height: 100px; flex-shrink: 0;">
+            <img src="https://images.unsplash.com/photo-1580136608260-4ebf1f4b2311?auto=format&fit=crop&w=200&h=200&q=80" alt="Restoration">
+          </div>
+          <div>
+            <h3>Conservation & Restoration</h3>
+            <a href="service-details.html" class="text-sm" style="color: var(--accent-primary); font-weight: 600;">View Details <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Contact Form CTA -->
+    <section class="contact-cta py-section" style="background-color: var(--text-primary); color: var(--bg-primary);">
+      <div class="container grid lg:grid-cols-2 gap-8 items-center fade-up">
+        <div>
+          <h2 style="color: var(--bg-primary);">Begin the Dialogue</h2>
+          <p style="color: var(--bg-secondary); margin-bottom: var(--spacing-6); opacity: 0.9;">Leave us a precise overview of your curatorial needs. One of our senior advisors will establish contact within 24 hours.</p>
+          <ul class="list-check mb-6" style="list-style: none; padding: 0; line-height: 2;">
+            <li style="color: var(--bg-secondary);"><i class="fa-solid fa-envelope" style="color: var(--accent-primary); margin-right: 8px;"></i> private@luminagallery.com</li>
+            <li style="color: var(--bg-secondary);"><i class="fa-solid fa-phone" style="color: var(--accent-primary); margin-right: 8px;"></i> +1 (212) 555-7890</li>
+          </ul>
+        </div>
+        <div>
+          <form style="background: var(--bg-card); padding: var(--spacing-6); border-radius: 8px;">
+            <h3 style="color: var(--text-primary); margin-bottom: var(--spacing-4);">Inquiry Form</h3>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+              <input type="text" placeholder="Full Name" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body);">
+              <input type="email" placeholder="Email Address" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body);">
+            </div>
+            <select style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 4px; margin-bottom: var(--spacing-4); background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body);">
+              <option>Consultation Inquiry</option>
+              <option>Appraisal Request</option>
+              <option>Estate Sales</option>
+            </select>
+            <textarea placeholder="Describe your collection or goals..." rows="4" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 4px; margin-bottom: var(--spacing-4); background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); resize: vertical;"></textarea>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
+        <div class="footer-col">
+          <a href="index.html" class="brand mb-4" style="display:inline-flex;">
+            <i class="fa-solid fa-palette"></i>
+            <span>Lumina</span>
+          </a>
+          <p>Curating exceptional contemporary and classic art experiences since 1998.</p>
+        </div>
+        <div class="footer-col pl-4">
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="pricing.html">Membership</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <div class="footer-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="blog.html">Journal</a>
+            <a href="login.html">Sign In</a>
+            <a href="register.html">Register</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="social-links mt-4">
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Lumina Gallery. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

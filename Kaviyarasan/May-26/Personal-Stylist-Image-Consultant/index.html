@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lumière Gallery — a premier art gallery and exhibition space where curated artworks, immersive installations, and timeless creativity meet. Discover world-class exhibitions and art consulting services.">
+  <meta property="og:title" content="Lumière Gallery & Exhibition Space — Home">
+  <meta property="og:description" content="Where art meets experience. Premium gallery curation, digital exhibitions, and art consulting services.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lumière Gallery & Exhibition Space">
+
+  <!-- Favicons -->
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#2F2F2F">
+  <title>Lumière Gallery & Exhibition Space — Home</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dark-mode.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Prevent FOUC on theme load -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('lumiere-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      var d = localStorage.getItem('lumiere-dir') || 'ltr';
+      document.documentElement.setAttribute('dir', d);
+    })();
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ArtGallery",
+    "name": "Lumière Gallery & Exhibition Space",
+    "description": "Premier art gallery offering exhibition curation, digital gallery experiences, art consulting, and event hosting.",
+    "url": "https://www.lumieregallery.com",
+    "telephone": "+1-555-ART-0101",
+    "email": "hello@lumieregallery.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "42 Artisan Boulevard",
+      "addressLocality": "New York",
+      "addressRegion": "NY",
+      "postalCode": "10001",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+
+  <!-- Inline critical CSS -->
+  <style>
+    body { background-color: #F4EDE4; }
+    [data-theme="dark"] body { background-color: #1A1A1A; }
+    .site-header { opacity: 0; animation: fadeSlideDown 0.4s ease 0.1s both; }
+    @keyframes fadeSlideDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER — Shared across all 14 pages
+     ============================================================ -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <a href="index.html" class="site-logo" aria-label="Lumière Gallery Home">
+      <div>
+        <span class="site-logo__text">Lumière</span>
+        <span class="site-logo__sub">Gallery & Exhibition</span>
+      </div>
+    </a>
+
+    <!-- Primary Navigation -->
+    <nav class="primary-nav" role="navigation" aria-label="Main navigation">
+
+      <!-- Home Dropdown -->
+      <div class="nav-dropdown">
+        <a href="index.html" class="nav-link nav-dropdown__trigger" id="home-dropdown-trigger">Home</a>
+        <div class="nav-dropdown__menu" role="menu">
+          <a href="index.html" class="nav-dropdown__item" role="menuitem">
+            Home Page 1
+            <span class="item-sub">General Services Landing</span>
+          </a>
+          <a href="home-2.html" class="nav-dropdown__item" role="menuitem">
+            Home Page 2
+            <span class="item-sub">Digital Agency / SaaS</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="about.html" class="nav-link">About Us</a>
+      <div class="nav-dropdown"><a href="services.html" class="nav-link nav-dropdown__trigger">Services</a><div class="nav-dropdown__menu" role="menu"><a href="services.html" class="nav-dropdown__item" role="menuitem">Services<span class="item-sub">All Services</span></a><a href="service-details.html" class="nav-dropdown__item" role="menuitem">Service Details<span class="item-sub">Individual Service</span></a></div></div>
+      <div class="nav-dropdown"><a href="blog.html" class="nav-link nav-dropdown__trigger">Blog</a><div class="nav-dropdown__menu" role="menu"><a href="blog.html" class="nav-dropdown__item" role="menuitem">Blog<span class="item-sub">All Articles</span></a><a href="blog-details.html" class="nav-dropdown__item" role="menuitem">Blog Details<span class="item-sub">Article View</span></a></div></div>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+
+      <!-- Dashboard Dropdown -->
+      <div class="nav-dropdown">
+        <span class="nav-link nav-dropdown__trigger" style="cursor:pointer;">Dashboard</span>
+        <div class="nav-dropdown__menu" role="menu">
+          <a href="admin-dashboard.html" class="nav-dropdown__item" role="menuitem">
+            Admin Dashboard
+            <span class="item-sub">Analytics & Management</span>
+          </a>
+          <a href="user-dashboard.html" class="nav-dropdown__item" role="menuitem">
+            User Dashboard
+            <span class="item-sub">Your Bookings & Activity</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Controls -->
+    <div class="header-controls">
+      <!-- Globe / RTL Toggle -->
+      <button
+        id="globe-toggle"
+        class="ctrl-btn"
+        aria-label="Toggle RTL/LTR layout direction"
+        title="Toggle layout direction"
+        aria-pressed="false"
+      >🌐</button>
+
+      <!-- Theme Toggle -->
+      <button
+        id="theme-toggle"
+        class="ctrl-btn"
+        aria-label="Switch to dark mode"
+        title="Toggle dark/light mode"
+        style="position:relative;"
+      >
+        <span class="theme-icon-label-sun"  style="position:absolute;">☀️</span>
+        <span class="theme-icon-label-moon" style="position:absolute; display:none;">🌙</span>
+        <span class="sr-only">Toggle theme</span>
+      </button>
+
+      <!-- CTA -->
+      <a href="login.html" class="btn btn--primary btn--sm">Sign In</a>
+
+      <!-- Hamburger -->
+      <button
+        id="hamburger"
+        class="hamburger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu Backdrop -->
+<div id="menu-backdrop" class="mobile-menu__backdrop" aria-hidden="true"></div>
+
+<!-- Mobile Menu -->
+<nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" role="navigation">
+  <div class="mobile-menu__header">
+    <a href="index.html" class="site-logo">
+      <span class="site-logo__text">Lumière</span>
+    </a>
+    <button id="mobile-menu-close" class="mobile-menu__close" aria-label="Close menu">✕</button>
+  </div>
+  <div class="mobile-menu__nav">
+    <a href="index.html" class="mobile-nav-link active">Home Page 1</a>
+    <a href="home-2.html" class="mobile-nav-link">Home Page 2</a>
+    <a href="about.html" class="mobile-nav-link">About Us</a>
+    <a href="services.html" class="mobile-nav-link">Services</a><a href="service-details.html" class="mobile-nav-link">Service Details</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a><a href="blog-details.html" class="mobile-nav-link">Blog Details</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+    <a href="admin-dashboard.html" class="mobile-nav-link">Admin Dashboard</a>
+    <a href="user-dashboard.html" class="mobile-nav-link">User Dashboard</a>
+    <a href="login.html" class="mobile-nav-link">Sign In</a>
+  </div>
+  <div style="margin-block-start: auto; padding-block-start: 2rem; display:flex; gap:1rem;">
+    <!-- Controls duplicated in mobile -->
+    <button id="globe-toggle-m" class="ctrl-btn" onclick="document.getElementById('globe-toggle').click()" aria-label="Toggle layout direction">🌐</button>
+    <button class="ctrl-btn" onclick="document.getElementById('theme-toggle').click()" aria-label="Toggle theme">☀️</button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- ── SECTION 1: HERO ──────────────────────────────────── -->
+  <section class="hero" id="hero" aria-label="Hero — Welcome to Lumière Gallery">
+    <div class="hero__bg">
+      <picture>
+        <source srcset="images/hero/hero-gallery.png" type="image/png">
+        <img src="images/hero/hero-gallery.png" alt="Stunning gallery interior with warm lighting and curated artwork collections" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="hero__overlay"></div>
+
+    <div class="container hero__content">
+      <p class="hero__eyebrow">Est. 2018 · New York City</p>
+      <h1 class="hero__title">Where Art<br>Finds Its<br><span style="color: var(--color-pink-dark);">Voice.</span></h1>
+      <p class="hero__subtitle">Lumière Gallery curates exceptional visual experiences — connecting collectors, artists, and art enthusiasts through world-class exhibitions and cultural events.</p>
+      <div class="hero__actions">
+        <a href="services.html" class="btn btn--primary btn--lg btn-ripple">Explore Exhibitions</a>
+        <a href="about.html" class="btn btn--secondary btn--lg">Our Story</a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-indicator__text">Scroll</span>
+      <div class="scroll-indicator__dot"></div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: FEATURED SERVICES ─────────────────────── -->
+  <section class="section" id="services-preview" aria-label="Featured Services">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <span class="section-tag">What We Offer</span>
+        <h2 class="section-title">Gallery Services</h2>
+        <p class="section-subtitle">From intimate private viewings to large-scale public installations, Lumière provides a full spectrum of gallery and curatorial services.</p>
+      </div>
+
+      <div class="grid grid-3 reveal-group" style="gap: var(--space-6);">
+        <!-- Card 1 -->
+        <article class="card reveal" aria-label="Exhibition Curation Service">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/hero/hero-event.png" alt="Curated gallery exhibition with dramatic lighting and contemporary artworks" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Exhibitions</span>
+            <h3 class="card__title">Exhibition Curation</h3>
+            <p class="card__excerpt">Expert-led curation of themed exhibitions that tell compelling visual stories. We handle everything from artist selection to installation design and catalogue production.</p>
+            <a href="service-details.html" class="btn btn--secondary btn--sm" style="margin-block-start: var(--space-2);">Learn More →</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card reveal" aria-label="Digital Gallery Service">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/gallery/artwork-5.png" alt="Digital gallery display with vibrant mixed media artwork" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Digital</span>
+            <h3 class="card__title">Digital Gallery</h3>
+            <p class="card__excerpt">Immersive virtual exhibition experiences that bring world-class art to global audiences. High-fidelity digital reproductions with expert archival metadata.</p>
+            <a href="service-details.html" class="btn btn--secondary btn--sm" style="margin-block-start: var(--space-2);">Learn More →</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card reveal" aria-label="Art Consulting Service">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/gallery/artwork-1.png" alt="Art consulting with premium abstract oil painting collection" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Consulting</span>
+            <h3 class="card__title">Art Consulting</h3>
+            <p class="card__excerpt">Private and corporate art acquisition advisory. Our consultants help collectors build meaningful, investment-grade collections aligned with their vision.</p>
+            <a href="service-details.html" class="btn btn--secondary btn--sm" style="margin-block-start: var(--space-2);">Learn More →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: ABOUT SNIPPET ─────────────────────────── -->
+  <section class="section" id="about-snippet" style="background: var(--bg-secondary);" aria-label="About Lumière Gallery">
+    <div class="container">
+      <div class="split-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center;">
+        <div class="split-image reveal reveal--from-start">
+          <div style="border-radius: var(--radius-2xl); overflow: hidden; position: relative;">
+            <img src="images/hero/hero-gallery.png" alt="Interior view of Lumière Gallery with soaring ceilings and natural light" loading="lazy" style="width:100%; height: clamp(350px, 50vh, 550px); object-fit: cover; border-radius: var(--radius-2xl); display:block;">
+            <!-- Pink accent badge -->
+            <div style="position: absolute; bottom: var(--space-6); inset-inline-start: var(--space-6); background: var(--color-pink); padding: var(--space-4) var(--space-6); border-radius: var(--radius-lg);">
+              <span style="font-size: var(--text-2xl); font-weight: 900; color: var(--color-charcoal); display:block; line-height:1;">500+</span>
+              <span style="font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal-70);">Exhibitions Hosted</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="split-content reveal reveal--from-end">
+          <span class="section-tag">Our Mission</span>
+          <h2 class="section-title" style="margin-block-start: var(--space-4);">Art That <span class="accent-underline">Transforms</span> Communities</h2>
+          <div class="divider" style="margin-block: var(--space-6);"></div>
+          <p style="font-size: var(--text-md); line-height: 1.8; margin-block-end: var(--space-5);">
+            Founded in 2018, Lumière Gallery began as a single curated space in Manhattan with a radical belief: that great art should be accessible, that beauty is a public good, and that every community deserves world-class cultural infrastructure.
+          </p>
+          <p style="margin-block-end: var(--space-8);">
+            Today, we operate across three cities, partner with over 120 independent artists, and welcome more than 50,000 visitors annually. Our curatorial philosophy blends classical mastery with bold contemporary voices.
+          </p>
+          <a href="about.html" class="btn btn--primary">Discover Our Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: GALLERY PREVIEW ───────────────────────── -->
+  <section class="section" id="gallery-preview" aria-label="Gallery Preview">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <span class="section-tag">Current Exhibition</span>
+        <h2 class="section-title">Featured Artworks</h2>
+        <p class="section-subtitle">A selection of works from our current exhibition cycle. Each piece is chosen for its exceptional craftsmanship and emotional resonance.</p>
+      </div>
+
+      <div class="gallery-grid reveal-group">
+        <div class="gallery-item reveal">
+          <img src="images/gallery/artwork-1.png" alt="Abstract oil painting with rich burgundy and gold tones by Marcus Chen" loading="lazy">
+          <div class="gallery-item__overlay">
+            <p class="gallery-item__title">Echoes of Autumn</p>
+            <p class="gallery-item__artist">Marcus Chen, 2024</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="images/gallery/artwork-2.png" alt="Minimalist beige and pink geometric painting by Sofía Delacroix" loading="lazy">
+          <div class="gallery-item__overlay">
+            <p class="gallery-item__title">Stillness in Form</p>
+            <p class="gallery-item__artist">Sofía Delacroix, 2024</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="images/gallery/artwork-3.png" alt="White marble sculpture of graceful human figure by Ethan Moreau" loading="lazy">
+          <div class="gallery-item__overlay">
+            <p class="gallery-item__title">The Ascendant</p>
+            <p class="gallery-item__artist">Ethan Moreau, 2023</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="images/gallery/artwork-4.png" alt="Impressionist landscape painting with soft dawn light by Yuki Tanaka" loading="lazy">
+          <div class="gallery-item__overlay">
+            <p class="gallery-item__title">First Light Over Kyoto</p>
+            <p class="gallery-item__artist">Yuki Tanaka, 2024</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="images/gallery/artwork-5.png" alt="Mixed media artwork with gold leaf and geometric patterns by Amara Osei" loading="lazy">
+          <div class="gallery-item__overlay">
+            <p class="gallery-item__title">Golden Intersection</p>
+            <p class="gallery-item__artist">Amara Osei, 2023</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="images/gallery/artwork-6.png" alt="Dramatic black and white coastal photography by Lara Vasquez" loading="lazy">
+          <div class="gallery-item__overlay">
+            <p class="gallery-item__title">The Shore Beyond</p>
+            <p class="gallery-item__artist">Lara Vasquez, 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-block-start: var(--space-10);">
+        <a href="services.html" class="btn btn--primary btn--lg">View Full Exhibition</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: TESTIMONIALS ──────────────────────────── -->
+  <section class="section" id="testimonials" style="background: var(--bg-secondary);" aria-label="Client Testimonials">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <span class="section-tag">What They Say</span>
+        <h2 class="section-title">Voices of Our Community</h2>
+      </div>
+
+      <div class="testimonial-slider reveal" style="position: relative; overflow: hidden;">
+        <div class="testimonial-track" style="display: flex; transition: transform 0.5s ease;">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide" style="min-width: 100%;">
+            <div class="grid grid-3" style="gap: var(--space-6);">
+              <div class="testimonial-card">
+                <div class="stars">
+                  <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="testimonial-card__text">"Lumière transformed how I think about collecting. Their curatorial expertise helped me build a truly meaningful collection that reflects my values and aesthetic sensibility."</p>
+                <div class="testimonial-card__author">
+                  <img src="images/team/team-1.png" alt="Portrait of Eleanor Whitman, private collector" class="testimonial-card__avatar" loading="lazy">
+                  <div>
+                    <p class="testimonial-card__name">Eleanor Whitman</p>
+                    <p class="testimonial-card__role">Private Collector, London</p>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="stars">
+                  <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="testimonial-card__text">"The exhibition curation team is extraordinary. They understood our brand ethos instantly and created an installation that our guests are still talking about months later."</p>
+                <div class="testimonial-card__author">
+                  <img src="images/team/team-2.png" alt="Portrait of David Nakamura, corporate art director" class="testimonial-card__avatar" loading="lazy">
+                  <div>
+                    <p class="testimonial-card__name">David Nakamura</p>
+                    <p class="testimonial-card__role">Art Director, Meridian Hotels</p>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="stars">
+                  <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="testimonial-card__text">"As an emerging artist, having Lumière represent my work was a career-defining moment. Their network, professionalism, and genuine passion for art is unmatched."</p>
+                <div class="testimonial-card__author">
+                  <img src="images/team/team-3.png" alt="Portrait of Amara Osei, artist" class="testimonial-card__avatar" loading="lazy">
+                  <div>
+                    <p class="testimonial-card__name">Amara Osei</p>
+                    <p class="testimonial-card__role">Contemporary Artist, Accra</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation dots -->
+        <div style="display: flex; justify-content: center; gap: var(--space-2); margin-block-start: var(--space-8);">
+          <button class="slider-dot active" aria-label="Slide 1" style="width:10px;height:10px;border-radius:50%;border:none;background:var(--color-pink-dark);cursor:pointer;transition:transform 0.2s;"></button>
+          <button class="slider-dot" aria-label="Slide 2" style="width:10px;height:10px;border-radius:50%;border:none;background:var(--border-color);cursor:pointer;transition:transform 0.2s;"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: NEWSLETTER CTA ────────────────────────── -->
+  <section class="section section--accent" id="newsletter" aria-label="Newsletter Sign Up">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center;">
+        <div class="reveal">
+          <span class="section-tag" style="background: var(--color-charcoal); color: var(--color-beige);">Stay Connected</span>
+          <h2 class="section-title" style="margin-block-start: var(--space-4); color: var(--color-charcoal);">Never Miss an<br>Opening Night</h2>
+          <p style="color: var(--color-charcoal-70); margin-block: var(--space-4) var(--space-8); font-size: var(--text-md);">
+            Join our community of collectors, arts professionals, and enthusiasts. Receive exclusive exhibition previews, artist spotlights, and curated art world news.
+          </p>
+          <form class="newsletter-form" style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 440px;">
+            <div class="newsletter-row">
+              <input type="email" class="form-input" placeholder="Your email address" required aria-label="Email address for newsletter">
+              <button type="submit" class="btn btn--dark">Subscribe</button>
+            </div>
+            <p style="font-size: var(--text-xs); color: var(--color-charcoal-50);">No spam, ever. Unsubscribe at any time. We respect your privacy.</p>
+            <p class="newsletter-success" style="display:none; color: #22a367; font-weight: 600; font-size: var(--text-sm);">✓ You're on the list! Watch your inbox.</p>
+          </form>
+        </div>
+        <div class="reveal reveal--from-end" style="position: relative;">
+          <img src="images/hero/hero-event.png" alt="Elegant art gallery opening night with sophisticated guests and beautiful artworks" loading="lazy" style="border-radius: var(--radius-2xl); width:100%; height: clamp(280px, 40vh, 450px); object-fit: cover; box-shadow: var(--shadow-xl);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER — Identical across all 14 pages
+     ============================================================ -->
+<footer class="site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand Column -->
+      <div class="footer-col">
+        <a href="index.html" class="footer-brand">
+          <span class="footer-logo__text">Lumière</span>
+        </a>
+        <p class="footer-description">
+          Lumière Gallery & Exhibition Space is a premier curator of visual arts experiences, dedicated to connecting extraordinary artists with passionate audiences across the globe.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h3 class="footer-col__title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+          <li><a href="services.html" class="footer-link">Services</a></li>
+          <li><a href="blog.html" class="footer-link">Blog</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a href="pricing.html" class="footer-link">Pricing</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h3 class="footer-col__title">Services</h3>
+        <ul class="footer-links">
+          <li><a href="service-details.html" class="footer-link">Exhibition Curation</a></li>
+          <li><a href="service-details.html" class="footer-link">Digital Gallery</a></li>
+          <li><a href="service-details.html" class="footer-link">Art Consulting</a></li>
+          <li><a href="service-details.html" class="footer-link">Event Hosting</a></li>
+          <li><a href="admin-dashboard.html" class="footer-link">Admin Dashboard</a></li>
+          <li><a href="user-dashboard.html" class="footer-link">User Dashboard</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact + Newsletter -->
+      <div class="footer-col">
+        <h3 class="footer-col__title">Get In Touch</h3>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">✉</span>
+          <span>hello@lumieregallery.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">✆</span>
+          <span>+1 (555) ART-0101</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">⌂</span>
+          <span>42 Artisan Blvd, New York, NY 10001</span>
+        </div>
+
+        <div class="footer-newsletter" style="margin-block-start: var(--space-6);">
+          <h3 class="footer-col__title">Newsletter</h3>
+          <form class="newsletter-form">
+            <input type="email" class="form-input" placeholder="Your email" required aria-label="Newsletter email" style="margin-block-end: var(--space-3);">
+            <button type="submit" class="btn btn--primary btn--full" style="background:var(--color-pink); color:var(--color-charcoal); border-color:var(--color-pink);">Subscribe</button>
+            <p class="newsletter-success" style="display:none; color: #4ade80; font-size: var(--text-xs); margin-block-start: var(--space-2);">✓ Subscribed!</p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2025 Lumière Gallery & Exhibition Space. All rights reserved.</p>
+
+      
+
+      
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/theme-toggle.js"></script>
+<script src="js/rtl-toggle.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
