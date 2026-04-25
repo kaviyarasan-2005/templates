@@ -7,7 +7,19 @@
 
 [dir="rtl"] {
   direction: rtl;
+  text-align: start;
 }
+
+[dir="rtl"] p, 
+[dir="rtl"] span, 
+[dir="rtl"] h1, 
+[dir="rtl"] h2, 
+[dir="rtl"] h3, 
+[dir="rtl"] h4, 
+[dir="rtl"] li {
+  unicode-bidi: isolate;
+}
+
 
 /* ----------------------------------------------------------
    NAVIGATION
@@ -112,16 +124,12 @@
 /* ----------------------------------------------------------
    ACCORDION — Icon direction
    ---------------------------------------------------------- */
-[dir="rtl"] .accordion-trigger {
-  flex-direction: row-reverse;
-}
+
 
 /* ----------------------------------------------------------
    BREADCRUMB
    ---------------------------------------------------------- */
-[dir="rtl"] .breadcrumb {
-  flex-direction: row-reverse;
-}
+
 
 /* ----------------------------------------------------------
    FONT STACK ADDITIONS for RTL scripts
@@ -143,13 +151,9 @@
 /* ----------------------------------------------------------
    HEADER CONTROLS — Order flip
    ---------------------------------------------------------- */
-[dir="rtl"] .header-inner {
-  flex-direction: row-reverse;
-}
 
-[dir="rtl"] .primary-nav {
-  flex-direction: row-reverse;
-}
+
+
 
 /* ----------------------------------------------------------
    GALLERY OVERLAY — Text alignment

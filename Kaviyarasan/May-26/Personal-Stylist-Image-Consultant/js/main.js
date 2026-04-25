@@ -15,7 +15,7 @@
     const filename = path.split('/').pop() || 'index.html';
 
     // 1. First pass: Handle direct matches and clear all active states
-    document.querySelectorAll('.nav-link, .nav-dropdown__item, .mobile-nav-link').forEach(link => {
+    document.querySelectorAll('.nav-link, .nav-dropdown__item, .mobile-nav-link, .nav-dropbox__item').forEach(link => {
       const href = link.getAttribute('href');
       link.classList.remove('active');
 
@@ -33,9 +33,9 @@
     });
 
     // 2. Second pass: Highlight parent dropdown triggers if a child is active
-    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-      const trigger = dropdown.querySelector('.nav-dropdown__trigger');
-      const menu = dropdown.querySelector('.nav-dropdown__menu');
+    document.querySelectorAll('.nav-dropdown, .nav-dropbox').forEach(dropdown => {
+      const trigger = dropdown.querySelector('.nav-dropdown__trigger, .nav-dropbox__trigger');
+      const menu = dropdown.querySelector('.nav-dropdown__menu, .nav-dropbox__menu');
       if (!trigger || !menu) return;
 
       const hasActiveChild = menu.querySelector('.active');

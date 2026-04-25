@@ -21,6 +21,7 @@
   <title>Lumière Gallery & Exhibition Space — Home</title>
 
   <link rel="stylesheet" href="css/main.css">
+  
   <link rel="stylesheet" href="css/dark-mode.css">
   <link rel="stylesheet" href="css/rtl.css">
   <link rel="stylesheet" href="css/animations.css">
@@ -77,7 +78,7 @@
     <a href="index.html" class="site-logo" aria-label="Lumière Gallery Home">
       <div>
         <span class="site-logo__text">Lumière</span>
-        <span class="site-logo__sub">Gallery & Exhibition</span>
+        
       </div>
     </a>
 
@@ -176,15 +177,47 @@
     <button id="mobile-menu-close" class="mobile-menu__close" aria-label="Close menu">✕</button>
   </div>
   <div class="mobile-menu__nav">
-    <a href="index.html" class="mobile-nav-link">Home Page 1</a>
-    <a href="home-2.html" class="mobile-nav-link">Home Page 2</a>
+    <!-- Home Dropbox -->
+    <div class="mobile-dropbox">
+      <button class="mobile-dropbox__trigger">Home</button>
+      <div class="mobile-dropbox__content">
+        <a href="index.html" class="mobile-dropbox__item">Home Page 1</a>
+        <a href="home-2.html" class="mobile-dropbox__item">Home Page 2</a>
+      </div>
+    </div>
+
     <a href="about.html" class="mobile-nav-link">About Us</a>
-    <a href="services.html" class="mobile-nav-link">Services</a><a href="service-details.html" class="mobile-nav-link">Service Details</a>
-    <a href="blog.html" class="mobile-nav-link">Blog</a><a href="blog-details.html" class="mobile-nav-link">Blog Details</a>
+
+    <!-- Services Dropbox -->
+    <div class="mobile-dropbox">
+      <button class="mobile-dropbox__trigger">Services</button>
+      <div class="mobile-dropbox__content">
+        <a href="services.html" class="mobile-dropbox__item">All Services</a>
+        <a href="service-details.html" class="mobile-dropbox__item">Service Details</a>
+      </div>
+    </div>
+
+    <!-- Blog Dropbox -->
+    <div class="mobile-dropbox">
+      <button class="mobile-dropbox__trigger">Blog</button>
+      <div class="mobile-dropbox__content">
+        <a href="blog.html" class="mobile-dropbox__item">All Articles</a>
+        <a href="blog-details.html" class="mobile-dropbox__item">Article View</a>
+      </div>
+    </div>
+
     <a href="contact.html" class="mobile-nav-link">Contact</a>
     <a href="pricing.html" class="mobile-nav-link">Pricing</a>
-    <a href="admin-dashboard.html" class="mobile-nav-link">Admin Dashboard</a>
-    <a href="user-dashboard.html" class="mobile-nav-link">User Dashboard</a>
+
+    <!-- Dashboard Dropbox -->
+    <div class="mobile-dropbox">
+      <button class="mobile-dropbox__trigger">Dashboards</button>
+      <div class="mobile-dropbox__content">
+        <a href="admin-dashboard.html" class="mobile-dropbox__item">Admin Dashboard</a>
+        <a href="user-dashboard.html" class="mobile-dropbox__item">User Dashboard</a>
+      </div>
+    </div>
+
     <a href="login.html" class="mobile-nav-link">Sign In</a>
   </div>
   <div style="margin-block-start: auto; padding-block-start: 2rem; display:flex; gap:1rem;">
@@ -193,6 +226,7 @@
     <button class="ctrl-btn" onclick="document.getElementById('theme-toggle').click()" aria-label="Toggle theme">☀️</button>
   </div>
 </nav>
+
 
 <!-- ============================================================
      MAIN CONTENT

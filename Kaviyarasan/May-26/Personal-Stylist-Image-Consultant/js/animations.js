@@ -166,7 +166,7 @@
   }
 
   // ----------------------------------------------------------
-  // 6. MOBILE MENU
+  // 6. MOBILE MENU & DROPBOXES
   // ----------------------------------------------------------
   function initMobileMenu() {
     const hamburger = document.getElementById('hamburger');
@@ -198,6 +198,20 @@
     // Close on ESC
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeMenu();
+    });
+
+    // Mobile Dropboxes (Accordions)
+    const mobileDropboxes = document.querySelectorAll('.mobile-dropbox');
+    mobileDropboxes.forEach(db => {
+      const trigger = db.querySelector('.mobile-dropbox__trigger');
+      trigger?.addEventListener('click', () => {
+        const isOpen = db.classList.contains('open');
+        // Optional: close other dropboxes
+        mobileDropboxes.forEach(other => {
+          if (other !== db) other.classList.remove('open');
+        });
+        db.classList.toggle('open');
+      });
     });
   }
 
