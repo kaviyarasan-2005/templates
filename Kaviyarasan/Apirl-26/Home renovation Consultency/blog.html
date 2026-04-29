@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Renovation tips, design ideas, project case studies, and industry insights from the RenovoPro expert team.">
+  <title>Blog | RenovoPro Renovation Tips &amp; Insights</title>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicons/favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#E8622A">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+
+<body class="has-navbar">
+<!-- NAVBAR -->
+<header class="navbar" role="banner" id="main-navbar">
+  <div class="navbar-inner">
+    <!-- Brand -->
+    <a href="index.html" class="navbar-brand" aria-label="RenovoPro Home">
+      <div class="brand-logo" aria-hidden="true"><i class="ph-fill ph-house-line"></i></div>
+      <span class="brand-name">Renovo<span>Pro</span></span>
+    </a>
+    <!-- Desktop Nav -->
+    <nav class="navbar-nav" aria-label="Main navigation">
+      <div class="nav-item">
+        <a href="index.html" class="nav-link" aria-haspopup="true" aria-expanded="false" id="nav-home">
+          Home <i class="ph ph-caret-down"></i>
+        </a>
+        <div class="dropdown-menu" role="menu" aria-labelledby="nav-home">
+          <a href="index.html" class="dropdown-item" role="menuitem"><i class="ph ph-house"></i> Home Page 1 — General</a>
+          <a href="home-2.html" class="dropdown-item" role="menuitem"><i class="ph ph-buildings"></i> Home Page 2 — Agency Style</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="services.html" class="nav-link">Services</a></div>
+      <div class="nav-item"><a href="blog.html" class="nav-link">Blog</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      <div class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></div>
+      <div class="nav-item">
+        <a href="admin-dashboard.html" class="nav-link" aria-haspopup="true" id="nav-dashboard">
+          Dashboard <i class="ph ph-caret-down"></i>
+        </a>
+        <div class="dropdown-menu" role="menu" aria-labelledby="nav-dashboard">
+          <a href="admin-dashboard.html" class="dropdown-item" role="menuitem"><i class="ph ph-gauge"></i> Admin Dashboard</a>
+          <a href="user-dashboard.html" class="dropdown-item" role="menuitem"><i class="ph ph-user-circle"></i> User Dashboard</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Actions -->
+    <div class="navbar-actions">
+      <button class="icon-btn rtl-toggle-btn" aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR"><i class="ph ph-globe"></i></button>
+      <button class="icon-btn theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle theme"><i class="ph ph-moon"></i></button>
+      <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- MOBILE NAV -->
+<div class="mobile-overlay" aria-hidden="true"></div>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-header">
+    <a href="index.html" class="navbar-brand">
+      <div class="brand-logo"><i class="ph-fill ph-house-line"></i></div>
+      <span class="brand-name">Renovo<span>Pro</span></span>
+    </a>
+    <button class="mobile-nav-close" aria-label="Close menu"><i class="ph ph-x"></i></button>
+  </div>
+  <div class="mobile-nav-links">
+    <a href="#" class="mobile-nav-link" data-dropdown="#mobile-dropdown-home">Home <i class="ph ph-caret-down"></i></a>
+    <div class="mobile-dropdown" id="mobile-dropdown-home">
+      <a href="index.html" class="mobile-dropdown-item">Home Page 1 — General</a>
+      <a href="home-2.html" class="mobile-dropdown-item">Home Page 2 — Agency</a>
+    </div>
+    <a href="about.html" class="mobile-nav-link">About Us</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+    <a href="#" class="mobile-nav-link" data-dropdown="#mobile-dropdown-dash">Dashboard <i class="ph ph-caret-down"></i></a>
+    <div class="mobile-dropdown" id="mobile-dropdown-dash">
+      <a href="admin-dashboard.html" class="mobile-dropdown-item">Admin Dashboard</a>
+      <a href="user-dashboard.html" class="mobile-dropdown-item">User Dashboard</a>
+    </div>
+  </div>
+  <div class="mobile-nav-actions">
+    <div style="display:flex;gap:8px;margin-bottom:8px;">
+      <button class="icon-btn rtl-toggle-btn w-100" style="width:50%;border-radius:8px;" aria-label="Toggle RTL"><i class="ph ph-globe"></i> RTL/LTR</button>
+      <button class="icon-btn theme-toggle-btn w-100" style="width:50%;border-radius:8px;" aria-label="Toggle Theme"><i class="ph ph-moon"></i> Theme</button>
+    </div>
+    <a href="login.html" class="btn btn-outline w-100">Login</a>
+    <a href="signup.html" class="btn btn-primary w-100">Sign Up</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="page-header"><div class="container"><h1>Blog &amp; Insights</h1><nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span class="current">Blog</span></nav></div></div>
+
+<section class="section" aria-labelledby="blog-heading">
+  <div class="container">
+    <!-- Search & Filter -->
+    <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
+      <div style="position:relative;flex:1;min-width:260px;">
+        <i class="ph ph-magnifying-glass" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:1.1rem;"></i>
+        <input type="search" id="blog-search" placeholder="Search articles..." aria-label="Search blog articles"
+          style="width:100%;padding:12px 14px 12px 44px;border:1.5px solid var(--border-color);border-radius:999px;font-family:var(--font-body);font-size:0.9rem;background:var(--bg-secondary);color:var(--text-primary);outline:none;transition:all 0.3s;">
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn-primary btn-sm" data-filter="all" style="border-radius:999px;">All</button>
+        <button class="btn btn-outline btn-sm" data-filter="kitchen" style="border-radius:999px;">Kitchen</button>
+        <button class="btn btn-outline btn-sm" data-filter="bathroom" style="border-radius:999px;">Bathroom</button>
+        <button class="btn btn-outline btn-sm" data-filter="design" style="border-radius:999px;">Design</button>
+        <button class="btn btn-outline btn-sm" data-filter="tips" style="border-radius:999px;">Tips</button>
+      </div>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="grid-3 reveal" id="blog-grid">
+      <article class="blog-card" data-category="kitchen">
+        <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Modern kitchen renovation" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="category">Kitchen</span><span><i class="ph ph-calendar"></i> Jan 15, 2025</span><span><i class="ph ph-clock"></i> 5 min read</span></div>
+          <h3><a href="blog-details.html">10 Kitchen Remodel Trends Dominating 2025</a></h3>
+          <p>From handleless cabinetry to integrated appliance panels, discover the design trends transforming kitchens this year.</p>
+          <a href="blog-details.html" class="btn btn-outline btn-sm read-more">Read Article</a>
+        </div>
+      </article>
+      <article class="blog-card" data-category="bathroom">
+        <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Luxury bathroom renovation" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="category">Bathroom</span><span><i class="ph ph-calendar"></i> Feb 3, 2025</span><span><i class="ph ph-clock"></i> 7 min read</span></div>
+          <h3><a href="blog-details.html">How to Plan a Luxury Bathroom on a Mid-Range Budget</a></h3>
+          <p>Smart material swaps, fixture choices, and layout tricks that deliver luxury results without luxury price tags.</p>
+          <a href="blog-details.html" class="btn btn-outline btn-sm read-more">Read Article</a>
+        </div>
+      </article>
+      <article class="blog-card" data-category="design">
+        <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Interior design trends" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="category">Design</span><span><i class="ph ph-calendar"></i> Feb 20, 2025</span><span><i class="ph ph-clock"></i> 6 min read</span></div>
+          <h3><a href="blog-details.html">Open-Plan Living: Pros, Cons, and When to Do It</a></h3>
+          <p>Is an open-plan layout right for your home? We break down the structural, acoustic, and lifestyle considerations.</p>
+          <a href="blog-details.html" class="btn btn-outline btn-sm read-more">Read Article</a>
+        </div>
+      </article>
+      <article class="blog-card" data-category="tips">
+        <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Home renovation tips" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="category">Tips</span><span><i class="ph ph-calendar"></i> Mar 5, 2025</span><span><i class="ph ph-clock"></i> 4 min read</span></div>
+          <h3><a href="blog-details.html">5 Questions to Ask Before Hiring a Contractor</a></h3>
+          <p>Protect your investment. These five questions will help you separate the professionals from the cowboys.</p>
+          <a href="blog-details.html" class="btn btn-outline btn-sm read-more">Read Article</a>
+        </div>
+      </article>
+      <article class="blog-card" data-category="design">
+        <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=600&q=80" alt="Living room design" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="category">Design</span><span><i class="ph ph-calendar"></i> Mar 18, 2025</span><span><i class="ph ph-clock"></i> 8 min read</span></div>
+          <h3><a href="blog-details.html">The Complete Guide to Choosing Flooring for Every Room</a></h3>
+          <p>Hardwood, LVP, tile, or carpet? Our material guide helps you choose the right floor for every space in your home.</p>
+          <a href="blog-details.html" class="btn btn-outline btn-sm read-more">Read Article</a>
+        </div>
+      </article>
+      <article class="blog-card" data-category="kitchen">
+        <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Smart kitchen technology" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="category">Kitchen</span><span><i class="ph ph-calendar"></i> Apr 2, 2025</span><span><i class="ph ph-clock"></i> 5 min read</span></div>
+          <h3><a href="blog-details.html">Smart Kitchen Technology: What is Actually Worth Installing</a></h3>
+          <p>From smart fridges to voice-controlled faucets — which tech upgrades add real value and which are just hype?</p>
+          <a href="blog-details.html" class="btn btn-outline btn-sm read-more">Read Article</a>
+        </div>
+      </article>
+    </div>
+    <div class="section-center-cta reveal"><button id="load-more-btn" class="btn btn-outline">Load More Articles <i class="ph ph-arrow-down"></i></button></div>
+  </div>
+</section>
+</main>
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <div class="brand-logo" style="background:var(--primary);width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;"><i class="ph-fill ph-house-line"></i></div>
+          <span class="brand-name">Renovo<span style="color:var(--primary);">Pro</span></span>
+        </div>
+        <p>Transforming homes with expert craftsmanship, modern design, and unmatched quality. Your vision, our expertise.</p>
+        <div class="footer-social" style="margin-top:16px;">
+          <a href="#" class="social-btn facebook" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+          <a href="#" class="social-btn instagram" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+          <a href="#" class="social-btn linkedin" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+          <a href="#" class="social-btn twitter" aria-label="Twitter/X"><i class="ph-fill ph-x-logo"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="service-details.html">Kitchen Remodeling</a></li>
+          <li><a href="service-details.html">Bathroom Renovation</a></li>
+          <li><a href="service-details.html">Flooring &amp; Tiling</a></li>
+          <li><a href="service-details.html">Roofing &amp; Exterior</a></li>
+          <li><a href="service-details.html">Interior Painting</a></li>
+          <li><a href="service-details.html">Smart Home Systems</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact</h4>
+        <div class="footer-contact-item"><i class="ph ph-map-pin"></i><span>123 Renovation Blvd,<br>Construction City, CA 90210</span></div>
+        <div class="footer-contact-item"><i class="ph ph-phone"></i><span>+1 (800) 555-RENO</span></div>
+        <div class="footer-contact-item"><i class="ph ph-envelope"></i><span>hello@renovopro.com</span></div>
+        <div class="footer-contact-item"><i class="ph ph-clock"></i><span>Mon–Sat: 8AM – 6PM</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 RenovoPro. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+

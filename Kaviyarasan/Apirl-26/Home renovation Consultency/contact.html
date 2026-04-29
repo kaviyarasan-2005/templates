@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact RenovoPro for a free renovation estimate. Call, email, or fill out our form — we respond within 24 hours.">
+  <title>Contact RenovoPro | Get a Free Renovation Quote</title>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicons/favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#E8622A">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+
+<body class="has-navbar">
+<!-- NAVBAR -->
+<header class="navbar" role="banner" id="main-navbar">
+  <div class="navbar-inner">
+    <!-- Brand -->
+    <a href="index.html" class="navbar-brand" aria-label="RenovoPro Home">
+      <div class="brand-logo" aria-hidden="true"><i class="ph-fill ph-house-line"></i></div>
+      <span class="brand-name">Renovo<span>Pro</span></span>
+    </a>
+    <!-- Desktop Nav -->
+    <nav class="navbar-nav" aria-label="Main navigation">
+      <div class="nav-item">
+        <a href="index.html" class="nav-link" aria-haspopup="true" aria-expanded="false" id="nav-home">
+          Home <i class="ph ph-caret-down"></i>
+        </a>
+        <div class="dropdown-menu" role="menu" aria-labelledby="nav-home">
+          <a href="index.html" class="dropdown-item" role="menuitem"><i class="ph ph-house"></i> Home Page 1 — General</a>
+          <a href="home-2.html" class="dropdown-item" role="menuitem"><i class="ph ph-buildings"></i> Home Page 2 — Agency Style</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="services.html" class="nav-link">Services</a></div>
+      <div class="nav-item"><a href="blog.html" class="nav-link">Blog</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      <div class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></div>
+      <div class="nav-item">
+        <a href="admin-dashboard.html" class="nav-link" aria-haspopup="true" id="nav-dashboard">
+          Dashboard <i class="ph ph-caret-down"></i>
+        </a>
+        <div class="dropdown-menu" role="menu" aria-labelledby="nav-dashboard">
+          <a href="admin-dashboard.html" class="dropdown-item" role="menuitem"><i class="ph ph-gauge"></i> Admin Dashboard</a>
+          <a href="user-dashboard.html" class="dropdown-item" role="menuitem"><i class="ph ph-user-circle"></i> User Dashboard</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Actions -->
+    <div class="navbar-actions">
+      <button class="icon-btn rtl-toggle-btn" aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR"><i class="ph ph-globe"></i></button>
+      <button class="icon-btn theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle theme"><i class="ph ph-moon"></i></button>
+      <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- MOBILE NAV -->
+<div class="mobile-overlay" aria-hidden="true"></div>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-header">
+    <a href="index.html" class="navbar-brand">
+      <div class="brand-logo"><i class="ph-fill ph-house-line"></i></div>
+      <span class="brand-name">Renovo<span>Pro</span></span>
+    </a>
+    <button class="mobile-nav-close" aria-label="Close menu"><i class="ph ph-x"></i></button>
+  </div>
+  <div class="mobile-nav-links">
+    <a href="#" class="mobile-nav-link" data-dropdown="#mobile-dropdown-home">Home <i class="ph ph-caret-down"></i></a>
+    <div class="mobile-dropdown" id="mobile-dropdown-home">
+      <a href="index.html" class="mobile-dropdown-item">Home Page 1 — General</a>
+      <a href="home-2.html" class="mobile-dropdown-item">Home Page 2 — Agency</a>
+    </div>
+    <a href="about.html" class="mobile-nav-link">About Us</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+    <a href="#" class="mobile-nav-link" data-dropdown="#mobile-dropdown-dash">Dashboard <i class="ph ph-caret-down"></i></a>
+    <div class="mobile-dropdown" id="mobile-dropdown-dash">
+      <a href="admin-dashboard.html" class="mobile-dropdown-item">Admin Dashboard</a>
+      <a href="user-dashboard.html" class="mobile-dropdown-item">User Dashboard</a>
+    </div>
+  </div>
+  <div class="mobile-nav-actions">
+    <div style="display:flex;gap:8px;margin-bottom:8px;">
+      <button class="icon-btn rtl-toggle-btn w-100" style="width:50%;border-radius:8px;" aria-label="Toggle RTL"><i class="ph ph-globe"></i> RTL/LTR</button>
+      <button class="icon-btn theme-toggle-btn w-100" style="width:50%;border-radius:8px;" aria-label="Toggle Theme"><i class="ph ph-moon"></i> Theme</button>
+    </div>
+    <a href="login.html" class="btn btn-outline w-100">Login</a>
+    <a href="signup.html" class="btn btn-primary w-100">Sign Up</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="page-header"><div class="container"><h1>Contact Us</h1><nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span class="current">Contact</span></nav></div></div>
+
+<section class="section" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="section-header reveal"><span class="eyebrow">Get In Touch</span><h2 id="contact-heading">Let us Talk About Your Project</h2><p>We respond to all enquiries within 24 hours. Fill in the form or reach us directly.</p></div>
+
+    <!-- Contact Info Cards -->
+    <div class="grid-3 reveal" style="margin-bottom:64px;">
+      <div class="contact-card"><div class="contact-icon"><i class="ph-fill ph-map-pin"></i></div><div class="contact-info"><h4>Our Office</h4><p>123 Renovation Blvd<br>Los Angeles, CA 90210</p></div></div>
+      <div class="contact-card reveal-delay-1"><div class="contact-icon"><i class="ph-fill ph-phone"></i></div><div class="contact-info"><h4>Phone</h4><a href="tel:+18005557366">+1 (800) 555-RENO</a><br><a href="tel:+18005557366" style="font-size:0.8rem;color:var(--text-muted);">Mon–Sat 8AM–6PM PST</a></div></div>
+      <div class="contact-card reveal-delay-2"><div class="contact-icon"><i class="ph-fill ph-envelope"></i></div><div class="contact-info"><h4>Email</h4><a href="mailto:hello@renovopro.com">hello@renovopro.com</a><br><a href="mailto:quotes@renovopro.com" style="font-size:0.8rem;">quotes@renovopro.com</a></div></div>
+    </div>
+
+    <!-- Form + Map -->
+    <div class="grid-2 reveal" style="gap:48px;align-items:start;">
+      <div>
+        <h3 style="margin-bottom:24px;">Send Us a Message</h3>
+        <!-- Formspree/Netlify ready -->
+        <form data-validate action="https://formspree.io/f/YOUR_FORM_ID" method="POST" aria-label="Contact form">
+          <div class="grid-2" style="gap:16px;">
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Full Name <span aria-hidden="true" style="color:var(--danger)">*</span></label>
+              <input type="text" id="contact-name" name="name" class="form-control" placeholder="John Smith" required aria-required="true">
+              <p class="form-error" id="contact-name-error" role="alert">Please enter your name.</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Email Address <span aria-hidden="true" style="color:var(--danger)">*</span></label>
+              <input type="email" id="contact-email" name="email" class="form-control" placeholder="john@example.com" required aria-required="true">
+              <p class="form-error" id="contact-email-error" role="alert">Please enter a valid email.</p>
+            </div>
+          </div>
+          <div class="grid-2" style="gap:16px;">
+            <div class="form-group">
+              <label class="form-label" for="contact-phone">Phone Number</label>
+              <input type="tel" id="contact-phone" name="phone" class="form-control" placeholder="+1 (555) 000-0000">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-service">Service Interested In</label>
+              <select id="contact-service" name="service" class="form-control">
+                <option value="">Select a service...</option>
+                <option>Kitchen Remodeling</option>
+                <option>Bathroom Renovation</option>
+                <option>Flooring &amp; Tiling</option>
+                <option>Full Home Renovation</option>
+                <option>Smart Home Systems</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Message <span aria-hidden="true" style="color:var(--danger)">*</span></label>
+            <textarea id="contact-message" name="message" class="form-control" placeholder="Tell us about your project, timeline, and budget..." required aria-required="true" rows="5"></textarea>
+            <p class="form-error" id="contact-message-error" role="alert">Please describe your project.</p>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg w-100">Send Message <i class="ph ph-paper-plane-right"></i></button>
+        </form>
+
+        <!-- Social Links -->
+        <div style="margin-top:32px;">
+          <p style="font-weight:600;color:var(--text-primary);margin-bottom:12px;">Find us on social media:</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="#" class="social-btn facebook" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i> Facebook</a>
+            <a href="#" class="social-btn instagram" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i> Instagram</a>
+            <a href="#" class="social-btn linkedin" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom:24px;">Find Us</h3>
+        <!-- Google Maps placeholder — add API key and update src -->
+        <!-- TODO: Replace with live Google Maps embed: https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Los+Angeles,CA -->
+        <div style="background:var(--bg-tertiary);border-radius:16px;overflow:hidden;height:340px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;border:1px solid var(--border-color);">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423286.27405125545!2d-118.69191710209!3d34.02016130653294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22feffa7129adc7!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus" width="100%" height="340" style="border:0;display:block;" allowfullscreen="" loading="lazy" title="RenovoPro Office Location — Los Angeles, CA" aria-label="Google Maps showing RenovoPro office location"></iframe>
+        </div>
+        <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:16px;padding:20px;">
+          <h4 style="font-size:1rem;margin-bottom:12px;">Office Hours</h4>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:0.875rem;">
+            <div style="display:flex;justify-content:space-between;"><span style="color:var(--text-muted);">Monday – Friday</span><strong>8:00 AM – 6:00 PM</strong></div>
+            <div style="display:flex;justify-content:space-between;"><span style="color:var(--text-muted);">Saturday</span><strong>9:00 AM – 4:00 PM</strong></div>
+            <div style="display:flex;justify-content:space-between;"><span style="color:var(--text-muted);">Sunday</span><strong style="color:var(--danger);">Closed</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <div class="brand-logo" style="background:var(--primary);width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;"><i class="ph-fill ph-house-line"></i></div>
+          <span class="brand-name">Renovo<span style="color:var(--primary);">Pro</span></span>
+        </div>
+        <p>Transforming homes with expert craftsmanship, modern design, and unmatched quality. Your vision, our expertise.</p>
+        <div class="footer-social" style="margin-top:16px;">
+          <a href="#" class="social-btn facebook" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+          <a href="#" class="social-btn instagram" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+          <a href="#" class="social-btn linkedin" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+          <a href="#" class="social-btn twitter" aria-label="Twitter/X"><i class="ph-fill ph-x-logo"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="service-details.html">Kitchen Remodeling</a></li>
+          <li><a href="service-details.html">Bathroom Renovation</a></li>
+          <li><a href="service-details.html">Flooring &amp; Tiling</a></li>
+          <li><a href="service-details.html">Roofing &amp; Exterior</a></li>
+          <li><a href="service-details.html">Interior Painting</a></li>
+          <li><a href="service-details.html">Smart Home Systems</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact</h4>
+        <div class="footer-contact-item"><i class="ph ph-map-pin"></i><span>123 Renovation Blvd,<br>Construction City, CA 90210</span></div>
+        <div class="footer-contact-item"><i class="ph ph-phone"></i><span>+1 (800) 555-RENO</span></div>
+        <div class="footer-contact-item"><i class="ph ph-envelope"></i><span>hello@renovopro.com</span></div>
+        <div class="footer-contact-item"><i class="ph ph-clock"></i><span>Mon–Sat: 8AM – 6PM</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 RenovoPro. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+

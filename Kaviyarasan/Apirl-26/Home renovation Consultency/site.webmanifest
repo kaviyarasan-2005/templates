@@ -1,0 +1,19 @@
+{
+  "name": "RenovoPro",
+  "short_name": "RenovoPro",
+  "icons": [
+    {
+      "src": "/assets/images/favicons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/favicons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#E8622A",
+  "background_color": "#F8F6F2",
+  "display": "standalone"
+}

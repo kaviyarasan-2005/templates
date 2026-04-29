@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RenovoPro — Premium home renovation and contracting services. Transform your space with expert craftsmanship and modern design.">
+  <title>Coming Soon | RenovoPro</title>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicons/favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#E8622A">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+
+<style>
+body{margin:0;padding:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--secondary-dark);color:#fff;overflow:hidden;position:relative;}
+.cs-bg{position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80") center/cover no-repeat;opacity:0.3;}
+.cs-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,25,35,0.9),rgba(15,25,35,0.6));}
+.cs-content{position:relative;z-index:1;text-align:center;max-width:700px;padding:40px 20px;}
+.cs-logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px;}
+.cs-logo-icon{width:48px;height:48px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
+.cs-logo-name{font-family:var(--font-heading);font-size:1.8rem;font-weight:700;}
+.cs-logo-name span{color:var(--primary);}
+h1{font-size:clamp(2.5rem,5vw,4rem);margin-bottom:16px;color:#fff;}
+p{font-size:1.2rem;color:rgba(255,255,255,0.8);margin-bottom:48px;}
+.countdown{display:flex;justify-content:center;gap:24px;margin-bottom:48px;flex-wrap:wrap;}
+.countdown-unit{display:flex;flex-direction:column;align-items:center;}
+.countdown-num{font-family:var(--font-heading);font-size:3.5rem;font-weight:800;color:var(--primary);line-height:1;}
+.countdown-label{font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:8px;}
+.countdown-sep{font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2);margin-top:4px;}
+@media(max-width:600px){.countdown{gap:12px;}.countdown-num{font-size:2.5rem;}.countdown-sep{display:none;}}
+.newsletter-form{display:flex;gap:8px;max-width:500px;margin:0 auto;position:relative;}
+.newsletter-input{flex:1;padding:14px 20px;border-radius:999px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-family:var(--font-body);outline:none;transition:all 0.3s;}
+.newsletter-input:focus{background:rgba(255,255,255,0.15);border-color:var(--primary);}
+.newsletter-input::placeholder{color:rgba(255,255,255,0.5);}
+.newsletter-btn{position:absolute;right:4px;top:4px;bottom:4px;padding:0 24px;border-radius:999px;background:var(--primary);color:#fff;font-weight:600;border:none;cursor:pointer;transition:all 0.3s;}
+.newsletter-btn:hover{background:var(--primary-dark);}
+.cs-social{display:flex;justify-content:center;gap:16px;margin-top:48px;}
+</style>
+<body>
+<div class="cs-bg"></div>
+<div class="cs-overlay"></div>
+<div class="cs-content reveal">
+  <div class="cs-logo">
+    <div class="cs-logo-icon"><i class="ph-fill ph-house-line"></i></div>
+    <div class="cs-logo-name">Renovo<span>Pro</span></div>
+  </div>
+  <h1>Something amazing is coming.</h1>
+  <p>We are building a brand new digital experience. Enter your email to be notified when we launch and receive 5% off your first project.</p>
+  
+  <div id="countdown" class="countdown" data-target="2026-12-31T00:00:00"></div>
+  
+  <form class="newsletter-form" action="#" method="POST">
+    <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
+    <button type="submit" class="newsletter-btn">Notify Me</button>
+  </form>
+  
+  <div class="cs-social">
+    <a href="#" class="social-btn facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+    <a href="#" class="social-btn instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+    <a href="#" class="social-btn linkedin"><i class="ph-fill ph-linkedin-logo"></i></a>
+  </div>
+</div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

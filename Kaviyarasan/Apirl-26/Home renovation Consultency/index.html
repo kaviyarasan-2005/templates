@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RenovoPro delivers premium home renovation services — kitchen remodels, bathroom upgrades, flooring, roofing &amp; more. Get a free estimate today.">
+  <title>RenovoPro | Home Renovation &amp; Contracting Services</title>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicons/favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#E8622A">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+
+<body class="has-navbar">
+<!-- NAVBAR -->
+<header class="navbar" role="banner" id="main-navbar">
+  <div class="navbar-inner">
+    <!-- Brand -->
+    <a href="index.html" class="navbar-brand" aria-label="RenovoPro Home">
+      <div class="brand-logo" aria-hidden="true"><i class="ph-fill ph-house-line"></i></div>
+      <span class="brand-name">Renovo<span>Pro</span></span>
+    </a>
+    <!-- Desktop Nav -->
+    <nav class="navbar-nav" aria-label="Main navigation">
+      <div class="nav-item">
+        <a href="index.html" class="nav-link" aria-haspopup="true" aria-expanded="false" id="nav-home">
+          Home <i class="ph ph-caret-down"></i>
+        </a>
+        <div class="dropdown-menu" role="menu" aria-labelledby="nav-home">
+          <a href="index.html" class="dropdown-item" role="menuitem"><i class="ph ph-house"></i> Home Page 1 — General</a>
+          <a href="home-2.html" class="dropdown-item" role="menuitem"><i class="ph ph-buildings"></i> Home Page 2 — Agency Style</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="services.html" class="nav-link">Services</a></div>
+      <div class="nav-item"><a href="blog.html" class="nav-link">Blog</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      <div class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></div>
+      <div class="nav-item">
+        <a href="admin-dashboard.html" class="nav-link" aria-haspopup="true" id="nav-dashboard">
+          Dashboard <i class="ph ph-caret-down"></i>
+        </a>
+        <div class="dropdown-menu" role="menu" aria-labelledby="nav-dashboard">
+          <a href="admin-dashboard.html" class="dropdown-item" role="menuitem"><i class="ph ph-gauge"></i> Admin Dashboard</a>
+          <a href="user-dashboard.html" class="dropdown-item" role="menuitem"><i class="ph ph-user-circle"></i> User Dashboard</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Actions -->
+    <div class="navbar-actions">
+      <button class="icon-btn rtl-toggle-btn" aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR"><i class="ph ph-globe"></i></button>
+      <button class="icon-btn theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle theme"><i class="ph ph-moon"></i></button>
+      <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- MOBILE NAV -->
+<div class="mobile-overlay" aria-hidden="true"></div>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-header">
+    <a href="index.html" class="navbar-brand">
+      <div class="brand-logo"><i class="ph-fill ph-house-line"></i></div>
+      <span class="brand-name">Renovo<span>Pro</span></span>
+    </a>
+    <button class="mobile-nav-close" aria-label="Close menu"><i class="ph ph-x"></i></button>
+  </div>
+  <div class="mobile-nav-links">
+    <a href="#" class="mobile-nav-link" data-dropdown="#mobile-dropdown-home">Home <i class="ph ph-caret-down"></i></a>
+    <div class="mobile-dropdown" id="mobile-dropdown-home">
+      <a href="index.html" class="mobile-dropdown-item">Home Page 1 — General</a>
+      <a href="home-2.html" class="mobile-dropdown-item">Home Page 2 — Agency</a>
+    </div>
+    <a href="about.html" class="mobile-nav-link">About Us</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+    <a href="#" class="mobile-nav-link" data-dropdown="#mobile-dropdown-dash">Dashboard <i class="ph ph-caret-down"></i></a>
+    <div class="mobile-dropdown" id="mobile-dropdown-dash">
+      <a href="admin-dashboard.html" class="mobile-dropdown-item">Admin Dashboard</a>
+      <a href="user-dashboard.html" class="mobile-dropdown-item">User Dashboard</a>
+    </div>
+  </div>
+  <div class="mobile-nav-actions">
+    <div style="display:flex;gap:8px;margin-bottom:8px;">
+      <button class="icon-btn rtl-toggle-btn w-100" style="width:50%;border-radius:8px;" aria-label="Toggle RTL"><i class="ph ph-globe"></i> RTL/LTR</button>
+      <button class="icon-btn theme-toggle-btn w-100" style="width:50%;border-radius:8px;" aria-label="Toggle Theme"><i class="ph ph-moon"></i> Theme</button>
+    </div>
+    <a href="login.html" class="btn btn-outline w-100">Login</a>
+    <a href="signup.html" class="btn btn-primary w-100">Sign Up</a>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero" style="min-height:100vh;">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80');" role="img" aria-label="Modern renovated kitchen"></div>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow"><i class="ph-fill ph-star"></i> Trusted by 2,500+ Homeowners</div>
+      <h1>Transform Your Home Into <span>Your Dream Space</span></h1>
+      <p>Premium renovation services with expert craftsmanship, modern design, and guaranteed quality. From concept to completion — we do it all.</p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn btn-primary btn-lg">Get Free Estimate <i class="ph ph-arrow-right"></i></a>
+        <a href="services.html" class="btn btn-outline-white btn-lg">View Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="number" data-counter data-target="2500" data-suffix="+">2500+</span><span class="label">Projects Completed</span></div>
+        <div class="hero-stat" style="border-left:1px solid rgba(255,255,255,0.2);padding-left:48px;"><span class="number" data-counter data-target="15" data-suffix="+ Yrs">15+ Yrs</span><span class="label">Industry Experience</span></div>
+        <div class="hero-stat" style="border-left:1px solid rgba(255,255,255,0.2);padding-left:48px;"><span class="number" data-counter data-target="98" data-suffix="%">98%</span><span class="label">Client Satisfaction</span></div>
+        <div class="hero-stat" style="border-left:1px solid rgba(255,255,255,0.2);padding-left:48px;"><span class="number" data-counter data-target="50" data-suffix="+">50+</span><span class="label">Expert Craftsmen</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true"><span>Scroll Down</span><i class="ph ph-caret-double-down"></i></div>
+</section>
+
+<!-- SERVICES PREVIEW -->
+<section class="section bg-light" id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2 id="services-heading">Our Renovation Services</h2>
+      <p>Comprehensive home transformation solutions tailored to your vision and budget.</p>
+    </div>
+    <div class="grid-4 reveal">
+      <article class="service-card">
+        <div class="service-icon"><i class="ph-fill ph-cooking-pot"></i></div>
+        <h3>Kitchen Remodeling</h3>
+        <p>Complete kitchen transformations — cabinets, countertops, appliances, and full layouts redesigned for modern living.</p>
+        <a href="service-details.html" class="learn-more">Learn More <i class="ph ph-arrow-right"></i></a>
+      </article>
+      <article class="service-card reveal-delay-1">
+        <div class="service-icon"><i class="ph-fill ph-bathtub"></i></div>
+        <h3>Bathroom Renovation</h3>
+        <p>Luxury bathroom upgrades including walk-in showers, soaking tubs, smart fixtures, and premium tiling.</p>
+        <a href="service-details.html" class="learn-more">Learn More <i class="ph ph-arrow-right"></i></a>
+      </article>
+      <article class="service-card reveal-delay-2">
+        <div class="service-icon"><i class="ph-fill ph-paint-roller"></i></div>
+        <h3>Interior Painting</h3>
+        <p>Professional painting services with premium materials, flawless finishes, and color consultation included.</p>
+        <a href="service-details.html" class="learn-more">Learn More <i class="ph ph-arrow-right"></i></a>
+      </article>
+      <article class="service-card reveal-delay-3">
+        <div class="service-icon"><i class="ph-fill ph-house-line"></i></div>
+        <h3>Full Home Renovation</h3>
+        <p>End-to-end home transformation — structural, electrical, plumbing, and interior design under one roof.</p>
+        <a href="service-details.html" class="learn-more">Learn More <i class="ph ph-arrow-right"></i></a>
+      </article>
+    </div>
+    <div class="section-center-cta reveal"><a href="services.html" class="btn btn-primary">View All Services <i class="ph ph-arrow-right"></i></a></div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section" id="why-us" aria-labelledby="why-heading">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div class="reveal">
+        <span class="eyebrow">Why RenovoPro</span>
+        <h2 id="why-heading" style="margin-bottom:24px;">Built on Trust, Delivered with Excellence</h2>
+        <p style="margin-bottom:32px;">We combine decades of expertise with modern design thinking to deliver renovations that exceed expectations — on time and within budget.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="feature-item">
+            <div class="feature-icon-wrap"><i class="ph-fill ph-certificate"></i></div>
+            <div class="feature-text"><h4>Licensed &amp; Insured</h4><p>Fully certified contractors. Every project backed by comprehensive insurance and warranty.</p></div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon-wrap"><i class="ph-fill ph-clock-countdown"></i></div>
+            <div class="feature-text"><h4>On-Time Delivery</h4><p>We respect your time. 96% of our projects are delivered on or before the scheduled date.</p></div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon-wrap"><i class="ph-fill ph-currency-dollar"></i></div>
+            <div class="feature-text"><h4>Transparent Pricing</h4><p>No hidden fees. Detailed quotes upfront so you know exactly what you pay for.</p></div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon-wrap"><i class="ph-fill ph-medal"></i></div>
+            <div class="feature-text"><h4>Quality Guarantee</h4><p>5-year workmanship warranty on all renovation projects. Your satisfaction is our priority.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2" style="position:relative;height:560px;">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="RenovoPro craftsmen at work in a beautiful kitchen renovation" style="width:100%;height:100%;object-fit:cover;border-radius:24px;" loading="lazy">
+        <div style="position:absolute;bottom:24px;left:-24px;background:var(--bg-secondary);border-radius:16px;padding:20px 24px;box-shadow:var(--shadow-xl);border:1px solid var(--border-color);">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;flex-shrink:0;"><i class="ph-fill ph-trophy"></i></div>
+            <div><strong style="display:block;color:var(--text-primary);font-size:1.1rem;">Award Winning</strong><span style="color:var(--text-muted);font-size:0.85rem;">Best Renovation Company 2024</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section" aria-label="Company statistics">
+  <div class="container">
+    <div class="grid-4">
+      <div class="stat-item reveal"><span class="stat-number" data-counter data-target="2500" data-suffix="+">2500+</span><p class="stat-label">Projects Completed</p></div>
+      <div class="stat-item reveal reveal-delay-1"><span class="stat-number" data-counter data-target="15" data-suffix="">15</span><p class="stat-label">Years of Excellence</p></div>
+      <div class="stat-item reveal reveal-delay-2"><span class="stat-number" data-counter data-target="98" data-suffix="%">98%</span><p class="stat-label">Satisfaction Rate</p></div>
+      <div class="stat-item reveal reveal-delay-3"><span class="stat-number" data-counter data-target="50" data-suffix="+">50+</span><p class="stat-label">Expert Craftsmen</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section bg-light" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Client Reviews</span>
+      <h2 id="testimonials-heading">What Our Clients Say</h2>
+      <p>Real feedback from real homeowners who trusted RenovoPro with their most important investment.</p>
+    </div>
+    <div class="grid-3 reveal">
+      <article class="testimonial-card">
+        <div class="testimonial-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+        <p class="testimonial-text">"RenovoPro completely transformed our kitchen in just 3 weeks. The craftsmanship is incredible, the team was professional, and the result exceeded our expectations."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div class="testimonial-info"><p class="name">Sarah Mitchell</p><p class="role">Homeowner, Beverly Hills</p></div>
+        </div>
+      </article>
+      <article class="testimonial-card reveal-delay-1">
+        <div class="testimonial-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+        <p class="testimonial-text">"From design to final reveal, everything was seamless. They stayed on budget and delivered two days early. I have already referred three neighbors."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div class="testimonial-info"><p class="name">James Rodriguez</p><p class="role">Property Developer, LA</p></div>
+        </div>
+      </article>
+      <article class="testimonial-card reveal-delay-2">
+        <div class="testimonial-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+        <p class="testimonial-text">"Our bathroom is now a luxury spa retreat. The attention to detail is unmatched. RenovoPro is the only contractor I will ever use again."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div class="testimonial-info"><p class="name">Amara Chen</p><p class="role">Interior Designer, Santa Monica</p></div>
+        </div>
+      </article>
+    </div>
+    <div class="section-center-cta reveal"><a href="about.html#testimonials" class="btn btn-outline">Read More Reviews <i class="ph ph-arrow-right"></i></a></div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" aria-labelledby="cta-heading">
+  <div class="container">
+    <h2 id="cta-heading" class="reveal">Ready to Transform Your Home?</h2>
+    <p class="reveal">Get a free, no-obligation estimate today. Our experts will visit your property and provide a detailed plan tailored to your goals.</p>
+    <div class="cta-actions reveal">
+      <a href="contact.html" class="btn btn-primary btn-lg">Get Free Estimate</a>
+      <a href="tel:+18005557366" class="btn btn-outline-white btn-lg"><i class="ph ph-phone"></i> Call Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT PROJECTS -->
+<section class="section" aria-labelledby="projects-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Portfolio</span>
+      <h2 id="projects-heading">Recent Transformations</h2>
+      <p>A glimpse of our latest renovation projects across California.</p>
+    </div>
+    <div class="grid-3 reveal">
+      <article class="blog-card">
+        <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=600&q=80" alt="Modern living room renovation with hardwood floors" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="category">Living Room</span><span><i class="ph ph-map-pin"></i> Beverly Hills</span></div>
+          <h3><a href="service-details.html">Modern Open-Plan Living Room</a></h3>
+          <p>Complete living space transformation with hardwood floors, custom built-ins, and smart lighting integration.</p>
+          <a href="service-details.html" class="btn btn-outline btn-sm read-more">View Project</a>
+        </div>
+      </article>
+      <article class="blog-card reveal-delay-1">
+        <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Luxury kitchen remodel with island" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="category">Kitchen</span><span><i class="ph ph-map-pin"></i> Santa Monica</span></div>
+          <h3><a href="service-details.html">Luxury Chef Kitchen Remodel</a></h3>
+          <p>Full kitchen overhaul with custom cabinetry, quartz countertops, and professional-grade appliances.</p>
+          <a href="service-details.html" class="btn btn-outline btn-sm read-more">View Project</a>
+        </div>
+      </article>
+      <article class="blog-card reveal-delay-2">
+        <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Spa-style master bathroom renovation" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="category">Bathroom</span><span><i class="ph ph-map-pin"></i> Malibu</span></div>
+          <h3><a href="service-details.html">Spa-Style Master Bathroom</a></h3>
+          <p>Luxurious master bath with rain shower, soaking tub, heated floors, and custom marble tile work.</p>
+          <a href="service-details.html" class="btn btn-outline btn-sm read-more">View Project</a>
+        </div>
+      </article>
+    </div>
+    <div class="section-center-cta reveal"><a href="blog.html" class="btn btn-primary">View All Projects <i class="ph ph-arrow-right"></i></a></div>
+  </div>
+</section>
+
+</main>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"RenovoPro","description":"Premium home renovation and contracting services","url":"https://renovopro.com","telephone":"+18005557366","address":{"@type":"PostalAddress","streetAddress":"123 Renovation Blvd","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90210","addressCountry":"US"},"openingHours":"Mo-Sa 08:00-18:00","priceRange":"$$"}
+</script>
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <div class="brand-logo" style="background:var(--primary);width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;"><i class="ph-fill ph-house-line"></i></div>
+          <span class="brand-name">Renovo<span style="color:var(--primary);">Pro</span></span>
+        </div>
+        <p>Transforming homes with expert craftsmanship, modern design, and unmatched quality. Your vision, our expertise.</p>
+        <div class="footer-social" style="margin-top:16px;">
+          <a href="#" class="social-btn facebook" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+          <a href="#" class="social-btn instagram" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+          <a href="#" class="social-btn linkedin" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+          <a href="#" class="social-btn twitter" aria-label="Twitter/X"><i class="ph-fill ph-x-logo"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="service-details.html">Kitchen Remodeling</a></li>
+          <li><a href="service-details.html">Bathroom Renovation</a></li>
+          <li><a href="service-details.html">Flooring &amp; Tiling</a></li>
+          <li><a href="service-details.html">Roofing &amp; Exterior</a></li>
+          <li><a href="service-details.html">Interior Painting</a></li>
+          <li><a href="service-details.html">Smart Home Systems</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact</h4>
+        <div class="footer-contact-item"><i class="ph ph-map-pin"></i><span>123 Renovation Blvd,<br>Construction City, CA 90210</span></div>
+        <div class="footer-contact-item"><i class="ph ph-phone"></i><span>+1 (800) 555-RENO</span></div>
+        <div class="footer-contact-item"><i class="ph ph-envelope"></i><span>hello@renovopro.com</span></div>
+        <div class="footer-contact-item"><i class="ph ph-clock"></i><span>Mon–Sat: 8AM – 6PM</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 RenovoPro. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+

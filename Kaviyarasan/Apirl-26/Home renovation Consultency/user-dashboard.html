@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RenovoPro — Premium home renovation and contracting services. Transform your space with expert craftsmanship and modern design.">
+  <title>Client Dashboard | RenovoPro</title>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicons/favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#E8622A">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+
+<style>
+body{margin:0;padding:0;background:var(--bg-primary);min-height:100vh;}
+.dashboard-layout{display:flex;height:100vh;overflow:hidden;}
+.dashboard-sidebar{width:260px;background:var(--bg-secondary);border-right:1px solid var(--border-color);display:flex;flex-direction:column;transition:all 0.3s;z-index:100;}
+.dashboard-sidebar.collapsed{width:80px;}
+.dashboard-sidebar.collapsed .sidebar-text, .dashboard-sidebar.collapsed .sidebar-logo-name{display:none;}
+.sidebar-header{padding:20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border-color);}
+.sidebar-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.sidebar-logo{width:40px;height:40px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;}
+.sidebar-logo-name{font-family:var(--font-heading);font-size:1.2rem;font-weight:700;color:var(--secondary);}
+.sidebar-logo-name span{color:var(--primary);}
+.sidebar-nav{flex:1;padding:20px 0;overflow-y:auto;}
+.sidebar-link{display:flex;align-items:center;gap:16px;padding:12px 20px;color:var(--text-secondary);text-decoration:none;transition:all 0.3s;border-left:3px solid transparent;}
+.sidebar-link:hover, .sidebar-link.active{background:rgba(232,98,42,0.08);color:var(--primary);border-left-color:var(--primary);}
+.sidebar-link i{font-size:1.2rem;}
+.sidebar-footer{padding:20px;border-top:1px solid var(--border-color);}
+.dashboard-main{flex:1;display:flex;flex-direction:column;overflow:hidden;transition:all 0.3s;}
+.dashboard-topbar{height:70px;background:var(--bg-secondary);border-bottom:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between;padding:0 24px;}
+.topbar-left{display:flex;align-items:center;gap:16px;}
+.topbar-search{position:relative;}
+.topbar-search input{padding:8px 16px 8px 36px;border-radius:999px;border:1px solid var(--border-color);background:var(--bg-primary);outline:none;color:var(--text-primary);}
+.topbar-search i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);}
+.topbar-right{display:flex;align-items:center;gap:20px;}
+.user-dropdown{position:relative;}
+.user-dropdown-btn{display:flex;align-items:center;gap:10px;cursor:pointer;background:none;border:none;}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:var(--secondary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;}
+.user-dropdown-menu{position:absolute;right:0;top:100%;margin-top:10px;background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:8px;box-shadow:var(--shadow-lg);min-width:180px;display:none;z-index:110;}
+.user-dropdown-menu.show{display:block;}
+.user-dropdown-item{display:flex;align-items:center;gap:10px;padding:10px 16px;color:var(--text-primary);text-decoration:none;}
+.user-dropdown-item:hover{background:rgba(232,98,42,0.08);color:var(--primary);}
+.dashboard-content{flex:1;padding:24px;overflow-y:auto;background:var(--bg-primary);}
+.stat-card{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:12px;padding:20px;display:flex;align-items:center;gap:16px;}
+.stat-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.stat-info h4{font-size:0.875rem;color:var(--text-muted);font-weight:500;margin-bottom:4px;}
+.stat-info .val{font-size:1.5rem;font-weight:700;color:var(--text-primary);}
+.dashboard-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:24px;}
+.panel{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:12px;padding:24px;}
+.panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.table-responsive{overflow-x:auto;}
+.table{width:100%;border-collapse:collapse;min-width:600px;}
+.table th{text-align:left;padding:12px;color:var(--text-muted);font-size:0.875rem;border-bottom:1px solid var(--border-color);}
+.table td{padding:16px 12px;border-bottom:1px solid var(--border-color);color:var(--text-primary);font-size:0.9rem;}
+.status{padding:4px 10px;border-radius:999px;font-size:0.75rem;font-weight:600;}
+.status.active{background:rgba(39,174,96,0.15);color:var(--success);}
+.status.pending{background:rgba(243,156,18,0.15);color:var(--warning);}
+.chart-container{height:250px;display:flex;align-items:flex-end;justify-content:space-between;padding-top:20px;}
+.chart-bar{width:12%;background:var(--bg-tertiary);border-radius:4px 4px 0 0;position:relative;height:100%;}
+.chart-bar-fill{position:absolute;bottom:0;width:100%;background:var(--primary);border-radius:4px 4px 0 0;height:0;transition:height 1s ease;}
+.chart-label{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-size:0.75rem;color:var(--text-muted);}
+@media(max-width:1024px){.dashboard-sidebar{position:fixed;left:-260px;height:100vh;}.dashboard-sidebar.open{left:0;}.dashboard-main{margin-left:0;}.dashboard-grid{grid-template-columns:1fr;}}
+</style>
+<body>
+<div class="dashboard-layout">
+  <div class="dashboard-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:90;display:none;"></div>
+  
+  <aside class="dashboard-sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-brand">
+        <div class="sidebar-logo"><i class="ph-fill ph-house-line"></i></div>
+        <span class="sidebar-logo-name">Renovo<span>Pro</span></span>
+      </a>
+      <button id="sidebar-toggle" style="background:none;border:none;cursor:pointer;color:var(--text-muted);"><i class="ph ph-list"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="admin-dashboard.html" class="sidebar-link active"><i class="ph ph-squares-four"></i><span class="sidebar-text">Dashboard</span></a>
+      <a href="#" class="sidebar-link"><i class="ph ph-briefcase"></i><span class="sidebar-text">My Projects</span></a>
+      <a href="#" class="sidebar-link"><i class="ph ph-users"></i><span class="sidebar-text">Invoices</span></a>
+      <a href="#" class="sidebar-link"><i class="ph ph-receipt"></i><span class="sidebar-text">Estimates</span></a>
+      <a href="#" class="sidebar-link"><i class="ph ph-calendar"></i><span class="sidebar-text">Timeline</span></a>
+      <a href="#" class="sidebar-link"><i class="ph ph-envelope-simple"></i><span class="sidebar-text">Messages</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="index.html" class="sidebar-link"><i class="ph ph-arrow-left"></i><span class="sidebar-text">Back to Website</span></a>
+    </div>
+  </aside>
+  
+  <main class="dashboard-main">
+    <header class="dashboard-topbar">
+      <div class="topbar-left">
+        <button id="mobile-sidebar-toggle" style="background:none;border:none;cursor:pointer;color:var(--text-primary);font-size:1.2rem;display:none;"><i class="ph ph-list"></i></button>
+        <div class="topbar-search"><i class="ph ph-magnifying-glass"></i><input type="text" placeholder="Search My Projects..."></div>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn theme-toggle-btn"><i class="ph ph-moon"></i></button>
+        <button class="icon-btn" style="position:relative;"><i class="ph ph-bell"></i><span style="position:absolute;top:0;right:0;width:8px;height:8px;background:var(--danger);border-radius:50%;"></span></button>
+        <div class="user-dropdown">
+          <button class="user-dropdown-btn"><div class="user-avatar">A</div><span style="font-size:0.9rem;font-weight:600;color:var(--text-primary);">Client</span><i class="ph ph-caret-down"></i></button>
+          <div class="user-dropdown-menu">
+            <a href="#" class="user-dropdown-item"><i class="ph ph-user"></i> Profile</a>
+            <a href="#" class="user-dropdown-item"><i class="ph ph-gear"></i> Settings</a>
+            <hr style="border:none;border-top:1px solid var(--border-color);margin:4px 0;">
+            <a href="login.html" class="user-dropdown-item"><i class="ph ph-sign-out"></i> Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <div class="dashboard-content">
+      <h2 style="margin-bottom:24px;">Client Portal</h2>
+      
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px,1fr));gap:20px;">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(232,98,42,0.1);color:var(--primary);"><i class="ph-fill ph-briefcase"></i></div>
+          <div class="stat-info"><h4>My My Projects</h4><div class="val">24</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(39,174,96,0.1);color:var(--success);"><i class="ph-fill ph-currency-dollar"></i></div>
+          <div class="stat-info"><h4>Total Spent</h4><div class="val">$142,500</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(41,128,185,0.1);color:var(--info);"><i class="ph-fill ph-users"></i></div>
+          <div class="stat-info"><h4>Documents</h4><div class="val">48</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(243,156,18,0.1);color:var(--warning);"><i class="ph-fill ph-receipt"></i></div>
+          <div class="stat-info"><h4>Messages</h4><div class="val">12</div></div>
+        </div>
+      </div>
+      
+      <div class="dashboard-grid">
+        <div class="panel">
+          <div class="panel-header"><h3>Recent My Projects</h3><a href="#" style="color:var(--primary);font-size:0.875rem;">View All</a></div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead><tr><th>Project</th><th>Client</th><th>Budget</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Kitchen Remodel</strong><br><span style="font-size:0.8rem;color:var(--text-muted);">Beverly Hills</span></td><td>Sarah Mitchell</td><td>$45,000</td><td><span class="status active">In Progress</span></td></tr>
+                <tr><td><strong>Full Home Renovation</strong><br><span style="font-size:0.8rem;color:var(--text-muted);">Santa Monica</span></td><td>James Rodriguez</td><td>$210,000</td><td><span class="status pending">Permits</span></td></tr>
+                <tr><td><strong>Master Bath Addition</strong><br><span style="font-size:0.8rem;color:var(--text-muted);">Malibu</span></td><td>Amara Chen</td><td>$35,000</td><td><span class="status active">In Progress</span></td></tr>
+                <tr><td><strong>Exterior Painting</strong><br><span style="font-size:0.8rem;color:var(--text-muted);">Pasadena</span></td><td>Robert Kim</td><td>$12,000</td><td><span class="status active">In Progress</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="panel">
+          <div class="panel-header"><h3>Budget Tracker</h3></div>
+          <div class="chart-container">
+            <div style="width:100%;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span>Spent: $45,000</span><span>Budget: $60,000</span></div><div style="height:12px;background:var(--bg-tertiary);border-radius:6px;overflow:hidden;"><div style="height:100%;width:75%;background:var(--primary);"></div></div></div>
+            <div class="chart-bar"><div class="chart-bar-fill" data-height="60%"></div><span class="chart-label">Feb</span></div>
+            <div class="chart-bar"><div class="chart-bar-fill" data-height="35%"></div><span class="chart-label">Mar</span></div>
+            <div class="chart-bar"><div class="chart-bar-fill" data-height="80%"></div><span class="chart-label">Apr</span></div>
+            <div class="chart-bar"><div class="chart-bar-fill" data-height="95%"></div><span class="chart-label">May</span></div>
+            <div class="chart-bar"><div class="chart-bar-fill" data-height="70%"></div><span class="chart-label">Jun</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<style>@media(max-width:1024px){#mobile-sidebar-toggle{display:block !important;}.dashboard-overlay.open{display:block !important;}}</style>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

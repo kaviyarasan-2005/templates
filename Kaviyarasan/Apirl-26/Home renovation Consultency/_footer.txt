@@ -1,0 +1,59 @@
+﻿<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <div class="brand-logo" style="background:var(--primary);width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;"><i class="ph-fill ph-house-line"></i></div>
+          <span class="brand-name">Renovo<span style="color:var(--primary);">Pro</span></span>
+        </div>
+        <p>Transforming homes with expert craftsmanship, modern design, and unmatched quality. Your vision, our expertise.</p>
+        <div class="footer-social" style="margin-top:16px;">
+          <a href="#" class="social-btn facebook" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+          <a href="#" class="social-btn instagram" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+          <a href="#" class="social-btn linkedin" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+          <a href="#" class="social-btn twitter" aria-label="Twitter/X"><i class="ph-fill ph-x-logo"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="service-details.html">Kitchen Remodeling</a></li>
+          <li><a href="service-details.html">Bathroom Renovation</a></li>
+          <li><a href="service-details.html">Flooring &amp; Tiling</a></li>
+          <li><a href="service-details.html">Roofing &amp; Exterior</a></li>
+          <li><a href="service-details.html">Interior Painting</a></li>
+          <li><a href="service-details.html">Smart Home Systems</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact</h4>
+        <div class="footer-contact-item"><i class="ph ph-map-pin"></i><span>123 Renovation Blvd,<br>Construction City, CA 90210</span></div>
+        <div class="footer-contact-item"><i class="ph ph-phone"></i><span>+1 (800) 555-RENO</span></div>
+        <div class="footer-contact-item"><i class="ph ph-envelope"></i><span>hello@renovopro.com</span></div>
+        <div class="footer-contact-item"><i class="ph ph-clock"></i><span>Mon–Sat: 8AM – 6PM</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 RenovoPro. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

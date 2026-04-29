@@ -1,0 +1,83 @@
+﻿<body class="has-navbar">
+<!-- NAVBAR -->
+<header class="navbar" role="banner" id="main-navbar">
+  <div class="navbar-inner">
+    <!-- Brand -->
+    <a href="index.html" class="navbar-brand" aria-label="RenovoPro Home">
+      <div class="brand-logo" aria-hidden="true"><i class="ph-fill ph-house-line"></i></div>
+      <span class="brand-name">Renovo<span>Pro</span></span>
+    </a>
+    <!-- Desktop Nav -->
+    <nav class="navbar-nav" aria-label="Main navigation">
+      <div class="nav-item">
+        <a href="index.html" class="nav-link" aria-haspopup="true" aria-expanded="false" id="nav-home">
+          Home <i class="ph ph-caret-down"></i>
+        </a>
+        <div class="dropdown-menu" role="menu" aria-labelledby="nav-home">
+          <a href="index.html" class="dropdown-item" role="menuitem"><i class="ph ph-house"></i> Home Page 1 — General</a>
+          <a href="home-2.html" class="dropdown-item" role="menuitem"><i class="ph ph-buildings"></i> Home Page 2 — Agency Style</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="services.html" class="nav-link">Services</a></div>
+      <div class="nav-item"><a href="blog.html" class="nav-link">Blog</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      <div class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></div>
+      <div class="nav-item">
+        <a href="admin-dashboard.html" class="nav-link" aria-haspopup="true" id="nav-dashboard">
+          Dashboard <i class="ph ph-caret-down"></i>
+        </a>
+        <div class="dropdown-menu" role="menu" aria-labelledby="nav-dashboard">
+          <a href="admin-dashboard.html" class="dropdown-item" role="menuitem"><i class="ph ph-gauge"></i> Admin Dashboard</a>
+          <a href="user-dashboard.html" class="dropdown-item" role="menuitem"><i class="ph ph-user-circle"></i> User Dashboard</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Actions -->
+    <div class="navbar-actions">
+      <button class="icon-btn rtl-toggle-btn" aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR"><i class="ph ph-globe"></i></button>
+      <button class="icon-btn theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle theme"><i class="ph ph-moon"></i></button>
+      <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- MOBILE NAV -->
+<div class="mobile-overlay" aria-hidden="true"></div>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-header">
+    <a href="index.html" class="navbar-brand">
+      <div class="brand-logo"><i class="ph-fill ph-house-line"></i></div>
+      <span class="brand-name">Renovo<span>Pro</span></span>
+    </a>
+    <button class="mobile-nav-close" aria-label="Close menu"><i class="ph ph-x"></i></button>
+  </div>
+  <div class="mobile-nav-links">
+    <a href="#" class="mobile-nav-link" data-dropdown="#mobile-dropdown-home">Home <i class="ph ph-caret-down"></i></a>
+    <div class="mobile-dropdown" id="mobile-dropdown-home">
+      <a href="index.html" class="mobile-dropdown-item">Home Page 1 — General</a>
+      <a href="home-2.html" class="mobile-dropdown-item">Home Page 2 — Agency</a>
+    </div>
+    <a href="about.html" class="mobile-nav-link">About Us</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+    <a href="#" class="mobile-nav-link" data-dropdown="#mobile-dropdown-dash">Dashboard <i class="ph ph-caret-down"></i></a>
+    <div class="mobile-dropdown" id="mobile-dropdown-dash">
+      <a href="admin-dashboard.html" class="mobile-dropdown-item">Admin Dashboard</a>
+      <a href="user-dashboard.html" class="mobile-dropdown-item">User Dashboard</a>
+    </div>
+  </div>
+  <div class="mobile-nav-actions">
+    <div style="display:flex;gap:8px;margin-bottom:8px;">
+      <button class="icon-btn rtl-toggle-btn w-100" style="width:50%;border-radius:8px;" aria-label="Toggle RTL"><i class="ph ph-globe"></i> RTL/LTR</button>
+      <button class="icon-btn theme-toggle-btn w-100" style="width:50%;border-radius:8px;" aria-label="Toggle Theme"><i class="ph ph-moon"></i> Theme</button>
+    </div>
+    <a href="login.html" class="btn btn-outline w-100">Login</a>
+    <a href="signup.html" class="btn btn-primary w-100">Sign Up</a>
+  </div>
+</nav>
