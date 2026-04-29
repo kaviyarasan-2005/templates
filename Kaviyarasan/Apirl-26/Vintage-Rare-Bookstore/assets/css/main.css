@@ -916,7 +916,7 @@ em { font-style: italic; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('../images/backgrounds/hero-library.png');
+  background-image: url('../images/backgrounds/premium-hero-library.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -1224,7 +1224,7 @@ em { font-style: italic; }
 .cta-parallax__bg {
   position: absolute;
   inset: 0;
-  background-image: url('../images/backgrounds/bookstore-interior.png');
+  background-image: url('../images/backgrounds/premium-hero-rare-books.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
