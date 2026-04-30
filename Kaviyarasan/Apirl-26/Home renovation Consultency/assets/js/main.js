@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Renovo - Main JavaScript
  * main.js
  */
@@ -42,12 +42,13 @@ function toggleRTL() {
 }
 
 function updateRTLIcon() {
-  const dir = document.documentElement.getAttribute('dir');
-  document.querySelectorAll('.rtl-toggle-btn').forEach(btn => {
-    btn.setAttribute('title', dir === 'rtl' ? 'Switch to LTR' : 'Switch to RTL');
-    btn.setAttribute('aria-label', dir === 'rtl' ? 'Switch to LTR' : 'Switch to RTL');
-  });
-}
+    const dir = document.documentElement.getAttribute("dir");
+    document.querySelectorAll(".rtl-toggle-btn").forEach(btn => {
+      btn.textContent = dir === "rtl" ? "RTL" : "LTR";
+      btn.setAttribute("title", dir === "rtl" ? "Switch to LTR" : "Switch to RTL");
+      btn.setAttribute("aria-label", dir === "rtl" ? "Switch to LTR" : "Switch to RTL");
+    });
+  }
 
 /* ============ NAVBAR ============ */
 function initNavbar() {
@@ -356,3 +357,4 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.theme-toggle-btn').forEach(btn => btn.addEventListener('click', toggleTheme));
   document.querySelectorAll('.rtl-toggle-btn').forEach(btn => btn.addEventListener('click', toggleRTL));
 });
+

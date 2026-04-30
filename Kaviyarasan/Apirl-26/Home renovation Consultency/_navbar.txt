@@ -60,7 +60,7 @@
     </nav>
     <!-- Actions -->
     <div class="navbar-actions">
-      <button class="icon-btn rtl-toggle-btn" aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR"><i class="ph ph-globe"></i></button>
+      <button class="btn btn-outline btn-sm rtl-toggle-btn" aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR" style="padding: 0 12px; height: 36px; min-width: 50px; font-weight: 700; font-size: 0.75rem;">LTR</button>
       <button class="icon-btn theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle theme"><i class="ph ph-moon"></i></button>
       <a href="login.html" class="btn btn-outline btn-sm">Login</a>
 
@@ -122,6 +122,7 @@
     <a href="login.html" class="btn btn-primary w-100">Sign In <i class="ph ph-sign-in"></i></a>
   </div>
 </nav>
+
 
 
 
