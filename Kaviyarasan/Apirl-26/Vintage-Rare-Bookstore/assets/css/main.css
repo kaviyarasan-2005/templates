@@ -1789,6 +1789,27 @@ em { font-style: italic; }
   .hero__ctas {
     flex-direction: column;
     align-items: center;
+    gap: var(--space-lg);
+    width: 100%;
+    margin-top: var(--space-2xl);
+  }
+
+  .hero__ctas .btn {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 0 var(--space-lg) 0;
+  }
+
+  .hero__ctas .btn:last-child {
+    margin-bottom: 0;
+  }
+
+  .hero-content-ornament {
+    display: none; /* Hide ornaments on mobile to prevent overflow */
+  }
+
+  .hero__title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
   }
 
   .footer__grid {
