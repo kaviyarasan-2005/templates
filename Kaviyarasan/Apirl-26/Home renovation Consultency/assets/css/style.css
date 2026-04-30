@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    RenovoPro - Main Stylesheet
    style.css
    ============================================ */
@@ -989,4 +989,60 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 @media (max-width: 768px) {
   .why-image-wrap { height: 400px; margin-top: var(--space-5); }
+}
+
+/* Hero Split Styles (Home 2) */
+.hero-split {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 0;
+}
+.hero-split-content {
+  background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary) 100%);
+  display: flex;
+  align-items: center;
+  padding: 80px 60px;
+}
+.hero-split-inner { max-width: 540px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(232,98,42,0.2); border: 1px solid rgba(232,98,42,0.4);
+  color: var(--accent); padding: 6px 16px; border-radius: 999px;
+  font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 24px;
+}
+.hero-split-content h1 { color: #fff; margin-bottom: 24px; }
+.hero-desc { color: rgba(255,255,255,0.8); font-size: 1.15rem; margin-bottom: 40px; line-height: 1.8; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-stats-wrap { display: flex; gap: 32px; margin-top: 48px; }
+.stat-number { display: block; font-size: 2rem; color: #fff; font-family: var(--font-heading); }
+.stat-label { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+.stat-divider { width: 1px; background: rgba(255,255,255,0.15); }
+
+.hero-split-image { position: relative; overflow: hidden; }
+.hero-split-image img { width: 100%; height: 100%; object-fit: cover; }
+.hero-image-overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--secondary-dark) 0%, transparent 30%); }
+.hero-project-badge {
+  position: absolute; bottom: 40px; right: 40px;
+  background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2); border-radius: 16px;
+  padding: 20px 24px; color: #fff;
+}
+.project-badge-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
+.project-badge-value { font-size: 1.8rem; font-weight: 800; font-family: var(--font-heading); }
+.project-badge-desc { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+
+@media (max-width: 1024px) {
+  .hero-split { grid-template-columns: 1fr; }
+  .hero-split-content { padding: 120px 40px 60px; }
+  .hero-split-image { height: 400px; }
+  .hero-image-overlay { background: linear-gradient(to top, var(--secondary-dark) 0%, transparent 30%); }
+}
+
+@media (max-width: 640px) {
+  .hero-split-content { padding: 100px 24px 40px; }
+  .hero-stats-wrap { gap: 16px; }
+  .stat-number { font-size: 1.5rem; }
+  .hero-project-badge { bottom: 20px; right: 20px; padding: 16px; }
 }

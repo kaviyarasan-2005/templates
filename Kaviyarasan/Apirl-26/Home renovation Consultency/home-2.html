@@ -155,46 +155,45 @@
 
 <main id="main-content">
 <!-- HERO SPLIT -->
-<section style="min-height:100vh;display:grid;grid-template-columns:1fr 1fr;margin-top:0;" aria-label="Hero">
-  <div style="background:linear-gradient(135deg,var(--secondary-dark) 0%,var(--secondary) 100%);display:flex;align-items:center;padding:80px 60px;">
-    <div style="max-width:540px;">
-      <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(232,98,42,0.2);border:1px solid rgba(232,98,42,0.4);color:var(--accent);padding:6px 16px;border-radius:999px;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:24px;opacity:0;animation:fadeInUp 0.6s 0.1s ease forwards;">
-        <i class="ph-fill ph-lightning"></i> Next-Gen Renovation
-      </span>
-      <h1 style="color:#fff;margin-bottom:24px;opacity:0;animation:fadeInUp 0.6s 0.25s ease forwards;">Where <span style="color:var(--primary);">Vision</span> Meets Precision Craftsmanship</h1>
-      <p style="color:rgba(255,255,255,0.8);font-size:1.15rem;margin-bottom:40px;line-height:1.8;opacity:0;animation:fadeInUp 0.6s 0.4s ease forwards;">We engineer living spaces with surgical precision — blending architectural innovation with handcrafted detail. The result? Homes that inspire.</p>
-      <div style="display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeInUp 0.6s 0.55s ease forwards;">
-        <a href="contact.html" class="btn btn-primary btn-lg">Start Your Project</a>
-        <a href="blog.html" class="btn btn-outline-white btn-lg">See Case Studies</a>
-      </div>
-      <div style="display:flex;gap:32px;margin-top:48px;opacity:0;animation:fadeInUp 0.6s 0.7s ease forwards;">
-        <div><strong style="display:block;font-size:2rem;color:#fff;font-family:var(--font-heading);">500+</strong><span style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Premium Projects</span></div>
-        <div style="width:1px;background:rgba(255,255,255,0.15);"></div>
-        <div><strong style="display:block;font-size:2rem;color:#fff;font-family:var(--font-heading);">4.9<span style="color:var(--primary);">★</span></strong><span style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Average Rating</span></div>
-        <div style="width:1px;background:rgba(255,255,255,0.15);"></div>
-        <div><strong style="display:block;font-size:2rem;color:#fff;font-family:var(--font-heading);">12yr</strong><span style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Avg. Client Tenure</span></div>
+<section class="hero-split" aria-label="Hero">
+    <div class="hero-split-content">
+      <div class="hero-split-inner">
+        <span class="hero-badge reveal">
+          <i class="ph-fill ph-lightning"></i> Next-Gen Renovation
+        </span>
+        <h1 class="reveal">Where <span style="color:var(--primary);">Vision</span> Meets Precision Craftsmanship</h1>
+        <p class="hero-desc reveal">We engineer living spaces with surgical precision � blending architectural innovation with handcrafted detail. The result? Homes that inspire.</p>
+        <div class="hero-actions reveal">
+          <a href="contact.html" class="btn btn-primary btn-lg">Start Your Project</a>
+          <a href="blog.html" class="btn btn-outline-white btn-lg">See Case Studies</a>
+        </div>
+        <div class="hero-stats-wrap reveal">
+          <div class="hero-stat-item"><strong class="stat-number">500+</strong><span class="stat-label">Premium Projects</span></div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat-item"><strong class="stat-number">4.9<span style="color:var(--primary);">?</span></strong><span class="stat-label">Average Rating</span></div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat-item"><strong class="stat-number">12yr</strong><span class="stat-label">Avg. Client Tenure</span></div>
+        </div>
       </div>
     </div>
-  </div>
-  <div style="position:relative;overflow:hidden;">
-    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80" alt="Stunning modern living space renovation" style="width:100%;height:100%;object-fit:cover;" loading="eager">
-    <div style="position:absolute;inset:0;background:linear-gradient(to right,var(--secondary-dark) 0%,transparent 30%);"></div>
-    <div style="position:absolute;bottom:40px;right:40px;background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.2);border-radius:16px;padding:20px 24px;color:#fff;">
-      <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.7);margin-bottom:8px;">Project Completion</div>
-      <div style="font-size:1.8rem;font-weight:800;font-family:var(--font-heading);">98.6%</div>
-      <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);">On-Time Delivery Rate</div>
+    <div class="hero-split-image">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80" alt="Stunning modern living space renovation" loading="eager">
+      <div class="hero-image-overlay"></div>
+      <div class="hero-project-badge">
+        <div class="project-badge-label">Project Completion</div>
+        <div class="project-badge-value">98.6%</div>
+        <div class="project-badge-desc">On-Time Delivery Rate</div>
+      </div>
     </div>
-  </div>
 </section>
-
-<!-- FEATURE HIGHLIGHTS -->
-<section class="section" aria-labelledby="feat-heading">
-  <div class="container">
-    <div class="section-header reveal"><span class="eyebrow">Our Expertise</span><h2 id="feat-heading">Precision in Every Detail</h2><p>Six pillars that set us apart in the competitive renovation landscape.</p></div>
-    <div class="grid-3 reveal" style="gap:24px;">
-      <div class="card" style="text-align:center;"><div class="service-icon" style="margin:0 auto 16px;"><i class="ph-fill ph-ruler"></i></div><h3 style="font-size:1.15rem;margin-bottom:8px;">Precision Planning</h3><p style="font-size:0.875rem;">CAD-driven design &amp; 3D modelling before a single nail is driven.</p></div>
-      <div class="card reveal-delay-1" style="text-align:center;"><div class="service-icon" style="margin:0 auto 16px;"><i class="ph-fill ph-leaf"></i></div><h3 style="font-size:1.15rem;margin-bottom:8px;">Eco Materials</h3><p style="font-size:0.875rem;">Sustainable, certified materials that are good for your home and the planet.</p></div>
-      <div class="card reveal-delay-2" style="text-align:center;"><div class="service-icon" style="margin:0 auto 16px;"><i class="ph-fill ph-device-mobile"></i></div><h3 style="font-size:1.15rem;margin-bottom:8px;">Smart Integration</h3><p style="font-size:0.875rem;">Seamless smart-home tech woven into every modern build.</p></div>
+  <!-- FEATURE HIGHLIGHTS -->
+  <section class='section' aria-labelledby='feat-heading'>
+    <div class='container'>
+      <div class='section-header reveal'><span class='eyebrow'>Our Expertise</span><h2 id='feat-heading'>Precision in Every Detail</h2><p>Six pillars that set us apart in the competitive renovation landscape.</p></div>
+      <div class='grid-3 reveal' style='gap:24px;'>
+        <div class='card' style='text-align:center;'><div class='service-icon' style='margin:0 auto 16px;'><i class='ph-fill ph-ruler'></i></div><h3 style='font-size:1.15rem;margin-bottom:8px;'>Precision Planning</h3><p style='font-size:0.875rem;'>CAD-driven design &amp; 3D modelling before a single nail is driven.</p></div>
+        <div class='card reveal-delay-1' style='text-align:center;'><div class='service-icon' style='margin:0 auto 16px;'><i class='ph-fill ph-leaf'></i></div><h3 style='font-size:1.15rem;margin-bottom:8px;'>Eco Materials</h3><p style='font-size:0.875rem;'>Sustainable, certified materials that are good for your home and the planet.</p></div>
+        <div class='card reveal-delay-2' style='text-align:center;'><div class='service-icon' style='margin:0 auto 16px;'><i class='ph-fill ph-device-mobile'></i></div><h3 style="font-size:1.15rem;margin-bottom:8px;">Smart Integration</h3><p style="font-size:0.875rem;">Seamless smart-home tech woven into every modern build.</p></div>
       <div class="card reveal-delay-1" style="text-align:center;"><div class="service-icon" style="margin:0 auto 16px;"><i class="ph-fill ph-shield-check"></i></div><h3 style="font-size:1.15rem;margin-bottom:8px;">5-Year Warranty</h3><p style="font-size:0.875rem;">Full workmanship guarantee on every project we deliver.</p></div>
       <div class="card reveal-delay-2" style="text-align:center;"><div class="service-icon" style="margin:0 auto 16px;"><i class="ph-fill ph-users-three"></i></div><h3 style="font-size:1.15rem;margin-bottom:8px;">Dedicated Team</h3><p style="font-size:0.875rem;">One senior project manager assigned to your job from start to finish.</p></div>
       <div class="card reveal-delay-3" style="text-align:center;"><div class="service-icon" style="margin:0 auto 16px;"><i class="ph-fill ph-chart-line-up"></i></div><h3 style="font-size:1.15rem;margin-bottom:8px;">ROI Focused</h3><p style="font-size:0.875rem;">Renovations designed to increase your property value by up to 30%.</p></div>
@@ -243,7 +242,7 @@
 <!-- CTA -->
 <section class="cta-banner" aria-labelledby="h2cta"><div class="container"><h2 id="h2cta" class="reveal">Let us Engineer Your Dream Home</h2><p class="reveal">Schedule a consultation with our senior design team and receive a complimentary 3D concept render.</p><div class="cta-actions reveal"><a href="contact.html" class="btn btn-primary btn-lg">Book Consultation</a><a href="pricing.html" class="btn btn-outline-white btn-lg">View Pricing</a></div></div></section>
 </main>
-True <footer class="footer" role="contentinfo">
+<footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col footer-brand">
@@ -295,6 +294,8 @@ True <footer class="footer" role="contentinfo">
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
 
 
 
