@@ -12,25 +12,22 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; font-family: var(--font-ui, 'Inter', sans-serif); background: #1a0e06; }
 
-    /* -- Animated Background -- */
+    /* -- Premium Background -- */
     .auth-scene {
       position: fixed; inset: 0; z-index: 0;
-      background: linear-gradient(135deg, #1a0e06 0%, #2c1a0e 35%, #3b1f0a 65%, #1a0e06 100%);
-      background-size: 400% 400%;
-      animation: bgShift 14s ease infinite;
+      background-image: url('assets/images/backgrounds/bright-hero-library.png');
+      background-size: cover;
+      background-position: center;
+      animation: authKenBurns 40s alternate infinite ease-in-out;
+      transform: scale(1.05);
     }
-    @keyframes bgShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-
-    .orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.2; animation: orbFloat 9s ease-in-out infinite; }
-    .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, #D4AF37, transparent); top: -200px; right: -150px; }
-    .orb-2 { width: 450px; height: 450px; background: radial-gradient(circle, #8B4513, transparent); bottom: -120px; left: -120px; animation-delay: -4s; }
-    .orb-3 { width: 280px; height: 280px; background: radial-gradient(circle, #D4AF37, transparent); top: 40%; left: 40%; animation-delay: -7s; opacity: 0.1; }
-    @keyframes orbFloat { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-25px,30px) scale(1.06)} }
-
-    .float-el {
-      position: fixed; font-size: 2rem; opacity: 0.065;
-      animation: floatUp linear infinite; pointer-events: none; user-select: none; z-index: 1;
+    .auth-overlay {
+      position: fixed; inset: 0; z-index: 1;
+      background: linear-gradient(135deg, rgba(26,20,16,0.7) 0%, rgba(93,58,26,0.4) 50%, rgba(26,20,16,0.75) 100%);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
     }
+    @keyframes authKenBurns { 0%{transform:scale(1.05)} 100%{transform:scale(1.15)} }
     @keyframes floatUp {
       0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
       10%  { opacity: 0.065; }
@@ -176,12 +173,8 @@
 <body>
 
   <!-- Background Scene -->
-  <div class="auth-scene">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
-  <span class="float-el" style="left:8%;animation-duration:18s;animation-delay:0s;font-size:1.5rem">✍</span>
+  <div class="auth-scene"></div>
+  <div class="auth-overlay"></div>
   <span class="float-el" style="left:22%;animation-duration:22s;animation-delay:-4s;font-size:2.2rem">❈</span>
   <span class="float-el" style="left:55%;animation-duration:16s;animation-delay:-8s;font-size:1.2rem">✎</span>
   <span class="float-el" style="left:72%;animation-duration:20s;animation-delay:-2s;font-size:1.8rem">⚲</span>
