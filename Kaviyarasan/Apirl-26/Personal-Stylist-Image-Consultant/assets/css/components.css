@@ -668,7 +668,14 @@
   object-fit: cover;
   transition: transform var(--transition-slow);
 }
+.team-card-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(26,26,26,0);
+  transition: background var(--transition-base);
+  pointer-events: none;
+}
 .team-card:hover .team-card-img img { transform: scale(1.05); }
+.team-card:hover .team-card-img::after { background: rgba(26,26,26,0.5); }
 
 .team-card-info {
   position: absolute;
