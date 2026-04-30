@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    RenovoPro - Dark Mode
    dark-mode.css
    ============================================ */
@@ -48,7 +48,7 @@
 [data-theme="dark"] .icon-btn:hover { border-color: var(--primary); color: var(--primary); }
 [data-theme="dark"] .hamburger span { background: var(--text-primary); }
 [data-theme="dark"] .bg-light { background: var(--bg-tertiary) !important; }
-[data-theme="dark"] .page-header { background: linear-gradient(135deg, #08121C 0%, #0F2840 100%); }
+[data-theme="dark"] .page-header:not(.has-image) { background: linear-gradient(135deg, #08121C 0%, #0F2840 100%); }
 [data-theme="dark"] .stats-section { background: #0A1520; }
 [data-theme="dark"] .mobile-nav-link { color: var(--text-primary); }
 [data-theme="dark"] .mobile-dropdown-item { color: var(--text-secondary); }

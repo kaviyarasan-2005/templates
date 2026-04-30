@@ -807,7 +807,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 /* ============ PAGE HEADER ============ */
 .page-header {
   position: relative;
-  background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary) 100%);
+  background-color: var(--secondary-dark);
+  background-image: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary) 100%);
   padding: calc(var(--navbar-height) + var(--space-7)) 0 var(--space-7);
   color: #fff;
   overflow: hidden;
