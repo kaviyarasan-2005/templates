@@ -1,11 +1,11 @@
-﻿/**
- * RenovoPro - Main JavaScript
+/**
+ * Renovo - Main JavaScript
  * main.js
  */
 
 /* ============ THEME TOGGLE ============ */
 (function initTheme() {
-  const saved = localStorage.getItem('renovopro-theme');
+  const saved = localStorage.getItem('Renovo-theme');
   const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   const theme = saved || preferred;
   document.documentElement.setAttribute('data-theme', theme);
@@ -15,7 +15,7 @@ function toggleTheme() {
   const current = document.documentElement.getAttribute('data-theme');
   const next = current === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('renovopro-theme', next);
+  localStorage.setItem('Renovo-theme', next);
   updateThemeIcon();
 }
 
@@ -29,7 +29,7 @@ function updateThemeIcon() {
 
 /* ============ RTL TOGGLE ============ */
 (function initRTL() {
-  const saved = localStorage.getItem('renovopro-dir') || 'ltr';
+  const saved = localStorage.getItem('Renovo-dir') || 'ltr';
   document.documentElement.setAttribute('dir', saved);
 })();
 
@@ -37,7 +37,7 @@ function toggleRTL() {
   const current = document.documentElement.getAttribute('dir');
   const next = current === 'rtl' ? 'ltr' : 'rtl';
   document.documentElement.setAttribute('dir', next);
-  localStorage.setItem('renovopro-dir', next);
+  localStorage.setItem('Renovo-dir', next);
   updateRTLIcon();
 }
 
@@ -264,7 +264,7 @@ function initFormValidation() {
 
       if (valid) {
         const btn = form.querySelector('[type="submit"]');
-        if (btn) { btn.textContent = 'Sent! ✓'; btn.disabled = true; }
+        if (btn) { btn.textContent = 'Sent! ?'; btn.disabled = true; }
       }
     });
 

@@ -3,9 +3,9 @@
 <header class="navbar" role="banner" id="main-navbar">
   <div class="navbar-inner">
     <!-- Brand -->
-    <a href="index.html" class="navbar-brand" aria-label="RenovoPro Home">
-      <div class="brand-logo" aria-hidden="true"><i class="ph-fill ph-house-line"></i></div>
-      <span class="brand-name">Renovo<span>Pro</span></span>
+    <a href="index.html" class="navbar-brand" aria-label="Renovo Home">
+      <div class="brand-logo" aria-hidden="true"><img src="assets/images/favicons/favicon.svg" alt="Renovo Logo"></div>
+      <span class="brand-name">Renovo</span>
     </a>
     <!-- Desktop Nav -->
     <nav class="navbar-nav" aria-label="Main navigation">
@@ -50,8 +50,8 @@
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
   <div class="mobile-nav-header">
     <a href="index.html" class="navbar-brand">
-      <div class="brand-logo"><i class="ph-fill ph-house-line"></i></div>
-      <span class="brand-name">Renovo<span>Pro</span></span>
+      <div class="brand-logo"><img src="assets/images/favicons/favicon.svg" alt="Renovo Logo"></div>
+      <span class="brand-name">Renovo</span>
     </a>
     <button class="mobile-nav-close" aria-label="Close menu"><i class="ph ph-x"></i></button>
   </div>
@@ -81,3 +81,7 @@
 
   </div>
 </nav>
+
+
+
+

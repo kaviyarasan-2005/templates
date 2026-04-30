@@ -1,5 +1,5 @@
-﻿/**
- * RenovoPro - Dashboard JavaScript
+/**
+ * Renovo - Dashboard JavaScript
  * dashboard.js
  */
 
