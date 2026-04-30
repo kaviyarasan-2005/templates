@@ -83,6 +83,8 @@ body{margin:0;padding:0;background:var(--bg-primary);min-height:100vh;}
 .dashboard-sidebar.collapsed .sidebar-text, .dashboard-sidebar.collapsed .sidebar-logo-name{display:none;}
 .dashboard-sidebar.collapsed .sidebar-link{justify-content:center;padding:12px;}
 .dashboard-sidebar.collapsed .sidebar-link i{margin:0;font-size:1.4rem;}
+
+@media(max-width:1024px){#sidebar-toggle{display:none !important;}}
 </style>
 <body>
 <div class="dashboard-layout">
@@ -186,7 +188,7 @@ body{margin:0;padding:0;background:var(--bg-primary);min-height:100vh;}
           <div class="panel-header"><h3>Budget Tracker</h3></div>
           <div style="display:flex; flex-direction:column; gap:24px; padding-top:10px;">
             <div>
-              <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:0.85rem;"><span>Spent: ,000</span><span>Budget: ,000</span></div>
+              <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:0.85rem;"><span>Spent: $45,000</span><span>Budget: $60,000</span></div>
               <div style="height:10px; background:var(--bg-tertiary); border-radius:5px; overflow:hidden;"><div style="height:100%; width:75%; background:var(--primary);"></div></div>
             </div>
             <div class="chart-container" style="height:150px;">
@@ -272,8 +274,8 @@ body{margin:0;padding:0;background:var(--bg-primary);min-height:100vh;}
           <table class="table">
             <thead><tr><th>Project</th><th>Lead Designer</th><th>Budget</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td><strong>Kitchen Remodel</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Beverly Hills</span></td><td>Daniel Hayes</td><td>,000</td><td><span class="status active">Construction</span></td></tr>
-              <tr><td><strong>Master Bath</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Malibu</span></td><td>Sofia Reyes</td><td>,000</td><td><span class="status active">Design</span></td></tr>
+              <tr><td><strong>Kitchen Remodel</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Beverly Hills</span></td><td>Daniel Hayes</td><td>$45,000</td><td><span class="status active">Construction</span></td></tr>
+              <tr><td><strong>Master Bath</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Malibu</span></td><td>Sofia Reyes</td><td>$45,000</td><td><span class="status active">Design</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -290,11 +292,16 @@ body{margin:0;padding:0;background:var(--bg-primary);min-height:100vh;}
 .dashboard-sidebar.collapsed .sidebar-text, .dashboard-sidebar.collapsed .sidebar-logo-name{display:none;}
 .dashboard-sidebar.collapsed .sidebar-link{justify-content:center;padding:12px;}
 .dashboard-sidebar.collapsed .sidebar-link i{margin:0;font-size:1.4rem;}
+
+@media(max-width:1024px){#sidebar-toggle{display:none !important;}}
 </style>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
+
+
+
 
 
 

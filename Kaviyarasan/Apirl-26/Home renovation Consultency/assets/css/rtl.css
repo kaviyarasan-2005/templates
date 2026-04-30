@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    Renovo - RTL Overrides
    rtl.css
    ============================================ */
@@ -118,3 +118,150 @@
     margin-right: 0;
   }
 }
+
+
+@media (max-width: 1024px) {
+  [dir="rtl"] .dashboard-sidebar {
+    right: -260px;
+    left: auto;
+  }
+  [dir="rtl"] .dashboard-sidebar.open {
+    right: 0;
+    left: auto;
+  }
+  [dir="rtl"] .dashboard-main {
+    margin-right: 0;
+  }
+}
+
+
+/* Dashboard Specific RTL Enhancements */
+[dir="rtl"] .dashboard-sidebar {
+  border-right: none;
+  border-left: 1px solid var(--border-color);
+}
+[dir="rtl"] .sidebar-header {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .sidebar-link {
+  border-left: none;
+  border-right: 3px solid transparent;
+  flex-direction: row;
+}
+[dir="rtl"] .sidebar-link:hover, [dir="rtl"] .sidebar-link.active {
+  border-right-color: var(--primary);
+  border-left-color: transparent;
+}
+[dir="rtl"] .sidebar-link i {
+  margin-right: 0;
+  margin-left: 16px;
+}
+[dir="rtl"] .topbar-search i {
+  left: auto;
+  right: 12px;
+}
+[dir="rtl"] .topbar-search input {
+  padding: 8px 36px 8px 16px;
+}
+[dir="rtl"] .user-dropdown-btn {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .user-dropdown-menu {
+  right: auto;
+  left: 0;
+  text-align: right;
+}
+[dir="rtl"] .stat-card {
+  flex-direction: row;
+}
+[dir="rtl"] .stat-info {
+  text-align: right;
+}
+[dir="rtl"] .panel-header {
+  flex-direction: row;
+}
+[dir="rtl"] .table th, [dir="rtl"] .table td {
+  text-align: right;
+}
+[dir="rtl"] .status {
+  margin-left: 0;
+  margin-right: 4px;
+}
+[dir="rtl"] .chart-label {
+  direction: ltr; /* Labels usually stay LTR or centered */
+}
+[dir="rtl"] .sidebar-footer .sidebar-link i {
+  transform: scaleX(-1);
+}
+
+
+
+/* User Dashboard RTL Specifics */
+[dir="rtl"] .sidebar-link {
+  text-align: right;
+  justify-content: flex-start;
+}
+[dir="rtl"] .sidebar-link i {
+  margin-right: 0;
+  margin-left: 12px;
+}
+[dir="rtl"] .topbar-search input {
+  text-align: right;
+}
+[dir="rtl"] .table th, [dir="rtl"] .table td {
+  text-align: right !important;
+}
+[dir="rtl"] .panel p, [dir="rtl"] .panel h2, [dir="rtl"] .panel h3, [dir="rtl"] .panel h4 {
+  text-align: right;
+}
+[dir="rtl"] .sidebar-footer .sidebar-link {
+  flex-direction: row;
+}
+[dir="rtl"] .user-dropdown-btn i {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+
+
+/* Admin Dashboard RTL Specifics */
+[dir="rtl"] .dashboard-content h2 {
+  text-align: right;
+}
+[dir="rtl"] .dashboard-content > div:first-child {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .stat-card {
+  flex-direction: row;
+  text-align: right;
+}
+[dir="rtl"] .stat-info {
+  flex: 1;
+}
+[dir="rtl"] .stat-icon {
+  margin-left: 0;
+  margin-right: auto; /* Push icon to the far left in RTL */
+}
+[dir="rtl"] .sidebar-nav {
+  text-align: right;
+}
+[dir="rtl"] .sidebar-link {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+[dir="rtl"] .sidebar-link i {
+  margin-left: 12px;
+  margin-right: 0;
+}
+
+
+
+/* Force removal of LTR margins in RTL mode */
+[dir="rtl"] .dashboard-main {
+  margin-left: 0 !important;
+  margin-right: 0 !important; /* If using flex, we don't need margin-right unless sidebar is fixed */
+}
+[dir="rtl"] .dashboard-layout {
+  flex-direction: row-reverse; /* Ensure sidebar is on the correct side in flex */
+}
+

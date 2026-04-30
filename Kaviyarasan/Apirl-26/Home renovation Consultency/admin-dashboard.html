@@ -83,6 +83,8 @@ body{margin:0;padding:0;background:var(--bg-primary);min-height:100vh;}
 .dashboard-sidebar.collapsed .sidebar-text, .dashboard-sidebar.collapsed .sidebar-logo-name{display:none;}
 .dashboard-sidebar.collapsed .sidebar-link{justify-content:center;padding:12px;}
 .dashboard-sidebar.collapsed .sidebar-link i{margin:0;font-size:1.4rem;}
+
+@media(max-width:1024px){#sidebar-toggle{display:none !important;}}
 </style>
 <body>
 <div class="dashboard-layout">
@@ -137,14 +139,14 @@ body{margin:0;padding:0;background:var(--bg-primary);min-height:100vh;}
       </div>
       
       <!-- TOP STATS -->
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:20px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:20px;">
         <div class="stat-card">
           <div class="stat-icon" style="background:rgba(232,98,42,0.1); color:var(--primary);"><i class="ph-fill ph-briefcase"></i></div>
           <div class="stat-info"><h4>Active Projects</h4><div class="val">24</div></div>
         </div>
         <div class="stat-card">
           <div class="stat-icon" style="background:rgba(39,174,96,0.1); color:var(--success);"><i class="ph-fill ph-currency-dollar"></i></div>
-          <div class="stat-info"><h4>Monthly Revenue</h4><div class="val">,500</div></div>
+          <div class="stat-info"><h4>Monthly Revenue</h4><div class="val">$142,500</div></div>
         </div>
         <div class="stat-card">
           <div class="stat-icon" style="background:rgba(41,128,185,0.1); color:var(--info);"><i class="ph-fill ph-users"></i></div>
@@ -246,10 +248,10 @@ body{margin:0;padding:0;background:var(--bg-primary);min-height:100vh;}
           <table class="table">
             <thead><tr><th>Project</th><th>Client</th><th>Budget</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td><strong>Kitchen Remodel</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Beverly Hills, CA</span></td><td>Sarah Mitchell</td><td>,000</td><td><span class="status active">In Progress</span></td></tr>
-              <tr><td><strong>Full Home Renovation</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Santa Monica, CA</span></td><td>James Rodriguez</td><td>,000</td><td><span class="status pending">Permits</span></td></tr>
-              <tr><td><strong>Master Bath Addition</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Malibu, CA</span></td><td>Amara Chen</td><td>,000</td><td><span class="status active">In Progress</span></td></tr>
-              <tr><td><strong>Exterior Painting</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Pasadena, CA</span></td><td>Robert Kim</td><td>,000</td><td><span class="status active">In Progress</span></td></tr>
+              <tr><td><strong>Kitchen Remodel</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Beverly Hills, CA</span></td><td>Sarah Mitchell</td><td>$45,000</td><td><span class="status active">In Progress</span></td></tr>
+              <tr><td><strong>Full Home Renovation</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Santa Monica, CA</span></td><td>James Rodriguez</td><td>$45,000</td><td><span class="status pending">Permits</span></td></tr>
+              <tr><td><strong>Master Bath Addition</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Malibu, CA</span></td><td>Amara Chen</td><td>$45,000</td><td><span class="status active">In Progress</span></td></tr>
+              <tr><td><strong>Exterior Painting</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">Pasadena, CA</span></td><td>Robert Kim</td><td>$45,000</td><td><span class="status active">In Progress</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -258,15 +260,7 @@ body{margin:0;padding:0;background:var(--bg-primary);min-height:100vh;}
       </div>
     </main>
 </div>
-<style>@media(max-width:1024px){.dashboard-sidebar{position:fixed;left:-260px;height:100vh;z-index:100;}.dashboard-sidebar.open{left:0;}.dashboard-main{margin-left:0;}.dashboard-grid{grid-template-columns:1fr;}#mobile-sidebar-toggle{display:block !important;}}
-@media(max-width:768px){.dashboard-topbar{height:auto;flex-direction:column;padding:15px;gap:15px;align-items:stretch;}.topbar-left{justify-content:space-between;}.topbar-search{flex:1;}.topbar-search input{width:100%;}.topbar-right{justify-content:center;gap:12px;padding-top:10px;border-top:1px solid var(--border-color);}.dashboard-content{padding:15px;}}.dashboard-overlay.open{display:block !important;}}
-.dashboard-overlay.open{display:block !important;}
-.dashboard-sidebar{transition: left 0.3s ease, width 0.3s ease;}
-.dashboard-sidebar.collapsed{width: 80px;}
-.dashboard-sidebar.collapsed .sidebar-text, .dashboard-sidebar.collapsed .sidebar-logo-name{display:none;}
-.dashboard-sidebar.collapsed .sidebar-link{justify-content:center;padding:12px;}
-.dashboard-sidebar.collapsed .sidebar-link i{margin:0;font-size:1.4rem;}
-</style>
+
 <script src="assets/js/main.js"></script>
 <script src="assets/js/dashboard.js"></script>
 
@@ -282,6 +276,9 @@ body{margin:0;padding:0;background:var(--bg-primary);min-height:100vh;}
 </script>
 </body>
 </html>
+
+
+
 
 
 
