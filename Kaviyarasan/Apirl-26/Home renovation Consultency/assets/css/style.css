@@ -970,3 +970,23 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .overflow-hidden { overflow: hidden; }
 .position-relative { position: relative; }
 .section-center-cta { text-align:center; margin-top: var(--space-7); }
+
+/* Why Renovo Section Refinements */
+.why-grid { gap: var(--space-7); }
+.why-image-wrap { height: 560px; }
+.why-img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; }
+.why-award-badge { 
+  position: absolute; bottom: 24px; left: -24px; 
+  background: var(--bg-secondary); border-radius: 16px; 
+  padding: 20px 24px; box-shadow: var(--shadow-xl); 
+  border: 1px solid var(--border-color); 
+}
+
+@media (max-width: 1024px) {
+  .why-grid { gap: var(--space-5) !important; }
+  .why-award-badge { left: 0; bottom: 0; border-radius: 16px 16px 0 24px; width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .why-image-wrap { height: 400px; margin-top: var(--space-5); }
+}
