@@ -25,13 +25,13 @@
     .fleet-search input { width: 100%; padding-left: 44px; }
     .fleet-search i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--color-text-muted); }
     .fleet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .rv-card { background: var(--color-bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: all 0.3s ease; }
+    .rv-card { background: var(--color-bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: all 0.3s ease; text-decoration: none; color: inherit; cursor: pointer; }
     .rv-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
     .rv-card-img { position: relative; overflow: hidden; }
     .rv-card-img img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.4s ease; }
     .rv-card:hover .rv-card-img img { transform: scale(1.05); }
     .rv-badge { position: absolute; top: 12px; left: 12px; }
-    .rv-wishlist { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); cursor: pointer; border: none; transition: all 0.2s ease; }
+    .rv-wishlist { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); cursor: pointer; border: none; transition: all 0.2s ease; z-index: 2; }
     .rv-wishlist:hover, .rv-wishlist.active { color: var(--color-error); background: white; }
     .rv-card-body { padding: 20px; flex: 1; }
     .rv-card-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--color-text-primary); margin-bottom: 8px; }
@@ -40,6 +40,7 @@
     .amenities { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
     .amenity-tag { background: rgba(46,92,71,0.08); color: var(--color-primary); font-size: 0.72rem; padding: 3px 10px; border-radius: 99px; font-weight: 600; }
     .rv-card-footer { padding: 16px 20px; border-top: 1px solid var(--color-border-light); display: flex; align-items: center; justify-content: space-between; }
+    .rv-card:hover .rv-card-title { color: var(--color-primary); }
     .view-toggle { display: flex; gap: 4px; }
     .view-toggle button { width: 38px; height: 38px; border: 1.5px solid var(--color-border); background: var(--color-bg-card); border-radius: 8px; cursor: pointer; color: var(--color-text-muted); transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; }
     .view-toggle button.active { background: var(--color-primary); color: white; border-color: var(--color-primary); }
@@ -104,25 +105,9 @@
               </div>
             </li>
             <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-            <li class="nav-item">
-              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
-                Services <i class="fas fa-chevron-down"></i>
-              </a>
-              <div class="dropdown-menu" role="menu">
-                <a href="services.html" class="dropdown-item" role="menuitem"><i class="fas fa-list"></i> Services</a>
-                <a href="service-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-info-circle"></i> Service Details</a>
-              </div>
-            </li>
+            <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
             <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-            <li class="nav-item">
-              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
-                Blogs <i class="fas fa-chevron-down"></i>
-              </a>
-              <div class="dropdown-menu" role="menu">
-                <a href="blog.html" class="dropdown-item" role="menuitem"><i class="fas fa-blog"></i> Blogs</a>
-                <a href="blog-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-file-alt"></i> Blog Details</a>
-              </div>
-            </li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">Blogs</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             <li class="nav-item">
               <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
@@ -162,11 +147,9 @@
     <a href="index.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 1</a>
     <a href="home-adventure.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 2</a>
     <a href="about.html" class="mobile-nav-link">About Us </a>
-    <a href="services.html" class="mobile-nav-link">Services <i class="fas fa-chevron-right"></i></a>
-    <a href="service-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Service Details</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
     <a href="pricing.html" class="mobile-nav-link">Pricing </a>
-    <a href="blog.html" class="mobile-nav-link">Blogs <i class="fas fa-chevron-right"></i></a>
-    <a href="blog-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Blog Details</a>
+    <a href="blog.html" class="mobile-nav-link">Blogs</a>
     <a href="contact.html" class="mobile-nav-link">Contact </a>
     <a href="#" class="mobile-nav-link">Dashboard <i class="fas fa-chevron-down"></i></a>
     <a href="admin-dashboard.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Admin Dashboard</a>
@@ -276,7 +259,7 @@
 
             <div class="fleet-grid" id="fleet-grid">
               <!-- RV Card template (repeated) -->
-              <article class="rv-card" data-search-item data-category="motorhome">
+              <a href="service-detail.html" class="rv-card" data-search-item data-category="motorhome">
                 <div class="rv-card-img">
                   <img src="../assets/images/images.jpg" alt="Luxury Tiffin Allegro Bus 45OPP" loading="lazy" />
                   <span class="rv-badge badge badge-secondary">Popular</span>
@@ -300,11 +283,11 @@
                 </div>
                 <div class="rv-card-footer">
                   <div class="card-price">$349<span>/day</span></div>
-                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv1-detail-btn">View Details</a>
+                  
                 </div>
-              </article>
+              </a>
 
-              <article class="rv-card" data-search-item data-category="campervan">
+              <a href="service-detail.html" class="rv-card" data-search-item data-category="campervan">
                 <div class="rv-card-img">
                   <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=600&q=80" alt="Cozy Class B Campervan" loading="lazy" />
                   <span class="rv-badge badge badge-primary">Best Value</span>
@@ -328,11 +311,11 @@
                 </div>
                 <div class="rv-card-footer">
                   <div class="card-price">$195<span>/day</span></div>
-                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv2-detail-btn">View Details</a>
+                  
                 </div>
-              </article>
+              </a>
 
-              <article class="rv-card" data-search-item data-category="trailer">
+              <a href="service-detail.html" class="rv-card" data-search-item data-category="trailer">
                 <div class="rv-card-img">
                   <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="Family Travel Trailer" loading="lazy" />
                   <button class="rv-wishlist" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
@@ -353,11 +336,11 @@
                 </div>
                 <div class="rv-card-footer">
                   <div class="card-price">$175<span>/day</span></div>
-                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv3-detail-btn">View Details</a>
+                  
                 </div>
-              </article>
+              </a>
 
-              <article class="rv-card" data-search-item data-category="campervan">
+              <a href="service-detail.html" class="rv-card" data-search-item data-category="campervan">
                 <div class="rv-card-img">
                   <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Off-Grid Campervan" loading="lazy" />
                   <span class="rv-badge badge badge-accent" style="color: #7a6000;">New</span>
@@ -379,11 +362,11 @@
                 </div>
                 <div class="rv-card-footer">
                   <div class="card-price">$210<span>/day</span></div>
-                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv4-detail-btn">View Details</a>
+                  
                 </div>
-              </article>
+              </a>
 
-              <article class="rv-card" data-search-item data-category="motorhome">
+              <a href="service-detail.html" class="rv-card" data-search-item data-category="motorhome">
                 <div class="rv-card-img">
                   <img src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?w=600&q=80" alt="Class C Motorhome" loading="lazy" />
                   <button class="rv-wishlist" aria-label="Add to wishlist"><i class="fas fa-heart"></i></button>
@@ -400,11 +383,11 @@
                 </div>
                 <div class="rv-card-footer">
                   <div class="card-price">$249<span>/day</span></div>
-                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv5-detail-btn">View Details</a>
+                  
                 </div>
-              </article>
+              </a>
 
-              <article class="rv-card" data-search-item data-category="trailer">
+              <a href="service-detail.html" class="rv-card" data-search-item data-category="trailer">
                 <div class="rv-card-img">
                   <img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=600&q=80" alt="Luxury Toy Hauler" loading="lazy" />
                   <span class="rv-badge badge badge-secondary">Premium</span>
@@ -418,9 +401,9 @@
                 </div>
                 <div class="rv-card-footer">
                   <div class="card-price">$289<span>/day</span></div>
-                  <a href="service-detail.html" class="btn btn-primary btn-sm" id="rv6-detail-btn">View Details</a>
+                  
                 </div>
-              </article>
+              </a>
             </div>
 
             <div style="text-align: center; margin-top: 48px;">

@@ -59,6 +59,8 @@
     .partner-logo { height: 36px; opacity: 0.6; filter: grayscale(100%); transition: all 0.3s ease; }
     .partner-logo:hover { opacity: 1; filter: none; }
     .rv-spec { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--color-text-muted); }
+    .card { text-decoration: none; color: inherit; cursor: pointer; transition: all 0.3s ease; display: flex; flex-direction: column; height: 100%; }
+    .card:hover .card-title { color: var(--color-primary); }
     @media (max-width: 1024px) {
       .services-grid, .fleet-grid { grid-template-columns: repeat(2, 1fr); }
       .why-grid { grid-template-columns: repeat(2, 1fr); }
@@ -107,25 +109,9 @@
               </div>
             </li>
             <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-            <li class="nav-item">
-              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
-                Services <i class="fas fa-chevron-down"></i>
-              </a>
-              <div class="dropdown-menu" role="menu">
-                <a href="services.html" class="dropdown-item" role="menuitem"><i class="fas fa-list"></i> Services</a>
-                <a href="service-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-info-circle"></i> Service Details</a>
-              </div>
-            </li>
+            <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
             <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-            <li class="nav-item">
-              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
-                Blogs <i class="fas fa-chevron-down"></i>
-              </a>
-              <div class="dropdown-menu" role="menu">
-                <a href="blog.html" class="dropdown-item" role="menuitem"><i class="fas fa-blog"></i> Blogs</a>
-                <a href="blog-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-file-alt"></i> Blog Details</a>
-              </div>
-            </li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">Blogs</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             <li class="nav-item">
               <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
@@ -165,11 +151,9 @@
     <a href="index.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 1</a>
     <a href="home-adventure.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 2</a>
     <a href="about.html" class="mobile-nav-link">About Us </a>
-    <a href="services.html" class="mobile-nav-link">Services <i class="fas fa-chevron-right"></i></a>
-    <a href="service-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Service Details</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
     <a href="pricing.html" class="mobile-nav-link">Pricing </a>
-    <a href="blog.html" class="mobile-nav-link">Blogs <i class="fas fa-chevron-right"></i></a>
-    <a href="blog-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Blog Details</a>
+    <a href="blog.html" class="mobile-nav-link">Blogs</a>
     <a href="contact.html" class="mobile-nav-link">Contact </a>
     <a href="#" class="mobile-nav-link">Dashboard <i class="fas fa-chevron-down"></i></a>
     <a href="admin-dashboard.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Admin Dashboard</a>
@@ -269,7 +253,7 @@
           <p class="section-subtitle">From compact campervans to luxurious Class A motorhomes â€” we have the ideal home on wheels for every adventure.</p>
         </div>
         <div class="services-grid stagger">
-          <div class="card animate-fade-up" data-search-item data-category="motorhome">
+          <a href="service-detail.html" class="card animate-fade-up" data-search-item data-category="motorhome">
             <div class="card-image-wrap">
               <img src="../assets/images/images.jpg" alt="Class A Motorhome community experience" loading="lazy" />
               <span class="card-badge">Most Popular</span>
@@ -285,11 +269,9 @@
             </div>
             <div class="card-footer">
               <div class="card-price">$349<span>/day</span></div>
-              <a href="service-detail.html" class="btn btn-primary btn-sm" id="class-a-view-btn">View Details</a>
-            </div>
-          </div>
+              </a>
 
-          <div class="card animate-fade-up" data-search-item data-category="campervan">
+          <a href="service-detail.html" class="card animate-fade-up" data-search-item data-category="campervan">
             <div class="card-image-wrap">
               <img src="../assets/images/2024_Rent_ScenicImages_Van_1024x768_2.jpg" alt="Class B campervan in scenic mountain setting" loading="lazy" />
               <span class="card-badge" style="background: var(--color-primary);">Best Value</span>
@@ -305,11 +287,9 @@
             </div>
             <div class="card-footer">
               <div class="card-price">$189<span>/day</span></div>
-              <a href="service-detail.html" class="btn btn-primary btn-sm" id="class-b-view-btn">View Details</a>
-            </div>
-          </div>
+              </a>
 
-          <div class="card animate-fade-up" data-search-item data-category="motorhome">
+          <a href="service-detail.html" class="card animate-fade-up" data-search-item data-category="motorhome">
             <div class="card-image-wrap">
               <img src="../assets/images/IMG_8244.webp" alt="Class C luxurious campervan side profile" loading="lazy" />
               <span class="card-badge" style="background: var(--color-info);">Elite Luxury</span>
@@ -325,11 +305,9 @@
             </div>
             <div class="card-footer">
               <div class="card-price">$289<span>/day</span></div>
-              <a href="service-detail.html" class="btn btn-primary btn-sm" id="class-c-view-btn">View Details</a>
-            </div>
-          </div>
+              </a>
 
-          <div class="card animate-fade-up" data-search-item data-category="trailer">
+          <a href="service-detail.html" class="card animate-fade-up" data-search-item data-category="trailer">
             <div class="card-image-wrap">
               <img src="../assets/images/travel-homes-scaled.webp" alt="Travel trailer by a calm lake" loading="lazy" />
             </div>
@@ -344,9 +322,7 @@
             </div>
             <div class="card-footer">
               <div class="card-price">$149<span>/day</span></div>
-              <a href="service-detail.html" class="btn btn-primary btn-sm" id="trailer-view-btn">View Details</a>
-            </div>
-          </div>
+              </a>
         </div>
         <div style="text-align: center; margin-top: 40px;">
           <a href="services.html" class="btn btn-outline btn-lg" id="view-all-fleet-btn"><i class="fas fa-th-large"></i> View All 500+ Vehicles</a>

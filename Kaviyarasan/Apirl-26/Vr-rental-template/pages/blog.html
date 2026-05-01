@@ -12,8 +12,9 @@
   <style>
     .blog-layout { display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; }
     .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .blog-card { background: var(--color-bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: all 0.3s ease; display: flex; flex-direction: column; height: 100%; }
+    .blog-card { background: var(--color-bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: all 0.3s ease; display: flex; flex-direction: column; height: 100%; text-decoration: none; color: inherit; cursor: pointer; }
     .blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .blog-card:hover .blog-card-title { color: var(--color-primary); }
     .blog-card-img { overflow: hidden; position: relative; }
     .blog-card-img img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.4s ease; }
     .blog-card:hover .blog-card-img img { transform: scale(1.05); }
@@ -21,8 +22,6 @@
     .blog-card-meta { display: flex; align-items: center; gap: 12px; font-size: 0.78rem; color: var(--color-text-muted); margin-bottom: 10px; flex-wrap: wrap; }
     .blog-card-meta span { display: flex; align-items: center; gap: 5px; }
     .blog-card-title { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary); line-height: 1.4; margin-bottom: 10px; }
-    .blog-card-title a { color: inherit; transition: color 0.2s; }
-    .blog-card-title a:hover { color: var(--color-primary); }
     .blog-card-actions { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border-light); }
     .author-mini { display: flex; align-items: center; gap: 8px; }
     .author-mini img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
@@ -73,25 +72,9 @@
               </div>
             </li>
             <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-            <li class="nav-item">
-              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
-                Services <i class="fas fa-chevron-down"></i>
-              </a>
-              <div class="dropdown-menu" role="menu">
-                <a href="services.html" class="dropdown-item" role="menuitem"><i class="fas fa-list"></i> Services</a>
-                <a href="service-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-info-circle"></i> Service Details</a>
-              </div>
-            </li>
+            <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
             <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-            <li class="nav-item">
-              <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
-                Blogs <i class="fas fa-chevron-down"></i>
-              </a>
-              <div class="dropdown-menu" role="menu">
-                <a href="blog.html" class="dropdown-item" role="menuitem"><i class="fas fa-blog"></i> Blogs</a>
-                <a href="blog-detail.html" class="dropdown-item" role="menuitem"><i class="fas fa-file-alt"></i> Blog Details</a>
-              </div>
-            </li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">Blogs</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             <li class="nav-item">
               <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">
@@ -131,11 +114,9 @@
     <a href="index.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 1</a>
     <a href="home-adventure.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Home 2</a>
     <a href="about.html" class="mobile-nav-link">About Us </a>
-    <a href="services.html" class="mobile-nav-link">Services <i class="fas fa-chevron-right"></i></a>
-    <a href="service-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Service Details</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
     <a href="pricing.html" class="mobile-nav-link">Pricing </a>
-    <a href="blog.html" class="mobile-nav-link">Blogs <i class="fas fa-chevron-right"></i></a>
-    <a href="blog-detail.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Blog Details</a>
+    <a href="blog.html" class="mobile-nav-link">Blogs</a>
     <a href="contact.html" class="mobile-nav-link">Contact </a>
     <a href="#" class="mobile-nav-link">Dashboard <i class="fas fa-chevron-down"></i></a>
     <a href="admin-dashboard.html" class="mobile-nav-link" style="padding-left: 24px; font-size: 0.9rem;">Admin Dashboard</a>
@@ -183,7 +164,7 @@
           <div>
             <div class="blog-grid" id="blog-grid">
               <!-- Featured Post -->
-              <article class="blog-card featured animate-fade-up" data-search-item data-category="destination">
+              <a href="blog-detail.html" class="blog-card featured animate-fade-up" data-search-item data-category="destination">
                 <div class="blog-card-img">
                   <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?w=800&q=80" alt="Yellowstone campsite aerial view" loading="lazy" />
                   <span style="position:absolute;top:16px;left:16px;" class="badge badge-secondary">Featured</span>
@@ -194,87 +175,87 @@
                     <span><i class="fas fa-clock"></i> 12 min read</span>
                     <span><i class="fas fa-calendar"></i> Nov 15, 2024</span>
                   </div>
-                  <h2 class="blog-card-title"><a href="blog-detail.html">The Ultimate Yellowstone RV Guide: 14 Days, 500 Miles & Every Geyser Basin</a></h2>
+                  <h3 class="blog-card-title">The Ultimate Yellowstone RV Guide: 14 Days, 500 Miles & Every Geyser Basin</h3>
                   <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.6;margin-bottom:16px;">A comprehensive first-timer's guide to navigating America's original national park in a Class A motorhome, with insider campsite picks, wildlife timing charts, and day-by-day itineraries.</p>
                   <div class="blog-card-actions">
                     <div class="author-mini">
                       <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80" alt="Priya Nair" loading="lazy" />
                       <div><div class="author-mini-name">Priya Nair</div><div style="font-size:0.72rem;color:var(--color-text-muted);">Head of Experiences</div></div>
                     </div>
-                    <a href="blog-detail.html" class="btn btn-primary btn-sm" id="featured-read-btn">Read Guide <i class="fas fa-arrow-right"></i></a>
+                    
                   </div>
                 </div>
-              </article>
+              </a>
 
               <!-- Post 2 -->
-              <article class="blog-card animate-fade-up" data-search-item data-category="tips">
+              <a href="blog-detail.html" class="blog-card animate-fade-up" data-search-item data-category="tips">
                 <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1504233529578-6d46baba6d34?w=600&q=80" alt="RV on desert highway" loading="lazy" /></div>
                 <div class="blog-card-body">
                   <div class="blog-card-meta"><span class="badge badge-accent" style="color:#7a6000;">Road Trip Tips</span><span><i class="fas fa-clock"></i> 6 min read</span></div>
-                  <h3 class="blog-card-title"><a href="blog-detail.html">10 First-Timer RV Driving Mistakes (And How to Avoid Them)</a></h3>
+                  <h3 class="blog-card-title">10 First-Timer RV Driving Mistakes (And How to Avoid Them)</h3>
                   <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">From misjudging clearances to forgetting to dump — these are the rookie mistakes that turn road trips into roadblocks.</p>
                   <div class="blog-card-actions">
                     <div class="author-mini"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=80" alt="Marcus Reid" loading="lazy" /><div><div class="author-mini-name">Marcus Reid</div><div style="font-size:0.72rem;color:var(--color-text-muted);">CEO & Co-Founder</div></div></div>
-                    <a href="blog-detail.html" class="btn btn-outline btn-sm" id="post2-read-btn">Read <i class="fas fa-arrow-right"></i></a>
+                    
                   </div>
                 </div>
-              </article>
+              </a>
 
               <!-- Post 3 -->
-              <article class="blog-card animate-fade-up" data-search-item data-category="gear">
+              <a href="blog-detail.html" class="blog-card animate-fade-up" data-search-item data-category="gear">
                 <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=600&q=80" alt="Camping gear laid out" loading="lazy" /></div>
                 <div class="blog-card-body">
                   <div class="blog-card-meta"><span class="badge badge-info">Gear Reviews</span><span><i class="fas fa-clock"></i> 8 min read</span></div>
-                  <h3 class="blog-card-title"><a href="blog-detail.html">Best Solar Setups for Off-Grid RV advens in 2024</a></h3>
+                  <h3 class="blog-card-title">Best Solar Setups for Off-Grid RV advens in 2024</h3>
                   <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">Everything you need to know about sizing, installing and monitoring solar on a motorhome — tested in real conditions.</p>
                   <div class="blog-card-actions">
                     <div class="author-mini"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Daniel Park" loading="lazy" /><div><div class="author-mini-name">Daniel Park</div><div style="font-size:0.72rem;color:var(--color-text-muted);">CTO</div></div></div>
-                    <a href="blog-detail.html" class="btn btn-outline btn-sm" id="post3-read-btn">Read <i class="fas fa-arrow-right"></i></a>
+                    
                   </div>
                 </div>
-              </article>
+              </a>
 
               <!-- Post 4 -->
-              <article class="blog-card animate-fade-up" data-search-item data-category="family">
+              <a href="blog-detail.html" class="blog-card animate-fade-up" data-search-item data-category="family">
                 <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=600&q=80" alt="Family hiking near RV" loading="lazy" /></div>
                 <div class="blog-card-body">
                   <div class="blog-card-meta"><span class="badge badge-success">Family</span><span><i class="fas fa-clock"></i> 7 min read</span></div>
-                  <h3 class="blog-card-title"><a href="blog-detail.html">How to Plan a Family RV Road Trip Kids Actually Beg to Repeat</a></h3>
+                  <h3 class="blog-card-title">How to Plan a Family RV Road Trip Kids Actually Beg to Repeat</h3>
                   <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">Strategies, packing lists, and activity ideas that transform a cross-country drive into the family adventure they'll talk about for decades.</p>
                   <div class="blog-card-actions">
                     <div class="author-mini"><img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=80&q=80" alt="Layla Torres" loading="lazy" /><div><div class="author-mini-name">Layla Torres</div><div style="font-size:0.72rem;color:var(--color-text-muted);">COO & Co-Founder</div></div></div>
-                    <a href="blog-detail.html" class="btn btn-outline btn-sm" id="post4-read-btn">Read <i class="fas fa-arrow-right"></i></a>
+                    
                   </div>
                 </div>
-              </article>
+              </a>
 
               <!-- Post 5 -->
-              <article class="blog-card animate-fade-up" data-search-item data-category="destination">
+              <a href="blog-detail.html" class="blog-card animate-fade-up" data-search-item data-category="destination">
                 <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=600&q=80" alt="Zion canyon at dawn" loading="lazy" /></div>
                 <div class="blog-card-body">
                   <div class="blog-card-meta"><span class="badge badge-primary">Destination</span><span><i class="fas fa-clock"></i> 9 min read</span></div>
-                  <h3 class="blog-card-title"><a href="blog-detail.html">Zion to Bryce: The Utah Gigaloop in a Campervan</a></h3>
+                  <h3 class="blog-card-title">Zion to Bryce: The Utah Gigaloop in a Campervan</h3>
                   <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">Five national parks, 900 miles and some of the most jaw-dropping geology on earth. Our detailed itinerary with budget breakdown.</p>
                   <div class="blog-card-actions">
                     <div class="author-mini"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80" alt="Priya Nair" loading="lazy" /><div><div class="author-mini-name">Priya Nair</div></div></div>
-                    <a href="blog-detail.html" class="btn btn-outline btn-sm" id="post5-read-btn">Read <i class="fas fa-arrow-right"></i></a>
+                    
                   </div>
                 </div>
-              </article>
+              </a>
 
               <!-- Post 6 -->
-              <article class="blog-card animate-fade-up" data-search-item data-category="seasonal">
+              <a href="blog-detail.html" class="blog-card animate-fade-up" data-search-item data-category="seasonal">
                 <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=600&q=80" alt="Winter RV camping in snow" loading="lazy" /></div>
                 <div class="blog-card-body">
                   <div class="blog-card-meta"><span class="badge badge-info">Seasonal</span><span><i class="fas fa-clock"></i> 5 min read</span></div>
-                  <h3 class="blog-card-title"><a href="blog-detail.html">Winter RV Camping: The Complete Cold-Weather Survival Guide</a></h3>
+                  <h3 class="blog-card-title">Winter RV Camping: The Complete Cold-Weather Survival Guide</h3>
                   <p style="font-size:0.875rem;color:var(--color-text-secondary);line-height:1.5;">Your pipes won't freeze. Your battery won't die. Here's everything you need to camp comfortably through the coldest months.</p>
                   <div class="blog-card-actions">
                     <div class="author-mini"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=80" alt="Marcus Reid" loading="lazy" /><div><div class="author-mini-name">Marcus Reid</div></div></div>
-                    <a href="blog-detail.html" class="btn btn-outline btn-sm" id="post6-read-btn">Read <i class="fas fa-arrow-right"></i></a>
+                    
                   </div>
                 </div>
-              </article>
+              </a>
             </div>
 
             <!-- Pagination -->
