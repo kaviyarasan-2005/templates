@@ -212,7 +212,20 @@
     .gear-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .gear-card { background: var(--color-bg-card); border-radius: 16px; padding: 24px; text-align: center; border: 1px solid var(--color-border); transition: all 0.3s ease; }
     .gear-card:hover { border-color: var(--color-primary); background: rgba(46,92,71,0.04); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .gear-icon { font-size: 2rem; margin-bottom: 12px; }
+    .gear-icon { 
+      height: 140px; 
+      margin-bottom: 16px; 
+      overflow: hidden; 
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+    }
+    .gear-icon img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      transition: transform 0.3s ease;
+    }
+    .gear-card:hover .gear-icon img { transform: scale(1.1); }
     .gear-name { font-weight: 600; color: var(--color-text-primary); font-size: 0.95rem; }
     .gear-desc { font-size: 0.8rem; color: var(--color-text-muted); margin-top: 6px; }
 
@@ -584,49 +597,49 @@
         </div>
         <div class="gear-grid stagger">
           <div class="gear-card animate-fade-up">
-            <div class="gear-icon">🏕️</div>
+            <div class="gear-icon"><img src="../assets/images/gear/camping.png" alt="Camping Essentials Kit" loading="lazy" /></div>
             <div class="gear-name">Camping Essentials Kit</div>
             <div class="gear-desc">Camp chairs, fire starter, lanterns, cutting board and more</div>
             <div style="margin-top: 12px; font-weight: 700; color: var(--color-primary);">+$45/trip</div>
           </div>
           <div class="gear-card animate-fade-up">
-            <div class="gear-icon">🚵</div>
+            <div class="gear-icon"><img src="../assets/images/gear/bike_rack.png" alt="Bike Rack + 2 Bikes" loading="lazy" /></div>
             <div class="gear-name">Bike Rack + 2 Bikes</div>
             <div class="gear-desc">Rear-mounted rack with 2 premium trail bikes included</div>
             <div style="margin-top: 12px; font-weight: 700; color: var(--color-primary);">+$89/trip</div>
           </div>
           <div class="gear-card animate-fade-up">
-            <div class="gear-icon">🛶</div>
+            <div class="gear-icon"><img src="../assets/images/gear/kayak.png" alt="Kayak & Paddle Pack" loading="lazy" /></div>
             <div class="gear-name">Kayak & Paddle Pack</div>
             <div class="gear-desc">2-person inflatable kayak with paddles, life vests & pump</div>
             <div style="margin-top: 12px; font-weight: 700; color: var(--color-primary);">+$75/trip</div>
           </div>
           <div class="gear-card animate-fade-up">
-            <div class="gear-icon">📡</div>
+            <div class="gear-icon"><img src="../assets/images/gear/starlink.png" alt="Starlink Satellite WiFi" loading="lazy" /></div>
             <div class="gear-name">Starlink Satellite WiFi</div>
             <div class="gear-desc">Stay connected even in the most remote wilderness</div>
             <div style="margin-top: 12px; font-weight: 700; color: var(--color-primary);">+$55/trip</div>
           </div>
           <div class="gear-card animate-fade-up">
-            <div class="gear-icon">🪓</div>
+            <div class="gear-icon"><img src="../assets/images/gear/power_kit.png" alt="Off-Grid Power Kit" loading="lazy" /></div>
             <div class="gear-name">Off-Grid Power Kit</div>
             <div class="gear-desc">Solar panels, 200Ah lithium battery bank, inverter</div>
             <div style="margin-top: 12px; font-weight: 700; color: var(--color-primary);">+$99/trip</div>
           </div>
           <div class="gear-card animate-fade-up">
-            <div class="gear-icon">🌊</div>
+            <div class="gear-icon"><img src="../assets/images/gear/fishing.png" alt="Fishing Package" loading="lazy" /></div>
             <div class="gear-name">Fishing Package</div>
             <div class="gear-desc">Rods, reels, tackle box, cooler & fish finder sonar</div>
             <div style="margin-top: 12px; font-weight: 700; color: var(--color-primary);">+$65/trip</div>
           </div>
           <div class="gear-card animate-fade-up">
-            <div class="gear-icon">🎿</div>
+            <div class="gear-icon"><img src="../assets/images/gear/winter.png" alt="Winter Sport Pack" loading="lazy" /></div>
             <div class="gear-name">Winter Sport Pack</div>
             <div class="gear-desc">2 sets of snowshoes, sleds, hand warmers & thermal gear</div>
             <div style="margin-top: 12px; font-weight: 700; color: var(--color-primary);">+$79/trip</div>
           </div>
           <div class="gear-card animate-fade-up">
-            <div class="gear-icon">📷</div>
+            <div class="gear-icon"><img src="../assets/images/gear/photo_kit.png" alt="Photo & Nature Kit" loading="lazy" /></div>
             <div class="gear-name">Photo & Nature Kit</div>
             <div class="gear-desc">Tripod, ND filters, wildlife field guide, star map</div>
             <div style="margin-top: 12px; font-weight: 700; color: var(--color-primary);">+$49/trip</div>
