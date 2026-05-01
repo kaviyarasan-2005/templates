@@ -36,16 +36,9 @@
 [dir="rtl"] .nav-menu { flex-direction: row; }
 [dir="rtl"] .nav-actions { flex-direction: row; gap: var(--space-1); }
 
-/* Dropdown opens to the right of the item in RTL */
-[dir="rtl"] .nav-dropdown {
-  inset-inline-start: auto;
-  inset-inline-end: 50%;
-  transform: translateX(50%) translateY(-8px);
-}
-[dir="rtl"] .nav-item.open .nav-dropdown,
-[dir="rtl"] .nav-item:hover .nav-dropdown {
-  transform: translateX(50%) translateY(0);
-}
+
+/* Dropdown opens naturally centered with logical properties if handled correctly,
+   overrides are in components.css */
 
 /* Drawer comes from left in RTL */
 [dir="rtl"] .nav-drawer {
