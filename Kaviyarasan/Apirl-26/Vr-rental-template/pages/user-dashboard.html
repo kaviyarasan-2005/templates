@@ -168,7 +168,7 @@
       </div>
       <div class="dash-topbar-right">
         <!-- Dark/Light toggle -->
-        <button class="navbar-icon-btn" id="theme-toggle" title="Toggle Dark Mode" aria-label="Toggle dark mode">
+        <button class="navbar-icon-btn" id="theme-toggle" data-theme-toggle title="Toggle Dark Mode" aria-label="Toggle dark mode">
           <i class="fas fa-moon"></i>
         </button>
         <!-- LTR/RTL toggle -->
@@ -355,33 +355,6 @@
 <script src="../assets/js/main.js" defer></script>
 <script src="../assets/js/dashboard.js" defer></script>
 <script>
-  // Theme toggle
-  const themeBtn = document.getElementById('theme-toggle');
-  function syncTheme() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const icon = themeBtn.querySelector('i');
-    if (icon) {
-      icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-    }
-  }
-  themeBtn.addEventListener('click', () => { 
-    window.RVApp?.ThemeManager?.toggle(); 
-    setTimeout(syncTheme, 50); 
-  });
-  document.addEventListener('DOMContentLoaded', () => setTimeout(syncTheme, 120));
-
-  // RTL toggle
-  const dirBtn = document.getElementById('dir-toggle');
-  function syncDir() {
-    const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
-    // No icon change for RTL usually, but ensures consistency
-  }
-  dirBtn.addEventListener('click', () => { 
-    window.RVApp?.DirectionManager?.toggle(); 
-    setTimeout(syncDir, 50); 
-  });
-  document.addEventListener('DOMContentLoaded', () => setTimeout(syncDir, 120));
-
   // Sidebar toggle
   document.getElementById('dash-sidebar-toggle')?.addEventListener('click', () => {
     document.getElementById('dash-sidebar').classList.toggle('open');
