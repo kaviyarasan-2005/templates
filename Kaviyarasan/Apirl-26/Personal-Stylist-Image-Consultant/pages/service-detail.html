@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,6 +10,17 @@
   <link rel="stylesheet" href="../assets/css/animations.css"/><link rel="stylesheet" href="../assets/css/dark-mode.css"/>
   <link rel="stylesheet" href="../assets/css/rtl.css"/><link rel="stylesheet" href="../assets/css/style.css"/>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Personal Shopping","provider":{"@type":"LocalBusiness","name":"Elise"},"description":"Curated personal shopping service tailored to your style profile","offers":{"@type":"Offer","price":"299","priceCurrency":"USD"}}</script>
+  <style>
+    .included-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+    .package-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-3); margin-bottom: var(--space-4); }
+
+    @media(max-width:768px) {
+      .package-grid { grid-template-columns: 1fr; }
+    }
+    @media(max-width:640px) {
+      .included-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -119,16 +130,16 @@
           <div style="margin-bottom:var(--space-4)">
             <h2 style="font-size:var(--text-2xl);margin-bottom:var(--space-2)">What Is Personal Shopping?</h2>
             <p>Our Personal Shopping service is a fully bespoke experience designed to take the stress out of shopping while elevating the quality of your wardrobe. Your dedicated stylist conducts a detailed pre-session analysis of your style goals, lifestyle needs, and body proportions.</p>
-            <p style="margin-top:var(--space-2)">During the session, we visit carefully selected boutiques and stores - or curate an edit of online options - choosing pieces that are precisely right for you. Every item selected adheres to your colour palette, body guidelines, and style identity.</p>
+            <p style="margin-top:var(--space-2)">During the session, we visit carefully selected boutiques and stores €- or curate an edit of online options €- choosing pieces that are precisely right for you. Every item selected adheres to your colour palette, body guidelines, and style identity.</p>
           </div>
 
           <!-- What's Included -->
           <div style="background:var(--bg-secondary);border-radius:var(--radius-xl);padding:var(--space-4);margin-bottom:var(--space-4)">
             <h2 style="font-size:var(--text-xl);margin-bottom:var(--space-3)">What's Included</h2>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2)">
+            <div class="included-grid">
               <div class="pricing-feature included"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Pre-session style questionnaire</div>
               <div class="pricing-feature included"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Body shape & proportion analysis</div>
-              <div class="pricing-feature included"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>3-4 hour shopping session</div>
+              <div class="pricing-feature included"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>3€-4 hour shopping session</div>
               <div class="pricing-feature included"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Up to 5 store visits</div>
               <div class="pricing-feature included"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Outfit formula creation</div>
               <div class="pricing-feature included"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Post-session style guide PDF</div>
@@ -137,7 +148,7 @@
 
           <!-- Pricing Tiers -->
           <h2 style="font-size:var(--text-2xl);margin-bottom:var(--space-3)">Choose Your Package</h2>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3);margin-bottom:var(--space-4)">
+          <div class="package-grid">
             <div class="pricing-card">
               <p class="pricing-plan">Essential</p>
               <div class="pricing-price"><sup>$</sup>299</div>

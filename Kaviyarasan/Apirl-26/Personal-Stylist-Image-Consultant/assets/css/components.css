@@ -1605,6 +1605,15 @@ textarea.form-control { resize: vertical; min-height: 140px; }
   .nav-menu { display: none; }
   .nav-hamburger { display: flex; }
 }
+
+@media (max-width: 480px) {
+  .site-footer { text-align: center; }
+  .footer-brand-logo { justify-content: center; }
+  .footer-social { justify-content: center; }
+  .footer-links { align-items: center; }
+  .footer-newsletter-form { flex-direction: column; }
+  .footer-newsletter-form button { width: 100%; }
+}
 /* ============================================================
    NEWSLETTER COMPONENTS
    ============================================================ */
