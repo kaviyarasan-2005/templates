@@ -900,6 +900,7 @@ p {
   gap: var(--space-4);
   font-size: var(--text-sm);
   color: var(--color-text-muted);
+  margin-top: auto;
 }
 
 .card-meta span {
