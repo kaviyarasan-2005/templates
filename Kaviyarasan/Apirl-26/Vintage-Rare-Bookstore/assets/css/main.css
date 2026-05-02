@@ -226,6 +226,7 @@ em { font-style: italic; }
   gap: var(--space-sm);
   text-decoration: none;
   flex-shrink: 0;
+  margin-top: 4px;
 }
 
 .navbar__logo svg {
@@ -244,7 +245,7 @@ em { font-style: italic; }
   text-fill-color: transparent;
   line-height: 1.2;
   position: relative;
-  top: 1px;
+  top: 5px;
   transition: filter var(--transition-base);
   letter-spacing: 0.05em;
   text-transform: uppercase;
