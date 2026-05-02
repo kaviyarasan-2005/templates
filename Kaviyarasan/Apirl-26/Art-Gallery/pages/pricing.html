@@ -117,15 +117,15 @@
   <section class="section" style="padding-top:0;">
     <div class="container">
       
-      <!-- Toggle (Monthly/Annually conceptual) -->
+      <!-- Toggle (Monthly/Annual) -->
       <div style="display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:48px;" class="reveal">
-        <span style="font-weight:500;">Individual</span>
-        <label style="position:relative;display:inline-block;width:56px;height:32px;cursor:pointer;">
+        <span id="label-monthly" style="font-weight:600;color:var(--color-primary);transition:color 0.3s,font-weight 0.3s;">Monthly</span>
+        <label style="position:relative;display:inline-block;width:56px;height:32px;cursor:pointer;flex-shrink:0;">
           <input type="checkbox" style="opacity:0;width:0;height:0;" id="pricing-toggle">
           <span style="position:absolute;inset:0;background:var(--color-border);border-radius:16px;transition:.4s;"></span>
           <span style="position:absolute;content:'';height:24px;width:24px;left:4px;bottom:4px;background:#fff;border-radius:50%;transition:.4s;box-shadow:0 2px 4px rgba(0,0,0,0.2);"></span>
         </label>
-        <span style="font-weight:500;">Corporate</span>
+        <span id="label-annual" style="font-weight:500;color:var(--color-text-secondary);transition:color 0.3s,font-weight 0.3s;">Annual</span>
       </div>
 
       <style>
@@ -157,8 +157,8 @@
           <p style="color:var(--color-text-secondary);font-size:0.875rem;margin-bottom:24px;">For art enthusiasts</p>
           <div style="display:flex;justify-content:center;align-items:baseline;gap:2px;margin-bottom:32px;">
             <span style="font-size:1.5rem;font-weight:700;color:var(--color-primary);">$</span>
-            <span id="price-2" style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">150</span>
-            <span style="color:var(--color-text-secondary);font-size:0.875rem;margin-left:4px;">/ year</span>
+            <span id="price-2" style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">15</span>
+            <span id="period-2" style="color:var(--color-text-secondary);font-size:0.875rem;margin-left:4px;">/ month</span>
           </div>
           <ul style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px;flex:1;">
             <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Unlimited free bringing of guests</li>
@@ -175,8 +175,8 @@
           <p style="color:var(--color-text-secondary);font-size:0.875rem;margin-bottom:24px;">For established collectors</p>
           <div style="display:flex;justify-content:center;align-items:baseline;gap:2px;margin-bottom:32px;">
             <span style="font-size:1.5rem;font-weight:700;color:var(--color-primary);">$</span>
-            <span id="price-3" style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">500</span>
-            <span style="color:var(--color-text-secondary);font-size:0.875rem;margin-left:4px;">/ year</span>
+            <span id="price-3" style="font-size:3rem;font-family:var(--font-heading);font-weight:700;">49</span>
+            <span id="period-3" style="color:var(--color-text-secondary);font-size:0.875rem;margin-left:4px;">/ month</span>
           </div>
           <ul style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px;flex:1;">
             <li style="display:flex;align-items:center;gap:12px;font-size:0.9375rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> All Patron benefits</li>
@@ -268,18 +268,36 @@
       const p2 = document.getElementById('price-2');
       const p3 = document.getElementById('price-3');
       const pd1 = document.getElementById('period-1');
+      const pd2 = document.getElementById('period-2');
+      const pd3 = document.getElementById('period-3');
+      const labelMonthly = document.getElementById('label-monthly');
+      const labelAnnual = document.getElementById('label-annual');
 
       const prices = {
-        individual: { p1: '25', p2: '150', p3: '500', pd1: '/ person' },
-        corporate: { p1: '200', p2: '1200', p3: '5000', pd1: '/ group (10)' }
+        monthly: { p1: '25', p2: '15', p3: '49', pd1: '/ person', pd2: '/ month', pd3: '/ month' },
+        annual: { p1: '20', p2: '12', p3: '39', pd1: '/ person', pd2: '/ year', pd3: '/ year' }
       };
+
+      function updateLabels(isAnnual) {
+        if (labelMonthly && labelAnnual) {
+          labelMonthly.style.fontWeight = isAnnual ? '500' : '600';
+          labelMonthly.style.color = isAnnual ? 'var(--color-text-secondary)' : 'var(--color-primary)';
+          labelAnnual.style.fontWeight = isAnnual ? '600' : '500';
+          labelAnnual.style.color = isAnnual ? 'var(--color-primary)' : 'var(--color-text-secondary)';
+        }
+      }
 
       if (toggle) {
         toggle.addEventListener('change', () => {
-          const type = toggle.checked ? 'corporate' : 'individual';
+          const isAnnual = toggle.checked;
+          const type = isAnnual ? 'annual' : 'monthly';
           
+          updateLabels(isAnnual);
+
+          const allEls = [p1, p2, p3, pd1, pd2, pd3].filter(Boolean);
+
           // Add transition effect
-          [p1, p2, p3, pd1].forEach(el => {
+          allEls.forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(-5px)';
             el.style.transition = 'opacity 0.2s, transform 0.2s';
@@ -289,9 +307,11 @@
             p1.textContent = prices[type].p1;
             p2.textContent = prices[type].p2;
             p3.textContent = prices[type].p3;
-            pd1.textContent = prices[type].pd1;
+            if (pd1) pd1.textContent = prices[type].pd1;
+            if (pd2) pd2.textContent = prices[type].pd2;
+            if (pd3) pd3.textContent = prices[type].pd3;
 
-            [p1, p2, p3, pd1].forEach(el => {
+            allEls.forEach(el => {
               el.style.opacity = '1';
               el.style.transform = 'translateY(0)';
             });
