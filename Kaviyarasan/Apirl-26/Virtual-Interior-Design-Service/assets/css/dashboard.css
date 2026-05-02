@@ -199,8 +199,8 @@
 
 .header-icon-btn {
   position: relative;
-  background: none;
-  border: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -210,9 +210,15 @@
   cursor: pointer;
   color: var(--color-text-secondary);
   transition: all var(--transition-fast);
+  font-size: 0.6875rem;
+  font-weight: 700;
 }
 
-.header-icon-btn:hover { background: var(--color-surface); color: var(--color-primary); }
+.header-icon-btn:hover { 
+  background: var(--color-primary); 
+  color: var(--color-bg); 
+  border-color: var(--color-primary);
+}
 .notif-dot {
   position: absolute; top: 4px; right: 4px;
   width: 8px; height: 8px; border-radius: 50%; background: var(--color-error);
