@@ -217,6 +217,7 @@ em { font-style: italic; }
   justify-content: space-between;
   height: 100%;
   gap: var(--space-lg);
+  transform: translateY(4px);
 }
 
 /* Logo */
@@ -226,7 +227,6 @@ em { font-style: italic; }
   gap: var(--space-sm);
   text-decoration: none;
   flex-shrink: 0;
-  margin-top: 4px;
 }
 
 .navbar__logo svg {
@@ -245,7 +245,7 @@ em { font-style: italic; }
   text-fill-color: transparent;
   line-height: 1.2;
   position: relative;
-  top: 5px;
+  top: 1px;
   transition: filter var(--transition-base);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -372,6 +372,7 @@ em { font-style: italic; }
   align-items: center;
   gap: var(--space-xs);
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .navbar__actions .btn {
