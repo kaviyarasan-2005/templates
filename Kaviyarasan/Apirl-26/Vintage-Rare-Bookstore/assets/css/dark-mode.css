@@ -39,6 +39,18 @@
   background: rgba(26, 20, 16, 0.98);
 }
 
+[data-theme="dark"] .nav-icon-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .nav-icon-btn:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.3);
+  color: var(--accent);
+}
+
 /* Dropdown dark */
 [data-theme="dark"] .dropdown-menu {
   background: var(--bg-card);
