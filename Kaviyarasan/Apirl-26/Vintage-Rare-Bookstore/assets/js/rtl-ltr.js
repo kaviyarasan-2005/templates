@@ -19,15 +19,17 @@ const DirectionManager = {
     document.documentElement.setAttribute(this.ATTR, dir);
     localStorage.setItem(this.KEY, dir);
 
-    // Update button aria label
-    const btn = document.getElementById('rtl-toggle');
-    if (btn) {
+    // Update buttons
+    const buttons = document.querySelectorAll('#rtl-toggle');
+    buttons.forEach(btn => {
       btn.setAttribute('aria-label', dir === 'rtl' ? 'Switch to LTR layout' : 'Switch to RTL layout');
       btn.setAttribute('title', dir === 'rtl' ? 'Switch to LTR' : 'Switch to RTL');
-      // Visual indicator
+      
       const indicator = btn.querySelector('.rtl-indicator');
-      if (indicator) indicator.textContent = dir === 'rtl' ? 'LTR' : 'RTL';
-    }
+      if (indicator) {
+        indicator.textContent = dir === 'rtl' ? 'LTR' : 'RTL';
+      }
+    });
 
     // Adjust dropdown direction in RTL
     document.querySelectorAll('.dropdown-menu').forEach(menu => {
@@ -50,8 +52,13 @@ const DirectionManager = {
   },
 
   bindToggle() {
-    const btn = document.getElementById('rtl-toggle');
-    if (btn) btn.addEventListener('click', () => this.toggle());
+    const buttons = document.querySelectorAll('#rtl-toggle');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.toggle();
+      });
+    });
   }
 };
 

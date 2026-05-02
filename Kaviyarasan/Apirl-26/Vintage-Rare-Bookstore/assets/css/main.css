@@ -402,7 +402,16 @@ em { font-style: italic; }
   transition: transform var(--transition-base);
 }
 
-.nav-icon-btn:hover svg { transform: scale(1.1); }
+.rtl-indicator {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.nav-icon-btn:hover svg,
+.nav-icon-btn:hover .rtl-indicator { transform: scale(1.1); }
 
 /* Hamburger */
 .hamburger {
