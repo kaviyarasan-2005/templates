@@ -316,6 +316,8 @@ p { color: var(--text-secondary); line-height: var(--lh-relaxed); }
   font-weight: var(--fw-bold);
   font-size: var(--fs-xs);
   letter-spacing: 0.5px;
+  line-height: 1;
+  padding-top: 2px;
 }
 
 /* Hamburger */

@@ -185,7 +185,7 @@
     }
 
     @media (max-width: 480px) {
-      .glass-card { 
+      .glass-card, [data-theme="dark"] .glass-card { 
         background: transparent; 
         backdrop-filter: none; 
         border: none; 
@@ -193,10 +193,11 @@
         padding: var(--space-4) var(--space-2);
       }
       .auth-container { padding: var(--space-6) var(--space-2); }
+      .auth-nav { padding: var(--space-3) var(--space-2); }
     }
     @media (max-width: 400px) {
       .auth-container { padding: var(--space-5) var(--space-1); }
-      .glass-card { padding: var(--space-3) var(--space-2); background: transparent; border: none; box-shadow: none; backdrop-filter: none; }
+      .glass-card, [data-theme="dark"] .glass-card { padding: var(--space-3) var(--space-2); background: transparent; border: none; box-shadow: none; backdrop-filter: none; }
       .social-btn--minimal { padding: 10px 8px; font-size: 11px; gap: 6px; }
       [dir="rtl"] .form-floating label { left: auto; right: 14px; }
       [dir="rtl"] .form-floating input:focus ~ label,
