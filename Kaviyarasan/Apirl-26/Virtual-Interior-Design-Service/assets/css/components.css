@@ -134,6 +134,12 @@
   display: flex;
   align-items: center;
   gap: var(--space-1);
+  transition: color var(--transition-fast);
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle.active {
+  color: var(--color-primary);
 }
 
 .dropdown-menu {
@@ -325,7 +331,12 @@ textarea.form-control {
   text-decoration: none;
 }
 
-.mobile-menu-overlay .navbar-link:hover {
+.mobile-menu-overlay .navbar-link::after {
+  display: none;
+}
+
+.mobile-menu-overlay .navbar-link:hover,
+.mobile-menu-overlay .navbar-link.active {
   color: var(--color-primary);
 }
 
@@ -343,6 +354,12 @@ textarea.form-control {
   border: none;
   cursor: pointer;
   text-align: left;
+  transition: color var(--transition-fast);
+}
+
+.mobile-menu-overlay .dropdown-toggle:hover,
+.mobile-menu-overlay .dropdown-toggle.active {
+  color: var(--color-primary);
 }
 
 .mobile-menu-overlay .dropdown-toggle svg {

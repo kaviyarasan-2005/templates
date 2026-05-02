@@ -44,6 +44,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
   animatedElements.forEach(el => observer.observe(el));
 
+  // Navbar active state indication
+  const currentPath = window.location.pathname.split('/').pop() || 'home-1.html';
+  const navLinks = document.querySelectorAll('.navbar-link, .dropdown-link');
+  
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath || (currentPath === 'index.html' && href === 'home-1.html')) {
+      link.classList.add('active');
+      
+      // If it's a dropdown link, highlight the parent toggle too
+      const parentDropdown = link.closest('.navbar-item');
+      if (parentDropdown) {
+        const toggle = parentDropdown.querySelector('.dropdown-toggle');
+        if (toggle) toggle.classList.add('active');
+      }
+    }
+  });
+
   // Navbar blur and shrink on scroll
   const navbar = document.querySelector('.navbar');
   if (navbar) {
