@@ -58,6 +58,44 @@
 
     @media(max-width:1024px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:768px){.blog-grid{grid-template-columns:1fr}.blog-toolbar{flex-direction:column;align-items:stretch}.blog-search{max-width:100%}}
+
+    /* ============ FEATURED POST ============ */
+    .featured-section { background: var(--bg-primary); padding-bottom: var(--space-8); }
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--border-color);
+    }
+    .featured-card__image { position: relative; min-height: 400px; }
+    .featured-card__image img { width: 100%; height: 100%; object-fit: cover; }
+    .featured-card__content { padding: var(--space-12); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .featured-card__title { font-size: var(--font-size-3xl); margin: var(--space-4) 0; line-height: var(--line-height-snug); }
+    .featured-card__text { color: var(--text-tertiary); font-size: var(--font-size-lg); margin-bottom: var(--space-8); }
+    .featured-card__meta { display: flex; align-items: center; gap: var(--space-8); margin-bottom: var(--space-8); width: 100%; }
+    .read-time { font-size: var(--font-size-xs); color: var(--text-tertiary); display: flex; align-items: center; gap: var(--space-1); }
+
+    /* ============ NEWSLETTER ============ */
+    .newsletter-section { background: var(--color-midnight); position: relative; overflow: hidden; padding-block: var(--space-20); }
+    .newsletter-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 20% 80%, rgba(107,70,193,0.3) 0%, transparent 40%), radial-gradient(circle at 80% 20%, rgba(255,107,107,0.2) 0%, transparent 40%);
+    }
+    .newsletter__inner { position: relative; text-align: center; max-width: 600px; margin: 0 auto; }
+    .newsletter__title { font-size: var(--font-size-3xl); color: white; margin-bottom: var(--space-4); }
+    .newsletter__text { color: rgba(255,255,255,0.7); margin-bottom: var(--space-8); }
+    .newsletter__form { display: flex; gap: var(--space-3); max-width: 500px; margin: 0 auto; }
+    .newsletter__input { flex: 1; background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.2) !important; color: white !important; }
+
+    @media(max-width:992px){
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-card__image { min-height: 300px; }
+      .featured-card__content { padding: var(--space-8); }
+    }
+    @media(max-width:576px){ .newsletter__form { flex-direction: column; } }
   </style>
 </head>
 <body>
@@ -117,6 +155,29 @@
       <h1 class="page-hero__title">Dance <span class="text-gradient">Journal</span></h1>
       <p class="page-hero__desc">Tips, stories, tutorials, and inspiration from the world of dance</p>
     </div></section>
+    <!-- ========== FEATURED POST SECTION ========== -->
+    <section class="section featured-section reveal">
+      <div class="container">
+        <div class="featured-card">
+          <div class="featured-card__image">
+            <img src="../assets/images/new-location.png" alt="Featured Post">
+          </div>
+          <div class="featured-card__content">
+            <span class="blog-card__category">Featured News</span>
+            <h2 class="featured-card__title">Alan Studio Expansion: Our New East Side Location</h2>
+            <p class="featured-card__text">We are thrilled to share that Alan is opening a second location this fall. Featuring 5 state-of-the-art studios, a specialized recovery lounge, and more...</p>
+            <div class="featured-card__meta">
+              <div class="blog-card__author">
+                <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=50&h=50&fit=crop&crop=face" alt="Sofia">
+                <span>Sofia Martinez</span>
+              </div>
+              <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+            </div>
+            <a href="blog-detail.html" class="btn btn--primary">Read Full Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="section blog-section">
       <div class="container">
@@ -211,6 +272,23 @@
           <button class="pagination__btn">2</button>
           <button class="pagination__btn">3</button>
           <button class="pagination__btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== NEWSLETTER SECTION ========== -->
+    <section class="section newsletter-section" id="newsletter">
+      <div class="container">
+        <div class="newsletter__inner reveal">
+          <span class="section-header__label" style="color:var(--color-accent);"><i class="fas fa-envelope"></i> Stay Connected</span>
+          <h2 class="newsletter__title">Join Our Dance Community</h2>
+          <p class="newsletter__text">Get exclusive updates on new classes, workshops, performances, and special offers delivered to your inbox.</p>
+          <form class="newsletter__form" data-validate>
+            <input type="email" class="newsletter__input form-input" placeholder="Enter your email address" required aria-label="Email address">
+            <button type="submit" class="btn btn--primary btn--lg">
+              Subscribe <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
         </div>
       </div>
     </section>
