@@ -46,6 +46,16 @@ function initNavbar() {
     });
   }
 
+  // Mobile Accordion
+  $$('.navbar__mobile-accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const parent = trigger.closest('.navbar__mobile-accordion');
+      const isOpen = parent.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen);
+    });
+  });
+
   // Dropdown (keyboard accessible)
   $$('.navbar__dropdown').forEach(dd => {
     const trigger = $('.navbar__dropdown-trigger', dd);

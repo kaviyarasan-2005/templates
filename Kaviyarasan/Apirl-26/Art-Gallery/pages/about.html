@@ -67,8 +67,16 @@
       </button>
     </div>
     <div class="navbar__mobile-menu" aria-hidden="true">
-      <a href="home-main.html" class="navbar__link">Home 1</a>
-      <a href="home-exhibition.html" class="navbar__link">Home 2</a>
+            <!-- Home Accordion -->
+      <div class="navbar__mobile-accordion">
+        <button class="navbar__mobile-accordion-trigger" aria-expanded="false">
+          Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="navbar__mobile-accordion-content">
+          <a href="home-main.html" class="navbar__link">Home 1</a>
+          <a href="home-exhibition.html" class="navbar__link">Home 2</a>
+        </div>
+      </div>
       <a href="about.html" class="navbar__link">About Us</a>
       <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
       <a href="services.html" class="navbar__link">Services Overview</a>
@@ -80,8 +88,16 @@
       <a href="pricing.html" class="navbar__link">Pricing</a>
       <a href="contact.html" class="navbar__link">Contact</a>
       <div style="border-top:1px solid var(--color-border); width:100%; margin:8px 0;"></div>
-      <a href="dashboard.html#user" class="navbar__link">User Dashboard</a>
-      <a href="dashboard.html#admin" class="navbar__link">Admin Dashboard</a>
+            <!-- Dashboard Accordion -->
+      <div class="navbar__mobile-accordion">
+        <button class="navbar__mobile-accordion-trigger" aria-expanded="false">
+          Dashboard <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="navbar__mobile-accordion-content">
+          <a href="dashboard.html#user" class="navbar__link">User Dashboard</a>
+          <a href="dashboard.html#admin" class="navbar__link">Admin Dashboard</a>
+        </div>
+      </div>
       <div style="display:flex;gap:12px;margin-top:16px;">
         <button class="rtl-toggle-mobile navbar__icon-btn" onclick="document.getElementById('rtl-toggle').click()">RTL</button>
         <button class="navbar__icon-btn" onclick="document.getElementById('theme-toggle').click()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
