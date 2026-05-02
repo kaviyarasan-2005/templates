@@ -477,6 +477,9 @@
 @media (max-width: 1024px) {
   .dashboard-widgets { grid-template-columns: 1fr; }
   .dashboard-layout { padding-top: 0; }
+  .dashboard-main { padding-top: 0 !important; }
+  .admin-banner, .user-hero { margin-top: 0 !important; }
+
 }
 @media (max-width: 768px) {
   .dashboard-sidebar {
@@ -508,7 +511,7 @@
   .dashboard-title { font-size: var(--text-xl); }
   [data-sidebar-toggle] { margin-inline-end: 8px; }
   .dashboard-main { 
-    padding: 4px var(--space-2) var(--space-3); /* 4px top padding for mobile */
+    padding: 0 var(--space-2) var(--space-3) !important; /* 2px top padding for mobile */
     width: 100%;
     margin: 0 auto;
   }
@@ -533,7 +536,7 @@
 
   /* 3. Main content: tight 8px side padding, no top padding */
   .dashboard-main {
-    padding: 4px 8px 12px !important;
+    padding: 0 8px 12px !important;
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: hidden !important;

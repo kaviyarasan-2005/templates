@@ -60,6 +60,89 @@
 
  </style>
 
+ <style>
+
+   /* "" Admin-specific overrides "" */
+
+   .admin-banner { 
+
+    background: linear-gradient(135deg,#1a0f0a 0%,#2d1a10 60%,#3d2416 100%); 
+
+    border-radius: var(--radius-lg); 
+
+    padding: clamp(var(--space-2), 3vw, var(--space-4)) clamp(var(--space-2), 4vw, var(--space-5)); 
+
+    margin-bottom: var(--space-4); 
+
+    display: flex; 
+
+    flex-direction: column; 
+
+    gap: var(--space-3); 
+
+   }
+
+   [data-theme="light"] .admin-banner { background: linear-gradient(135deg,#3d2416 0%,#6D4C41 60%,#8D6E63 100%); }
+
+   .admin-banner-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); }
+
+   .admin-banner-greeting { font-family: var(--font-heading); font-size: clamp(1.4rem,3vw,2rem); color: white; font-weight: 400; }
+
+   .admin-banner-sub { color: rgba(255,255,255,0.6); font-size: var(--text-sm); margin-top: 4px; }
+
+   .admin-kpi-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-3); }
+
+   @media(max-width:700px){ .admin-kpi-strip { grid-template-columns:1fr 1fr; } }
+
+   .admin-kpi { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-md); padding: var(--space-3); }
+
+   .admin-kpi-val { font-family: var(--font-heading); font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; color: white; line-height: 1; }
+
+   .admin-kpi-label { font-size: var(--text-xs); color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+
+   .admin-kpi-delta { font-size: var(--text-xs); margin-top: 6px; font-weight: 600; }
+
+   .delta-up { color: #4CAF50; } .delta-down { color: #ef5350; }
+
+   /* 3-column layout */
+
+   .admin-cols { display: grid; grid-template-columns: 1fr 320px; gap: var(--space-3); margin-bottom: var(--space-4); align-items: start; }
+
+   @media(max-width:900px){ .admin-cols { grid-template-columns: 1fr; } }
+
+   .admin-right { display: flex; flex-direction: column; gap: var(--space-3); }
+
+   /* Today's schedule */
+
+   .schedule-item { display: flex; gap: var(--space-2); padding: var(--space-2) 0; border-bottom: 1px solid var(--border-color-soft); }
+
+   .schedule-item:last-child { border-bottom: none; }
+
+   .schedule-time { font-size: var(--text-xs); color: var(--text-muted); white-space: nowrap; min-width: 52px; padding-top: 2px; }
+
+   .schedule-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+
+   .schedule-info-name { font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); }
+
+   .schedule-info-svc { font-size: var(--text-xs); color: var(--text-muted); }
+
+   /* Activity feed */
+
+   .activity-item { display: flex; gap: var(--space-2); align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border-color-soft); }
+
+   .activity-item:last-child { border-bottom: none; }
+
+   .activity-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+   .activity-icon svg { width: 14px; height: 14px; }
+
+   .activity-text { font-size: var(--text-xs); color: var(--text-secondary); line-height: 1.4; }
+
+   .activity-text strong { color: var(--text-primary); }
+
+   .activity-time { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+
+   </style>
 </head>
 
 <body>
@@ -188,93 +271,7 @@
 
  <!-- MAIN CONTENT - ADMIN COMMAND CENTER -->
 
- <main class="dashboard-main" id="main-content">
-
-  <style>
-
-   /* "" Admin-specific overrides "" */
-
-   .admin-banner { 
-
-    background: linear-gradient(135deg,#1a0f0a 0%,#2d1a10 60%,#3d2416 100%); 
-
-    border-radius: var(--radius-lg); 
-
-    padding: clamp(var(--space-2), 3vw, var(--space-4)) clamp(var(--space-2), 4vw, var(--space-5)); 
-
-    margin-bottom: var(--space-4); 
-
-    display: flex; 
-
-    flex-direction: column; 
-
-    gap: var(--space-3); 
-
-   }
-
-   [data-theme="light"] .admin-banner { background: linear-gradient(135deg,#3d2416 0%,#6D4C41 60%,#8D6E63 100%); }
-
-   .admin-banner-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); }
-
-   .admin-banner-greeting { font-family: var(--font-heading); font-size: clamp(1.4rem,3vw,2rem); color: white; font-weight: 400; }
-
-   .admin-banner-sub { color: rgba(255,255,255,0.6); font-size: var(--text-sm); margin-top: 4px; }
-
-   .admin-kpi-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-3); }
-
-   @media(max-width:700px){ .admin-kpi-strip { grid-template-columns:1fr 1fr; } }
-
-   .admin-kpi { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-md); padding: var(--space-3); }
-
-   .admin-kpi-val { font-family: var(--font-heading); font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; color: white; line-height: 1; }
-
-   .admin-kpi-label { font-size: var(--text-xs); color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
-
-   .admin-kpi-delta { font-size: var(--text-xs); margin-top: 6px; font-weight: 600; }
-
-   .delta-up { color: #4CAF50; } .delta-down { color: #ef5350; }
-
-   /* 3-column layout */
-
-   .admin-cols { display: grid; grid-template-columns: 1fr 320px; gap: var(--space-3); margin-bottom: var(--space-4); align-items: start; }
-
-   @media(max-width:900px){ .admin-cols { grid-template-columns: 1fr; } }
-
-   .admin-right { display: flex; flex-direction: column; gap: var(--space-3); }
-
-   /* Today's schedule */
-
-   .schedule-item { display: flex; gap: var(--space-2); padding: var(--space-2) 0; border-bottom: 1px solid var(--border-color-soft); }
-
-   .schedule-item:last-child { border-bottom: none; }
-
-   .schedule-time { font-size: var(--text-xs); color: var(--text-muted); white-space: nowrap; min-width: 52px; padding-top: 2px; }
-
-   .schedule-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
-
-   .schedule-info-name { font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); }
-
-   .schedule-info-svc { font-size: var(--text-xs); color: var(--text-muted); }
-
-   /* Activity feed */
-
-   .activity-item { display: flex; gap: var(--space-2); align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border-color-soft); }
-
-   .activity-item:last-child { border-bottom: none; }
-
-   .activity-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-
-   .activity-icon svg { width: 14px; height: 14px; }
-
-   .activity-text { font-size: var(--text-xs); color: var(--text-secondary); line-height: 1.4; }
-
-   .activity-text strong { color: var(--text-primary); }
-
-   .activity-time { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
-
-  </style>
-
-  <!-- "" DARK COMMAND BANNER "" -->
+ <main class="dashboard-main" id="main-content"><!-- "" DARK COMMAND BANNER "" -->
 
   <div class="admin-banner">
 
