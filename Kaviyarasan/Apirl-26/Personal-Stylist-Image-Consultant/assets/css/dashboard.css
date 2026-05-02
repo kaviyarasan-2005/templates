@@ -476,7 +476,7 @@
 /* ── Responsive ──────────────────────────────── */
 @media (max-width: 1024px) {
   .dashboard-widgets { grid-template-columns: 1fr; }
-  .dashboard-layout { padding-top: var(--nav-height); }
+  .dashboard-layout { padding-top: 0; }
 }
 @media (max-width: 768px) {
   .dashboard-sidebar {
@@ -508,7 +508,7 @@
   .dashboard-title { font-size: var(--text-xl); }
   [data-sidebar-toggle] { margin-inline-end: 8px; }
   .dashboard-main { 
-    padding: var(--space-3) var(--space-2); /* Reduced padding for mobile */
+    padding: 4px var(--space-2) var(--space-3); /* 4px top padding for mobile */
     width: 100%;
     margin: 0 auto;
   }
@@ -531,9 +531,9 @@
   html, body { overflow-x: hidden !important; max-width: 100vw !important; }
   .dashboard-layout { overflow-x: hidden !important; width: 100% !important; max-width: 100vw !important; display: block !important; }
 
-  /* 3. Main content: tight 8px side padding */
+  /* 3. Main content: tight 8px side padding, no top padding */
   .dashboard-main {
-    padding: 12px 8px !important;
+    padding: 4px 8px 12px !important;
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
