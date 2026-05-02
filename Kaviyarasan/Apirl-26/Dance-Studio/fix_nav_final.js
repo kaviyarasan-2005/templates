@@ -7,37 +7,28 @@ const getNavMenu = (isRoot) => {
     return `
         <ul class="navbar__menu">
           <li class="navbar__item navbar__dropdown">
-            <a href="${r}index.html" class="navbar__link navbar__dropdown-toggle">Home</a>
+            <a href="#" class="navbar__link navbar__dropdown-toggle">Home <i class="fas fa-chevron-down"></i></a>
             <ul class="navbar__dropdown-menu">
               <li><a href="${r}index.html" class="navbar__dropdown-item">Home 1</a></li>
               <li><a href="${p}home-2.html" class="navbar__dropdown-item">Home 2</a></li>
             </ul>
           </li>
           <li class="navbar__item"><a href="${p}about.html" class="navbar__link">About</a></li>
-          <li class="navbar__item navbar__dropdown">
-            <a href="${p}services.html" class="navbar__link navbar__dropdown-toggle">Services</a>
-            <ul class="navbar__dropdown-menu">
-              <li><a href="${p}services.html" class="navbar__dropdown-item">Services</a></li>
-              <li><a href="${p}service-detail.html" class="navbar__dropdown-item">Service Details</a></li>
-            </ul>
-          </li>
-          <li class="navbar__item navbar__dropdown">
-            <a href="${p}blog.html" class="navbar__link navbar__dropdown-toggle">Blog</a>
-            <ul class="navbar__dropdown-menu">
-              <li><a href="${p}blog.html" class="navbar__dropdown-item">Blogs</a></li>
-              <li><a href="${p}blog-detail.html" class="navbar__dropdown-item">Blog Details</a></li>
-            </ul>
-          </li>
+          <li class="navbar__item"><a href="${p}services.html" class="navbar__link">Services</a></li>
+          <li class="navbar__item"><a href="${p}blog.html" class="navbar__link">Blog</a></li>
           <li class="navbar__item"><a href="${p}pricing.html" class="navbar__link">Pricing</a></li>
+          <li class="navbar__item"><a href="${p}contact.html" class="navbar__link">Contact</a></li>
           <li class="navbar__item navbar__dropdown">
-            <a href="#" class="navbar__link navbar__dropdown-toggle">Dashboard</a>
+            <a href="#" class="navbar__link navbar__dropdown-toggle">Dashboard <i class="fas fa-chevron-down"></i></a>
             <ul class="navbar__dropdown-menu">
               <li><a href="${p}admin-dashboard.html" class="navbar__dropdown-item">Admin</a></li>
               <li><a href="${p}dashboard.html" class="navbar__dropdown-item">Dashboard</a></li>
             </ul>
           </li>
-          <li class="navbar__item"><a href="${p}contact.html" class="navbar__link">Contact</a></li>
-          <li class="navbar__mobile-login"><a href="${isRoot ? 'pages/login.html' : 'login.html'}" class="btn btn--primary">Sign In</a></li>
+          <li class="navbar__mobile-login">
+            <a href="${p}login.html" class="btn btn--ghost">Sign In</a>
+            <a href="${p}register.html" class="btn btn--primary">Sign Up</a>
+          </li>
         </ul>`;
 };
 
@@ -45,7 +36,8 @@ const getActions = (isRoot) => {
     const p = isRoot ? 'pages/' : '';
     return `
         <div class="navbar__actions">
-          <a href="${p}login.html" class="btn" style="padding:0.5rem 1.25rem;border-radius:var(--radius-full);margin-inline-end:0.5rem;background:var(--gradient-primary);color:white;border:none;transition:none;transform:none;box-shadow:none;">Sign In</a>
+          <a href="${p}login.html" class="btn btn--ghost btn--sm">Sign In</a>
+          <a href="${p}register.html" class="btn btn--primary btn--sm">Sign Up</a>
           <button class="navbar__action-btn" data-rtl-toggle aria-label="Toggle RTL">
             <i class="fas fa-globe"></i>
           </button>
