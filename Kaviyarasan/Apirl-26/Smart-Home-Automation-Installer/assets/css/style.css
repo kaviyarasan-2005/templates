@@ -425,6 +425,13 @@ p { color: var(--text-secondary); line-height: var(--lh-relaxed); }
   #nav-cta { display: inline-flex !important; }
 }
 
+/* Nav CTA — taller for better visibility & balance */
+#nav-cta {
+  padding: 10px var(--space-3);
+  font-size: var(--fs-sm);
+  border-radius: var(--border-radius);
+}
+
 /* Body offset for fixed nav */
 .has-navbar { padding-top: var(--nav-height); }
 @media (max-width: 1024px) { .has-navbar { padding-top: var(--nav-height-mobile); } }
