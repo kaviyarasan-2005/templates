@@ -38,16 +38,23 @@
     .check-yes { color: var(--color-success); font-size: 1.1rem; }
     .check-no { color: var(--color-text-muted); font-size: 1.1rem; }
     .addons-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .addon-card { border: 1.5px solid var(--color-border); border-radius: 16px; padding: 20px; text-align: center; transition: all 0.3s; cursor: pointer; }
+    .addon-card { border: 1.5px solid var(--color-border); border-radius: 16px; overflow: hidden; text-align: center; transition: all 0.3s; cursor: pointer; }
     .addon-card:hover, .addon-card.selected { border-color: var(--color-primary); background: rgba(46,92,71,0.04); }
     .addon-card.selected .addon-checkbox { background: var(--color-primary); border-color: var(--color-primary); }
     .addon-checkbox { width: 20px; height: 20px; border: 2px solid var(--color-border); border-radius: 4px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem; transition: all 0.2s; }
-    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 48px; }
-    .faq-category-card { background: var(--color-bg-card); border: 1px solid var(--color-border-light); border-radius: 24px; padding: 32px; box-shadow: var(--shadow-sm); }
-    .faq-category-title { font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
-    .faq-category-title i { color: var(--color-primary); background: rgba(46,92,71,0.1); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-size: 1rem; }
-    @media (max-width: 1024px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } .addons-grid { grid-template-columns: repeat(2, 1fr); } .faq-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 640px) { .pricing-grid { grid-template-columns: 1fr; } .addons-grid { grid-template-columns: 1fr 1fr; } }
+    .addon-card-img { width: 100%; height: 160px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .addon-card:hover .addon-card-img { transform: scale(1.05); }
+    .addon-card-body { padding: 16px 20px 20px; }
+    .faq-tabs { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; }
+    .faq-tab { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 99px; font-size: 0.88rem; font-weight: 600; border: 1.5px solid var(--color-border); background: var(--color-bg-card); color: var(--color-text-secondary); cursor: pointer; transition: all 0.3s; }
+    .faq-tab:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .faq-tab.active { background: var(--color-primary); color: white; border-color: var(--color-primary); box-shadow: 0 4px 14px rgba(46,92,71,0.25); }
+    .faq-tab i { font-size: 0.9rem; }
+    .faq-tab-panel { display: none; }
+    .faq-tab-panel.active { display: flex; flex-direction: column; gap: 12px; }
+    .pricing-plan-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin: 0 auto 12px; }
+    @media (max-width: 1024px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } .addons-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .pricing-grid { grid-template-columns: 1fr; } .addons-grid { grid-template-columns: 1fr 1fr; } .faq-tabs { gap: 6px; } .faq-tab { padding: 8px 14px; font-size: 0.82rem; } }
   </style>
 </head>
 <body class="has-fixed-header">
@@ -166,6 +173,7 @@
         <div class="pricing-grid stagger">
           <!-- Starter -->
           <div class="pricing-card animate-fade-up">
+            <div class="pricing-plan-icon" style="background:rgba(46,92,71,0.1);color:var(--color-primary);"><i class="fas fa-compass"></i></div>
             <div class="pricing-card-name">Explorer</div>
             <p style="font-size:0.82rem;color:var(--color-text-muted);margin-top:4px;">Perfect for couples & solo travelers</p>
             <div style="margin: 24px 0;">
@@ -189,6 +197,7 @@
           <!-- Pro — Featured -->
           <div class="pricing-card featured animate-fade-up">
             <div style="text-align:center;margin-bottom:16px;"><span class="badge" style="background:rgba(241,196,15,0.2);color:var(--color-accent);border:1px solid rgba(241,196,15,0.4);">⭐ Most Popular</span></div>
+            <div class="pricing-plan-icon" style="background:rgba(255,255,255,0.15);color:white;"><i class="fas fa-mountain"></i></div>
             <div class="pricing-card-name">Adventurer</div>
             <p style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin-top:4px;">Best for families & small groups</p>
             <div style="margin: 24px 0;">
@@ -211,6 +220,7 @@
 
           <!-- Premier -->
           <div class="pricing-card animate-fade-up">
+            <div class="pricing-plan-icon" style="background:rgba(46,92,71,0.1);color:var(--color-primary);"><i class="fas fa-crown"></i></div>
             <div class="pricing-card-name">Premier</div>
             <p style="font-size:0.82rem;color:var(--color-text-muted);margin-top:4px;">The full luxury experience</p>
             <div style="margin: 24px 0;">
@@ -278,60 +288,76 @@
         </div>
         <div class="addons-grid stagger">
           <div class="addon-card animate-fade-up" id="addon-camping" onclick="this.classList.toggle('selected');this.querySelector('.addon-checkbox').innerHTML=this.classList.contains('selected')?'<i class=&quot;fas fa-check&quot;></i>':''">
-            <div class="addon-checkbox"></div>
-            <div style="font-size:1.75rem;margin-bottom:10px;">🏕️</div>
-            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Camping Essentials</div>
-            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Chairs, lanterns, BBQ grill, fire starter</div>
-            <div style="font-weight:800;color:var(--color-primary);">+$45/trip</div>
+            <div style="overflow:hidden"><img src="../assets/images/gear/camping.png" alt="Camping Essentials" class="addon-card-img" loading="lazy" /></div>
+            <div class="addon-card-body">
+              <div class="addon-checkbox"></div>
+              <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Camping Essentials</div>
+              <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Chairs, lanterns, BBQ grill, fire starter</div>
+              <div style="font-weight:800;color:var(--color-primary);">+$45/trip</div>
+            </div>
           </div>
           <div class="addon-card animate-fade-up" id="addon-bikes" onclick="this.classList.toggle('selected')">
-            <div class="addon-checkbox"></div>
-            <div style="font-size:1.75rem;margin-bottom:10px;">🚵</div>
-            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Bike Rack + 2 Bikes</div>
-            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Rear rack + 2 trail bikes with helmets</div>
-            <div style="font-weight:800;color:var(--color-primary);">+$89/trip</div>
+            <div style="overflow:hidden"><img src="../assets/images/gear/bike_rack.png" alt="Bike Rack + 2 Bikes" class="addon-card-img" loading="lazy" /></div>
+            <div class="addon-card-body">
+              <div class="addon-checkbox"></div>
+              <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Bike Rack + 2 Bikes</div>
+              <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Rear rack + 2 trail bikes with helmets</div>
+              <div style="font-weight:800;color:var(--color-primary);">+$89/trip</div>
+            </div>
           </div>
           <div class="addon-card animate-fade-up" id="addon-kayak" onclick="this.classList.toggle('selected')">
-            <div class="addon-checkbox"></div>
-            <div style="font-size:1.75rem;margin-bottom:10px;">🛶</div>
-            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Kayak Package</div>
-            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">2-person inflatable kayak + paddles</div>
-            <div style="font-weight:800;color:var(--color-primary);">+$75/trip</div>
+            <div style="overflow:hidden"><img src="../assets/images/gear/kayak.png" alt="Kayak Package" class="addon-card-img" loading="lazy" /></div>
+            <div class="addon-card-body">
+              <div class="addon-checkbox"></div>
+              <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Kayak Package</div>
+              <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">2-person inflatable kayak + paddles</div>
+              <div style="font-weight:800;color:var(--color-primary);">+$75/trip</div>
+            </div>
           </div>
           <div class="addon-card animate-fade-up" id="addon-wifi" onclick="this.classList.toggle('selected')">
-            <div class="addon-checkbox"></div>
-            <div style="font-size:1.75rem;margin-bottom:10px;">📡</div>
-            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Starlink WiFi</div>
-            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Satellite internet in remote areas</div>
-            <div style="font-weight:800;color:var(--color-primary);">+$55/trip</div>
+            <div style="overflow:hidden"><img src="../assets/images/gear/starlink.png" alt="Starlink WiFi" class="addon-card-img" loading="lazy" /></div>
+            <div class="addon-card-body">
+              <div class="addon-checkbox"></div>
+              <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Starlink WiFi</div>
+              <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Satellite internet in remote areas</div>
+              <div style="font-weight:800;color:var(--color-primary);">+$55/trip</div>
+            </div>
           </div>
           <div class="addon-card animate-fade-up" id="addon-solar" onclick="this.classList.toggle('selected')">
-            <div class="addon-checkbox"></div>
-            <div style="font-size:1.75rem;margin-bottom:10px;">☀️</div>
-            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Off-Grid Solar Kit</div>
-            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">400W panels + 200Ah lithium battery</div>
-            <div style="font-weight:800;color:var(--color-primary);">+$99/trip</div>
+            <div style="overflow:hidden"><img src="../assets/images/gear/power_kit.png" alt="Off-Grid Solar Kit" class="addon-card-img" loading="lazy" /></div>
+            <div class="addon-card-body">
+              <div class="addon-checkbox"></div>
+              <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Off-Grid Solar Kit</div>
+              <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">400W panels + 200Ah lithium battery</div>
+              <div style="font-weight:800;color:var(--color-primary);">+$99/trip</div>
+            </div>
           </div>
-          <div class="addon-card animate-fade-up" id="addon-generator" onclick="this.classList.toggle('selected')">
-            <div class="addon-checkbox"></div>
-            <div style="font-size:1.75rem;margin-bottom:10px;">⚡</div>
-            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Portable Generator</div>
-            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">3500W inverter generator + fuel can</div>
-            <div style="font-weight:800;color:var(--color-primary);">+$65/trip</div>
+          <div class="addon-card animate-fade-up" id="addon-fishing" onclick="this.classList.toggle('selected')">
+            <div style="overflow:hidden"><img src="../assets/images/gear/fishing.png" alt="Fishing Package" class="addon-card-img" loading="lazy" /></div>
+            <div class="addon-card-body">
+              <div class="addon-checkbox"></div>
+              <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Fishing Package</div>
+              <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">2 rods, tackle box, cooler & net</div>
+              <div style="font-weight:800;color:var(--color-primary);">+$55/trip</div>
+            </div>
           </div>
-          <div class="addon-card animate-fade-up" id="addon-insurance" onclick="this.classList.toggle('selected')">
-            <div class="addon-checkbox"></div>
-            <div style="font-size:1.75rem;margin-bottom:10px;">🛡️</div>
-            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Damage Waiver+</div>
-            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Reduces liability to $0 — full coverage</div>
-            <div style="font-weight:800;color:var(--color-primary);">+$35/day</div>
+          <div class="addon-card animate-fade-up" id="addon-winter" onclick="this.classList.toggle('selected')">
+            <div style="overflow:hidden"><img src="../assets/images/gear/winter.png" alt="Winter Comfort Kit" class="addon-card-img" loading="lazy" /></div>
+            <div class="addon-card-body">
+              <div class="addon-checkbox"></div>
+              <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Winter Comfort Kit</div>
+              <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Heated blankets, insulation & snow chains</div>
+              <div style="font-weight:800;color:var(--color-primary);">+$65/trip</div>
+            </div>
           </div>
-          <div class="addon-card animate-fade-up" id="addon-delivery" onclick="this.classList.toggle('selected')">
-            <div class="addon-checkbox"></div>
-            <div style="font-size:1.75rem;margin-bottom:10px;">🚚</div>
-            <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">RV Delivery & Setup</div>
-            <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">We set up at your campsite, you enjoy</div>
-            <div style="font-weight:800;color:var(--color-primary);">+$149 flat</div>
+          <div class="addon-card animate-fade-up" id="addon-photo" onclick="this.classList.toggle('selected')">
+            <div style="overflow:hidden"><img src="../assets/images/gear/photo_kit.png" alt="Photography Kit" class="addon-card-img" loading="lazy" /></div>
+            <div class="addon-card-body">
+              <div class="addon-checkbox"></div>
+              <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:6px;">Photography Kit</div>
+              <div style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:12px;">Drone, tripod & action camera bundle</div>
+              <div style="font-weight:800;color:var(--color-primary);">+$79/trip</div>
+            </div>
           </div>
         </div>
       </div>
@@ -341,26 +367,50 @@
     <section class="section section-alt" aria-labelledby="pricing-faq-heading">
       <div class="container">
         <div class="section-header animate-fade-up"><div class="section-label"><i class="fas fa-question-circle"></i> FAQ</div><h2 id="pricing-faq-heading" class="section-title">Pricing FAQs</h2></div>
-        <div class="faq-grid accordion-group animate-fade-up">
-          <div class="faq-category-card">
-            <div class="faq-category-title"><i class="fas fa-rv"></i> Rental Basics</div>
-            <div style="display:flex;flex-direction:column;gap:12px;">
-              <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Are there any hidden fees?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Never. Our pricing is 100% transparent. The only extras are optional: damage waiver, mileage overages (clearly disclosed before booking), and any add-ons you choose.</div></div></div>
-              <div class="accordion-item"><button class="accordion-header" aria-expanded="false">What's included in the base price?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Your base price includes the vehicle, basic insurance, your choice of kitchen kit, generator fuel for the first tank, and 24/7 support access. No additional per-person fees.</div></div></div>
-              <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Do you charge for extra miles?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Explorer and Adventurer plans include 100–150 miles/day at no charge. Once exceeded, the rate is $0.35/mile. Premier includes unlimited miles.</div></div></div>
-            </div>
+
+        <!-- Tab Navigation -->
+        <div class="faq-tabs animate-fade-up">
+          <button class="faq-tab active" data-faq-tab="rental" id="faq-tab-rental"><i class="fas fa-rv"></i> Rental Basics</button>
+          <button class="faq-tab" data-faq-tab="payments" id="faq-tab-payments"><i class="fas fa-credit-card"></i> Payments &amp; Logistics</button>
+          <button class="faq-tab" data-faq-tab="insurance" id="faq-tab-insurance"><i class="fas fa-shield-alt"></i> Insurance &amp; Policies</button>
+        </div>
+
+        <!-- Tab Panels -->
+        <div class="animate-fade-up accordion-group">
+          <!-- Rental Basics -->
+          <div class="faq-tab-panel active" data-faq-panel="rental">
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Are there any hidden fees?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Never. Our pricing is 100% transparent. The only extras are optional: damage waiver, mileage overages (clearly disclosed before booking), and any add-ons you choose.</div></div></div>
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">What's included in the base price?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Your base price includes the vehicle, basic insurance, your choice of kitchen kit, generator fuel for the first tank, and 24/7 support access. No additional per-person fees.</div></div></div>
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Do you charge for extra miles?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Explorer and Adventurer plans include 100–150 miles/day at no charge. Once exceeded, the rate is $0.35/mile. Premier includes unlimited miles.</div></div></div>
           </div>
-          <div class="faq-category-card">
-            <div class="faq-category-title"><i class="fas fa-credit-card"></i> Payments & Logistics</div>
-            <div style="display:flex;flex-direction:column;gap:12px;">
-              <div class="accordion-item"><button class="accordion-header" aria-expanded="false">What payment methods do you accept?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">All major credit cards, debit cards, PayPal, and Apple/Google Pay. A credit card is required for the security deposit hold at the time of pickup.</div></div></div>
-              <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Can I cancel or change my booking?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Changes and cancellations are free up to 72 hours before pickup for all plans. Cancellations within 72 hours receive a 50% refund. Premier plan gets an extended 5-day window.</div></div></div>
-              <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Is a security deposit required?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Yes — a refundable hold of $500–$2,500 depending on vehicle class is placed on your credit card at pickup. It's released within 5–7 business days after satisfactory return.</div></div></div>
-            </div>
+
+          <!-- Payments & Logistics -->
+          <div class="faq-tab-panel" data-faq-panel="payments">
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">What payment methods do you accept?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">All major credit cards, debit cards, PayPal, and Apple/Google Pay. A credit card is required for the security deposit hold at the time of pickup.</div></div></div>
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Can I cancel or change my booking?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Changes and cancellations are free up to 72 hours before pickup for all plans. Cancellations within 72 hours receive a 50% refund. Premier plan gets an extended 5-day window.</div></div></div>
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Is a security deposit required?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Yes — a refundable hold of $500–$2,500 depending on vehicle class is placed on your credit card at pickup. It's released within 5–7 business days after satisfactory return.</div></div></div>
+          </div>
+
+          <!-- Insurance & Policies -->
+          <div class="faq-tab-panel" data-faq-panel="insurance">
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">What insurance is included?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">All plans include basic liability insurance. Adventurer adds comprehensive coverage, and Premier includes premium + collision protection with zero deductible.</div></div></div>
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">Can I add extra insurance coverage?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Yes — our Damage Waiver+ add-on reduces your liability to $0 for just $35/day. It covers accidental damage, windshield chips, and tire blowouts.</div></div></div>
+            <div class="accordion-item"><button class="accordion-header" aria-expanded="false">What's your pet policy?<span class="accordion-icon"><i class="fas fa-plus"></i></span></button><div class="accordion-body"><div class="accordion-content">Pets are welcome on all plans! A $75 pet-cleaning fee applies. We provide a pet-friendly welcome kit with bowls, blankets, and waste bags at no extra cost.</div></div></div>
           </div>
         </div>
       </div>
     </section>
+
+    <script>
+      document.querySelectorAll('.faq-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.faq-tab-panel').forEach(p => p.classList.remove('active'));
+          tab.classList.add('active');
+          document.querySelector(`[data-faq-panel="${tab.dataset.faqTab}"]`).classList.add('active');
+        });
+      });
+    </script>
 
     <!-- CTA -->
     <section class="cta-section section" aria-labelledby="pricing-cta-heading">
