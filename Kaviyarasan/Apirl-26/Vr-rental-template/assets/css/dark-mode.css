@@ -271,15 +271,22 @@
   border-color: var(--color-border);
 }
 [data-theme="dark"] .dash-nav-link {
-  color: var(--color-text-secondary);
+  color: #d1d1d1;
 }
-[data-theme="dark"] .dash-nav-link:hover,
+[data-theme="dark"] .dash-nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+}
+[data-theme="dark"] .dash-nav-link:hover i {
+  color: #FFFFFF;
+}
 [data-theme="dark"] .dash-nav-link.active {
-  background: rgba(61, 122, 97, 0.12);
-  color: var(--color-primary-light);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  box-shadow: 0 4px 12px rgba(46, 92, 71, 0.3);
 }
 [data-theme="dark"] .dash-nav-link.active i {
-  color: var(--color-primary-light);
+  color: white;
 }
 
 /* Stats dark card */
