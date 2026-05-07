@@ -769,7 +769,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   border-radius: var(--border-radius-lg);
   padding: var(--space-3);
 }
-.testimonial-card__stars { color: var(--color-amber); margin-bottom: var(--space-1); display: flex; gap: 2px; }
+.testimonial-card__stars { color: var(--color-primary); margin-bottom: var(--space-1); display: flex; gap: 2px; }
 .testimonial-card__text { font-size: var(--fs-sm); font-style: italic; color: var(--text-secondary); margin-bottom: var(--space-2); }
 .testimonial-card__author { display: flex; align-items: center; gap: var(--space-1); }
 .testimonial-card__avatar {
