@@ -782,11 +782,15 @@
 
   .gallery-item:hover img { transform: scale(1.08); }
 
-  .gallery-item-overlay { position:absolute; inset:0; background: rgba(0,0,0,0.4); opacity:0; display:flex; align-items:center; justify-content:center; transition: opacity 300ms ease; }
+  .gallery-item-overlay { position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 70%); opacity:1; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-end; text-align:left; padding:var(--space-4); transition: background 300ms ease; }
 
-  .gallery-item:hover .gallery-item-overlay { opacity:1; }
+  .gallery-item:hover .gallery-item-overlay { background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 100%); }
 
-  .gallery-item-overlay svg { width:28px; height:28px; stroke:white; }
+  .gallery-item-overlay svg { display: none; }
+  
+  .gallery-item-overlay h3 { margin: 0; font-size: 1.25rem; font-weight: 500; font-family: var(--font-heading); color: white; }
+  
+  .gallery-item-overlay p { margin: var(--space-1) 0 0; font-size: 0.875rem; color: rgba(255,255,255,0.9); }
 
   .gallery-item.gallery-wide { grid-column: span 2; }
 
@@ -2054,9 +2058,13 @@
 
      <div class="gallery-item gallery-wide">
 
-      <img src="../assets/images/services/corporate-styling.png" alt="Corporate styling transformation" loading="lazy" width="800" height="600"/>
+      <img src="../assets/images/services/corporate-styling.png" alt="Corporate styling transformation" loading="lazy" width="800" height="600" style="object-position: top;"/>
 
-      <div class="gallery-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="gallery-item-overlay">
+       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+       <h3>Corporate Styling</h3>
+       <p>Command the room with effortless executive presence.</p>
+      </div>
 
      </div>
 
@@ -2064,7 +2072,11 @@
 
       <img src="../assets/images/services/bridal-styling.png" alt="Bridal styling session" loading="lazy" width="400" height="400"/>
 
-      <div class="gallery-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="gallery-item-overlay">
+       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+       <h3>Bridal Styling</h3>
+       <p>Curated looks for your unforgettable moments.</p>
+      </div>
 
      </div>
 
@@ -2072,7 +2084,11 @@
 
       <img src="../assets/images/services/color-analysis.png" alt="Color analysis consultation" loading="lazy" width="400" height="400"/>
 
-      <div class="gallery-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="gallery-item-overlay">
+       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+       <h3>Color Analysis</h3>
+       <p>Discover the palette that brings out your glow.</p>
+      </div>
 
      </div>
 
@@ -2080,7 +2096,11 @@
 
       <img src="../assets/images/services/personal-shopping.png" alt="Personal shopping session" loading="lazy" width="400" height="400"/>
 
-      <div class="gallery-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="gallery-item-overlay">
+       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+       <h3>Personal Shopping</h3>
+       <p>Targeted curation for a functional, stylish wardrobe.</p>
+      </div>
 
      </div>
 
@@ -2088,7 +2108,11 @@
 
       <img src="../assets/images/services/style-consultation.png" alt="Style consultation" loading="lazy" width="800" height="400"/>
 
-      <div class="gallery-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="gallery-item-overlay">
+       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+       <h3>Style Consultation</h3>
+       <p>Redefine your aesthetic with tailored expert guidance.</p>
+      </div>
 
      </div>
 
@@ -2096,7 +2120,11 @@
 
       <img src="../assets/images/services/wardrobe-audit.png" alt="Wardrobe audit" loading="lazy" width="400" height="400"/>
 
-      <div class="gallery-item-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="gallery-item-overlay">
+       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+       <h3>Wardrobe Audit</h3>
+       <p>Streamline your closet and maximize your style potential.</p>
+      </div>
 
      </div>
 
