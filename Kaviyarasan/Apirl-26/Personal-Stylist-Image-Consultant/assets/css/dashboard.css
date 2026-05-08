@@ -1,8 +1,8 @@
-/* ============================================================
-   DASHBOARD.CSS — Admin & User Dashboard Styles
+﻿/* ============================================================
+   DASHBOARD.CSS â€” Admin & User Dashboard Styles
    ============================================================ */
 
-/* ── Layout ──────────────────────────────────── */
+/* â”€â”€ Layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
@@ -11,7 +11,7 @@
 }
 
 
-/* ── Sidebar ─────────────────────────────────── */
+/* â”€â”€ Sidebar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dashboard-sidebar {
   width: 260px;
   flex-shrink: 0;
@@ -143,7 +143,7 @@
   transition: all var(--transition-base);
 }
 
-/* ── Main Content ────────────────────────────── */
+/* â”€â”€ Main Content â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dashboard-main {
   flex: 1;
   padding: var(--space-4);
@@ -162,12 +162,7 @@
 .dashboard-title { font-size: var(--text-2xl); font-weight: 600; color: var(--text-primary); }
 .dashboard-subtitle { font-size: var(--text-sm); color: var(--text-muted); margin-top: 2px; }
 
-.dashboard-top-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--space-2);
-  margin-bottom: var(--space-4);
-}
+
 
 [data-sidebar-toggle] {
   width: 36px;
@@ -188,7 +183,7 @@
 [data-sidebar-toggle]:hover { background: var(--color-brown); color: white; border-color: var(--color-brown); }
 [data-sidebar-toggle] svg { width: 18px; height: 18px; }
 
-/* ── Stat Cards ──────────────────────────────── */
+/* â”€â”€ Stat Cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .stat-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -260,7 +255,7 @@
 .trend-down { color: var(--color-error); }
 .stat-card-sparkline { color: var(--text-muted); opacity: 0.6; }
 
-/* ── Dashboard Widgets ───────────────────────── */
+/* â”€â”€ Dashboard Widgets â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dashboard-widgets {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -285,7 +280,7 @@
 }
 .widget-title { font-size: var(--text-base); font-weight: 600; color: var(--text-primary); }
 
-/* ── Data Table ──────────────────────────────── */
+/* â”€â”€ Data Table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .table-widget {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -352,7 +347,7 @@
 }
 .table-name { font-weight: 500; color: var(--text-primary); }
 
-/* ── Calendar ────────────────────────────────── */
+/* â”€â”€ Calendar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cal-header {
   display: flex;
   align-items: center;
@@ -421,7 +416,7 @@
 .cal-day.today.has-event::after { background: white; }
 .cal-day.empty { pointer-events: none; }
 
-/* ── Chart Wrap ──────────────────────────────── */
+/* â”€â”€ Chart Wrap â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .donut-chart-wrap {
   display: flex;
   align-items: center;
@@ -439,7 +434,7 @@
 .legend-label { color: var(--text-secondary); flex: 1; }
 .legend-value { font-weight: 600; color: var(--text-primary); }
 
-/* ── Messages Inbox ──────────────────────────── */
+/* â”€â”€ Messages Inbox â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .inbox-list { display: flex; flex-direction: column; }
 .inbox-item {
   display: flex;
@@ -473,7 +468,7 @@
   margin-top: 4px;
 }
 
-/* ── Responsive ──────────────────────────────── */
+/* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 1024px) {
   .dashboard-widgets { grid-template-columns: 1fr; }
   .dashboard-layout { padding-top:  0; }
@@ -525,7 +520,7 @@
   .admin-kpi { padding: var(--space-1); }
 }
 
-/* ── 360px hard mobile fix — clamps ALL overflow ──────────────── */
+/* â”€â”€ 360px hard mobile fix â€” clamps ALL overflow â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 400px) {
   /* 1. Box model: prevent padding from adding to width */
   *, *::before, *::after { box-sizing: border-box !important; }
@@ -724,7 +719,7 @@
   .flex-stack-mobile { flex-direction: column !important; align-items: center !important; gap: var(--space-2) !important; text-align: center; }
   .flex-stack-mobile > * { min-width: 0; }
 
-  /* ── Activity Horizontal Scroll ── */
+  /* â”€â”€ Activity Horizontal Scroll â”€â”€ */
   .activity-scroll-wrap {
     display: flex;
     overflow-x: auto;
@@ -745,7 +740,7 @@
   }
 }
 
-/* ── Logout Button Sidebar ── */
+/* â”€â”€ Logout Button Sidebar â”€â”€ */
 .sidebar-logout-btn {
   display: flex;
   align-items: center;
@@ -776,4 +771,36 @@
   .dashboard-sidebar { top: 0 !important; height: 100vh !important; }
   .dashboard-main { padding-top: 0 !important; }
   .admin-banner, .user-hero { margin-top: 0 !important; }
+}
+
+
+.dashboard-top-actions {
+  position: absolute;
+  top: -44px;
+  inset-inline-end: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  z-index: 10;
+}
+@media (max-width: 1024px) {
+  .dashboard-top-actions {
+    top: var(--space-3);
+    inset-inline-end: var(--space-3);
+  }
+  .dashboard-top-actions .nav-action-btn {
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--color-brown-dark);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+  }
+  [data-theme="dark"] .dashboard-top-actions .nav-action-btn {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--color-beige);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .dashboard-top-actions.admin-toggles .nav-action-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
 }
