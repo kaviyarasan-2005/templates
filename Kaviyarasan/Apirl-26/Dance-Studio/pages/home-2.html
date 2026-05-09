@@ -102,7 +102,18 @@
       .bento-grid{grid-template-columns:1fr}
       .bento-card--tall{grid-row:span 1}
       .stats-row{grid-template-columns:1fr 1fr}
-      .hero-split__float-card{display:none}
+      .hero-split__float-card{
+        transform: scale(0.8);
+        z-index: 3;
+      }
+      .hero-split__float-card--1{
+        top: 2%;
+        inset-inline-end: 5px;
+      }
+      .hero-split__float-card--2{
+        bottom: 5%;
+        inset-inline-start: 5px;
+      }
     }
     @media(max-width:480px){.stats-row{grid-template-columns:1fr}}
   </style>
