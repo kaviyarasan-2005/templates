@@ -1,73 +1,73 @@
 /* ========================================
    DANCE STUDIO — Design System Variables
+   Brand: Crimson Red | Fonts: Barlow Condensed + Inter
    ======================================== */
 
 :root {
-  /* === Primary Palette === */
-  --color-primary: #6B46C1;
-  --color-primary-light: #805AD5;
-  --color-primary-dark: #553C9A;
-  --color-primary-rgb: 107, 70, 193;
+  /* === Primary Palette — Crimson Red === */
+  --color-primary: #E63946;
+  --color-primary-light: #FF4D5A;
+  --color-primary-dark: #C1121F;
+  --color-primary-rgb: 230, 57, 70;
 
-  --color-accent: #FF6B6B;
-  --color-accent-light: #FF8E8E;
-  --color-accent-dark: #E84545;
-  --color-accent-rgb: 255, 107, 107;
+  --color-accent: #FF6B35;
+  --color-accent-light: #FF8C5A;
+  --color-accent-dark: #E04E18;
+  --color-accent-rgb: 255, 107, 53;
 
-  --color-midnight: #1A202C;
-  --color-midnight-rgb: 26, 32, 44;
+  --color-midnight: #0A0A0A;
+  --color-midnight-rgb: 10, 10, 10;
 
   /* === Secondary Palette === */
-  --color-rose-gold: #B76E79;
-  --color-rose-gold-rgb: 183, 110, 121;
-  --color-cream: #FFF5F5;
-  --color-charcoal: #2D3748;
-  --color-charcoal-rgb: 45, 55, 72;
+  --color-charcoal: #1A1A1A;
+  --color-charcoal-rgb: 26, 26, 26;
+  --color-steel: #2D2D2D;
+  --color-cream: #F8F5F2;
 
   /* === Gradient Presets === */
-  --gradient-primary: linear-gradient(135deg, #6B46C1 0%, #FF6B6B 100%);
-  --gradient-primary-reverse: linear-gradient(135deg, #FF6B6B 0%, #6B46C1 100%);
-  --gradient-hero: linear-gradient(135deg, rgba(107,70,193,0.9) 0%, rgba(255,107,107,0.7) 100%);
-  --gradient-dark: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
-  --gradient-card: linear-gradient(145deg, rgba(107,70,193,0.05) 0%, rgba(255,107,107,0.05) 100%);
-  --gradient-glow: radial-gradient(circle, rgba(107,70,193,0.3) 0%, transparent 70%);
+  --gradient-primary: linear-gradient(135deg, #E63946 0%, #C1121F 100%);
+  --gradient-primary-reverse: linear-gradient(135deg, #C1121F 0%, #E63946 100%);
+  --gradient-hero: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%);
+  --gradient-dark: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+  --gradient-card: linear-gradient(145deg, rgba(230,57,70,0.04) 0%, rgba(230,57,70,0.08) 100%);
+  --gradient-glow: radial-gradient(circle, rgba(230,57,70,0.25) 0%, transparent 70%);
 
   /* === Light Mode (Default) === */
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F7FAFC;
-  --bg-tertiary: #EDF2F7;
+  --bg-secondary: #F8F5F2;
+  --bg-tertiary: #EDEDED;
   --bg-card: #FFFFFF;
-  --bg-card-hover: #F7FAFC;
-  --bg-nav: rgba(255, 255, 255, 0.85);
-  --bg-nav-scrolled: rgba(255, 255, 255, 0.95);
-  --bg-footer: #1A202C;
+  --bg-card-hover: #F8F5F2;
+  --bg-nav: rgba(255, 255, 255, 0.95);
+  --bg-nav-scrolled: rgba(255, 255, 255, 0.98);
+  --bg-footer: #0A0A0A;
   --bg-input: #FFFFFF;
-  --bg-overlay: rgba(26, 32, 44, 0.6);
+  --bg-overlay: rgba(0, 0, 0, 0.65);
 
-  --text-primary: #1A202C;
-  --text-secondary: #4A5568;
-  --text-tertiary: #718096;
-  --text-inverse: #F7FAFC;
+  --text-primary: #0A0A0A;
+  --text-secondary: #3D3D3D;
+  --text-tertiary: #6B6B6B;
+  --text-inverse: #F8F5F2;
   --text-on-primary: #FFFFFF;
-  --text-link: #6B46C1;
-  --text-link-hover: #805AD5;
+  --text-link: #E63946;
+  --text-link-hover: #C1121F;
 
-  --border-color: #E2E8F0;
-  --border-color-hover: #CBD5E0;
-  --border-color-focus: #6B46C1;
+  --border-color: #E0E0E0;
+  --border-color-hover: #BDBDBD;
+  --border-color-focus: #E63946;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.25);
-  --shadow-glow: 0 0 30px rgba(107, 70, 193, 0.3);
-  --shadow-glow-accent: 0 0 30px rgba(255, 107, 107, 0.3);
+  --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px -1px rgba(0,0,0,0.12), 0 2px 6px -1px rgba(0,0,0,0.07);
+  --shadow-lg: 0 10px 24px -3px rgba(0,0,0,0.12), 0 4px 8px -2px rgba(0,0,0,0.06);
+  --shadow-xl: 0 20px 40px -5px rgba(0,0,0,0.15), 0 10px 16px -5px rgba(0,0,0,0.08);
+  --shadow-2xl: 0 25px 60px -12px rgba(0,0,0,0.28);
+  --shadow-glow: 0 0 30px rgba(230, 57, 70, 0.35);
+  --shadow-glow-accent: 0 0 30px rgba(255, 107, 53, 0.35);
 
-  /* === Typography === */
-  --font-heading: 'Playfair Display', Georgia, serif;
+  /* === Typography — 2 Fonts Only === */
+  --font-heading: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-accent: 'Dancing Script', cursive;
+  --font-accent: 'Barlow Condensed', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   --font-size-xs: 0.75rem;    /* 12px */
@@ -90,37 +90,37 @@
   --font-weight-extrabold: 800;
   --font-weight-black: 900;
 
-  --line-height-tight: 1.15;
-  --line-height-snug: 1.3;
+  --line-height-tight: 1.1;
+  --line-height-snug: 1.25;
   --line-height-normal: 1.6;
-  --line-height-relaxed: 1.8;
+  --line-height-relaxed: 1.75;
 
-  --letter-spacing-tight: -0.025em;
+  --letter-spacing-tight: -0.02em;
   --letter-spacing-normal: 0;
   --letter-spacing-wide: 0.05em;
   --letter-spacing-wider: 0.1em;
   --letter-spacing-widest: 0.2em;
 
   /* === Spacing (8px grid) === */
-  --space-1: 0.25rem;   /* 4px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.25rem;   /* 20px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-8: 2rem;      /* 32px */
-  --space-10: 2.5rem;   /* 40px */
-  --space-12: 3rem;     /* 48px */
-  --space-16: 4rem;     /* 64px */
-  --space-20: 5rem;     /* 80px */
-  --space-24: 6rem;     /* 96px */
-  --space-32: 8rem;     /* 128px */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
 
   /* === Border Radius === */
-  --radius-sm: 0.5rem;    /* 8px */
-  --radius-md: 1rem;      /* 16px */
-  --radius-lg: 1.5rem;    /* 24px */
-  --radius-xl: 2rem;      /* 32px */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
   --radius-full: 9999px;
   --radius-circle: 50%;
 
@@ -148,58 +148,57 @@
   --container-2xl: 1440px;
 
   /* === Glass Effect === */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
   --glass-blur: 20px;
-  --navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  --navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* ========================================
-   DARK MODE THEME
+   DARK MODE THEME — True Black + Dark Grey
    ======================================== */
 [data-theme="dark"] {
-  --bg-primary: #0F0F0F;
-  --bg-secondary: #1A1A2E;
-  --bg-tertiary: #16213E;
-  --bg-card: #1A1A2E;
-  --bg-card-hover: #222244;
-  --bg-nav: rgba(15, 15, 15, 0.8);
-  --bg-nav-scrolled: rgba(15, 15, 15, 0.95);
-  --bg-footer: #0A0A0A;
-  --bg-input: #1A1A2E;
-  --bg-overlay: rgba(0, 0, 0, 0.7);
+  --bg-primary: #000000;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1A1A1A;
+  --bg-card: #141414;
+  --bg-card-hover: #1E1E1E;
+  --bg-nav: #000000;
+  --bg-nav-scrolled: rgba(0, 0, 0, 0.98);
+  --bg-footer: #000000;
+  --bg-input: #1A1A1A;
+  --bg-overlay: rgba(0, 0, 0, 0.8);
 
-  --text-primary: #F7FAFC;
-  --text-secondary: #CBD5E0;
-  --text-tertiary: #A0AEC0;
-  --text-inverse: #1A202C;
-  --text-link: #B794F4;
-  --text-link-hover: #D6BCFA;
+  --text-primary: #FFFFFF;
+  --text-secondary: #D0D0D0;
+  --text-tertiary: #9A9A9A;
+  --text-inverse: #0A0A0A;
+  --text-link: #FF4D5A;
+  --text-link-hover: #FF6B77;
 
   --border-color: rgba(255, 255, 255, 0.1);
   --border-color-hover: rgba(255, 255, 255, 0.2);
-  --border-color-focus: #B794F4;
+  --border-color-focus: #E63946;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -1px rgba(0,0,0,0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -2px rgba(0,0,0,0.3);
-  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.5), 0 10px 10px -5px rgba(0,0,0,0.3);
-  --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.6);
-  --shadow-glow: 0 0 40px rgba(107, 70, 193, 0.4);
-  --shadow-glow-accent: 0 0 40px rgba(255, 107, 107, 0.4);
+  --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 12px -1px rgba(0,0,0,0.5), 0 2px 6px -1px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 24px -3px rgba(0,0,0,0.6), 0 4px 8px -2px rgba(0,0,0,0.4);
+  --shadow-xl: 0 20px 40px -5px rgba(0,0,0,0.7), 0 10px 16px -5px rgba(0,0,0,0.4);
+  --shadow-2xl: 0 25px 60px -12px rgba(0,0,0,0.8);
+  --shadow-glow: 0 0 40px rgba(230, 57, 70, 0.45);
+  --shadow-glow-accent: 0 0 40px rgba(255, 107, 53, 0.45);
 
-  --gradient-card: linear-gradient(145deg, rgba(107,70,193,0.1) 0%, rgba(255,107,107,0.1) 100%);
-
-  --glass-bg: rgba(26, 26, 46, 0.2);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  --gradient-card: linear-gradient(145deg, rgba(230,57,70,0.06) 0%, rgba(230,57,70,0.12) 100%);
+  --glass-bg: rgba(20, 20, 20, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
 }
 
 /* ========================================
    RTL TYPOGRAPHY
    ======================================== */
 [dir="rtl"] {
-  --font-heading: 'Cairo', 'Playfair Display', serif;
+  --font-heading: 'Cairo', 'Barlow Condensed', sans-serif;
   --font-body: 'Cairo', 'Inter', sans-serif;
   --line-height-normal: 1.8;
 }
@@ -252,6 +251,17 @@ h1, h2, h3, h4, h5, h6 {
   line-height: var(--line-height-tight);
   color: var(--text-primary);
   font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  text-transform: uppercase;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: #FFFFFF;
 }
 
 h1 { font-size: var(--font-size-5xl); }
@@ -267,7 +277,7 @@ p {
 }
 
 ::selection {
-  background-color: rgba(var(--color-primary-rgb), 0.3);
+  background-color: rgba(230, 57, 70, 0.25);
   color: var(--text-primary);
 }
 
@@ -277,22 +287,13 @@ p {
 }
 
 /* === Scrollbar === */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
-}
-
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
 ::-webkit-scrollbar-thumb {
   background: var(--color-primary);
   border-radius: var(--radius-full);
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-light);
-}
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary-dark); }
 
 /* ========================================
    UTILITY CLASSES

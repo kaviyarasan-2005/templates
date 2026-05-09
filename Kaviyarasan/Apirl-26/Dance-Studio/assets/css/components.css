@@ -943,11 +943,7 @@
 }
 
 .footer__wave {
-  position: absolute;
-  top: -1px;
-  inset-inline: 0;
-  width: 200%;
-  animation: waveMove 15s linear infinite;
+  display: none;
 }
 
 .footer__grid {
