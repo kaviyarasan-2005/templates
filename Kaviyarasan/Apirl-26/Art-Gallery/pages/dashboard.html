@@ -129,6 +129,7 @@
       background: linear-gradient(90deg, rgba(212,175,55,0.1) 0%, transparent 100%);
       color: var(--color-primary); font-weight: 600; border-left-color: var(--color-primary);
     }
+    .db-nav-link.active svg { color: var(--color-primary); }
     [dir="rtl"] .db-nav-link.active { border-left-color: transparent; border-right-color: var(--color-primary); background: linear-gradient(-90deg, rgba(212,175,55,0.1) 0%, transparent 100%); }
     
     .db-nav-link svg { flex-shrink: 0; transition: transform 0.3s; }
@@ -467,12 +468,13 @@
         Settings
       </a>
 
-      <!-- Mobile Sign Out -->
-      <div class="db-sidebar__divider md-only" style="display:none;"></div>
-      <a href="login.html" class="db-nav-link md-only" style="display:none;color:var(--color-error);" id="mobile-sign-out">
-        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Sign Out
-      </a>
+      <div style="margin-top:auto;">
+        <div class="db-sidebar__section-label">Account</div>
+        <a href="login.html" class="db-nav-link" style="color:var(--color-error-text,#dc2626);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Sign Out
+        </a>
+      </div>
     </aside>
 
     <!-- ═══════════════════ MAIN CONTENT ═══════════════════ -->
