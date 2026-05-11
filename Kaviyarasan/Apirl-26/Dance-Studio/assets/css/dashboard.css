@@ -471,9 +471,21 @@
 .dashboard__stats,
 .dashboard__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(12, 1fr);
   gap: var(--space-6);
   margin-bottom: var(--space-6);
+}
+
+.dashboard__card--large {
+  grid-column: span 8;
+}
+
+.dashboard__card--small {
+  grid-column: span 4;
+}
+
+.dashboard__card--full {
+  grid-column: span 12;
 }
 
 .stat-card {
@@ -1072,6 +1084,7 @@
   
   .dashboard__grid > .dashboard__card {
     grid-column: 1 / -1 !important;
+    max-width: 100%;
   }
 }
 
@@ -1086,3 +1099,23 @@
     justify-content: center;
   }
 }
+
+.radar-chart,
+.goal-rings,
+.donut-chart,
+.wave-chart {
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dashboard__card {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card__header {
+  margin-bottom: var(--space-4);
+}
+

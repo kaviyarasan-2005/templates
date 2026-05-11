@@ -189,7 +189,7 @@ const Dashboard = (() => {
       const maxVal = Math.max(...data) * 1.1;
       const minVal = 0;
 
-      const svg = createSVGElement('svg', { width, height, viewBox: `0 0 ${width} ${height}` });
+      const svg = createSVGElement('svg', { width: '100%', height: 'auto', viewBox: `0 0 ${width} ${height}` });
 
       // Grid lines
       for (let i = 0; i <= 4; i++) {
@@ -264,7 +264,7 @@ const Dashboard = (() => {
       const chartH = height - padding.top - padding.bottom;
 
       const maxVal = Math.max(...data) * 1.1;
-      const svg = createSVGElement('svg', { width, height, viewBox: `0 0 ${width} ${height}` });
+      const svg = createSVGElement('svg', { width: '100%', height: 'auto', viewBox: `0 0 ${width} ${height}` });
 
       const defs = createSVGElement('defs', {});
       const gradient = createSVGElement('linearGradient', { id: 'waveGradient', x1: '0%', y1: '0%', x2: '0%', y2: '100%' });
@@ -374,7 +374,7 @@ const Dashboard = (() => {
       const radius = 100;
       const angleStep = (Math.PI * 2) / labels.length;
 
-      const svg = createSVGElement('svg', { width: size, height: size, viewBox: `0 0 ${size} ${size}` });
+      const svg = createSVGElement('svg', { width: '100%', height: 'auto', viewBox: `0 0 ${size} ${size}` });
 
       // Draw background polygons (grid)
       for (let level = 1; level <= 4; level++) {
@@ -577,7 +577,7 @@ const Dashboard = (() => {
     const thickness = 20;
     const spacing = 28;
 
-    const svg = createSVGElement('svg', { width: size, height: size, viewBox: `0 0 ${size} ${size}` });
+    const svg = createSVGElement('svg', { width: '100%', height: 'auto', viewBox: `0 0 ${size} ${size}` });
 
     goals.forEach((goal, i) => {
         const r = baseRadius - (i * spacing);
