@@ -118,7 +118,7 @@
     <div class="container">
       
       <!-- Toggle (Monthly/Annual) -->
-      <div style="display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:48px;" class="reveal">
+      <div style="display:flex;justify-content:center;align-items:center;gap:12px;margin-top:40px;margin-bottom:48px;" class="reveal">
         <span id="label-monthly" style="font-weight:600;color:var(--color-primary);transition:color 0.3s,font-weight 0.3s;">Monthly</span>
         <label style="position:relative;display:inline-block;width:56px;height:32px;cursor:pointer;flex-shrink:0;">
           <input type="checkbox" style="opacity:0;width:0;height:0;" id="pricing-toggle">
@@ -129,6 +129,9 @@
       </div>
 
       <style>
+        /* Unchecked state (Monthly) */
+        input:not(:checked) + span { background: var(--color-secondary); }
+        /* Checked state (Annual) */
         input:checked + span { background: var(--color-primary); }
         input:checked + span + span { transform: translateX(24px); }
       </style>
@@ -478,7 +481,7 @@
 
       const prices = {
         monthly: { p1: '25', p2: '15', p3: '49', pd1: '/ person', pd2: '/ month', pd3: '/ month' },
-        annual: { p1: '20', p2: '12', p3: '39', pd1: '/ person', pd2: '/ year', pd3: '/ year' }
+        annual: { p1: '20', p2: '144', p3: '468', pd1: '/ person', pd2: '/ year', pd3: '/ year' }
       };
 
       function updateLabels(isAnnual) {
