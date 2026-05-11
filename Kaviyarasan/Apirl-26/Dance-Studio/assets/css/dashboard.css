@@ -4,11 +4,9 @@
 
 /* === Dashboard Layout === */
 .dashboard {
-  display: flex;
   min-height: 100vh;
   background: transparent;
   padding: var(--space-4);
-  gap: var(--space-4);
 }
 
 /* === Sidebar (Floating Island) === */
@@ -285,7 +283,6 @@
 
 /* === Main Content === */
 .dashboard__main {
-  flex: 1;
   margin-inline-start: 296px; /* sidebar width + gap */
   transition: margin-inline-start var(--transition-base);
   min-height: calc(100vh - calc(var(--space-4) * 2));
@@ -486,6 +483,7 @@
   padding: var(--space-6);
   display: flex;
   align-items: flex-start;
+  gap: var(--space-4);
   justify-content: space-between;
   position: relative;
   overflow: hidden;
@@ -535,12 +533,13 @@
   margin-bottom: var(--space-2);
 }
 
-.stat-card__change {
+.stat-card__change,
+.stat-card__trend {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space-2);
 }
 
 .stat-card__change.positive { color: #48BB78; }
