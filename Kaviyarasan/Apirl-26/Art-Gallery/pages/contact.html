@@ -107,10 +107,14 @@
   </nav>
 
   <!-- PAGE HERO -->
-  <section class="page-offset" style="background:linear-gradient(135deg,rgba(212,175,55,0.1) 0%,rgba(114,47,55,0.05) 100%);padding-block:80px;text-align:center;">
-    <div class="container reveal">
-      <h1>Get in Touch</h1>
-      <p class="subheading" style="margin-inline:auto;">We're here to assist with acquisitions, private viewings, artist submissions, and general inquiries.</p>
+  <section class="page-offset" style="position:relative;padding-block:80px;text-align:center;overflow:hidden;">
+    <div style="position:absolute;inset:0;z-index:0;">
+      <img src="../assets/images/hero-contact.png" alt="" style="width:100%;height:100%;object-fit:cover;" loading="eager">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.75) 100%);"></div>
+    </div>
+    <div class="container reveal" style="position:relative;z-index:1;">
+      <h1 style="color:#fff;">Get in Touch</h1>
+      <p class="subheading" style="margin-inline:auto;color:rgba(255,255,255,0.85);">We're here to assist with acquisitions, private viewings, artist submissions, and general inquiries.</p>
     </div>
   </section>
 
