@@ -157,45 +157,7 @@
       animation: floatBook 18s ease-in-out infinite 1s;
     }
 
-    /* Floating UI cards */
-    .float-card {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: var(--border-radius-lg);
-      padding: var(--space-md) var(--space-lg);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2), inset 0 0 0 1px rgba(255,255,255,0.05);
-      z-index: 10;
-      animation: floatBook 8s infinite ease-in-out alternate;
-    }
-    [data-theme="dark"] .float-card {
-      background: rgba(0, 0, 0, 0.2);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-    .float-card {
-      font-family: var(--font-ui);
-      font-size: 0.8125rem;
-    }
 
-    .float-card--1 {
-      top: 15%;
-      right: 5%;
-      animation-delay: 0s;
-    }
-
-    .float-card--2 {
-      bottom: 25%;
-      left: 2%;
-      animation-delay: -3s;
-    }
-
-    .float-card--3 {
-      top: 55%;
-      right: 8%;
-      animation-delay: -6s;
-    }
 
     /* Zigzag Features */
     .zigzag-item {
@@ -396,8 +358,10 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 1fr;
       gap: var(--space-xl);
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     .stat-card {
@@ -502,22 +466,9 @@
       .zigzag-item:nth-child(even) .zigzag-text {
         order: unset;
       }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
 
     @media (max-width: 640px) {
-      .book-stack {
-        width: 260px;
-        height: 300px;
-      }
-      .float-card { transform: scale(0.85); }
-      .float-card--1 { top: 5%; right: -10px; }
-      .float-card--2 { bottom: 10%; left: -20px; }
-      .float-card--3 { top: 40%; right: -20px; }
-
       .stats-grid {
         grid-template-columns: 1fr;
       }
@@ -657,28 +608,7 @@
       </div>
       <!-- Right visual -->
       <div class="saas-hero__right">
-        <div class="book-stack" aria-hidden="true">
-          <div class="stacked-book stacked-book--1"></div>
-          <div class="stacked-book stacked-book--2"></div>
-          <div class="stacked-book stacked-book--3"></div>
-          <div class="stacked-book stacked-book--4"></div>
-        </div>
-        <!-- Floating UI cards -->
-        <div class="float-card float-card--1" aria-hidden="true">
-          <div style="font-weight:700;color:var(--success);font-size:1rem;margin-bottom:2px">+24%</div>
-          <div style="color:var(--text-primary);font-size:0.75rem;font-weight:500">Collection value this month</div>
-        </div>
-        <div class="float-card float-card--2" aria-hidden="true">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-            <div style="width:10px;height:10px;border-radius:50%;background:var(--success)"></div>
-            <span style="font-weight:600;font-size:0.8125rem">New Rare Find</span>
-          </div>
-          <div style="color:var(--text-primary);font-size:0.75rem;font-weight:500">1st Ed. Ulysses — £12,400</div>
-        </div>
-        <div class="float-card float-card--3" aria-hidden="true">
-          <div style="font-size:0.75rem;color:var(--text-primary);font-weight:600;margin-bottom:4px">Excellent Rating</div>
-          <div style="font-weight:600;font-size:0.8125rem">"Finest appraisal service"</div>
-        </div>
+        <!-- Floating visual removed -->
       </div>
     </section>
 
@@ -773,7 +703,7 @@
           </div>
         </div>
         <div class="stats-cta reveal">
-          <p>Join a trusted community of discerning collectors and rare book enthusiasts.</p>
+
           <a href="about.html" class="btn btn-accent">Discover Our Story</a>
         </div>
       </div>
