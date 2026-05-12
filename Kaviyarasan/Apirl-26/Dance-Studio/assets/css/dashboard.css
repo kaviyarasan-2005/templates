@@ -1133,3 +1133,131 @@
   margin-bottom: var(--space-4);
 }
 
+/* ==============================
+   SMALL MOBILE — 480px and below
+   ============================== */
+@media (max-width: 480px) {
+
+  /* Reduce outer wrapper padding so content has room */
+  .dashboard {
+    padding: var(--space-2);
+  }
+
+  .dashboard__main {
+    gap: var(--space-3);
+  }
+
+  .dashboard__content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  /* Topbar: tighten up so icons don't overflow */
+  .dashboard__header,
+  .dashboard__topbar {
+    padding: var(--space-3);
+    gap: var(--space-2);
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .dashboard__topbar-left {
+    flex: 1;
+    min-width: 0;
+    gap: var(--space-2);
+    overflow: hidden;
+  }
+
+  /* Clamp heading so it doesn't push right icons off screen */
+  .dashboard__topbar-left h1 {
+    font-size: var(--font-size-base) !important;
+    margin-bottom: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Hide subtitle on very small screens */
+  .dashboard__topbar-left p {
+    display: none;
+  }
+
+  /* Right-side action buttons — keep compact */
+  .dashboard__topbar-right {
+    flex-shrink: 0;
+    gap: var(--space-1);
+  }
+
+  .navbar__action-btn {
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-size-xs);
+    padding: 0;
+  }
+
+  /* Mobile hamburger button */
+  .dashboard__mobile-menu-btn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  /* Stat cards: force single column, full width */
+  .dashboard__stats {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-3);
+  }
+
+  .stat-card {
+    padding: var(--space-4);
+  }
+
+  .stat-card__number,
+  .stat-card__value {
+    font-size: var(--font-size-2xl) !important;
+  }
+
+  /* Chart / content cards */
+  .chart-card {
+    padding: var(--space-4);
+  }
+
+  .chart-card__title {
+    font-size: var(--font-size-base);
+  }
+
+  /* Grid: always single column */
+  .dashboard__grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-3);
+  }
+
+  .dashboard__card--large,
+  .dashboard__card--small,
+  .dashboard__card--full,
+  .dashboard__grid > .dashboard__card {
+    grid-column: 1 / -1 !important;
+    min-height: auto;
+  }
+
+  /* Data table: compact cells */
+  .data-table th,
+  .data-table td {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* ==============================
+   EXTRA-SMALL — 400px and below
+   ============================== */
+@media (max-width: 400px) {
+
+  /* Slightly smaller profile avatar to keep things from crowding */
+  .dashboard__topbar-right img {
+    width: 28px !important;
+    height: 28px !important;
+  }
+}

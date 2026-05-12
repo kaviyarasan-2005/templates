@@ -861,6 +861,9 @@
   border: 1px solid var(--border-color);
   position: relative;
   transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .testimonial-card::before {
@@ -893,6 +896,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  margin-top: auto;
 }
 .testimonial-author img {
   width: 48px;
