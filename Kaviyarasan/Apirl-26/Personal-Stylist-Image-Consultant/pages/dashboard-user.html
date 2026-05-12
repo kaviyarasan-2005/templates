@@ -169,7 +169,7 @@
 
  <aside class="dashboard-sidebar" id="dashboard-sidebar" aria-label="User dashboard navigation">
 
-  <div class="sidebar-brand" style="padding: var(--space-3); border-bottom: 1px solid var(--border-color);">
+  <div class="sidebar-brand" style="padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--border-color);">
 
    <a href="index.html" class="nav-logo" style="margin-bottom:0">
 
@@ -280,24 +280,18 @@
 
  <main class="dashboard-main" id="main-content">
 
-  <div class="dashboard-top-actions">
-
-   <button class="nav-action-btn" data-dir-toggle aria-label="Toggle direction">RTL</button>
-
-   <button class="nav-action-btn" data-theme-toggle aria-label="Toggle theme">
-
-    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-
-    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-
-   </button>
-
-  </div>
 
   <!-- "" PROFILE HERO CARD "" -->
 
   <div class="user-hero" style="position: relative;">
-   <button class="nav-action-btn hide-desktop" data-sidebar-toggle aria-label="Toggle sidebar" style="position: absolute; top: var(--space-3); inset-inline-end: var(--space-3); background: rgba(255,255,255,0.5); color: var(--color-brown-dark); border: 1px solid rgba(255,255,255,0.8); z-index: 2;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+   <div class="dashboard-top-actions" style="position: absolute; top: var(--space-3); inset-inline-end: var(--space-3); z-index: 5;">
+    <button class="nav-action-btn" data-dir-toggle aria-label="Toggle direction" style="background: rgba(255,255,255,0.5); color: var(--color-brown-dark); border: 1px solid rgba(255,255,255,0.8);">RTL</button>
+    <button class="nav-action-btn" data-theme-toggle aria-label="Toggle theme" style="background: rgba(255,255,255,0.5); color: var(--color-brown-dark); border: 1px solid rgba(255,255,255,0.8);">
+     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+     <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+   </div>
+   <button class="nav-action-btn hide-desktop" data-sidebar-toggle aria-label="Toggle sidebar" style="position: absolute; top: var(--space-3); inset-inline-start: var(--space-3); background: rgba(255,255,255,0.5); color: var(--color-brown-dark); border: 1px solid rgba(255,255,255,0.8); z-index: 6;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 
    <img src="../assets/images/team/avatar-1.png" alt="Sophia Chen" class="user-hero-avatar"/>
 

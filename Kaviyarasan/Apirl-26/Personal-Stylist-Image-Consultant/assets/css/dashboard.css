@@ -1,12 +1,12 @@
-﻿/* ============================================================
+/* ============================================================
    DASHBOARD.CSS â€” Admin & User Dashboard Styles
    ============================================================ */
 
 /* â”€â”€ Layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dashboard-layout {
   display: flex;
-  min-height: 100vh;
-  padding-top: 0;
+  height: 100vh;
+  overflow: hidden;
   background: var(--bg-secondary);
 }
 
@@ -21,6 +21,14 @@
   flex-direction: column;
   transition: transform var(--transition-base), opacity var(--transition-base);
   z-index: 10;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.dashboard-sidebar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 /* Remove desktop collapse state styles since sidebar is always open on desktop */
@@ -58,7 +66,7 @@
 }
 
 .sidebar-user {
-  padding: var(--space-3);
+  padding: var(--space-2) var(--space-3);
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
@@ -88,15 +96,18 @@
   color: var(--text-muted);
 }
 
-.sidebar-nav { padding: var(--space-2); flex: 1; }
+.sidebar-nav { padding: 0 var(--space-2) var(--space-2); flex: 1; }
 .sidebar-section-title {
   font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text-muted);
-  padding: var(--space-2) var(--space-1) var(--space-1);
+  padding: var(--space-3) var(--space-1) var(--space-1);
   transition: all var(--transition-base);
+}
+.sidebar-section:first-child .sidebar-section-title {
+  padding-top: var(--space-2);
 }
 .sidebar-nav-link {
   display: flex;
@@ -143,11 +154,11 @@
   transition: all var(--transition-base);
 }
 
-/* â”€â”€ Main Content â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Main Content */
 .dashboard-main {
   flex: 1;
   padding: var(--space-4);
-  overflow-x: hidden;
+  overflow-y: auto;
   min-width: 0;
 }
 
@@ -182,6 +193,52 @@
 }
 [data-sidebar-toggle]:hover { background: var(--color-brown); color: white; border-color: var(--color-brown); }
 [data-sidebar-toggle] svg { width: 18px; height: 18px; }
+
+/* â”€â”€ User Hero Banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.user-hero {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+}
+.user-hero-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-brown);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+.user-hero-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(109,76,65,0.1);
+  color: var(--color-brown);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2);
+}
+.user-hero-greeting {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.user-hero-sub {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
 
 /* â”€â”€ Stat Cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .stat-cards-grid {
@@ -511,7 +568,16 @@
     margin: 0 auto;
   }
   .stat-cards-grid { grid-template-columns: 1fr; gap: var(--space-2); }
-  .user-hero { padding: var(--space-3); gap: var(--space-2); }
+  .user-hero { 
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-4) var(--space-3);
+    gap: var(--space-2); 
+  }
+  .user-hero-avatar {
+    width: 100px;
+    height: 100px;
+  }
 }
 @media (max-width: 480px) {
   .stat-cards-grid { grid-template-columns: 1fr; }
@@ -775,11 +841,7 @@
 
 
 .dashboard-top-actions {
-  position: absolute;
-  top: -44px;
-  inset-inline-end: 0;
   display: flex;
-  justify-content: flex-end;
   gap: var(--space-2);
   z-index: 10;
 }
