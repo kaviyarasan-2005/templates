@@ -22,8 +22,10 @@
     .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
     .team-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--border-radius-lg); padding: var(--space-xl) var(--space-lg); text-align: center; transition: all var(--transition-slow); max-width: 280px; margin: 0 auto; width: 100%; }
     .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg), var(--shadow-gold); border-color: rgba(212,175,55,0.3); }
-    .team-photo { width: 96px; height: 96px; border-radius: 50%; border: 3px solid var(--accent); background: linear-gradient(135deg, var(--primary-light), var(--accent)); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--text-primary); overflow: hidden; transition: border-color var(--transition-base); }
-    .team-card:hover .team-photo { border-color: var(--primary); }
+    .team-photo { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent); background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); overflow: hidden; transition: all var(--transition-base); box-shadow: var(--shadow-md); }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow); }
+    .team-card:hover .team-photo { border-color: var(--primary); transform: scale(1.05); }
+    .team-card:hover .team-photo img { transform: scale(1.1); }
     .team-name { font-family: var(--font-heading); font-size: 1.125rem; font-weight: 700; margin-bottom: 4px; }
     .team-role { font-family: var(--font-ui); font-size: 0.8125rem; color: var(--text-muted); margin-bottom: var(--space-sm); }
     .team-bio { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-md); }
@@ -213,7 +215,7 @@
         </div>
         <div class="team-grid stagger-children">
           <div class="team-card reveal" id="team-catherine">
-            <div class="team-photo">C</div>
+            <div class="team-photo"><img src="assets/images/team/catherine.png" alt="Dr. Catherine Hartley"></div>
             <div class="team-name">Dr. Catherine Hartley</div>
             <div class="team-role">Founder & Chief Curator</div>
             <p class="team-bio">Third-generation bibliophile with a PhD in Book History from Oxford. Specialises in Victorian literature and 20th-century first editions.</p>
@@ -223,7 +225,7 @@
             </div>
           </div>
           <div class="team-card reveal" id="team-william">
-            <div class="team-photo" style="background:linear-gradient(135deg,var(--primary),#8B4513)">W</div>
+            <div class="team-photo"><img src="assets/images/team/william.png" alt="William Pemberton"></div>
             <div class="team-name">William Pemberton</div>
             <div class="team-role">Head of Acquisitions</div>
             <p class="team-bio">Former Sotheby's rare books specialist with 28 years of experience. Our man in the field at auctions from London to New York.</p>
@@ -233,7 +235,7 @@
             </div>
           </div>
           <div class="team-card reveal" id="team-amira">
-            <div class="team-photo" style="background:linear-gradient(135deg,#2E4A4E,#3D6B70)">A</div>
+            <div class="team-photo"><img src="assets/images/team/amira.png" alt="Amira Al-Rashid"></div>
             <div class="team-name">Amira Al-Rashid</div>
             <div class="team-role">Rare Books Specialist</div>
             <p class="team-bio">Expert in Arabic manuscripts and Islamic texts. Holds certifications from ABAA and the International League of Antiquarian Booksellers.</p>
@@ -242,7 +244,7 @@
             </div>
           </div>
           <div class="team-card reveal" id="team-thomas">
-            <div class="team-photo" style="background:linear-gradient(135deg,#1A3A1A,#2E5A2E)">T</div>
+            <div class="team-photo"><img src="assets/images/team/thomas.png" alt="Thomas Blackwood"></div>
             <div class="team-name">Thomas Blackwood</div>
             <div class="team-role">Master Bookbinder</div>
             <p class="team-bio">30 years of traditional bookbinding experience. Trained in Florence and apprenticed under the legendary bookbinder Cosimo de Rossi.</p>
