@@ -358,10 +358,8 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: var(--space-xl);
-      max-width: 500px;
-      margin: 0 auto;
     }
 
     .stat-card {
@@ -465,6 +463,10 @@
       .zigzag-item:nth-child(even) .zigzag-img,
       .zigzag-item:nth-child(even) .zigzag-text {
         order: unset;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
