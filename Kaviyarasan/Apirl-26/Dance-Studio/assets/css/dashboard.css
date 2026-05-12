@@ -452,6 +452,27 @@
   color: var(--text-tertiary);
 }
 
+.dashboard__user-info {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .dashboard__user-info {
+    display: none; /* Default hide on mobile to save space, but we'll show it for 360px if needed */
+  }
+}
+
+@media (max-width: 360px) {
+  .dashboard__user-info {
+    display: block;
+    font-size: 10px;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 /* Dashboard Content */
 .dashboard__content {
   padding: 0;
@@ -1140,7 +1161,7 @@
 
   /* Reduce outer wrapper padding so content has room */
   .dashboard {
-    padding: var(--space-2);
+    padding: var(--space-1);
   }
 
   .dashboard__main {
@@ -1151,13 +1172,13 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-2);
   }
 
   /* Topbar: tighten up so icons don't overflow */
   .dashboard__header,
   .dashboard__topbar {
-    padding: var(--space-3);
+    padding: var(--space-2) var(--space-3);
     gap: var(--space-2);
     flex-wrap: nowrap;
     align-items: center;
@@ -1179,9 +1200,16 @@
     text-overflow: ellipsis;
   }
 
-  /* Hide subtitle on very small screens */
+  /* Show subtitle but keep it compact */
   .dashboard__topbar-left p {
-    display: none;
+    display: block;
+    font-size: 10px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    opacity: 0.8;
   }
 
   /* Right-side action buttons — keep compact */
@@ -1211,7 +1239,7 @@
   }
 
   .stat-card {
-    padding: var(--space-4);
+    padding: var(--space-3) var(--space-4);
   }
 
   .stat-card__number,
