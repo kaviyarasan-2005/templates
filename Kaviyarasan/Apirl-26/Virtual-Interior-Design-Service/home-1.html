@@ -78,24 +78,65 @@
       margin-top: auto;
     }
     
-    .testimonials-scroll {
-      display: flex;
+    /* ── Testimonial Cards Grid ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: var(--space-4);
-      overflow-x: auto;
-      padding-bottom: var(--space-4);
-      scrollbar-width: none;
-    }
-    .testimonials-scroll::-webkit-scrollbar {
-      display: none;
     }
     .testimonial-card {
-      min-width: 300px;
-      flex-shrink: 0;
       padding: var(--space-4);
       background: var(--color-surface);
       border-radius: var(--border-radius-lg);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .testimonial-stars {
+      color: var(--color-secondary);
+      font-size: 1rem;
+      letter-spacing: 2px;
+    }
+    .testimonial-quote {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      flex: 1;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: auto;
+    }
+    .testimonial-author img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .testimonial-author h4 {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    /* Responsive */
+    @media (max-width: 767px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     .stats-section {
       background-color: var(--color-primary-dark);
       color: #FFFFFF;
@@ -321,45 +362,57 @@
         <h2>Client Love</h2>
         <p class="text-secondary">Read what our clients say about their new spaces.</p>
       </div>
-      
-      <div class="testimonials-scroll animate-on-scroll fade-up">
-        <div class="testimonial-card">
-          <div style="color: var(--color-secondary); margin-bottom: var(--space-2);">★★★★★</div>
-          <p class="mb-3">"Lumina completely revolutionized our living room. It feels modern, inviting, and practical all at once!"</p>
-          <div class="d-flex align-items-center gap-2">
-            <img src="https://i.pravatar.cc/100?img=1" alt="Sarah J." style="width: 48px; border-radius: 50%;">
+
+      <div class="testimonials-grid">
+
+        <!-- Card 1 -->
+        <div class="testimonial-card animate-on-scroll fade-up">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote text-secondary">
+            "Lumina completely revolutionized our living room. It feels modern, inviting, and practical all at once!"
+          </p>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/100?img=1" alt="Sarah Jenkins">
             <div>
-              <h4 style="margin: 0; font-size: 1rem;">Sarah Jenkins</h4>
+              <h4>Sarah Jenkins</h4>
               <span class="text-sm text-secondary">Homeowner</span>
             </div>
           </div>
         </div>
-        
-        <div class="testimonial-card">
-          <div style="color: var(--color-secondary); margin-bottom: var(--space-2);">★★★★★</div>
-          <p class="mb-3">"The virtual process was so efficient. We knew exactly what items to purchase and where to place them."</p>
-          <div class="d-flex align-items-center gap-2">
-            <img src="https://i.pravatar.cc/100?img=11" alt="Mark T." style="width: 48px; border-radius: 50%;">
+
+        <!-- Card 2 -->
+        <div class="testimonial-card animate-on-scroll fade-up delay-100">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote text-secondary">
+            "The virtual process was so efficient. We knew exactly what items to purchase and where to place them."
+          </p>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/100?img=11" alt="Mark Thompson">
             <div>
-              <h4 style="margin: 0; font-size: 1rem;">Mark Thompson</h4>
+              <h4>Mark Thompson</h4>
               <span class="text-sm text-secondary">CEO, TechStartup</span>
             </div>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div style="color: var(--color-secondary); margin-bottom: var(--space-2);">★★★★★</div>
-          <p class="mb-3">"I couldn't be happier with my kitchen redesign. Their attention to detail and color palette choice is exceptional."</p>
-          <div class="d-flex align-items-center gap-2">
-            <img src="https://i.pravatar.cc/100?img=5" alt="Emily R." style="width: 48px; border-radius: 50%;">
+        <!-- Card 3 -->
+        <div class="testimonial-card animate-on-scroll fade-up delay-200">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote text-secondary">
+            "I couldn't be happier with my kitchen redesign. Their attention to detail and color palette choice is exceptional."
+          </p>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/100?img=5" alt="Emily Riviera">
             <div>
-              <h4 style="margin: 0; font-size: 1rem;">Emily Riviera</h4>
+              <h4>Emily Riviera</h4>
               <span class="text-sm text-secondary">Interior Enthusiast</span>
             </div>
           </div>
         </div>
-      </div>
-      <div style="text-align: center; margin-top: var(--space-4);" class="animate-on-scroll fade-up">
+
+      </div><!-- /.testimonials-grid -->
+
+      <div style="text-align: center; margin-top: var(--space-5);" class="animate-on-scroll fade-up">
         <a href="about.html" class="btn btn-outline">Read More Reviews</a>
       </div>
     </div>
@@ -425,5 +478,53 @@
   <script src="assets/js/utils.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/animations.js"></script>
+
+  <!-- Testimonial Slider Logic -->
+  <script>
+    (function () {
+      const track  = document.getElementById('testimonialTrack');
+      const dotsEl = document.getElementById('testimonialDots');
+      const prevBtn = document.getElementById('testimonialPrev');
+      const nextBtn = document.getElementById('testimonialNext');
+      if (!track) return;
+
+      const cards = Array.from(track.querySelectorAll('.testimonial-card'));
+      let current = 0;
+      let autoTimer;
+
+      // Build dot indicators
+      cards.forEach(function (_, i) {
+        const dot = document.createElement('button');
+        dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+        dot.addEventListener('click', function () { goTo(i); resetAuto(); });
+        dotsEl.appendChild(dot);
+      });
+
+      function goTo(index) {
+        current = (index + cards.length) % cards.length;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dotsEl.querySelectorAll('.testimonial-dot').forEach(function (d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      prevBtn.addEventListener('click', function () { goTo(current - 1); resetAuto(); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); resetAuto(); });
+
+      // Auto-advance every 5 s
+      function startAuto() { autoTimer = setInterval(function () { goTo(current + 1); }, 5000); }
+      function resetAuto() { clearInterval(autoTimer); startAuto(); }
+      startAuto();
+
+      // Touch / swipe support
+      var touchStartX = 0;
+      track.addEventListener('touchstart', function (e) { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) { goTo(dx < 0 ? current + 1 : current - 1); resetAuto(); }
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
