@@ -37,7 +37,7 @@
     .compare-table thead th:first-child,.compare-table tbody td:first-child{text-align:left}
     .compare-table thead{background:var(--bg-secondary)}
     .compare-table thead th{font-weight:700;font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted)}
-    .guarantee{display:flex;align-items:center;justify-content:center;gap:var(--space-lg);background:rgba(212,175,55,0.08);border:2px solid rgba(212,175,55,0.25);border-radius:var(--border-radius-lg);padding:var(--space-2xl);margin-top:var(--space-2xl)}
+    .guarantee{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:var(--space-lg);background:rgba(212,175,55,0.08);border:2px solid rgba(212,175,55,0.25);border-radius:var(--border-radius-lg);padding:var(--space-2xl);margin-top:var(--space-2xl)}
     .seal{width:80px;height:80px;border-radius:50%;border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0}
     @media(max-width:1024px){.pricing-grid{grid-template-columns:1fr;margin-bottom:var(--space-2xl)}.price-card.featured{transform:none}}
   </style>
@@ -220,10 +220,10 @@
         </table>
       </div>
 
-      <!-- Guarantee -->
-      <div class="guarantee reveal">
-        <div class="seal">✓</div>
-        <div><h3 style="margin-bottom:var(--space-sm)">30-Day Money-Back Guarantee</h3><p style="color:var(--text-secondary);font-size:0.9375rem;margin:0">Not satisfied within 30 days? We'll issue a full refund — no questions asked. We're confident in the quality of our service and stand behind every membership.</p></div>
+      <div class="guarantee reveal" style="text-align: center;">
+        <div class="seal" style="margin: 0 auto var(--space-md);">✓</div>
+        <h3 style="margin-bottom: var(--space-sm); text-align: center;">30-Day Money-Back Guarantee</h3>
+        <p style="color: var(--text-secondary); font-size: 0.9375rem; margin: 0 auto; max-width: 600px; text-align: center;">Not satisfied within 30 days? We'll issue a full refund — no questions asked. We're confident in the quality of our service and stand behind every membership.</p>
       </div>
 
       <!-- FAQ -->
