@@ -1064,6 +1064,11 @@ em { font-style: italic; }
   letter-spacing: -0.02em;
 }
 
+.page-hero .hero__title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1.1;
+}
+
 .scroll-hint {
   position: absolute;
   bottom: 40px;
