@@ -11,11 +11,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', sans-serif; min-height: 100vh;
+      font-family: var(--font-body); min-height: 100vh;
       display: flex; flex-direction: column;
-      --color-primary: #0D7377; --color-secondary: #D4AF37;
-      --color-surface: #F8F9FA; --color-text-secondary: #6C757D;
-      background: var(--color-surface);
+      background: var(--color-bg);
+      color: var(--color-text-primary);
     }
     .top-header { 
       display: flex; 
@@ -48,8 +47,8 @@
       width: 240px; max-width: 80vw; margin: 8px auto;
     }
     .error-page h1 {
-      font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2rem);
-      color: #212529; margin-bottom: 12px;
+      font-family: var(--font-heading); font-size: clamp(1.5rem, 4vw, 2rem);
+      color: var(--color-text-primary); margin-bottom: 12px;
     }
     .error-page p {
       color: var(--color-text-secondary); max-width: 440px; margin: 0 auto 32px; font-size: 1.0625rem; line-height: 1.7;
@@ -61,7 +60,7 @@
       cursor: pointer; text-decoration: none; border: 1px solid transparent; transition: all 0.2s;
     }
     .btn-primary { background: var(--color-primary); color: white; }
-    .btn-primary:hover { background: #074345; transform: translateY(-2px); }
+    .btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); }
     .btn-outline { background: transparent; color: var(--color-primary); border-color: var(--color-primary); }
     .btn-outline:hover { background: var(--color-primary); color: white; }
     .floating-room { animation: float 4s ease-in-out infinite; }
@@ -95,7 +94,7 @@
     <!-- Illustrated empty room SVG -->
     <svg class="sofa-illustration floating-room" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Floor -->
-      <rect y="110" width="240" height="30" fill="#e8f4f4" rx="4"/>
+      <rect y="110" width="240" height="30" fill="var(--color-surface)" rx="4"/>
       <!-- Sofa body -->
       <rect x="40" y="72" width="160" height="42" rx="10" fill="#0D7377" opacity="0.15"/>
       <!-- Cushions -->
