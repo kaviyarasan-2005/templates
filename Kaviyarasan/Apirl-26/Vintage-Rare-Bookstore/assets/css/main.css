@@ -1877,6 +1877,9 @@ em { font-style: italic; }
 @media (max-width: 480px) {
   .grid-4 { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+  .stat-card { padding: var(--space-lg) var(--space-md); }
+  .stat-number { font-size: 2.25rem; }
+  .stat-label { font-size: 0.75rem; letter-spacing: 0.05em; }
   h1 { font-size: 2rem; }
   h2 { font-size: 1.625rem; }
   .btn-lg { padding: 13px 24px; }
