@@ -360,6 +360,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: var(--space-xl);
+      margin-bottom: var(--space-4xl);
     }
 
     .stat-card {
@@ -426,6 +427,51 @@
       margin-top: var(--space-xs);
     }
 
+    /* Trust Pillars Grid */
+    .trust-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-xl);
+      text-align: left;
+    }
+
+    .pillar-card {
+      padding: var(--space-lg);
+      border-left: 2px solid var(--accent);
+      background: rgba(255, 255, 255, 0.02);
+      transition: all var(--transition-base);
+    }
+
+    .pillar-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-left-width: 4px;
+      padding-left: calc(var(--space-lg) - 2px);
+    }
+
+    .pillar-card h4 {
+      font-family: var(--font-ui);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: var(--space-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .pillar-card h4 svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+    }
+
+    .pillar-card p {
+      font-size: 0.875rem;
+      color: rgba(245, 230, 211, 0.6);
+      line-height: 1.6;
+      margin: 0;
+    }
+
     .stats-cta {
       text-align: center;
       margin-top: var(--space-3xl);
@@ -465,13 +511,13 @@
         order: unset;
       }
 
-      .stats-grid {
+      .stats-grid, .trust-pillars {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 640px) {
-      .stats-grid {
+      .stats-grid, .trust-pillars {
         grid-template-columns: 1fr;
       }
     }
@@ -668,16 +714,17 @@
         <div class="section-header reveal">
           <span class="eyebrow">By the Numbers</span>
           <h2 id="stats-heading">A Legacy Built on Trust</h2>
-          <p>Decades of expertise serving collectors, institutions, and bibliophiles around the world.</p>
+          <p>For over four decades, VintStore has served as the definitive steward for the world's most significant literary treasures. Our commitment to authenticity and preservation is the foundation upon which every collection is built.</p>
         </div>
+        
         <div class="stats-grid stagger-children">
           <div class="stat-card reveal">
             <div class="stat-card__icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
             </div>
             <div class="stat-card__number" data-count="45000">45,000+</div>
-            <div class="stat-card__label">Rare Books Catalogued</div>
-            <div class="stat-card__sublabel">Spanning five centuries of print</div>
+            <div class="stat-card__label">Volumes Catalogued</div>
+            <div class="stat-card__sublabel">Spanning 500+ years of literary history</div>
           </div>
           <div class="stat-card reveal">
             <div class="stat-card__icon">
@@ -685,27 +732,59 @@
             </div>
             <div class="stat-card__number" data-count="12000">12,000+</div>
             <div class="stat-card__label">Active Collectors</div>
-            <div class="stat-card__sublabel">Across 40+ countries</div>
+            <div class="stat-card__sublabel">Trusted by institutions in 40+ nations</div>
           </div>
           <div class="stat-card reveal">
             <div class="stat-card__icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <div class="stat-card__number" data-count="98">98%</div>
-            <div class="stat-card__label">Authenticity Guarantee</div>
-            <div class="stat-card__sublabel">Expert-verified provenance</div>
+            <div class="stat-card__number" data-count="100">100%</div>
+            <div class="stat-card__label">Authenticity Rate</div>
+            <div class="stat-card__sublabel">Unrivaled expert-verified provenance</div>
           </div>
           <div class="stat-card reveal">
             <div class="stat-card__icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
             </div>
             <div class="stat-card__number" data-count="37">37</div>
-            <div class="stat-card__label">Years of Excellence</div>
-            <div class="stat-card__sublabel">Est. 1989 in London</div>
+            <div class="stat-card__label">Years of Expertise</div>
+            <div class="stat-card__sublabel">Established 1989 in London</div>
           </div>
         </div>
-        <div class="stats-cta reveal">
 
+        <!-- Trust Pillars -->
+        <div class="trust-pillars stagger-children">
+          <div class="pillar-card reveal">
+            <h4>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Authenticity First
+            </h4>
+            <p>Every volume is rigorously vetted by our internal board of certified antiquarian experts before cataloging.</p>
+          </div>
+          <div class="pillar-card reveal">
+            <h4>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+              Expert Conservation
+            </h4>
+            <p>Our master binders utilize historically accurate materials and techniques to preserve structural integrity.</p>
+          </div>
+          <div class="pillar-card reveal">
+            <h4>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              Provenance Tracking
+            </h4>
+            <p>We maintain a comprehensive digital ledger of ownership history for every high-value item in our care.</p>
+          </div>
+          <div class="pillar-card reveal">
+            <h4>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              Global Logistics
+            </h4>
+            <p>White-glove, climate-controlled shipping ensures your treasures arrive in pristine condition, anywhere in the world.</p>
+          </div>
+        </div>
+
+        <div class="stats-cta reveal">
           <a href="about.html" class="btn btn-accent">Discover Our Story</a>
         </div>
       </div>
