@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    Renovo - RTL Overrides
    rtl.css
    ============================================ */
@@ -12,6 +12,19 @@
 [dir="rtl"] body {
   direction: rtl;
   text-align: right;
+}
+
+/* Auth Pages RTL */
+[dir="rtl"] .auth-toggles {
+  right: auto;
+  left: 24px;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .auth-toggles {
+    left: 16px;
+    right: auto;
+  }
 }
 
 /* Navbar RTL Fixes */

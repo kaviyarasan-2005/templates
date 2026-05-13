@@ -58,3 +58,6 @@
 [data-theme="dark"] .team-name { color: var(--text-primary); }
 [data-theme="dark"] .pricing-name { color: var(--text-primary); }
 [data-theme="dark"] .contact-info h4 { color: var(--text-primary); }
+
+/* Auth Pages Dark Mode */
+[data-theme="dark"] .auth-logo-name { color: #FFFFFF; }
