@@ -310,12 +310,11 @@
         <!-- Image Side -->
         <div class="featured-img-wrap">
           <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=900&q=80" alt="Japandi Living Room">
-          <span class="category-badge" style="position:absolute; top:16px; left:16px;">Trends 2026</span>
         </div>
 
         <!-- Content Side -->
         <div class="featured-content">
-          <div style="display:flex; gap:12px; margin-bottom:12px; font-size:0.8125rem; color:var(--color-text-muted);">
+          <div style="display:flex; gap:12px; margin-bottom:12px; font-size:0.8125rem; color:rgba(255,255,255,0.8);">
             <span>Apr 12, 2026</span>
             <span>·</span>
             <span>15 min read</span>
@@ -341,48 +340,79 @@
   </section>
   <style>
     .featured-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      position: relative;
       border-radius: var(--border-radius-lg);
       overflow: hidden;
-      border: 1px solid var(--color-border);
-      background: var(--color-bg);
-      min-height: 420px;
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      background: #000;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     }
     .featured-img-wrap {
-      position: relative;
-      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
     }
     .featured-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
-      display: block;
-      transition: transform 0.6s ease;
+      transition: transform 0.8s ease;
     }
-    .featured-img-wrap:hover img {
+    .featured-card:hover .featured-img-wrap img {
       transform: scale(1.05);
     }
+    .featured-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+      z-index: 2;
+    }
     .featured-content {
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      position: relative;
+      z-index: 3;
+      padding: var(--space-5) var(--space-6);
+      width: 70%;
+      color: white;
+    }
+    .featured-content h2 a {
+      color: white !important;
+      text-decoration: none;
+    }
+    .featured-content p {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      color: rgba(255,255,255,0.8) !important;
+      margin-bottom: var(--space-3) !important;
+      font-size: 0.9375rem;
+    }
+    .featured-content .blog-meta span {
+      color: rgba(255,255,255,0.7) !important;
     }
     @media (max-width: 768px) {
       .featured-card {
-        grid-template-columns: 1fr;
-        min-height: unset;
+        min-height: 300px;
       }
-      .featured-img-wrap {
-        height: 260px;
-      }
-      .featured-img-wrap img {
-        height: 260px;
+      .featured-card::after {
+        background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 100%);
       }
       .featured-content {
-        padding: 24px;
+        width: 100%;
+        padding: var(--space-4);
+        align-self: flex-end;
+      }
+      .featured-content p {
+        display: none;
       }
     }
   </style>
