@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -30,7 +30,8 @@ body{margin:0;padding:0;min-height:100vh;display:flex;align-items:center;justify
 .cs-bg{position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80") center/cover no-repeat;opacity:0.3;}
 .cs-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,25,35,0.9),rgba(15,25,35,0.6));}
 .cs-content{position:relative;z-index:1;text-align:center;max-width:700px;padding:40px 20px;}
-.cs-logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px;}
+.cs-logo{display:inline-flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px;text-decoration:none;color:inherit;transition:var(--transition);}
+.cs-logo:hover{transform:translateY(-2px);opacity:0.9;}
 .cs-logo-icon{width:48px;height:48px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
 .cs-logo-name{font-family:var(--font-heading);font-size:1.8rem;font-weight:700;}
 .cs-logo-name span{color:var(--primary);}
@@ -54,10 +55,10 @@ p{font-size:1.2rem;color:rgba(255,255,255,0.8);margin-bottom:48px;}
 <div class="cs-bg"></div>
 <div class="cs-overlay"></div>
 <div class="cs-content reveal">
-  <div class="cs-logo">
+  <a href="index.html" class="cs-logo" aria-label="Renovo - Return to home">
     <div class="cs-logo-icon"><i class="ph-fill ph-house-line"></i></div>
     <div class="cs-logo-name">Renovo</div>
-  </div>
+  </a>
   <h1>Something amazing is coming.</h1>
   <p>We are building a brand new digital experience. Enter your email to be notified when we launch and receive 5% off your first project.</p>
   
