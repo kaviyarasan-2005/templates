@@ -981,7 +981,7 @@
   }
 
   .dashboard__content {
-    padding: var(--space-4);
+    padding: 0;
   }
 
   .dashboard__header {
@@ -1130,7 +1130,7 @@
     padding: var(--space-4);
   }
   
-  .user-profile-banner > div {
+  .user-profile-banner > div, .user-profile-banner__meta, .user-profile-banner__stats {
     justify-content: center;
   }
 }
@@ -1289,3 +1289,6 @@
     height: 28px !important;
   }
 }
+
+ 
+ 
