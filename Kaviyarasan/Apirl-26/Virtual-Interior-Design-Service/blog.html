@@ -486,8 +486,17 @@
         <span style="display:inline-block; background:rgba(255,255,255,0.15); color:white; font-size:0.8125rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 16px; border-radius:20px; margin-bottom:var(--space-3);">Stay Inspired</span>
         <h2 style="color:white; font-size:2.25rem; margin-bottom:var(--space-3);">Get Weekly Design Insights</h2>
         <p style="color:rgba(255,255,255,0.8); font-size:1.0625rem; line-height:1.7; margin-bottom:var(--space-5);">Join over 18,000 design enthusiasts receiving our curated weekly digest — trends, project reveals, expert tips, and early access to new collections.</p>
+        <style>
+          .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.7) !important;
+          }
+          /* Ensure text typed in is also white */
+          .newsletter-input {
+            color: white !important;
+          }
+        </style>
         <form onsubmit="return false;" style="display:flex; gap:var(--space-2); background:rgba(255,255,255,0.12); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.2); border-radius:50px; padding:6px 6px 6px var(--space-4); max-width:520px; margin:0 auto var(--space-4);">
-          <input type="email" placeholder="Enter your email address" style="flex:1; border:none; background:transparent; color:white; font-size:1rem; outline:none; min-width:0;" required>
+          <input type="email" placeholder="Enter your email address" class="newsletter-input" style="flex:1; border:none; background:transparent; color:white; font-size:1rem; outline:none; min-width:0;" required>
           <button type="submit" style="background:white; color:var(--color-primary); border:none; border-radius:50px; padding:12px 28px; font-weight:700; font-size:0.9375rem; cursor:pointer; white-space:nowrap; transition:all 0.2s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">Subscribe</button>
         </form>
         <p style="color:rgba(255,255,255,0.55); font-size:0.8125rem;">No spam. Unsubscribe anytime. We respect your privacy.</p>
