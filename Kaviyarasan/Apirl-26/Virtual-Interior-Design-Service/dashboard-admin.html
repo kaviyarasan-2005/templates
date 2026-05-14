@@ -114,7 +114,6 @@
             <h2 style="margin-bottom:4px;">Admin Dashboard&lrm;</h2>
             <p class="text-secondary text-sm">Good morning, Elena. Here's your studio overview.&lrm;</p>
           </div>
-          <a href="contact.html" class="btn btn-primary" style="height:38px;padding:0 16px;font-size:0.875rem;">+ New Project</a>
         </div>
 
         <!-- Stat Cards -->
@@ -233,8 +232,8 @@
         <div class="table-card">
           <div class="table-header">
             <h4>Recent Orders</h4>
-            <div style="display:flex;gap:8px;">
-              <input type="text" placeholder="Search orders..." class="form-control" style="height:32px;width:180px;font-size:0.8125rem;">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <input type="text" placeholder="Search orders..." class="form-control" style="height:32px;max-width:180px;width:100%;font-size:0.8125rem;">
               <button class="btn btn-outline" style="height:32px;padding:0 12px;font-size:0.8125rem;">Export CSV</button>
             </div>
           </div>
@@ -301,7 +300,7 @@
             </table>
           </div>
           <!-- Pagination -->
-          <div style="padding:var(--space-3) var(--space-4);border-top:1px solid var(--color-border);display:flex;justify-content:space-between;align-items:center;">
+          <div style="padding:var(--space-3) var(--space-4);border-top:1px solid var(--color-border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-3);">
             <span class="text-sm text-secondary">Showing 5 of 84 orders</span>
             <div style="display:flex;gap:4px;">
               <button class="page-btn" style="width:32px;height:32px;border:1px solid var(--color-border);border-radius:6px;background:transparent;cursor:pointer;">&laquo;</button>
