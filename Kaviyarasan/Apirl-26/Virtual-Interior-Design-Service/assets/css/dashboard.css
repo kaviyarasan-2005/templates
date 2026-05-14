@@ -631,6 +631,13 @@
 }
 
 /* RTL Dashboard Fixes */
+
+/* Push header actions to the left (far) corner in RTL, matching LTR behaviour */
+[dir="rtl"] .dash-header-actions {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 [dir="rtl"] .dash-sidebar {
   left: auto;
   right: 0;
