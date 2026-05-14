@@ -482,7 +482,7 @@ em { font-style: italic; }
   position: fixed;
   top: var(--nav-height-mobile);
   left: 0;
-  right: 0;
+  width: 280px;
   bottom: 0;
   background: var(--bg-primary);
   z-index: calc(var(--z-nav) - 1);
@@ -490,6 +490,8 @@ em { font-style: italic; }
   padding: var(--space-lg);
   transform: translateX(-100%);
   transition: transform var(--transition-slow);
+  box-shadow: var(--shadow-lg);
+  border-right: 1px solid var(--border);
 }
 
 .mobile-nav.open {
