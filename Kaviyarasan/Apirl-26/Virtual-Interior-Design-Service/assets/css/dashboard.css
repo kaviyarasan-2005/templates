@@ -4,7 +4,7 @@
 .dash-wrapper {
   display: flex;
   min-height: 100vh;
-  background: var(--color-surface);
+  background: var(--color-bg); /* white — no grey page background */
 }
 
 /* Sidebar */
