@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   mobileToggle?.addEventListener('click', openMobileSidebar);
   overlay?.addEventListener('click', closeMobileSidebar);
+  const mobileCloseBtn = document.querySelector('#mobile-sidebar-close');
+  mobileCloseBtn?.addEventListener('click', closeMobileSidebar);
 
   // Animated bar charts
   const bars = document.querySelectorAll('.chart-bar-fill');
