@@ -278,3 +278,19 @@
   flex-direction: row-reverse; /* Ensure sidebar is on the correct side in flex */
 }
 
+
+/* About Page Timeline RTL */
+[dir="rtl"] .timeline-container {
+  padding-left: 0 !important;
+  padding-right: 40px !important;
+}
+
+[dir="rtl"] .timeline-line {
+  left: auto !important;
+  right: 16px !important;
+}
+
+[dir="rtl"] .timeline-dot {
+  left: auto !important;
+  right: -32px !important;
+}
