@@ -1276,6 +1276,256 @@
     padding: var(--space-2) var(--space-3);
     font-size: var(--font-size-xs);
   }
+
+  /* ── Profile Banner: fix inner flex layout on mobile ── */
+
+  /* Outer banner: tighten padding */
+  .user-profile-banner {
+    padding: var(--space-3) !important;
+    margin-bottom: var(--space-3) !important;
+  }
+
+  /* Inner flex container: reduce the huge gap and center items */
+  .user-profile-banner > div:not(.user-profile-banner__bg) {
+    gap: var(--space-3) !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* Avatar: scale down from 100px */
+  .user-profile-banner > div:not(.user-profile-banner__bg) > div:first-child > img {
+    width: 68px !important;
+    height: 68px !important;
+  }
+
+  /* Info section: allow it to shrink below 200px */
+  .user-profile-banner__info {
+    min-width: 0 !important;
+    flex: 1 1 0% !important;
+    overflow: hidden;
+  }
+
+  /* Name: smaller so it fits in the column */
+  .user-profile-banner__info h2 {
+    font-size: var(--font-size-xl) !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Meta row: allow wrapping so badge + location don't overflow */
+  .user-profile-banner__meta {
+    flex-wrap: wrap !important;
+    gap: var(--space-1) !important;
+  }
+
+  /* Stats row: tighten gap */
+  .user-profile-banner__stats {
+    gap: var(--space-3) !important;
+    margin-top: var(--space-2) !important;
+  }
+
+  /* Level ring: shrink from 120px */
+  .level-progress {
+    width: 72px !important;
+    height: 72px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Scale the SVG inside the ring to match */
+  .level-progress svg {
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  /* Scale text inside the ring to fit 72px circle */
+  .level-progress > div {
+    line-height: 1.1;
+  }
+  .level-progress > div > div:first-child {
+    font-size: 8px !important;    /* "LEVEL" label */
+    letter-spacing: 0.04em;
+  }
+  .level-progress > div > div:last-child {
+    font-size: 18px !important;   /* Level number */
+  }
+}
+
+/* ==============================
+   360px MOBILE — Fill empty right space
+   ============================== */
+@media (max-width: 360px) {
+
+  /* Zero out dashboard padding so cards stretch edge-to-edge */
+  .dashboard {
+    padding: 2px;
+  }
+
+  /* Ensure main content uses the full available width */
+  .dashboard__main {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    gap: var(--space-2);
+  }
+
+  /* Topbar stretches full width */
+  .dashboard__header,
+  .dashboard__topbar {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-md);
+  }
+
+  /* Content area fills width */
+  .dashboard__content {
+    width: 100%;
+    box-sizing: border-box;
+    gap: var(--space-2);
+  }
+
+  /* Grid fills full width, single column */
+  .dashboard__grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-2);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* All cards fill the column completely */
+  .dashboard__card,
+  .dashboard__card--large,
+  .dashboard__card--small,
+  .dashboard__card--full,
+  .dashboard__grid > .dashboard__card,
+  .chart-card {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    min-height: auto;
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+  }
+
+  /* ── Profile Banner: 2-row stacked layout at 360px ── */
+
+  /* Outer banner */
+  .user-profile-banner {
+    padding: var(--space-2) !important;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: var(--space-2) !important;
+  }
+
+  /* Inner container: stack avatar+ring on top, info below */
+  .user-profile-banner > div:not(.user-profile-banner__bg) {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: var(--space-2) !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Avatar: even smaller at 360px */
+  .user-profile-banner > div:not(.user-profile-banner__bg) > div:first-child > img {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  /* Info: fills the rest of the row, wraps below if needed */
+  .user-profile-banner__info {
+    min-width: 0 !important;
+    flex: 1 1 140px !important;
+    overflow: hidden;
+  }
+
+  /* Name: compact */
+  .user-profile-banner__info h2 {
+    font-size: var(--font-size-lg) !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Meta: wrap and tighten */
+  .user-profile-banner__meta {
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    font-size: 11px !important;
+  }
+
+  /* Stats: tight gap */
+  .user-profile-banner__stats {
+    gap: var(--space-2) !important;
+    margin-top: var(--space-1) !important;
+  }
+
+  /* Level ring: smallest size */
+  .level-progress {
+    width: 60px !important;
+    height: 60px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Scale SVG inside ring */
+  .level-progress svg {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  /* Scale text inside the ring to fit 60px circle */
+  .level-progress > div {
+    line-height: 1.1;
+  }
+  .level-progress > div > div:first-child {
+    font-size: 7px !important;    /* "LEVEL" label */
+    letter-spacing: 0.03em;
+  }
+  .level-progress > div > div:last-child {
+    font-size: 15px !important;   /* Level number */
+  }
+
+  /* Stat cards full width */
+  .dashboard__stats {
+    grid-template-columns: 1fr !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .stat-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  /* Topbar buttons even more compact */
+  .navbar__action-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+    padding: 0;
+  }
+
+  .dashboard__mobile-menu-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Chart titles smaller */
+  .chart-card__title {
+    font-size: var(--font-size-sm);
+  }
+
+  /* Data table: hide less-important columns */
+  .data-table th,
+  .data-table td {
+    padding: var(--space-1) var(--space-2);
+    font-size: 11px;
+  }
 }
 
 /* ==============================
