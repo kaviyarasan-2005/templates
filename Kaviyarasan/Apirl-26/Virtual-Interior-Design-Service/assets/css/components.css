@@ -623,6 +623,9 @@ textarea.form-control {
   background: var(--color-primary);
   padding: var(--space-8) var(--space-6);
   border-radius: var(--border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin-bottom: var(--space-6);
   color: white;
@@ -639,6 +642,6 @@ textarea.form-control {
   background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
   pointer-events: none;
 }
-.cta-banner h2 { color: white; margin-bottom: var(--space-2); }
-.cta-banner p { color: rgba(255,255,255,0.8); margin-bottom: var(--space-4); font-size: 1.125rem; }
+.cta-banner h2 { color: white; margin-bottom: var(--space-2); text-align: center; }
+.cta-banner p { color: rgba(255,255,255,0.8); margin-bottom: var(--space-4); font-size: 1.125rem; text-align: center; }
 
