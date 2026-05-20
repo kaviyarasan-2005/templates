@@ -26,7 +26,14 @@
 
   /* Contact layout */
   .contact-layout { direction: rtl; }
-  .contact-info-item { flex-direction: row-reverse; }
+
+  /* Phone and email direction alignment */
+  a[href^="tel:"],
+  a[href^="mailto:"] {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
 
   /* Service layout sidebar changes side */
   .service-layout { direction: rtl; }
