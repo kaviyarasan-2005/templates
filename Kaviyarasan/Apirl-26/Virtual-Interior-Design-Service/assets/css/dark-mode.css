@@ -218,6 +218,11 @@
   color: #ffffff !important;
 }
 
+[data-theme="dark"] .cta-banner .btn-primary,
+[data-theme="dark"] .cta-band .btn-primary {
+  color: var(--color-primary) !important;
+}
+
 [data-theme="dark"] .step-number {
   color: #ffffff !important;
 }
