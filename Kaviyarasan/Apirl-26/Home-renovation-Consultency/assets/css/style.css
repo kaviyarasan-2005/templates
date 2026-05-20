@@ -396,9 +396,8 @@ p { color: var(--text-secondary); line-height: 1.7; transition: color 0.3s ease;
   flex-shrink: 0;
 }
 @media (max-width: 1024px) {
-  .navbar-actions .btn, 
-  .navbar-actions .icon-btn:not(.hamburger),
-  .rtl-toggle-btn, .theme-toggle-btn {
+  .navbar-actions .btn:not(.rtl-toggle-btn):not(.theme-toggle-btn), 
+  .navbar-actions .icon-btn:not(.hamburger) {
     display: none !important;
   }
 }
