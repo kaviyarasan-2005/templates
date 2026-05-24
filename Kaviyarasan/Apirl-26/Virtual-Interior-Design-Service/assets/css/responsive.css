@@ -68,7 +68,6 @@
 
   /* Hero 2 grid */
   .hero2 > .container > div { grid-template-columns: 1fr !important; }
-  .hero2-visual { display: none; }
 }
 
 /* ---- Small Tablets (640px – 767px) ---- */
@@ -79,7 +78,6 @@
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-cards { grid-template-columns: 1fr; }
   .hero2-grid { grid-template-columns: 1fr !important; }
-  .hero2-visual { display: none; }
 }
 
 /* ---- Tablets (768px – 1023px) ---- */
@@ -95,7 +93,6 @@
   .pricing-cards { grid-template-columns: repeat(2, 1fr); }
   .pricing-card.elevated { transform: none; }
   .hero2-grid { grid-template-columns: 1fr !important; }
-  .hero2-visual { display: none; }
 }
 
 /* ---- Small Desktops (1024px – 1279px) ---- */
