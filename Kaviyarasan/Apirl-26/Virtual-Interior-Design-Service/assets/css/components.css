@@ -568,12 +568,92 @@ textarea.form-control {
   box-shadow: 0 12px 24px rgba(0,0,0,0.05);
 }
 
+/* Testimonials Shared Layout */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 1023px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Testimonial Card (Standard) */
+.testimonial-card {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-color: var(--color-primary);
+}
+.testimonial-stars {
+  color: var(--color-secondary);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+.testimonial-quote {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  flex: 1;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+.testimonial-author img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.testimonial-author h4 {
+  margin: 0 0 2px 0 !important;
+  font-size: 0.9rem;
+}
+
 /* Testimonial Premium */
 .testimonial-premium {
-  padding: var(--space-5);
+  padding: var(--space-4);
   background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 20px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-3);
+  height: 100%;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+.testimonial-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-primary);
+}
+.testimonial-premium h5 {
+  margin: 0 0 2px 0 !important;
 }
 
 /* Glass Section */
