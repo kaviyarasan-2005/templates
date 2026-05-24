@@ -145,4 +145,10 @@
   .form-label { text-align: right !important; }
   .pass-toggle { right: auto !important; left: 14px !important; }
   .remember-me, .terms-label { flex-direction: row !important; text-align: right !important; }
+
+  /* Vertical Timeline (home-2.html) */
+  .timeline-v::before {
+    left: auto;
+    right: 28px;
+  }
 }
