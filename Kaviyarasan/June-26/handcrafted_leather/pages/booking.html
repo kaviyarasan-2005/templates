@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIND | Custom Order Request</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="auth-layout" style="flex-direction: column; justify-content: flex-start; padding-top: var(--header-height);">
+
+    <!-- Header -->
+    <header class="header" style="position: absolute; top: 0; left: 0; width: 100%;">
+        <div class="container header__inner">
+            <a href="index.html" class="logo" aria-label="BIND Home">
+                <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="32" font-family="'Playfair Display', serif" font-size="32" font-weight="700" letter-spacing="2">BIND</text>
+                </svg>
+            </a>
+            <div class="header__controls">
+                <button class="toggle-btn js-rtl-toggle">EN / AR</button>
+                <button class="toggle-btn js-theme-toggle" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container reveal" style="max-width: 800px; margin-top: 48px; margin-bottom: 64px;">
+        <h1 class="text-center mb-2">Build Your Journal</h1>
+        <p class="text-center mb-6" style="color: var(--color-text-secondary);">Select your specifications below. Our artisans will review your request and send a detailed quote within 48 hours.</p>
+
+        <div class="card" style="padding: var(--spacing-6);">
+            <!-- Progress Indicator -->
+            <div class="step-indicator">
+                <div class="step-dot active">1</div>
+                <div class="step-dot">2</div>
+                <div class="step-dot">3</div>
+                <div class="step-dot">4</div>
+            </div>
+
+            <form id="bookingForm">
+                <!-- Step 1: Core Specs (Size & Paper) -->
+                <div class="booking-step active">
+                    <h3 class="mb-4">1. Core Specifications</h3>
+                    
+                    <div class="form-group mb-4">
+                        <label class="form-label mb-2">Select Size</label>
+                        <div class="grid grid-cols-4 gap-2">
+                            <div>
+                                <input type="radio" name="size" id="size-pocket" value="Pocket (3.5x5.5)" class="visual-select" required>
+                                <label for="size-pocket" class="visual-select-label">
+                                    <span style="font-weight: bold; margin-bottom: 4px;">Pocket</span>
+                                    <span style="font-size: 0.75rem; color: var(--color-text-secondary);">3.5" x 5.5"</span>
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="size" id="size-medium" value="Medium (5x7)" class="visual-select">
+                                <label for="size-medium" class="visual-select-label">
+                                    <span style="font-weight: bold; margin-bottom: 4px;">Medium</span>
+                                    <span style="font-size: 0.75rem; color: var(--color-text-secondary);">5" x 7"</span>
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="size" id="size-large" value="Large (7x10)" class="visual-select">
+                                <label for="size-large" class="visual-select-label">
+                                    <span style="font-weight: bold; margin-bottom: 4px;">Large</span>
+                                    <span style="font-size: 0.75rem; color: var(--color-text-secondary);">7" x 10"</span>
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="size" id="size-xl" value="Extra Large (9x12)" class="visual-select">
+                                <label for="size-xl" class="visual-select-label">
+                                    <span style="font-weight: bold; margin-bottom: 4px;">Extra Large</span>
+                                    <span style="font-size: 0.75rem; color: var(--color-text-secondary);">9" x 12"</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-6">
+                        <label class="form-label mb-2">Paper Type</label>
+                        <select name="paper" class="form-select" required>
+                            <option value="" disabled selected>Choose a paper type...</option>
+                            <option value="Sketch 120gsm">120gsm Sketch (Blank)</option>
+                            <option value="Ruled 100gsm">100gsm Ruled (7mm)</option>
+                            <option value="Dotted 100gsm">100gsm Dotted (5mm)</option>
+                            <option value="Mixed Media 160gsm">160gsm Heavyweight Mixed Media</option>
+                            <option value="Watercolor 300gsm">300gsm Cotton Watercolor (+$45)</option>
+                        </select>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="btn btn--primary js-next-step">Next Step &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Leather & Embellishments -->
+                <div class="booking-step">
+                    <h3 class="mb-4">2. Materials & Finish</h3>
+                    
+                    <div class="form-group mb-4">
+                        <label class="form-label mb-2">Leather Choice</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <input type="radio" name="leather" id="leather-chestnut" value="Chestnut Brown" class="visual-select" required>
+                                <label for="leather-chestnut" class="visual-select-label">
+                                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=200&h=200" alt="Chestnut">
+                                    <span style="font-weight: bold;">Chestnut</span>
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="leather" id="leather-midnight" value="Midnight Black" class="visual-select">
+                                <label for="leather-midnight" class="visual-select-label">
+                                    <img src="https://images.unsplash.com/photo-1516086571520-25e408e0b677?auto=format&fit=crop&q=80&w=200&h=200" alt="Midnight">
+                                    <span style="font-weight: bold;">Midnight</span>
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="leather" id="leather-saddle" value="Saddle Tan" class="visual-select">
+                                <label for="leather-saddle" class="visual-select-label">
+                                    <img src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?auto=format&fit=crop&q=80&w=200&h=200" alt="Saddle">
+                                    <span style="font-weight: bold;">Saddle</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-6">
+                        <label class="form-label mb-2">Embellishment</label>
+                        <select name="embellishment" class="form-select" required>
+                            <option value="None">None (Plain Cover)</option>
+                            <option value="Blind Emboss Monogram">Blind Emboss Monogram (Up to 3 Letters)</option>
+                            <option value="Gold Foil Monogram">Gold Foil Monogram (+$15)</option>
+                            <option value="Silver Foil Monogram">Silver Foil Monogram (+$15)</option>
+                            <option value="Custom Brass Die">Custom Brass Die/Logo (+$85)</option>
+                        </select>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button type="button" class="btn btn--outline js-prev-step">&larr; Back</button>
+                        <button type="button" class="btn btn--primary js-next-step">Next Step &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Logistics -->
+                <div class="booking-step">
+                    <h3 class="mb-4">3. Details & Logistics</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Project Description / Notes</label>
+                        <textarea name="notes" class="form-textarea" placeholder="Any specific requirements? (e.g. 'I need green stitching' or 'This is a wedding guestbook')"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label">Desired Timeline</label>
+                            <select name="timeline" class="form-select" required>
+                                <option value="Standard (2-3 Weeks)">Standard (2-3 Weeks)</option>
+                                <option value="Rush (1 Week, +25%)">Rush (1 Week, +25% Surcharge)</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label">Shipping Destination</label>
+                            <select name="shipping" class="form-select" required>
+                                <option value="Domestic (US)">Domestic (US)</option>
+                                <option value="International">International</option>
+                                <option value="Local Pickup (Portland)">Local Pickup (Portland, OR)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button type="button" class="btn btn--outline js-prev-step">&larr; Back</button>
+                        <button type="button" class="btn btn--primary js-next-step">Review Details &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Review & Submit -->
+                <div class="booking-step">
+                    <h3 class="mb-4">4. Review & Request Quote</h3>
+                    
+                    <div style="background: var(--color-bg); padding: var(--spacing-4); border-radius: var(--radius-md); border: 1px solid var(--color-border); margin-bottom: 24px;">
+                        <h4 class="mb-3">Your Selection Summary</h4>
+                        <div id="bookingSummary" style="font-size: 0.875rem;">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <h4 class="mb-3">Contact Information</h4>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="name" class="form-input" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" name="email" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-2 mb-6">
+                        <input type="checkbox" id="terms" required style="margin-top: 4px;">
+                        <label for="terms" style="font-size: 0.875rem; line-height: 1.4;">I understand that this is a request for a quote, not a final purchase. Custom orders are non-refundable once production begins.</label>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <button type="button" class="btn btn--outline js-prev-step">&larr; Edit Details</button>
+                        <button type="submit" class="btn btn--accent">Submit Request</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bindatelier.com/sitemap.xml
+
+# Disallow admin and user dashboard pages from indexing
+Disallow: /pages/admin-dashboard.html
+Disallow: /pages/user-dashboard.html
+Disallow: /pages/profile.html
+Disallow: /pages/cart.html
+Disallow: /pages/checkout.html

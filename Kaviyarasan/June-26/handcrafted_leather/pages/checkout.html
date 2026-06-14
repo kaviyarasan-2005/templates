@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIND | Checkout</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <style>
+        .checkout-steps {
+            display: flex;
+            gap: 8px;
+            margin-bottom: var(--spacing-6);
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+        }
+        .checkout-steps span { display: flex; align-items: center; gap: 6px; }
+        .checkout-steps .active-step { color: var(--color-text-primary); font-weight: 600; }
+        .checkout-steps .separator { color: var(--color-border); }
+        
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: border-color var(--transition-fast);
+            margin-bottom: 12px;
+        }
+        .payment-option:has(input:checked) {
+            border-color: var(--color-accent);
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .payment-option input[type="radio"] { accent-color: var(--color-accent); }
+    </style>
+</head>
+<body>
+
+    <!-- Minimal Header -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo" aria-label="BIND Home">
+                <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="32" font-family="'Playfair Display', serif" font-size="32" font-weight="700" letter-spacing="2">BIND</text>
+                </svg>
+            </a>
+
+            <div class="header__controls">
+                <button class="toggle-btn js-rtl-toggle">EN / AR</button>
+                <button class="toggle-btn js-theme-toggle" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="var(--color-accent)" stroke-width="1.5" fill="none" style="margin-left: 8px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section reveal">
+            <div class="container grid" style="grid-template-columns: 1fr 400px; gap: var(--spacing-6); align-items: flex-start;">
+                
+                <!-- Left: Checkout Form -->
+                <div>
+                    <!-- Progress Breadcrumb -->
+                    <div class="checkout-steps">
+                        <span><a href="cart.html" style="color: var(--color-text-secondary);">Cart</a></span>
+                        <span class="separator">/</span>
+                        <span class="active-step">Checkout</span>
+                        <span class="separator">/</span>
+                        <span>Confirmation</span>
+                    </div>
+
+                    <h1 class="mb-6">Checkout</h1>
+
+                    <!-- Contact Info -->
+                    <div style="margin-bottom: 48px;">
+                        <h3 class="mb-4">Contact Information</h3>
+                        <div class="form-group">
+                            <label for="checkout-email" class="form-label">Email Address</label>
+                            <input type="email" id="checkout-email" class="form-input" placeholder="you@example.com" required>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" id="newsletter-opt">
+                            <label for="newsletter-opt" style="font-size: 0.875rem;">Email me with bindery news and exclusive offers.</label>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Address -->
+                    <div style="margin-bottom: 48px;">
+                        <h3 class="mb-4">Shipping Address</h3>
+                        <div class="grid grid-cols-2" style="gap: 16px;">
+                            <div class="form-group">
+                                <label for="first-name" class="form-label">First Name</label>
+                                <input type="text" id="first-name" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name" class="form-label">Last Name</label>
+                                <input type="text" id="last-name" class="form-input" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" id="address" class="form-input" placeholder="Street address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address2" class="form-label">Apartment, Suite, etc. (Optional)</label>
+                            <input type="text" id="address2" class="form-input">
+                        </div>
+                        <div class="grid grid-cols-3" style="gap: 16px;">
+                            <div class="form-group">
+                                <label for="city" class="form-label">City</label>
+                                <input type="text" id="city" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state" class="form-label">State</label>
+                                <select id="state" class="form-select" required>
+                                    <option value="">Select...</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="CA">California</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="NY">New York</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip" class="form-label">ZIP Code</label>
+                                <input type="text" id="zip" class="form-input" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Method -->
+                    <div style="margin-bottom: 48px;">
+                        <h3 class="mb-4">Shipping Method</h3>
+                        <label class="payment-option">
+                            <input type="radio" name="shipping" value="standard" checked>
+                            <div style="flex: 1;">
+                                <div class="flex justify-between"><strong>Standard Shipping</strong><span style="font-weight: 600;">Free</span></div>
+                                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">5-7 business days</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="shipping" value="express">
+                            <div style="flex: 1;">
+                                <div class="flex justify-between"><strong>Express Shipping</strong><span style="font-weight: 600;">$12.00</span></div>
+                                <span style="font-size: 0.875rem; color: var(--color-text-secondary);">2-3 business days</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Payment -->
+                    <div style="margin-bottom: 48px;">
+                        <h3 class="mb-4">Payment</h3>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card" checked>
+                            <strong>Credit / Debit Card</strong>
+                            <div class="flex gap-2" style="margin-left: auto;">
+                                <svg viewBox="0 0 24 24" width="28" height="20" fill="none" style="background: #1a1f71; border-radius: 3px; padding: 2px;"><text x="4" y="15" font-size="10" fill="white" font-weight="bold">V</text></svg>
+                                <svg viewBox="0 0 24 24" width="28" height="20" fill="none" style="background: #252525; border-radius: 3px; padding: 2px;"><circle cx="9" cy="12" r="5" fill="#eb001b" opacity="0.8"/><circle cx="15" cy="12" r="5" fill="#f79e1b" opacity="0.8"/></svg>
+                            </div>
+                        </label>
+                        
+                        <!-- Card Details (visible when card is selected) -->
+                        <div style="padding: 0 16px 16px; margin-top: -12px;">
+                            <div class="form-group">
+                                <label for="card-number" class="form-label">Card Number</label>
+                                <input type="text" id="card-number" class="form-input" placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div class="grid grid-cols-2" style="gap: 16px;">
+                                <div class="form-group">
+                                    <label for="card-expiry" class="form-label">Expiry Date</label>
+                                    <input type="text" id="card-expiry" class="form-input" placeholder="MM / YY">
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-cvc" class="form-label">CVC</label>
+                                    <input type="text" id="card-cvc" class="form-input" placeholder="123">
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <strong>PayPal</strong>
+                        </label>
+                    </div>
+
+                    <!-- Gift Message -->
+                    <div style="margin-bottom: 48px;">
+                        <h3 class="mb-4">Gift Options (Optional)</h3>
+                        <div class="flex items-center gap-2 mb-4">
+                            <input type="checkbox" id="gift-wrap">
+                            <label for="gift-wrap" style="font-size: 0.875rem;">Add premium gift wrapping (+$8.00)</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="gift-message" class="form-label">Gift Message</label>
+                            <textarea id="gift-message" class="form-textarea" placeholder="Write your personal message here..." style="min-height: 80px;"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Place Order -->
+                    <button type="button" class="btn btn--primary" style="width: 100%; font-size: 1.125rem; padding: 16px;" onclick="alert('Order placed successfully! Thank you for choosing BIND.'); window.location.href='user-dashboard.html';">Place Order — $464.40</button>
+                    <p style="text-align: center; font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 16px;">By placing this order, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+                </div>
+
+                <!-- Right: Order Summary -->
+                <div class="card" style="position: sticky; top: 100px;">
+                    <h3 class="mb-4">Order Summary</h3>
+
+                    <!-- Items -->
+                    <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 16px; margin-bottom: 16px;">
+                        <div class="flex gap-3 mb-4">
+                            <div style="position: relative; flex-shrink: 0;">
+                                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=80&h=80" alt="Classic Long-Stitch" style="width: 64px; height: 64px; border-radius: var(--radius-sm); object-fit: cover;">
+                                <span style="position: absolute; top: -6px; right: -6px; background: var(--color-text-secondary); color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; display: flex; align-items: center; justify-content: center;">1</span>
+                            </div>
+                            <div style="flex: 1; min-width: 0;">
+                                <p style="font-weight: 500; margin-bottom: 2px; font-size: 0.875rem;">Classic Long-Stitch</p>
+                                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-bottom: 0;">Chestnut / Medium</p>
+                            </div>
+                            <span style="font-weight: 500; font-size: 0.875rem;">$85.00</span>
+                        </div>
+
+                        <div class="flex gap-3 mb-4">
+                            <div style="position: relative; flex-shrink: 0;">
+                                <img src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?auto=format&fit=crop&q=80&w=80&h=80" alt="Traveler's Wrap" style="width: 64px; height: 64px; border-radius: var(--radius-sm); object-fit: cover;">
+                                <span style="position: absolute; top: -6px; right: -6px; background: var(--color-text-secondary); color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; display: flex; align-items: center; justify-content: center;">2</span>
+                            </div>
+                            <div style="flex: 1; min-width: 0;">
+                                <p style="font-weight: 500; margin-bottom: 2px; font-size: 0.875rem;">Traveler's Wrap</p>
+                                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-bottom: 0;">Saddle Tan / Large</p>
+                            </div>
+                            <span style="font-weight: 500; font-size: 0.875rem;">$290.00</span>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <div style="position: relative; flex-shrink: 0;">
+                                <img src="https://images.unsplash.com/photo-1585822765355-6b5d92ff1520?auto=format&fit=crop&q=80&w=80&h=80" alt="Pocket Companion" style="width: 64px; height: 64px; border-radius: var(--radius-sm); object-fit: cover;">
+                                <span style="position: absolute; top: -6px; right: -6px; background: var(--color-text-secondary); color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; display: flex; align-items: center; justify-content: center;">1</span>
+                            </div>
+                            <div style="flex: 1; min-width: 0;">
+                                <p style="font-weight: 500; margin-bottom: 2px; font-size: 0.875rem;">Pocket Companion</p>
+                                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-bottom: 0;">Oxblood / Pocket</p>
+                            </div>
+                            <span style="font-weight: 500; font-size: 0.875rem;">$55.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Totals -->
+                    <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 16px; margin-bottom: 16px;">
+                        <div class="flex justify-between mb-2" style="font-size: 0.875rem;">
+                            <span>Subtotal</span>
+                            <span>$430.00</span>
+                        </div>
+                        <div class="flex justify-between mb-2" style="font-size: 0.875rem;">
+                            <span>Shipping</span>
+                            <span style="color: var(--color-accent);">Free</span>
+                        </div>
+                        <div class="flex justify-between" style="font-size: 0.875rem;">
+                            <span>Tax</span>
+                            <span>$34.40</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between" style="font-weight: 700; font-size: 1.25rem;">
+                        <span>Total</span>
+                        <span>$464.40</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JS -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

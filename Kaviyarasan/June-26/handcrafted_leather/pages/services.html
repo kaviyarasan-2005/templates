@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIND | Custom Services & Options</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo" aria-label="BIND Home">
+                <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="32" font-family="'Playfair Display', serif" font-size="32" font-weight="700" letter-spacing="2">BIND</text>
+                </svg>
+            </a>
+            
+            <nav class="nav js-nav-menu" aria-label="Main Navigation">
+                <div class="dropdown">
+                    <a href="index.html" class="nav__link" style="display: flex; align-items: center; gap: 4px;">
+                        Home
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Artisan Workshop</a>
+                        <a href="home-variant-2.html">Product Gallery</a>
+                    </div>
+                </div>
+                <a href="about.html" class="nav__link">About</a>
+                <a href="services.html" class="nav__link active">Services</a>
+                <a href="portfolio.html" class="nav__link">Gallery</a>
+                <a href="contact.html" class="nav__link">Contact</a>
+            </nav>
+
+            <div class="header__controls">
+                <button class="toggle-btn js-rtl-toggle">EN / AR</button>
+                <button class="toggle-btn js-theme-toggle" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="section section--lg reveal text-center" style="background-color: var(--color-surface);">
+            <div class="container">
+                <h1 style="max-width: 800px; margin: 0 auto 24px;">Bespoke Services & Options</h1>
+                <p style="max-width: 600px; margin: 0 auto 32px; font-size: 1.125rem;">From selecting the perfect dimensions to embossing your family crest. Discover the myriad ways we can personalize your journal.</p>
+                <div class="flex justify-center gap-3">
+                    <a href="#pricing" class="btn btn--primary">View Pricing</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journal Sizes -->
+        <section class="section reveal">
+            <div class="container text-center">
+                <h2 class="mb-6">The Size Guide</h2>
+                <div class="grid grid-cols-4 gap-4" style="align-items: end;">
+                    <div class="card text-center">
+                        <div style="width: 60px; height: 90px; border: 2px solid var(--color-border); margin: 0 auto 16px; background: var(--color-bg);"></div>
+                        <h4 class="mb-1">Pocket</h4>
+                        <p style="font-size: 0.875rem;">3.5" x 5.5"</p>
+                        <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 8px;">Perfect for everyday carry.</p>
+                    </div>
+                    <div class="card text-center">
+                        <div style="width: 80px; height: 120px; border: 2px solid var(--color-border); margin: 0 auto 16px; background: var(--color-bg);"></div>
+                        <h4 class="mb-1">Medium</h4>
+                        <p style="font-size: 0.875rem;">5" x 7"</p>
+                        <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 8px;">The standard journal size.</p>
+                    </div>
+                    <div class="card text-center" style="border-color: var(--color-accent);">
+                        <div style="width: 110px; height: 160px; border: 2px solid var(--color-accent); margin: 0 auto 16px; background: rgba(197, 160, 89, 0.1);"></div>
+                        <h4 class="mb-1" style="color: var(--color-accent);">Large</h4>
+                        <p style="font-size: 0.875rem;">7" x 10"</p>
+                        <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 8px;">Ideal for extensive writing and sketching.</p>
+                    </div>
+                    <div class="card text-center">
+                        <div style="width: 140px; height: 200px; border: 2px solid var(--color-border); margin: 0 auto 16px; background: var(--color-bg);"></div>
+                        <h4 class="mb-1">Extra Large</h4>
+                        <p style="font-size: 0.875rem;">9" x 12"</p>
+                        <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 8px;">For professional artists and scrapbooking.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Paper Types -->
+        <section class="section reveal" style="background-color: var(--color-surface);">
+            <div class="container grid grid-cols-2 items-center">
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800" alt="Various paper textures" style="border-radius: var(--radius-lg);">
+                <div style="padding-left: var(--spacing-4);">
+                    <h2 class="mb-4">Archival Paper Selection</h2>
+                    <p class="mb-4">We select papers that resist bleed-through, feathering, and yellowing over time.</p>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <h4 style="margin-bottom: 4px;">Sketch (120gsm)</h4>
+                        <p style="font-size: 0.875rem;">A slight tooth, perfect for graphite, charcoal, and light ink.</p>
+                    </div>
+                    <div style="margin-bottom: 16px;">
+                        <h4 style="margin-bottom: 4px;">Ruled & Dotted (100gsm)</h4>
+                        <p style="font-size: 0.875rem;">Smooth finish for fountain pens, available in 7mm rule or 5mm dot grid.</p>
+                    </div>
+                    <div style="margin-bottom: 16px;">
+                        <h4 style="margin-bottom: 4px;">Mixed Media (160gsm)</h4>
+                        <p style="font-size: 0.875rem;">Heavyweight paper handling light washes, markers, and gouache.</p>
+                    </div>
+                    <div style="margin-bottom: 16px;">
+                        <h4 style="margin-bottom: 4px;">Watercolor (300gsm)</h4>
+                        <p style="font-size: 0.875rem;">Cold-pressed, 100% cotton rag paper for heavy wet media.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Embossing & Personalization -->
+        <section class="section reveal">
+            <div class="container text-center">
+                <h2 class="mb-6">Cover Embellishments</h2>
+                <div class="grid grid-cols-3">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?auto=format&fit=crop&q=80&w=300&h=200" alt="Blind Embossing" style="border-radius: var(--radius-sm); margin-bottom: 16px; object-fit: cover; width: 100%; aspect-ratio: 3/2;">
+                        <h4>Blind Embossing</h4>
+                        <p style="font-size: 0.875rem;">Deeply pressed initials or logos without foil, creating a subtle, tactile shadow in the leather.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1516086571520-25e408e0b677?auto=format&fit=crop&q=80&w=300&h=200" alt="Foil Stamping" style="border-radius: var(--radius-sm); margin-bottom: 16px; object-fit: cover; width: 100%; aspect-ratio: 3/2;">
+                        <h4>Foil Stamping</h4>
+                        <p style="font-size: 0.875rem;">Gold, silver, copper, or rose gold foil pressed into the leather using heated brass type.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&q=80&w=300&h=200" alt="Custom Art" style="border-radius: var(--radius-sm); margin-bottom: 16px; object-fit: cover; width: 100%; aspect-ratio: 3/2;">
+                        <h4>Custom Brass Dies</h4>
+                        <p style="font-size: 0.875rem;">We can convert your artwork or family crest into a custom brass die for stamping.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Binding Systems -->
+        <section class="section reveal" style="background-color: var(--color-primary); color: var(--color-surface);">
+            <div class="container grid grid-cols-2 items-center">
+                <div style="padding-right: var(--spacing-4);">
+                    <h2 style="color: var(--color-surface);" class="mb-4">Binding Systems</h2>
+                    <div class="mb-4">
+                        <h4 style="color: var(--color-accent); margin-bottom: 4px;">Exposed Coptic</h4>
+                        <p style="color: var(--color-secondary); font-size: 0.875rem;">Braided stitching exposed on the spine. Lays 100% flat.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h4 style="color: var(--color-accent); margin-bottom: 4px;">Long-Stitch Wrap</h4>
+                        <p style="color: var(--color-secondary); font-size: 0.875rem;">Sewn directly through a slotted cover with a leather tie wrap.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h4 style="color: var(--color-accent); margin-bottom: 4px;">Refillable Ring / Spiral System</h4>
+                        <p style="color: var(--color-secondary); font-size: 0.875rem;">A leather binder housing standard 6-ring inserts or spiral notebooks for endless reuse.</p>
+                    </div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1585822765355-6b5d92ff1520?auto=format&fit=crop&q=80&w=800" alt="Binding spines" style="border-radius: var(--radius-lg);">
+            </div>
+        </section>
+
+        <!-- Pricing Tiers -->
+        <section id="pricing" class="section reveal">
+            <div class="container">
+                <h2 class="text-center mb-6">Service Packages</h2>
+                <div class="grid grid-cols-3">
+                    <!-- Standard -->
+                    <div class="card text-center" style="display: flex; flex-direction: column;">
+                        <h3 class="mb-2">The Standard</h3>
+                        <div class="mb-4" style="font-size: 2rem; font-weight: 700; color: var(--color-text-primary);">Starts at $85</div>
+                        <ul style="text-align: left; margin-bottom: 32px; flex-grow: 1;">
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Choice of Size (up to Large)</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Standard Leather Colors</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">120gsm Sketch Paper</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Blind Embossed Monogram (3 Letters)</li>
+                        </ul>
+                        <a href="shop.html" class="btn btn--outline" style="width: 100%;">Shop Ready-Made</a>
+                    </div>
+                    <!-- Artisan Custom (Highlighted) -->
+                    <div class="card text-center" style="border: 2px solid var(--color-accent); transform: scale(1.05); display: flex; flex-direction: column; z-index: 2;">
+                        <div style="background: var(--color-accent); color: var(--color-surface); font-size: 0.75rem; font-weight: bold; text-transform: uppercase; padding: 4px 12px; border-radius: 12px; display: inline-block; margin: -32px auto 16px;">Most Popular</div>
+                        <h3 class="mb-2">Artisan Custom</h3>
+                        <div class="mb-4" style="font-size: 2rem; font-weight: 700; color: var(--color-text-primary);">Starts at $145</div>
+                        <ul style="text-align: left; margin-bottom: 32px; flex-grow: 1;">
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Any Size</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Premium Hand-Dyed Leathers</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Any Paper Type (incl. Mixed Media)</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Foil Stamped Monogram</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Choice of Stitching Thread Color</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn--primary" style="width: 100%;">Start Custom Build</a>
+                    </div>
+                    <!-- Heirloom -->
+                    <div class="card text-center" style="display: flex; flex-direction: column;">
+                        <h3 class="mb-2">Heirloom</h3>
+                        <div class="mb-4" style="font-size: 2rem; font-weight: 700; color: var(--color-text-primary);">Starts at $280</div>
+                        <ul style="text-align: left; margin-bottom: 32px; flex-grow: 1;">
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Everything in Artisan Custom</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">300gsm Cotton Watercolor Paper</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Custom Brass Die Stamping (Your Art)</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">Hand-Tooled Leather Details</li>
+                            <li style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 8px;">1-on-1 Design Consultation</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn--outline" style="width: 100%;">Book Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section section--lg reveal text-center" style="background-color: var(--color-surface);">
+            <div class="container">
+                <h2>Have a specific vision?</h2>
+                <p style="max-width: 500px; margin: 0 auto 32px;">Whether it's a corporate order of 50 or a single bespoke wedding guestbook, we can make it happen.</p>
+                <div class="flex justify-center gap-3">
+                    <a href="contact.html" class="btn btn--primary">Contact Atelier</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer reveal">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="index.html" class="logo" aria-label="BIND Home">
+                        <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+                            <text x="0" y="32" font-family="'Playfair Display', serif" font-size="32" font-weight="700" letter-spacing="2">BIND</text>
+                        </svg>
+                    </a>
+                    <p style="margin-top: 16px; font-size: 0.875rem;">Premium artisan leather journals and sketchbooks, bound by hand.</p>
+                </div>
+                <div>
+                    <h4 class="footer__title">Explore</h4>
+                    <div class="footer__links">
+                        <a href="index.html" class="footer__link">Home</a>
+                        <a href="shop.html" class="footer__link">Shop Collections</a>
+                        <a href="about.html" class="footer__link">Our Story</a>
+                        <a href="blog.html" class="footer__link">Journal</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer__title">Services</h4>
+                    <div class="footer__links">
+                        <a href="services.html" class="footer__link">Custom Binding</a>
+                        <a href="services.html" class="footer__link">Foil & Embossing</a>
+                        <a href="booking.html" class="footer__link">Consultations</a>
+                        <a href="contact.html" class="footer__link">Contact Atelier</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer__title">Newsletter</h4>
+                    <p style="font-size: 0.875rem; margin-bottom: 16px;">Notes on craftsmanship, sent monthly.</p>
+                    <form action="#" method="POST" class="flex gap-2">
+                        <input type="email" class="form-input" placeholder="Your email" required aria-label="Email for newsletter">
+                        <button type="submit" class="btn btn--primary" style="padding: 0 16px;">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div>&copy; 2026 BIND. All rights reserved.</div>
+                <div class="flex gap-3">
+                    <a href="#" class="footer__link">Privacy</a>
+                    <a href="#" class="footer__link">Terms</a>
+                    <a href="#" class="footer__link">Returns</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

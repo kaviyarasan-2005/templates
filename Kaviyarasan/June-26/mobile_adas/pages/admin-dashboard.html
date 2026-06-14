@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Calibration Dashboard | Nexo</title>
+  <meta name="description" content="Admin management panel for tracking mobile ADAS calibrations, fleet scheduling, and technician logs.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/utilities.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563EB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='22' y1='12' x2='18' y2='12'/%3E%3Cline x1='6' y1='12' x2='2' y2='12'/%3E%3Cline x1='12' y1='6' x2='12' y2='2'/%3E%3Cline x1='12' y1='22' x2='12' y2='18'/%3E%3C/svg%3E">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    
+    <!-- Collapsible Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="navbar-logo" style="text-decoration: none;">
+          <div class="logo-icon" style="width: 32px; height: 32px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-crosshair" style="width: 18px; height: 18px;"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+          </div>
+          <span class="logo-text" style="font-size: var(--text-md);">Nexo<span>.</span></span>
+        </a>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <span class="sidebar-label">Management</span>
+        <a href="#" class="sidebar-link active"><i data-lucide="layout-dashboard"></i> Overview</a>
+        <a href="#" class="sidebar-link" onclick="alert('Navigation: Orders Panel'); return false;"><i data-lucide="clipboard-list"></i> Calibration Orders <span class="badge badge-accent">8</span></a>
+        <a href="#" class="sidebar-link" onclick="alert('Navigation: User Directory'); return false;"><i data-lucide="users"></i> User Directory</a>
+        <a href="#" class="sidebar-link" onclick="alert('Navigation: Fleet Vans'); return false;"><i data-lucide="truck"></i> Mobile Fleet</a>
+        
+        <span class="sidebar-label">System Logs</span>
+        <a href="#" class="sidebar-link" onclick="alert('Navigation: Hardware Logs'); return false;"><i data-lucide="cpu"></i> Sensor Diagnostics</a>
+        <a href="#" class="sidebar-link" onclick="alert('Navigation: System Settings'); return false;"><i data-lucide="settings"></i> Config Panel</a>
+      </nav>
+      
+      <div class="sidebar-footer" style="padding: var(--space-4); border-top: 1px solid var(--color-border); margin-top: auto;">
+        <a href="../index.html" class="sidebar-link" style="color: var(--color-danger);"><i data-lucide="log-out"></i> Leave Dashboard</a>
+      </div>
+    </aside>
+
+    <!-- Overlay for mobile sidebar -->
+    <div class="dashboard-overlay"></div>
+
+    <!-- Main Panel View -->
+    <main class="dashboard-main-content" style="flex: 1; padding: var(--space-6); margin-inline-start: var(--sidebar-width); max-width: calc(100% - var(--sidebar-width));">
+      
+      <!-- Top Bar -->
+      <header class="dashboard-topbar" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-8); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border);">
+        <div class="flex items-center gap-3">
+          <button class="sidebar-toggle btn-link" style="background: none; border: none; cursor: pointer; color: var(--color-text); padding: 0;"><i data-lucide="menu" style="width: 24px; height: 24px;"></i></button>
+          <h1 class="text-xl font-bold">Admin Management Hub</h1>
+        </div>
+        
+        <div class="flex items-center gap-4">
+          <!-- Search input -->
+          <div class="search-wrapper" style="position: relative;">
+            <input type="text" placeholder="Search orders..." class="search-input" style="padding: var(--space-2) var(--space-4) var(--space-2) var(--space-8); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); font-size: var(--text-sm); max-width: 200px;">
+            <i data-lucide="search" style="position: absolute; left: 8px; top: 12px; width: 14px; height: 14px; color: var(--color-text-muted);"></i>
+          </div>
+
+          <!-- Notification Bell -->
+          <button class="nav-toggle-btn" aria-label="Notifications" onclick="alert('Notifications panel clicked');" style="position: relative;">
+            <i data-lucide="bell"></i>
+            <span class="badge badge-danger" style="position: absolute; top: -5px; right: -5px; width: 8px; height: 8px; padding: 0; border-radius: var(--radius-full);"></span>
+          </button>
+          
+          <!-- Theme & RTL Toggles -->
+          <button class="nav-toggle-btn rtl-toggle" aria-label="Toggle RTL Mode">
+            <span class="toggle-label" style="font-size: var(--text-xs); font-weight: var(--weight-bold);">RTL</span>
+          </button>
+          <button class="nav-toggle-btn theme-toggle" aria-label="Toggle Theme">
+            <i data-lucide="moon"></i>
+          </button>
+          
+          <!-- Profile image -->
+          <img src="../images/download.jpg" alt="Admin Avatar" class="profile-avatar" style="width: 40px; height: 40px; border-radius: var(--radius-full); object-cover: cover;">
+        </div>
+      </header>
+
+      <!-- KPI Overview Cards -->
+      <section class="grid grid-4 mb-8">
+        <div class="card p-6">
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-text-muted text-xs uppercase font-semibold">Total Calibrations</span>
+            <span class="text-success text-xs font-bold flex items-center"><i data-lucide="arrow-up-right"></i> +12%</span>
+          </div>
+          <div class="text-3xl font-bold mb-1">1,482</div>
+          <span class="text-text-muted text-xs">Since launch</span>
+        </div>
+
+        <div class="card p-6">
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-text-muted text-xs uppercase font-semibold">Monthly Revenue</span>
+            <span class="text-success text-xs font-bold flex items-center"><i data-lucide="arrow-up-right"></i> +8%</span>
+          </div>
+          <div class="text-3xl font-bold mb-1">$42,910</div>
+          <span class="text-text-muted text-xs">Current month billing</span>
+        </div>
+
+        <div class="card p-6">
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-text-muted text-xs uppercase font-semibold">Active Vans</span>
+            <span class="text-text-muted text-xs font-bold">5 / 6 Online</span>
+          </div>
+          <div class="text-3xl font-bold mb-1">5</div>
+          <span class="text-text-muted text-xs">Mobile units dispatched</span>
+        </div>
+
+        <div class="card p-6">
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-text-muted text-xs uppercase font-semibold">Pending Bookings</span>
+            <span class="badge badge-danger text-xs">Action Required</span>
+          </div>
+          <div class="text-3xl font-bold mb-1">8</div>
+          <span class="text-text-muted text-xs">Awaiting technician schedule</span>
+        </div>
+      </section>
+
+      <!-- Charts & Quick Action Section -->
+      <section class="charts-row">
+        <!-- Main Performance Chart Area -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Calibration Completion Trends</h3>
+            <span class="text-text-muted text-xs">Weekly breakdown</span>
+          </div>
+          <div class="dashboard-panel-body" style="height: 300px; display: flex; align-items: flex-end; justify-content: space-around; padding: var(--space-8);">
+            <!-- Simple Mock Chart Bars -->
+            <div class="chart-bar" style="width: 40px; height: 60%; background: var(--gradient-accent); border-radius: var(--radius-md); position: relative;" title="Week 1: 82 units">
+              <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 10px;">Wk 1</span>
+            </div>
+            <div class="chart-bar" style="width: 40px; height: 75%; background: var(--gradient-accent); border-radius: var(--radius-md); position: relative;" title="Week 2: 95 units">
+              <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 10px;">Wk 2</span>
+            </div>
+            <div class="chart-bar" style="width: 40px; height: 85%; background: var(--gradient-accent); border-radius: var(--radius-md); position: relative;" title="Week 3: 110 units">
+              <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 10px;">Wk 3</span>
+            </div>
+            <div class="chart-bar" style="width: 40px; height: 95%; background: var(--gradient-accent); border-radius: var(--radius-md); position: relative;" title="Week 4: 125 units">
+              <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 10px;">Wk 4</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick actions buttons -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Quick Dispatch Controls</h3>
+          </div>
+          <div class="dashboard-panel-body flex flex-col gap-3">
+            <button class="quick-action-btn w-full" onclick="alert('Dispatching van 3 to Apex Collision...');"><i data-lucide="navigation"></i> Dispatch Mobile Rig</button>
+            <button class="quick-action-btn w-full" onclick="alert('Exporting PDF invoice templates...');"><i data-lucide="file-output"></i> Export Billing CSV</button>
+            <button class="quick-action-btn w-full" onclick="alert('Sending notification alert to field technicians...');"><i data-lucide="send"></i> Notify Technicians</button>
+            <button class="quick-action-btn w-full" onclick="alert('Generating monthly diagnostic logs...');"><i data-lucide="cpu"></i> Fetch Sensor Firmware Logs</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tables and Activity Row -->
+      <section class="bottom-row mt-8">
+        <!-- Booking Table -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Active Bookings Dispatch Table</h3>
+          </div>
+          <div class="table-responsive" style="padding: var(--space-4);">
+            <table class="table w-full text-left" style="font-size: var(--text-sm);">
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Shop</th>
+                  <th>Service</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2021 Honda Civic</td>
+                  <td>Apex Collision</td>
+                  <td>Front Camera</td>
+                  <td><span class="order-status in-progress"><i data-lucide="loader"></i> Active</span></td>
+                </tr>
+                <tr>
+                  <td>2022 Ford F-150</td>
+                  <td>Elite Body</td>
+                  <td>Radar Alignment</td>
+                  <td><span class="order-status pending"><i data-lucide="clock"></i> Scheduled</span></td>
+                </tr>
+                <tr>
+                  <td>2023 Tesla Model Y</td>
+                  <td>Sarah Glass Co</td>
+                  <td>Surround View</td>
+                  <td><span class="order-status completed"><i data-lucide="check"></i> Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Diagnostic Feed Logs</h3>
+          </div>
+          <div class="dashboard-panel-body">
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-icon blue"><i data-lucide="check-square"></i></div>
+                <div class="activity-text">
+                  <p><strong>Van 2</strong> completed dynamic camera calibration for 2022 Toyota Highlander.</p>
+                  <span class="activity-time">12 minutes ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon orange"><i data-lucide="alert-triangle"></i></div>
+                <div class="activity-text">
+                  <p><strong>Van 4</strong> flagged: Flat space clearance warning during static radar test.</p>
+                  <span class="activity-time">45 minutes ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon green"><i data-lucide="user-plus"></i></div>
+                <div class="activity-text">
+                  <p><strong>System</strong>: New B2B client account created for <em>Apex Collision Centers</em>.</p>
+                  <span class="activity-time">2 hours ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

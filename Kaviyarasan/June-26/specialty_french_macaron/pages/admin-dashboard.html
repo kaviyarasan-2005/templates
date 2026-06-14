@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | La Maison Rose</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C9506B' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 6v6l4 2'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Lato:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/utilities.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+
+  <!-- Sidebar Backdrop -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop" role="presentation" aria-hidden="true"></div>
+
+  <div class="dashboard-page">
+
+    <!-- ── SIDEBAR ────────────────────────────────────────── -->
+    <aside class="dashboard-sidebar" id="dashboard-sidebar" role="navigation" aria-label="Admin navigation">
+      <div class="sidebar-header">
+        <div class="sidebar-logo-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12c0-2.5.93-4.78 2.46-6.54"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="sidebar-brand">
+          <div class="sidebar-brand-name">La Maison Rose</div>
+          <div class="sidebar-brand-role">Admin Portal</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Admin menu">
+        <div class="sidebar-section-label">Overview</div>
+        <a href="#overview" class="sidebar-link active" aria-current="page">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard Overview
+        </a>
+        <a href="#analytics" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; Analytics
+        </a>
+
+        <div class="sidebar-section-label">Management</div>
+        <a href="#users" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          User Management
+          <span class="sidebar-badge">248</span>
+        </a>
+        <a href="#content" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Content Management
+        </a>
+        <a href="#orders" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Orders &amp; Bookings
+          <span class="sidebar-badge">12</span>
+        </a>
+        <a href="#messages" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Messages
+          <span class="sidebar-badge">5</span>
+        </a>
+
+        <div class="sidebar-section-label">System</div>
+        <a href="#settings" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          Settings &amp; Config
+        </a>
+        <a href="../index.html" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Back to Website
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user" role="button" tabindex="0" aria-label="Admin profile">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Chef Isabelle Moreau" class="sidebar-user-avatar">
+          <div>
+            <div class="sidebar-user-name">Isabelle Moreau</div>
+            <div class="sidebar-user-email">admin@lamaisonrose.com</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── MAIN CONTENT ────────────────────────────────────── -->
+    <div class="dashboard-main">
+
+      <!-- Topbar -->
+      <header class="dashboard-topbar" role="banner">
+        <div style="display:flex;align-items:center;gap:var(--sp-4)">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle sidebar" aria-controls="dashboard-sidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <div class="topbar-title">Admin Dashboard</div>
+            <nav class="topbar-breadcrumb" aria-label="Breadcrumb">
+              <span>La Maison Rose</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              <span class="current">Overview</span>
+            </nav>
+          </div>
+        </div>
+        <div class="topbar-controls">
+          <div class="topbar-search" role="search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" placeholder="Search orders, users..." aria-label="Search dashboard">
+          </div>
+          <!-- Theme Toggle -->
+          <button class="topbar-icon-btn" id="theme-toggle" aria-label="Toggle dark/light mode">
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <!-- RTL Toggle -->
+          <button class="topbar-icon-btn rtl-btn" id="rtl-toggle" aria-label="Toggle text direction" title="RTL/LTR" style="width:auto;padding:0 12px;font-size:var(--text-xs);font-weight:700">
+            <span id="rtl-label">RTL</span>
+          </button>
+          <button class="topbar-icon-btn" aria-label="Notifications">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="topbar-notif-dot" aria-label="5 new notifications"></span>
+          </button>
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80" alt="Admin avatar" class="topbar-avatar" aria-label="Admin profile">
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <main class="dashboard-content" id="main-content">
+
+        <!-- Welcome Banner -->
+        <div style="background:linear-gradient(135deg,var(--color-primary) 0%,var(--clr-rose-dark) 100%);border-radius:var(--r-xl);padding:var(--sp-8);margin-bottom:var(--sp-8);color:white;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-4);position:relative;overflow:hidden">
+          <div style="position:absolute;inset-inline-end:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.07)" aria-hidden="true"></div>
+          <div style="position:relative">
+            <div style="font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:var(--sp-2)">Good Morning</div>
+            <h1 style="font-family:var(--font-heading);font-size:var(--text-2xl);color:white;margin-bottom:var(--sp-2)">Welcome back, Isabelle</h1>
+            <p style="color:rgba(255,255,255,0.75);font-size:var(--text-sm)">Here's what's happening at La Maison Rose today.</p>
+          </div>
+          <a href="./contact.html" class="btn" style="background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(8px)">View Reports</a>
+        </div>
+
+        <!-- ── INFOGRAPHIC STAT CARDS ──────────────────────── -->
+        <section aria-labelledby="stats-heading">
+          <h2 id="stats-heading" class="sr-only">Key Statistics</h2>
+          <div class="stats-infographic-grid">
+            <div class="infographic-card rose animate-on-scroll">
+              <div class="infographic-header">
+                <div class="infographic-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                <div class="infographic-change up" aria-label="Up 12%"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>+12%</div>
+              </div>
+              <div class="infographic-label">Total Orders This Month</div>
+              <div class="infographic-value" data-count="1284">0</div>
+              <div class="infographic-mini-chart" aria-hidden="true">
+                <div class="mini-bar" data-h="40" style="height:0%"></div>
+                <div class="mini-bar" data-h="65" style="height:0%"></div>
+                <div class="mini-bar" data-h="50" style="height:0%"></div>
+                <div class="mini-bar" data-h="80" style="height:0%"></div>
+                <div class="mini-bar" data-h="70" style="height:0%"></div>
+                <div class="mini-bar" data-h="90" style="height:0%"></div>
+                <div class="mini-bar" data-h="100" style="height:0%"></div>
+              </div>
+            </div>
+
+            <div class="infographic-card gold animate-on-scroll delay-1">
+              <div class="infographic-header">
+                <div class="infographic-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                <div class="infographic-change up" aria-label="Up 8%"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>+8%</div>
+              </div>
+              <div class="infographic-label">Monthly Revenue</div>
+              <div class="infographic-value">$<span data-count="42680">0</span></div>
+              <div class="infographic-mini-chart" aria-hidden="true">
+                <div class="mini-bar" data-h="55" style="height:0%"></div>
+                <div class="mini-bar" data-h="70" style="height:0%"></div>
+                <div class="mini-bar" data-h="60" style="height:0%"></div>
+                <div class="mini-bar" data-h="85" style="height:0%"></div>
+                <div class="mini-bar" data-h="75" style="height:0%"></div>
+                <div class="mini-bar" data-h="95" style="height:0%"></div>
+                <div class="mini-bar" data-h="100" style="height:0%"></div>
+              </div>
+            </div>
+
+            <div class="infographic-card green animate-on-scroll delay-2">
+              <div class="infographic-header">
+                <div class="infographic-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div class="infographic-change up" aria-label="Up 5%"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>+5%</div>
+              </div>
+              <div class="infographic-label">Active Subscribers</div>
+              <div class="infographic-value" data-count="2140">0</div>
+              <div class="infographic-mini-chart" aria-hidden="true">
+                <div class="mini-bar" data-h="60" style="height:0%"></div>
+                <div class="mini-bar" data-h="72" style="height:0%"></div>
+                <div class="mini-bar" data-h="65" style="height:0%"></div>
+                <div class="mini-bar" data-h="80" style="height:0%"></div>
+                <div class="mini-bar" data-h="88" style="height:0%"></div>
+                <div class="mini-bar" data-h="95" style="height:0%"></div>
+                <div class="mini-bar" data-h="100" style="height:0%"></div>
+              </div>
+            </div>
+
+            <div class="infographic-card blue animate-on-scroll delay-3">
+              <div class="infographic-header">
+                <div class="infographic-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+                <div class="infographic-change down" aria-label="Down 3%"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>-3%</div>
+              </div>
+              <div class="infographic-label">Pending Shipments</div>
+              <div class="infographic-value" data-count="47">0</div>
+              <div class="infographic-mini-chart" aria-hidden="true">
+                <div class="mini-bar" data-h="80" style="height:0%"></div>
+                <div class="mini-bar" data-h="65" style="height:0%"></div>
+                <div class="mini-bar" data-h="70" style="height:0%"></div>
+                <div class="mini-bar" data-h="55" style="height:0%"></div>
+                <div class="mini-bar" data-h="60" style="height:0%"></div>
+                <div class="mini-bar" data-h="50" style="height:0%"></div>
+                <div class="mini-bar" data-h="45" style="height:0%"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── CHARTS ROW ──────────────────────────────────── -->
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--sp-6);margin-bottom:var(--sp-6)">
+          <!-- Revenue Chart -->
+          <div class="dash-section">
+            <div class="dash-section-header">
+              <div>
+                <div class="dash-section-title">Revenue Overview</div>
+                <div class="dash-section-subtitle">Monthly revenue trend — last 7 months</div>
+              </div>
+              <select class="form-select" style="width:auto;min-width:140px;padding:8px 36px 8px 12px" aria-label="Select time period">
+                <option>Last 7 months</option>
+                <option>Last 12 months</option>
+                <option>This year</option>
+              </select>
+            </div>
+            <div class="chart-placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <p>Revenue Bar Chart — Chart.js / D3.js integration point</p>
+            </div>
+          </div>
+
+          <!-- Order Status Donut -->
+          <div class="dash-section">
+            <div class="dash-section-header">
+              <div>
+                <div class="dash-section-title">Order Status</div>
+                <div class="dash-section-subtitle">This month</div>
+              </div>
+            </div>
+            <div class="donut-chart-wrap" aria-label="Order status chart: 65% completed, 20% processing, 15% pending">
+              <svg class="donut-chart-svg" viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="var(--bg-alt)" stroke-width="3"/>
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="var(--color-success)" stroke-width="3" data-pct="65" stroke-linecap="round"/>
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="var(--color-info)"    stroke-width="3" data-pct="20" stroke-dashoffset="35" stroke-linecap="round"/>
+              </svg>
+              <div class="donut-chart-center" aria-hidden="true">
+                <div class="donut-center-value">65%</div>
+                <div class="donut-center-label">Completed</div>
+              </div>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <div class="legend-dot" style="background:var(--color-success)"></div>
+                <span class="legend-label">Completed</span>
+                <span class="legend-value">65%</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-dot" style="background:var(--color-info)"></div>
+                <span class="legend-label">Processing</span>
+                <span class="legend-value">20%</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-dot" style="background:var(--color-warning)"></div>
+                <span class="legend-label">Pending</span>
+                <span class="legend-value">15%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MANAGEMENT BUTTONS ────────────────────────── -->
+        <div class="dash-section" id="management" aria-labelledby="mgmt-heading">
+          <div class="dash-section-header">
+            <div>
+              <div id="mgmt-heading" class="dash-section-title">Management Controls</div>
+              <div class="dash-section-subtitle">Quick access to all admin functions</div>
+            </div>
+          </div>
+          <div class="mgmt-buttons-grid">
+            <button class="mgmt-btn" type="button" aria-label="Manage users">
+              <div class="mgmt-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div class="mgmt-btn-label">User Management</div>
+              <div class="mgmt-btn-sub">248 registered users</div>
+            </button>
+            <button class="mgmt-btn" type="button" aria-label="Manage content">
+              <div class="mgmt-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+              <div class="mgmt-btn-label">Content Management</div>
+              <div class="mgmt-btn-sub">Products, flavors, pages</div>
+            </button>
+            <button class="mgmt-btn" type="button" aria-label="View orders">
+              <div class="mgmt-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+              <div class="mgmt-btn-label">Orders &amp; Bookings</div>
+              <div class="mgmt-btn-sub">12 pending orders</div>
+            </button>
+            <button class="mgmt-btn" type="button" aria-label="View messages">
+              <div class="mgmt-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+              <div class="mgmt-btn-label">Messages &amp; Notifications</div>
+              <div class="mgmt-btn-sub">5 unread messages</div>
+            </button>
+            <button class="mgmt-btn" type="button" aria-label="Settings">
+              <div class="mgmt-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+              <div class="mgmt-btn-label">Settings &amp; Config</div>
+              <div class="mgmt-btn-sub">System preferences</div>
+            </button>
+            <button class="mgmt-btn" type="button" aria-label="Reports">
+              <div class="mgmt-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+              <div class="mgmt-btn-label">Reports &amp; Analytics</div>
+              <div class="mgmt-btn-sub">Revenue, trends, exports</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── RECENT ORDERS TABLE ──────────────────────────── -->
+        <div class="dash-section" id="orders" aria-labelledby="orders-heading">
+          <div class="dash-section-header">
+            <div>
+              <div id="orders-heading" class="dash-section-title">Recent Orders</div>
+              <div class="dash-section-subtitle">Latest 5 orders across all channels</div>
+            </div>
+            <button class="btn btn-ghost btn-sm" type="button">View All Orders</button>
+          </div>
+          <div class="dash-table-wrap">
+            <table class="dash-table" aria-label="Recent orders">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#LMR-4821</strong></td>
+                  <td>Sophie Martin</td>
+                  <td>Wedding Tower</td>
+                  <td><strong>$620.00</strong></td>
+                  <td><span class="status-chip completed">Completed</span></td>
+                  <td>Jun 14, 2026</td>
+                </tr>
+                <tr>
+                  <td><strong>#LMR-4820</strong></td>
+                  <td>James Thornton</td>
+                  <td>Monthly Subscription</td>
+                  <td><strong>$58.00</strong></td>
+                  <td><span class="status-chip processing">Processing</span></td>
+                  <td>Jun 14, 2026</td>
+                </tr>
+                <tr>
+                  <td><strong>#LMR-4819</strong></td>
+                  <td>Amelia Chen</td>
+                  <td>Wedding Favors ×80</td>
+                  <td><strong>$340.00</strong></td>
+                  <td><span class="status-chip pending">Pending</span></td>
+                  <td>Jun 13, 2026</td>
+                </tr>
+                <tr>
+                  <td><strong>#LMR-4818</strong></td>
+                  <td>Luca Rossi</td>
+                  <td>Box — 24 count</td>
+                  <td><strong>$48.00</strong></td>
+                  <td><span class="status-chip completed">Completed</span></td>
+                  <td>Jun 13, 2026</td>
+                </tr>
+                <tr>
+                  <td><strong>#LMR-4817</strong></td>
+                  <td>Priya Sharma</td>
+                  <td>Corporate Event</td>
+                  <td><strong>$980.00</strong></td>
+                  <td><span class="status-chip completed">Completed</span></td>
+                  <td>Jun 12, 2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container" role="region" aria-live="polite" aria-label="Notifications"></div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>if (window.lucide) window.lucide.createIcons();</script>
+</body>
+</html>
