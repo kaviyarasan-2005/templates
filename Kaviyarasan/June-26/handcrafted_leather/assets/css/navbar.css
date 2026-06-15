@@ -333,7 +333,4 @@
   .navbar__brand-tagline { display: none; }
 }
 
-@media (max-width: 640px) {
-  .navbar__controls .navbar__rtl-btn .rtl-label { display: none; }
-  .navbar__controls .navbar__rtl-btn { width: 38px; padding-inline: 0; }
-}
+
