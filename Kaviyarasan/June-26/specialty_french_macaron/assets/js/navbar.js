@@ -88,7 +88,6 @@
           <div class="navbar-controls">
             <!-- RTL Toggle -->
             <button class="ctrl-btn rtl-btn" id="rtl-toggle" aria-label="Toggle text direction" title="Toggle RTL/LTR">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6H3"/><path d="M15 12H3"/><path d="M17 18H3"/><polyline points="19 9 22 6 19 3"/></svg>
               <span id="rtl-label">RTL</span>
             </button>
 
