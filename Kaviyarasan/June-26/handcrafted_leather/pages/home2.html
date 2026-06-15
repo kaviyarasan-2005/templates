@@ -111,7 +111,9 @@
         grid-template-columns: 1fr;
         min-height: auto;
       }
-      .mag-hero__text { padding: var(--space-12) var(--space-6); }
+      .mag-hero__text { padding: var(--space-12) var(--space-6); text-align: center; align-items: center; }
+        .mag-hero__text .flex { justify-content: center; }
+        .mag-hero__meta { justify-content: center; }
       .mag-hero__image-col { height: 50vw; min-height: 280px; position: relative; }
     }
 
@@ -499,9 +501,9 @@
   <!-- Services Horizontal Scroll -->
   <section class="section section--surface" aria-labelledby="services-scroll-heading">
     <div class="container">
-      <header class="section-header reveal" style="text-align:start;">
+      <header class="section-header reveal">
         <span class="section-label">What We Offer</span>
-        <h2 id="services-scroll-heading" style="max-width:480px;">Every Creative Need, Covered</h2>
+        <h2 id="services-scroll-heading">Every Creative Need, Covered</h2>
       </header>
       <div class="services-scroll" aria-label="Services — scroll to see more" tabindex="0">
         <article class="scroll-service-card">
