@@ -21,7 +21,6 @@
                 </div>
                 <div>
                   <span class="footer-brand-name">La Maison Rose</span>
-                  <span class="footer-tagline">Artisan French Patisserie</span>
                 </div>
               </a>
               <p class="footer-desc">Crafting exquisite French macarons and pastries with passion since 2015. Every bite tells a story of tradition, creativity, and love.</p>

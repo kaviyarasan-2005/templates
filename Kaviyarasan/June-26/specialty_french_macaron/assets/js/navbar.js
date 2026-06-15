@@ -21,13 +21,6 @@
       { label: 'Services', href: `${base}/pages/services.html` },
       { label: 'Pricing', href: `${base}/pages/pricing.html` },
       { label: 'Contact', href: `${base}/pages/contact.html` },
-      {
-        label: 'Dashboard',
-        dropdown: [
-          { label: 'User Dashboard',  href: `${base}/pages/user-dashboard.html`,  icon: 'user' },
-          { label: 'Admin Dashboard', href: `${base}/pages/admin-dashboard.html`, icon: 'settings-2' }
-        ]
-      }
     ];
 
     function buildDropdown(items) {
@@ -83,7 +76,6 @@
             </div>
             <div>
               <span class="brand-name">La Maison Rose</span>
-              <span class="brand-tagline">Artisan French Patisserie</span>
             </div>
           </a>
 
