@@ -67,21 +67,7 @@
       window.addEventListener('scroll', updateProgress, { passive: true });
     }
 
-    /* ── Back-to-Top Button ── */
-    var backTop = document.querySelector('.back-to-top');
-    if (backTop) {
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 400) {
-          backTop.classList.add('is-visible');
-        } else {
-          backTop.classList.remove('is-visible');
-        }
-      }, { passive: true });
 
-      backTop.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
   }
 
   /* ── Helpers ── */
