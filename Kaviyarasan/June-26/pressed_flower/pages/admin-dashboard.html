@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Lumiere Botanica Resin Jewelry Studio</title>
+  <meta name="description" content="Manage customer flower preservation queues, workshop timetables, client queries, and sales revenue analytics.">
+  <meta name="theme-color" content="#F8F5F0">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
+  
+  <!-- Theme Manager JS -->
+  <script src="../assets/js/theme.js"></script>
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="pageLoader">
+    <div class="loader-ring"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <div class="brand-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+            <path d="M12 6a6 6 0 0 0-6 6c0 2.22 .9 4.22 2.36 5.66L12 12l3.64 5.66A6 6 0 0 0 18 12a6 6 0 0 0-6-6z"></path>
+            <circle cx="12" cy="12" r="1.5"></circle>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Lumiere Botanica</span>
+          <span class="brand-tagline">Resin Jewelry Studio</span>
+        </div>
+      </a>
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button class="nav-link" aria-expanded="false">
+            Home 
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="dropdown-menu">
+            <a href="../index.html" class="dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Home 1 (Classic Showcase)
+            </a>
+            <a href="home2.html" class="dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+              Home 2 (Detailed Studio)
+            </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="service.html" class="nav-link">Service</a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" class="nav-link">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link active" aria-expanded="false">
+            Dashboard 
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="dropdown-menu">
+            <a href="user-dashboard.html" class="dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              User Dashboard
+            </a>
+            <a href="admin-dashboard.html" class="dropdown-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="4"></line><line x1="8" y1="2" x2="8" y2="4"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Admin Dashboard
+            </a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="navbar-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" aria-label="Toggle Theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- RTL Toggle -->
+        <button class="rtl-toggle" aria-label="Toggle Direction">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 17h-5a5 5 0 0 1-5-5V4"></path>
+            <path d="M3 8h10"></path>
+            <path d="M21 12h-8"></path>
+          </svg>
+          <span>RTL</span>
+        </button>
+
+        <a href="contact.html" class="btn btn-primary btn-sm btn-rounded navbar-cta">Book Workshop</a>
+
+        <!-- Hamburger Menu -->
+        <button class="hamburger" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu">
+      <div class="nav-section">
+        <div class="nav-section-label">Studio Pages</div>
+        <a href="../index.html" class="mobile-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          Home 1 (Classic Showcase)
+        </a>
+        <a href="home2.html" class="mobile-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+          Home 2 (Detailed Studio)
+        </a>
+        <a href="about.html" class="mobile-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          About Us
+        </a>
+        <a href="service.html" class="mobile-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          Services & Custom orders
+        </a>
+        <a href="pricing.html" class="mobile-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          Pricing Tiers
+        </a>
+        <a href="contact.html" class="mobile-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Contact Studio
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-label">Dashboards</div>
+        <a href="user-dashboard.html" class="mobile-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          User Dashboard
+        </a>
+        <a href="admin-dashboard.html" class="mobile-nav-link active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="4"></line><line x1="8" y1="2" x2="8" y2="4"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Admin Dashboard
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-label">Other Links</div>
+        <a href="coming-soon.html" class="mobile-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Coming Soon
+        </a>
+        <a href="404.html" class="mobile-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          404 Error
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Layout -->
+  <main class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section-label">Studio Admin</div>
+      <button class="sidebar-link active">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>
+        <span>Overview</span>
+      </button>
+      <button class="sidebar-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <span>Orders Queue</span>
+        <span class="sidebar-badge" style="background: var(--color-sage-dark);">24</span>
+      </button>
+      <button class="sidebar-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+        <span>Workshops Manager</span>
+      </button>
+
+      <div class="sidebar-section-label">System Control</div>
+      <button class="sidebar-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>Inquiries Inbox</span>
+        <span class="sidebar-badge">12</span>
+      </button>
+      <button class="sidebar-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <span>Global Settings</span>
+      </button>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-content">
+      <!-- Welcome Header -->
+      <header class="flex-between mb-6" style="flex-wrap: wrap; gap: var(--sp-4);">
+        <div>
+          <h2 style="font-size: var(--text-3xl);">Studio Owner Portal</h2>
+          <p class="text-sm">Lumiere Botanica Studio Operations & Queue Control Panel.</p>
+        </div>
+        <div class="flex gap-2">
+          <button class="btn btn-outline btn-sm btn-rounded" onclick="window.BFToast.show('Queue reports exported successfully!', 'success')">Export Queue</button>
+          <button class="btn btn-rose btn-sm btn-rounded" onclick="window.BFToast.show('Cure Chambers diagnostic check: 100% functional', 'success')">System Check</button>
+        </div>
+      </header>
+
+      <!-- KPI Metrics -->
+      <section class="kpi-grid">
+        <!-- KPI 1 -->
+        <div class="kpi-card">
+          <div class="kpi-icon bg-sage text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <div class="kpi-info">
+            <span class="kpi-label">June Revenue</span>
+            <div class="kpi-value">$4,850</div>
+            <div class="kpi-change up">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+              <span>+18.4% vs May</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI 2 -->
+        <div class="kpi-card">
+          <div class="kpi-icon bg-rose text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="kpi-info">
+            <span class="kpi-label">Active Casts</span>
+            <div class="kpi-value">24</div>
+            <span class="text-xs text-muted">14 in UV chambers</span>
+          </div>
+        </div>
+
+        <!-- KPI 3 -->
+        <div class="kpi-card">
+          <div class="kpi-icon bg-dark text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+          <div class="kpi-info">
+            <span class="kpi-label">Workshop Bookings</span>
+            <div class="kpi-value">38</div>
+            <div class="kpi-change up">
+              <span>94% seat capacity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI 4 -->
+        <div class="kpi-card">
+          <div class="kpi-icon text-white" style="background: var(--color-gold);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div class="kpi-info">
+            <span class="kpi-label">New Inquiries</span>
+            <div class="kpi-value">12</div>
+            <span class="text-xs text-muted">Awaiting response</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Infographics (4 Charts) -->
+      <section class="grid grid-2 mb-7">
+        <!-- Infographic 1: Monthly Sales & Revenue -->
+        <div class="infographic-card">
+          <div class="infographic-header">
+            <h4 class="infographic-title">Monthly Revenue Stream (2026)</h4>
+            <span class="text-xs text-muted">Total: $24,800</span>
+          </div>
+          <div class="chart-bar-group">
+            <div class="chart-bar-item">
+              <span class="chart-bar-label">Mar - Spring Open</span>
+              <div class="chart-bar-track">
+                <div class="chart-bar-fill sage" style="width: 55%;"></div>
+              </div>
+              <span class="chart-bar-value">$3,200</span>
+            </div>
+            <div class="chart-bar-item">
+              <span class="chart-bar-label">Apr - Florals Season</span>
+              <div class="chart-bar-track">
+                <div class="chart-bar-fill sage" style="width: 70%;"></div>
+              </div>
+              <span class="chart-bar-value">$4,100</span>
+            </div>
+            <div class="chart-bar-item">
+              <span class="chart-bar-label">May - Bridal Peak</span>
+              <div class="chart-bar-track">
+                <div class="chart-bar-fill sage" style="width: 85%;"></div>
+              </div>
+              <span class="chart-bar-value">$5,200</span>
+            </div>
+            <div class="chart-bar-item">
+              <span class="chart-bar-label">Jun - Midsummer</span>
+              <div class="chart-bar-track">
+                <div class="chart-bar-fill rose" style="width: 80%;"></div>
+              </div>
+              <span class="chart-bar-value">$4,850</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infographic 2: Workshop Registrations (Conic Graduate representation) -->
+        <div class="infographic-card">
+          <div class="infographic-header">
+            <h4 class="infographic-title">Workshop Bookings Breakdown</h4>
+            <span class="text-xs text-muted">38 Registered Guests</span>
+          </div>
+          <div class="donut-chart" style="background: conic-gradient(var(--color-sage) 0% 50%, var(--color-rose) 50% 80%, var(--color-gold) 80% 100%);">
+            <div class="donut-chart-inner">
+              <span class="donut-chart-value">03</span>
+              <span class="donut-chart-label">Classes</span>
+            </div>
+          </div>
+          <div class="donut-legend">
+            <div class="donut-legend-item">
+              <span class="donut-legend-dot" style="background: var(--color-sage);"></span>
+              <span>Casting Basics (50%)</span>
+            </div>
+            <div class="donut-legend-item">
+              <span class="donut-legend-dot" style="background: var(--color-rose);"></span>
+              <span>Domed Rings (30%)</span>
+            </div>
+            <div class="donut-legend-item">
+              <span class="donut-legend-dot" style="background: var(--color-gold);"></span>
+              <span>Bridal Masterclass (20%)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infographic 3: Processing Queue Stages Stack -->
+        <div class="infographic-card">
+          <div class="infographic-header">
+            <h4 class="infographic-title">Active Preservation Stages Queue</h4>
+            <span class="text-xs text-muted">Total: 24 active pieces</span>
+          </div>
+          <div class="chart-bar-group">
+            <div class="chart-bar-item">
+              <span class="chart-bar-label">1. Silica Dehydration</span>
+              <div class="chart-bar-track">
+                <div class="chart-bar-fill earth" style="width: 50%;"></div>
+              </div>
+              <span class="chart-bar-value">12 Items</span>
+            </div>
+            <div class="chart-bar-item">
+              <span class="chart-bar-label">2. Tweezers Layout</span>
+              <div class="chart-bar-track">
+                <div class="chart-bar-fill earth" style="width: 25%;"></div>
+              </div>
+              <span class="chart-bar-value">6 Items</span>
+            </div>
+            <div class="chart-bar-item">
+              <span class="chart-bar-label">3. UV Casting Chambers</span>
+              <div class="chart-bar-track">
+                <div class="chart-bar-fill earth" style="width: 16%;"></div>
+              </div>
+              <span class="chart-bar-value">4 Items</span>
+            </div>
+            <div class="chart-bar-item">
+              <span class="chart-bar-label">4. Buffing & Polishing</span>
+              <div class="chart-bar-track">
+                <div class="chart-bar-fill gold" style="width: 9%;"></div>
+              </div>
+              <span class="chart-bar-value">2 Items</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infographic 4: Client Inquiries Category Breakdown -->
+        <div class="infographic-card">
+          <div class="infographic-header">
+            <h4 class="infographic-title">Inbound Client Inquiries</h4>
+            <span class="text-xs text-muted">Pending Inboxes</span>
+          </div>
+          <div class="mini-stat-row">
+            <span class="mini-stat-label">Wedding Preservations</span>
+            <span class="mini-stat-value">6 Requests</span>
+          </div>
+          <div class="mini-stat-row">
+            <span class="mini-stat-label">Memorial Floral Casts</span>
+            <span class="mini-stat-value">3 Requests</span>
+          </div>
+          <div class="mini-stat-row">
+            <span class="mini-stat-label">Workshop Group Queries</span>
+            <span class="mini-stat-value">2 Requests</span>
+          </div>
+          <div class="mini-stat-row">
+            <span class="mini-stat-label">Custom Wholesale orders</span>
+            <span class="mini-stat-value">1 Request</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detailed Orders Queue Table -->
+      <section class="card p-6">
+        <h4 class="mb-4">Preservation Orders Queue</h4>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Client</th>
+                <th>Keepsake Type</th>
+                <th>Preservation Stage</th>
+                <th>Cure Chamber Temp</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>#4890</strong></td>
+                <td>Evelyn Vance</td>
+                <td>Signature Bridal Set</td>
+                <td><span class="badge badge-warning">Resin Layer Curing</span></td>
+                <td>74.2 °F (Optimal)</td>
+                <td>
+                  <button class="btn btn-ghost btn-sm" onclick="window.BFToast.show('Notification email sent to Evelyn!', 'success')">Notify Client</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>#4891</strong></td>
+                <td>Charlotte Harris</td>
+                <td>Petite Silver Pendant</td>
+                <td><span class="badge badge-sage">Silica Dehydrating</span></td>
+                <td>68.5 °F (Ambient)</td>
+                <td>
+                  <button class="btn btn-ghost btn-sm" onclick="window.BFToast.show('Notification email sent to Charlotte!', 'success')">Notify Client</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>#4892</strong></td>
+                <td>Franklin Thorne</td>
+                <td>Custom Resin Cufflinks</td>
+                <td><span class="badge badge-success">Buffing & Polishing</span></td>
+                <td>76.0 °F (Polished)</td>
+                <td>
+                  <button class="btn btn-rose btn-sm text-white" onclick="window.BFToast.show('Cufflinks marked as shipped!', 'success')">Ship Piece</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                <path d="M12 6a6 6 0 0 0-6 6c0 2.22 .9 4.22 2.36 5.66L12 12z"></path>
+              </svg>
+            </div>
+            <div class="footer-brand-name">
+              Lumiere Botanica
+              <span class="footer-brand-tag">Resin Jewelry Studio</span>
+            </div>
+          </a>
+          <p>Handcrafting the preservation of flowers, foliage, and natural treasures in timeless, crystal-clear resin jewelry.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com" class="social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://pinterest.com" class="social-link" aria-label="Pinterest">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22a9 9 0 0 1-2.36-1.57C3.17 17.94 2 14.88 2 12a10 10 0 1 1 18.9 4.9C20.3 19.3 17 22 13 22c-2.3 0-4-.9-4.8-1.5-.7-.5-.7-.5-1.1.2A5 5 0 0 1 8 22z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            </a>
+            <a href="https://facebook.com" class="social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Studio</h4>
+          <div class="footer-links">
+            <a href="about.html">Our Artisan Story</a>
+            <a href="service.html">Botanical Collections</a>
+            <a href="pricing.html">Pricing Structure</a>
+            <a href="../index.html#workshops">Upcoming Workshops</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <div class="footer-links">
+            <a href="service.html#custom">Bridal Bouquets</a>
+            <a href="service.html#memorial">Memorial Flowers</a>
+            <a href="service.html#tutorial">Flower Drying Guide</a>
+            <a href="../index.html#faq">FAQ & Inquiries</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Studio Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="footer-contact-text">
+              <span>Visit Us</span>
+              <p>404 Sage Botanica Way, Suite B, Gardenia Grove</p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="footer-contact-text">
+              <span>Email</span>
+              <a href="mailto:hello@lumierebotanica.com">hello@lumierebotanica.com</a>
+            </div>
+          </div>
+
+          <div class="footer-newsletter">
+            <h4>Botanical Gazette</h4>
+            <p>Receive casting updates and early workshop schedules.</p>
+            <form class="newsletter-form">
+              <input type="email" class="newsletter-input" placeholder="Your Email Address" required aria-label="Email address for newsletter">
+              <button type="submit" class="btn btn-rose btn-sm" aria-label="Subscribe to newsletter">Join</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span class="footer-copyright">&copy; 2026 Lumiere Botanica Studio. All Rights Reserved. Designed by Antigravity.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+        <div class="footer-certs">
+          <div class="cert-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+            <span>Artisan Handcrafted</span>
+          </div>
+          <div class="cert-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Sustainably Sourced Flora</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" title="Back to Top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

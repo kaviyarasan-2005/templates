@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon — Lumiere Botanica Resin Jewelry Studio</title>
+  <meta name="description" content="A new collection of resin botanical keepsakes is curing in our studio. Register for early-bird previews and launch party access.">
+  <meta name="theme-color" content="#F8F5F0">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
+  
+  <!-- Theme Manager JS -->
+  <script src="../assets/js/theme.js"></script>
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="pageLoader">
+    <div class="loader-ring"></div>
+  </div>
+
+  <!-- Full Page Centered Content -->
+  <main class="full-page">
+    <div class="full-page-bg"></div>
+    <div class="container text-center fade-up" style="max-width: 600px; z-index: 1;">
+      
+      <!-- Flower Logo Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-sage mb-4" style="margin: 0 auto;">
+        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M12 2v4M12 18v4M4 12h4M16 12h4"></path>
+      </svg>
+      
+      <div class="hero-badge" style="margin-bottom: var(--sp-4);">
+        <span>Curing In Progress</span>
+      </div>
+      
+      <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.2;" class="mb-4">New Botanical Jewelry Collection <span class="text-gradient">Curing Soon</span></h2>
+      <p style="color: var(--text-secondary);">Our custom silica drying cabinets are filled with midsummer blossoms, and our UV-curing chambers are humming. We are preparing to unveil our new collection of crystal resin rings, sterling silver pendants, and pressed fern frames.</p>
+      
+      <!-- Countdown Timer Widget (Handled in main.js) -->
+      <div class="countdown-grid">
+        <div class="countdown-box">
+          <span class="countdown-value" id="daysVal">30</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-value" id="hoursVal">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-value" id="minutesVal">00</span>
+          <span class="countdown-label">Min</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-value" id="secondsVal">00</span>
+          <span class="countdown-label">Sec</span>
+        </div>
+      </div>
+      
+      <!-- Teaser Registration Form -->
+      <form class="newsletter-form" style="max-width: 440px; margin: 0 auto;">
+        <input type="email" class="newsletter-input" placeholder="Enter your email for early access..." required aria-label="Email address for notification">
+        <button type="submit" class="btn btn-rose" aria-label="Notify me of launch">Notify Me</button>
+      </form>
+      
+      <div class="mt-6">
+        <a href="../index.html" class="btn btn-ghost btn-sm btn-rounded">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
+          Go Back Home
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
