@@ -13,6 +13,14 @@
   <link rel="stylesheet" href="../assets/css/navbar.css" />
   <link rel="stylesheet" href="../assets/css/footer.css" />
   <style>
+    /* ── About Split ── */
+    .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    @media (max-width: 900px) { 
+      .about-split { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .about-split .gold-line { margin-inline: auto; }
+      .timeline { width: fit-content; margin-inline: auto; text-align: start; }
+    }
+
     /* ── Timeline ── */
     .timeline { position: relative; padding-inline-start: 3rem; }
     .timeline::before {
@@ -86,7 +94,7 @@
 
     /* Awards */
     .awards-bar {
-      background: var(--color-footer-bg, var(--forest-green-dark));
+      background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);
       padding-block: var(--space-8);
     }
     .awards-inner {
@@ -98,13 +106,13 @@
     }
     .award-item {
       text-align: center;
-      color: rgba(248,245,238,0.8);
+      color: var(--color-text-secondary);
     }
     .award-item__name {
       font-family: var(--font-heading);
       font-size: var(--font-size-base);
       font-weight: 600;
-      color: var(--antique-gold);
+      color: var(--color-text-primary);
       margin-bottom: var(--space-1);
     }
     .award-item__year { font-size: var(--font-size-xs); opacity: 0.6; letter-spacing: 0.08em; margin-bottom: 0; }
@@ -186,7 +194,7 @@
   <!-- Brand Story + Timeline -->
   <section class="section" aria-labelledby="story-heading">
     <div class="container">
-      <div class="about-split" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
+      <div class="about-split">
         <div class="reveal reveal--left">
           <span class="section-label">Our Beginning</span>
           <h2 id="story-heading">From a Garage Workshop to a Global Studio</h2>
@@ -334,11 +342,11 @@
     <div class="container">
       <div class="awards-inner">
         <div class="award-item"><p class="award-item__name">Guild of Book Workers Award</p><p class="award-item__year">Excellence in Craft — 2015</p></div>
-        <div class="award-item" aria-hidden="true" style="width:1px;height:40px;background:rgba(255,255,255,0.1);"></div>
+        <div class="award-item" aria-hidden="true" style="width:1px;height:40px;background:var(--color-border);"></div>
         <div class="award-item"><p class="award-item__name">London Craft Week Feature</p><p class="award-item__year">Artisan Studio — 2019 &amp; 2023</p></div>
-        <div class="award-item" aria-hidden="true" style="width:1px;height:40px;background:rgba(255,255,255,0.1);"></div>
+        <div class="award-item" aria-hidden="true" style="width:1px;height:40px;background:var(--color-border);"></div>
         <div class="award-item"><p class="award-item__name">FSC Certified Materials</p><p class="award-item__year">Since 2020</p></div>
-        <div class="award-item" aria-hidden="true" style="width:1px;height:40px;background:rgba(255,255,255,0.1);"></div>
+        <div class="award-item" aria-hidden="true" style="width:1px;height:40px;background:var(--color-border);"></div>
         <div class="award-item"><p class="award-item__name">Sustainable Leather Standard</p><p class="award-item__year">Certified Since 2021</p></div>
       </div>
     </div>
@@ -366,7 +374,7 @@
       <div class="footer__grid">
         <!-- Brand -->
         <div class="footer__brand">
-          <a href="../index.html" class="footer__logo" aria-label="LeatherCraft Bindery � Home">
+          <a href="../index.html" class="footer__logo" aria-label="LeatherCraft Bindery � Home">
             <div class="footer__logo-icon" aria-hidden="true">
               <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="4" y="6" width="5" height="32" rx="2" fill="#2F5D50"/>
