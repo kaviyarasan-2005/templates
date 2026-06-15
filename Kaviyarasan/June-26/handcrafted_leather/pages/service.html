@@ -22,7 +22,12 @@
       align-items: center;
     }
 
-    @media (max-width: 900px) { .service-detail { grid-template-columns: 1fr; gap: 2.5rem; } }
+    @media (max-width: 900px) { 
+      .service-detail { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; } 
+      .service-detail .gold-line { margin-inline: auto; }
+      .service-detail .flex { justify-content: center; }
+      .service-feature { justify-content: center; text-align: left; }
+    }
 
     .service-detail__image {
       border-radius: var(--radius-2xl);
