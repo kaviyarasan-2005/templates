@@ -142,12 +142,16 @@
     /* Floating journal mockup */
     .hero__mockup {
       position: absolute;
-      right: 5%;
+      inset-inline-end: 5%;
       top: 50%;
       transform: translateY(-75%);
       width: min(420px, 38vw);
       z-index: 2;
       animation: fade-in-left 1s ease 0.5s both;
+    }
+
+    [dir="rtl"] .hero__mockup {
+      animation-name: fade-in-right;
     }
 
     .hero__mockup img {
@@ -205,6 +209,14 @@
 
     @media (max-width: 900px) {
       .about-split { grid-template-columns: 1fr; gap: 3rem; }
+      .about-split__content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .about-split__content .gold-line { margin-inline: auto; }
+      .about-split__content .flex { justify-content: center; }
       .hero {
         flex-direction: column;
         justify-content: center;
@@ -532,7 +544,7 @@
             <div class="about-split__badge-label">Years of<br>Craftsmanship</div>
           </div>
         </div>
-        <div class="reveal reveal--right">
+        <div class="about-split__content reveal reveal--right">
           <span class="section-label">Our Heritage</span>
           <h2 id="about-heading">Where Leather Meets Artistry</h2>
           <span class="gold-line"></span>
