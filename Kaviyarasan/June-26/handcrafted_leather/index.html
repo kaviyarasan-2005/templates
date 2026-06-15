@@ -33,6 +33,7 @@
       position: absolute;
       inset: 0;
       object-fit: cover;
+      object-position: bottom;
       width: 100%;
       height: 100%;
       opacity: 0.18;
@@ -143,7 +144,7 @@
       position: absolute;
       right: 5%;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-75%);
       width: min(420px, 38vw);
       z-index: 2;
       animation: fade-in-left 1s ease 0.5s both;
@@ -204,7 +205,28 @@
 
     @media (max-width: 900px) {
       .about-split { grid-template-columns: 1fr; gap: 3rem; }
-      .hero__mockup { display: none; }
+      .hero {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: calc(var(--navbar-height) + 2rem);
+      }
+      .hero__ctas {
+        justify-content: center;
+      }
+      .hero__mockup {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 85%;
+        max-width: 320px;
+        margin: 3rem auto 5rem;
+      }
+      .hero__scroll {
+        display: none;
+      }
     }
 
     .about-split__image-wrap {
