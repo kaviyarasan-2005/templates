@@ -285,6 +285,12 @@ address { font-style: normal; }
 .page-hero__content {
   position: relative;
   z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .page-hero__eyebrow {
