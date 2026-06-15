@@ -783,6 +783,61 @@
 .booking-icon svg { width: 26px; height: 26px; }
 
 /* =========================================================
+   CTA BANNER
+   ========================================================= */
+.cta-banner {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--clr-rose-dark) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  top: -200px; right: -100px;
+  border-radius: var(--r-full);
+}
+
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  bottom: -150px; left: -50px;
+  border-radius: var(--r-full);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.cta-title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
+  color: white;
+  margin-bottom: var(--sp-4);
+}
+
+.cta-desc {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 52ch;
+  margin-inline: auto;
+  margin-bottom: var(--sp-8);
+}
+
+.cta-actions {
+  display: flex;
+  gap: var(--sp-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
    404 PAGE
    ========================================================= */
 .page-404 {

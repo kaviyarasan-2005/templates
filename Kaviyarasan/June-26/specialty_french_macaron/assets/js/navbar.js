@@ -13,8 +13,8 @@
       {
         label: 'Home',
         dropdown: [
-          { label: 'Home — Classic', href: `${base}/index.html`, icon: 'home' },
-          { label: 'Home — Modern', href: `${base}/pages/home2.html`, icon: 'layout-grid' }
+          { label: 'Home 1', href: `${base}/index.html` },
+          { label: 'Home 2', href: `${base}/pages/home2.html` }
         ]
       },
       { label: 'About',   href: `${base}/pages/about.html` },
@@ -28,7 +28,6 @@
       return `<div class="dropdown" role="menu">
         ${items.map(item => `
           <a href="${item.href}" class="dropdown-item" role="menuitem">
-            <i data-lucide="${item.icon}"></i>
             ${item.label}
           </a>`).join('')}
       </div>`;
