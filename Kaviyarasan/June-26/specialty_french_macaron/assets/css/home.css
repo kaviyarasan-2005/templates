@@ -40,14 +40,20 @@
 .hero-container {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: var(--sp-12);
   padding-block: var(--sp-24);
 }
 
-.hero-content {}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .hero-eyebrow {
   display: inline-flex;
@@ -88,12 +94,14 @@
   line-height: var(--leading-relaxed);
   max-width: 48ch;
   margin-bottom: var(--sp-8);
+  margin-inline: auto;
 }
 
 .hero-actions {
   display: flex;
   gap: var(--sp-4);
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hero-trust {
@@ -102,6 +110,7 @@
   align-items: center;
   gap: var(--sp-4);
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hero-trust-item {
