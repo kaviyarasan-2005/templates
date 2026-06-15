@@ -20,6 +20,7 @@
       { label: 'About',   href: `${base}/pages/about.html` },
       { label: 'Services', href: `${base}/pages/services.html` },
       { label: 'Pricing', href: `${base}/pages/pricing.html` },
+      { label: 'Blog', href: `${base}/pages/blog.html` },
       { label: 'Contact', href: `${base}/pages/contact.html` },
     ];
 
