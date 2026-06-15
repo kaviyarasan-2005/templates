@@ -31,28 +31,21 @@
 }
 
 .footer__logo-icon {
-  width: 40px;
-  height: 40px;
-  color: var(--warm-ivory);
+  width: 36px;
+  height: 36px;
+  color: var(--color-primary);
   flex-shrink: 0;
+  transition: transform var(--transition-base);
 }
+
+.footer__logo:hover .footer__logo-icon { transform: rotate(-4deg) scale(1.05); }
 
 .footer__brand-name {
   font-family: var(--font-heading);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: 700;
   color: var(--warm-ivory);
-  display: block;
-}
-
-.footer__brand-tagline {
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--antique-gold);
-  display: block;
-  margin-top: 2px;
+  letter-spacing: -0.02em;
 }
 
 .footer__desc {
