@@ -28,8 +28,8 @@
             <div class="nav-item">
               <a href="#" class="nav-link ${page === 'index.html' || page === 'home2.html' ? 'active' : ''}">Home <i data-lucide="chevron-down"></i></a>
               <div class="dropdown-menu">
-                <a href="${basePath}index.html" class="dropdown-link ${page === 'index.html' ? 'active' : ''}"><i data-lucide="home"></i> Home 1 (Landing)</a>
-                <a href="${pagesPath}home2.html" class="dropdown-link ${page === 'home2.html' ? 'active' : ''}"><i data-lucide="layout"></i> Home 2 (Alternate)</a>
+                <a href="${basePath}index.html" class="dropdown-link ${page === 'index.html' ? 'active' : ''}">Home 1</a>
+                <a href="${pagesPath}home2.html" class="dropdown-link ${page === 'home2.html' ? 'active' : ''}">Home 2</a>
               </div>
             </div>
             <div class="nav-item">
@@ -47,10 +47,8 @@
             <div class="nav-item">
               <a href="#" class="nav-link ${page.includes('dashboard') || page === 'login.html' || page === 'signup.html' ? 'active' : ''}">Dashboard <i data-lucide="chevron-down"></i></a>
               <div class="dropdown-menu">
-                <a href="${pagesPath}user-dashboard.html" class="dropdown-link ${page === 'user-dashboard.html' ? 'active' : ''}"><i data-lucide="user"></i> User Dashboard</a>
-                <a href="${pagesPath}admin-dashboard.html" class="dropdown-link ${page === 'admin-dashboard.html' ? 'active' : ''}"><i data-lucide="shield"></i> Admin Dashboard</a>
-                <a href="${pagesPath}login.html" class="dropdown-link ${page === 'login.html' ? 'active' : ''}"><i data-lucide="log-in"></i> Sign In</a>
-                <a href="${pagesPath}signup.html" class="dropdown-link ${page === 'signup.html' ? 'active' : ''}"><i data-lucide="user-plus"></i> Register Shop</a>
+                <a href="${pagesPath}admin-dashboard.html" class="dropdown-link ${page === 'admin-dashboard.html' ? 'active' : ''}">Admin</a>
+                <a href="${pagesPath}user-dashboard.html" class="dropdown-link ${page === 'user-dashboard.html' ? 'active' : ''}">User</a>
               </div>
             </div>
           </div>
@@ -86,8 +84,8 @@
         <div class="mobile-nav-links">
           <a href="#" class="mobile-nav-link mobile-dropdown-trigger">Home <i data-lucide="chevron-down"></i></a>
           <div class="mobile-dropdown">
-            <a href="${basePath}index.html"><i data-lucide="home"></i> Home 1 (Landing)</a>
-            <a href="${pagesPath}home2.html"><i data-lucide="layout"></i> Home 2 (Alternate)</a>
+            <a href="${basePath}index.html">Home 1</a>
+            <a href="${pagesPath}home2.html">Home 2</a>
           </div>
           
           <a href="${pagesPath}about.html" class="mobile-nav-link ${page === 'about.html' ? 'active' : ''}">About</a>
@@ -97,11 +95,9 @@
           
           <a href="#" class="mobile-nav-link mobile-dropdown-trigger">Dashboard <i data-lucide="chevron-down"></i></a>
           <div class="mobile-dropdown">
-            <a href="${pagesPath}user-dashboard.html"><i data-lucide="user"></i> User Dashboard</a>
-            <a href="${pagesPath}admin-dashboard.html"><i data-lucide="shield"></i> Admin Dashboard</a>
-            <a href="${pagesPath}login.html"><i data-lucide="log-in"></i> Sign In</a>
-            <a href="${pagesPath}signup.html"><i data-lucide="user-plus"></i> Register Shop</a>
-        </div>
+            <a href="${pagesPath}admin-dashboard.html">Admin</a>
+            <a href="${pagesPath}user-dashboard.html">User</a>
+          </div>
       </div>
     </header>
   `;
