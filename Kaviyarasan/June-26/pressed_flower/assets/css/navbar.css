@@ -288,6 +288,7 @@
 
 .hamburger span {
   display: block;
+  width: 100%;
   height: 2px;
   background: var(--text-primary);
   border-radius: 2px;
@@ -308,18 +309,24 @@
 
 /* ---- MOBILE MENU ---- */
 .mobile-menu {
-  position: fixed;
-  top: 72px;
+  position: absolute;
+  top: 100%;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: calc(100vh - 72px);
   background: var(--bg-card);
   z-index: calc(var(--z-nav) - 1);
   overflow-y: auto;
   transform: translateX(-100%);
-  transition: transform var(--transition-slow);
+  transition: transform var(--transition-slow), opacity var(--transition-slow), visibility var(--transition-slow);
   padding: var(--sp-5);
   border-top: 1px solid var(--border-color);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.navbar.scrolled .mobile-menu {
+  height: calc(100vh - 64px);
 }
 
 [dir="rtl"] .mobile-menu {
@@ -328,6 +335,8 @@
 
 .mobile-menu.open {
   transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-menu .nav-section {
