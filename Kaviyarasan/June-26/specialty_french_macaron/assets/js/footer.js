@@ -66,7 +66,7 @@
               </nav>
             </div>
 
-            <!-- Contact & Newsletter -->
+            <!-- Contact -->
             <div>
               <h3 class="footer-col-title">Get in Touch</h3>
               <address style="font-style:normal">
@@ -80,11 +80,14 @@
                 </div>
                 <div class="footer-contact-item">
                   <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  <span>hello@lamaisonrose.com</span>
+                  <span>hello@liora.com</span>
                 </div>
               </address>
+            </div>
 
-              <h3 class="footer-col-title" style="margin-top:24px">Newsletter</h3>
+            <!-- Newsletter -->
+            <div>
+              <h3 class="footer-col-title">Newsletter</h3>
               <p style="font-size:0.8rem;color:rgba(255,248,240,0.45);margin-bottom:12px">Monthly macaron news, recipes &amp; exclusive offers.</p>
               <form class="footer-newsletter-form" action="#" method="POST" aria-label="Newsletter signup">
                 <label for="footer-email" class="sr-only">Email address</label>
@@ -108,15 +111,10 @@
 
         <!-- Footer Bottom -->
         <div class="footer-bottom">
-          <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;width:100%">
-            <p class="footer-copy">
+          <div class="container" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:16px;width:100%;text-align:center">
+            <p class="footer-copy" style="margin: 0 auto; text-align: center;">
               &copy; <span id="footer-year"></span> Liora. All rights reserved. Crafted with passion.
             </p>
-            <nav class="footer-legal" aria-label="Legal links">
-              <a href="#" class="footer-legal-link">Privacy Policy</a>
-              <a href="#" class="footer-legal-link">Terms of Service</a>
-              <a href="#" class="footer-legal-link">Cookie Policy</a>
-            </nav>
           </div>
         </div>
       </footer>

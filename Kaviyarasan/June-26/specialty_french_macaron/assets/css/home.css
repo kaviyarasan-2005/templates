@@ -692,6 +692,13 @@
   .hero-visual       { display: none; }
   .tower-layout,
   .subscription-layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+  .tower-content     { padding-inline-start: 0; text-align: center; }
+  .subscription-content { text-align: center; }
+  .tower-content .section-tag, .subscription-content .section-tag { margin-inline: auto; justify-content: center; }
+  .tower-content > div:last-child { justify-content: center; }
+  .tower-feature     { flex-direction: column; align-items: center; text-align: center; }
+  .subscription-perk { justify-content: center; }
+  .subscription-content p { margin-inline: auto; }
   .steps-grid        { grid-template-columns: repeat(2, 1fr); }
   .steps-grid::after { display: none; }
   .flavors-grid      { grid-template-columns: repeat(2, 1fr); }

@@ -347,9 +347,16 @@
   padding: var(--sp-3) var(--sp-4);
   color: var(--text-primary);
   font-weight: 500;
+  font-size: 1rem;
+  font-family: var(--font-body);
   border-radius: var(--r-sm);
   transition: background var(--t-fast), color var(--t-fast);
   min-height: 44px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
 }
 
 .mobile-nav-link:hover, .mobile-nav-link.active {
@@ -410,7 +417,7 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1fr 1.25fr 1.25fr;
   gap: var(--sp-12);
   padding-bottom: var(--sp-16);
 }
