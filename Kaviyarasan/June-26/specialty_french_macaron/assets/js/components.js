@@ -1,5 +1,5 @@
 /* ============================================================
-   La Maison Rose — Shared Component Logic
+   Liora — Shared Component Logic
    ============================================================ */
 (function () {
   'use strict';

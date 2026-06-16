@@ -1,5 +1,5 @@
 /* ============================================================
-   La Maison Rose — Shared Footer Injection
+   Liora — Shared Footer Injection
    ============================================================ */
 (function () {
   'use strict';
@@ -15,12 +15,12 @@
 
             <!-- Brand Column -->
             <div class="footer-brand">
-              <a href="${base}/index.html" class="footer-logo" aria-label="La Maison Rose Home">
+              <a href="${base}/index.html" class="footer-logo" aria-label="Liora Home">
                 <div class="footer-logo-icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12c0-2.5.93-4.78 2.46-6.54"/><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="1"/></svg>
                 </div>
                 <div>
-                  <span class="footer-brand-name">La Maison Rose</span>
+                  <span class="footer-brand-name">Liora</span>
                 </div>
               </a>
               <p class="footer-desc">Crafting exquisite French macarons and pastries with passion since 2015. Every bite tells a story of tradition, creativity, and love.</p>
@@ -110,7 +110,7 @@
         <div class="footer-bottom">
           <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;width:100%">
             <p class="footer-copy">
-              &copy; <span id="footer-year"></span> La Maison Rose. All rights reserved. Crafted with passion.
+              &copy; <span id="footer-year"></span> Liora. All rights reserved. Crafted with passion.
             </p>
             <nav class="footer-legal" aria-label="Legal links">
               <a href="#" class="footer-legal-link">Privacy Policy</a>
@@ -143,7 +143,7 @@
         e.preventDefault();
         const email = form.querySelector('input[type="email"]').value;
         if (email && window.showToast) {
-          window.showToast('success', 'Subscribed! Welcome to La Maison Rose.');
+          window.showToast('success', 'Subscribed! Welcome to Liora.');
           form.reset();
         }
       });

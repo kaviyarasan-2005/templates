@@ -1,5 +1,5 @@
 /* ============================================================
-   La Maison Rose — Shared Navbar Injection
+   Liora — Shared Navbar Injection
    ============================================================ */
 (function () {
   'use strict';
@@ -70,12 +70,12 @@
         <div class="navbar-inner">
 
           <!-- Brand -->
-          <a href="${base}/index.html" class="navbar-brand" aria-label="La Maison Rose Home">
+          <a href="${base}/index.html" class="navbar-brand" aria-label="Liora Home">
             <div class="brand-logo" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12c0-2.5.93-4.78 2.46-6.54"/><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="1"/></svg>
             </div>
             <div>
-              <span class="brand-name">La Maison Rose</span>
+              <span class="brand-name">Liora</span>
             </div>
           </a>
 

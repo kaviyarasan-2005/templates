@@ -1,5 +1,5 @@
 /* ============================================================
-   La Maison Rose — Core JavaScript
+   Liora — Core JavaScript
    Theme Toggle, RTL, Animations, Counters, Form Validation
    ============================================================ */
 (function () {
