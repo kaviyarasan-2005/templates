@@ -48,11 +48,11 @@
       margin-bottom: var(--sp-20);
     }
     .blog-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-lg);
       overflow: hidden;
-      transition: all var(--transition-normal);
+      transition: all var(--t-base);
       display: flex;
       flex-direction: column;
     }
@@ -128,10 +128,74 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      transition: gap var(--transition-fast);
+      transition: gap var(--t-fast);
     }
     .blog-card:hover .blog-read-more {
       gap: 0.75rem;
+    }
+
+    /* Editor Card Styles */
+    .editor-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-lg);
+      padding: var(--sp-12);
+      display: flex;
+      gap: var(--sp-12);
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-sm);
+    }
+    .editor-card-img-wrap {
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+    }
+    .editor-card-img {
+      width: 100%;
+      border-radius: var(--r-lg);
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+    .editor-card-badge {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      background: var(--bg-surface);
+      padding: var(--sp-4);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-md);
+    }
+    .editor-card-content {
+      flex: 1;
+      min-width: 300px;
+    }
+    .editor-card-desc {
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--sp-6);
+    }
+
+    /* Mobile overrides for editor card */
+    @media (max-width: 768px) {
+      .editor-card {
+        padding: var(--sp-6);
+        gap: var(--sp-8);
+        text-align: center;
+      }
+      .editor-card-img-wrap {
+        min-width: 100%;
+      }
+      .editor-card-content {
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .editor-card-badge {
+        right: 1rem;
+        bottom: -1rem;
+      }
     }
   </style>
 </head>
@@ -148,7 +212,7 @@
 
   <main class="main-content" id="main-content">
     
-    <header class="blog-header" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/images/img_95be04b8.jpg') center/cover;">
+    <header class="blog-header" style="background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('../assets/images/img_95be04b8.jpg') center/cover;">
       <div class="container">
         <h1 class="blog-title fade-in-up">Journal & Recipes</h1>
         <p class="blog-subtitle fade-in-up delay-1">Discover our latest stories, behind-the-scenes moments, and exclusive patisserie recipes directly from our Parisian kitchen.</p>
@@ -243,17 +307,14 @@
         </div>
         <div class="grid grid-3">
           <a href="#" class="card flavor-card-v2" style="text-decoration:none; display:block; padding:var(--sp-10); text-align:center; transition:transform 0.3s ease;">
-            <div style="font-size:2.5rem; margin-bottom:var(--sp-4);">📖</div>
             <h3 class="flavor-title">Our Recipes</h3>
             <p class="flavor-notes">Step-by-step guides to recreating our signature pastries.</p>
           </a>
           <a href="#" class="card flavor-card-v2" style="text-decoration:none; display:block; padding:var(--sp-10); text-align:center; transition:transform 0.3s ease;">
-            <div style="font-size:2.5rem; margin-bottom:var(--sp-4);">✨</div>
             <h3 class="flavor-title">Behind the Scenes</h3>
             <p class="flavor-notes">A glimpse into our daily life in the Parisian kitchen.</p>
           </a>
           <a href="#" class="card flavor-card-v2" style="text-decoration:none; display:block; padding:var(--sp-10); text-align:center; transition:transform 0.3s ease;">
-            <div style="font-size:2.5rem; margin-bottom:var(--sp-4);">🌸</div>
             <h3 class="flavor-title">Seasonal Flavors</h3>
             <p class="flavor-notes">Discover what's new and fresh on our menu this month.</p>
           </a>
@@ -264,17 +325,17 @@
     <!-- Meet the Author -->
     <section class="py-20">
       <div class="container">
-        <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-lg); padding:var(--sp-12); display:flex; gap:var(--sp-12); align-items:center; flex-wrap:wrap; box-shadow:var(--shadow-sm);">
-          <div style="flex:1; min-width:300px; position:relative;">
-            <img src="../assets/images/img_1e781d76.jpg" alt="Head Pastry Chef" style="width:100%; border-radius:var(--radius-lg); object-fit:cover; aspect-ratio:4/3;" loading="lazy">
-            <div style="position:absolute; bottom:-1rem; right:-1rem; background:var(--surface); padding:var(--sp-4); border-radius:var(--radius-md); box-shadow:var(--shadow-md);">
+        <div class="editor-card">
+          <div class="editor-card-img-wrap">
+            <img src="../assets/images/img_1e781d76.jpg" alt="Head Pastry Chef" class="editor-card-img" loading="lazy">
+            <div class="editor-card-badge">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--clr-blush)" stroke-width="2"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
             </div>
           </div>
-          <div style="flex:1; min-width:300px;">
+          <div class="editor-card-content">
             <div class="section-tag" style="margin-bottom:var(--sp-4);">Meet The Editor</div>
             <h2 class="section-title" style="margin-bottom:var(--sp-4);">Chef Amélie Laurent</h2>
-            <p style="color:var(--text-secondary); line-height:var(--leading-relaxed); margin-bottom:var(--sp-6);">As the Head Pastry Chef at Liora, Amélie brings over a decade of experience from top patisseries in Paris. Through this journal, she shares her passion for traditional techniques, innovative flavor pairings, and the joy of baking.</p>
+            <p class="editor-card-desc">As the Head Pastry Chef at Liora, Amélie brings over a decade of experience from top patisseries in Paris. Through this journal, she shares her passion for traditional techniques, innovative flavor pairings, and the joy of baking.</p>
             <a href="../pages/about.html" class="btn btn-primary">Read Our Story</a>
           </div>
         </div>
@@ -284,12 +345,12 @@
     <!-- Newsletter Banner -->
     <section class="cta-banner py-20" style="margin-bottom: 0;">
       <div class="container">
-        <div class="cta-content" style="max-width: 600px;">
+        <div class="cta-content" style="max-width: 600px; margin: 0 auto;">
           <h2 class="cta-title">Subscribe to our Journal</h2>
-          <p class="cta-desc" style="margin-bottom: var(--sp-8);">Get our latest stories and recipes delivered right to your inbox every month.</p>
-          <form style="display: flex; gap: var(--sp-4); flex-wrap: wrap;">
-            <input type="email" placeholder="Your email address" style="flex: 1; min-width: 200px; padding: var(--sp-3) var(--sp-4); border-radius: var(--radius-md); border: none; font-size: 1rem;">
-            <button type="submit" class="btn btn-lg" style="background: var(--clr-burgundy); color: white; border: none; white-space: nowrap;">Subscribe</button>
+          <p class="cta-desc" style="margin-bottom: var(--sp-8); margin-inline: auto;">Get our latest stories and recipes delivered right to your inbox every month.</p>
+          <form style="display: flex; gap: var(--sp-4); flex-wrap: wrap; justify-content: center;">
+            <input type="email" placeholder="Your email address" style="flex: 1; min-width: 200px; padding: var(--sp-3) var(--sp-4); border-radius: var(--r-md); border: none; font-size: 1rem;">
+            <button type="submit" class="btn btn-lg" style="background: var(--color-primary); color: white; border: none; white-space: nowrap;">Subscribe</button>
           </form>
         </div>
       </div>
