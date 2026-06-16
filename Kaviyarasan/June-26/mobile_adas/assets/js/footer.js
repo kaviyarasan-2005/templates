@@ -15,7 +15,12 @@
         <div class="footer-grid">
           <!-- Brand Column -->
           <div class="footer-brand">
-            <div class="logo-text">Nexo<span>.</span></div>
+            <a href="${basePath}index.html" class="navbar-logo" style="margin-bottom: var(--space-4); text-decoration: none;">
+              <div class="logo-icon">
+                <i data-lucide="crosshair"></i>
+              </div>
+              <div class="logo-text">Nexo</div>
+            </a>
             <p>Certified Mobile ADAS Calibration & Collision Avoidance Services. Precision alignment for all vehicle makes and models at your collision shop or repair center.</p>
             <div class="footer-social">
               <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>

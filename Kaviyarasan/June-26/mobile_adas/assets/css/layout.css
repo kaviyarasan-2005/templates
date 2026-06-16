@@ -484,7 +484,6 @@
   font-size: var(--text-xl);
   font-weight: var(--weight-bold);
   color: #FFFFFF;
-  margin-bottom: var(--space-4);
 }
 
 .footer-brand .logo-text span {
@@ -624,7 +623,8 @@
 .footer-bottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
   padding: var(--space-6) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -632,9 +632,12 @@
 .footer-copyright {
   font-size: var(--text-sm);
   color: #64748B;
+  text-align: center;
 }
 
 .back-to-top {
+  position: absolute;
+  inset-inline-end: 0;
   width: 40px;
   height: 40px;
   display: flex;
@@ -676,6 +679,9 @@
     flex-direction: column;
     gap: var(--space-4);
     text-align: center;
+  }
+  .back-to-top {
+    position: static;
   }
   .newsletter-form {
     flex-direction: column;
