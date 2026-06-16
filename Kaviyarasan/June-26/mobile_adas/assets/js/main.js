@@ -46,10 +46,9 @@ const Nexo = (() => {
     updateIcons() {
       const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
       document.querySelectorAll('.theme-toggle').forEach(btn => {
-        const icon = btn.querySelector('i');
-        if (icon) {
-          icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
-          if (window.lucide) lucide.createIcons();
+        btn.innerHTML = `<i data-lucide="${isDark ? 'sun' : 'moon'}"></i>`;
+        if (window.lucide) {
+          window.lucide.createIcons({ root: btn });
         }
       });
     }
