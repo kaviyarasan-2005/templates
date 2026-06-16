@@ -1112,7 +1112,7 @@
   .services-grid,
   .team-grid,
   .values-grid            { grid-template-columns: 1fr; }
-  .box-grid               { grid-template-columns: repeat(2, 1fr); }
+  .box-grid               { grid-template-columns: 1fr; }
   .contact-form .form-grid { grid-template-columns: 1fr; }
   .countdown              { gap: var(--sp-3); }
   .countdown-unit         { min-width: 72px; padding: var(--sp-4); }

@@ -58,10 +58,8 @@
               <h3 class="footer-col-title">Specialties</h3>
               <nav class="footer-links" aria-label="Services links">
                 <a href="${base}/pages/services.html" class="footer-link">Classic Macarons</a>
-                <a href="${base}/pages/services.html" class="footer-link">Macaron Towers</a>
-                <a href="${base}/pages/services.html" class="footer-link">Wedding Favors</a>
+                <a href="${base}/pages/services.html" class="footer-link">Pastry Masterclasses</a>
                 <a href="${base}/pages/services.html" class="footer-link">Corporate Events</a>
-                <a href="${base}/pages/services.html" class="footer-link">Monthly Boxes</a>
                 <a href="${base}/pages/services.html" class="footer-link">Custom Orders</a>
               </nav>
             </div>
