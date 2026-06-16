@@ -54,6 +54,23 @@
         document.body.style.overflow = '';
       });
     });
+
+    // Mobile Dropdown Toggle
+    const mobileDropdownToggles = mobileMenu.querySelectorAll('.mobile-dropdown-toggle');
+    mobileDropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const menu = toggle.nextElementSibling;
+        const chevron = toggle.querySelector('.dropdown-chevron');
+        if (menu.style.display === 'none') {
+          menu.style.display = 'block';
+          if(chevron) chevron.style.transform = 'rotate(180deg)';
+        } else {
+          menu.style.display = 'none';
+          if(chevron) chevron.style.transform = 'rotate(0deg)';
+        }
+      });
+    });
   }
 
   // 4. Scroll to Top Button
