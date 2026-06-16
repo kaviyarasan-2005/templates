@@ -170,6 +170,87 @@
         </div>
       </section>
 
+      <!-- Advanced Infographics -->
+      <section class="infographics-row">
+        <!-- 1. Revenue by Service Type -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Revenue by Service Type</h3>
+          </div>
+          <div class="dashboard-panel-body">
+            <div class="progress-group">
+              <div class="progress-header">
+                <span>Front Camera (ADAS)</span>
+                <span class="font-bold">65%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 65%;"></div>
+              </div>
+            </div>
+            <div class="progress-group">
+              <div class="progress-header">
+                <span>Forward Radar</span>
+                <span class="font-bold">25%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill success" style="width: 25%;"></div>
+              </div>
+            </div>
+            <div class="progress-group">
+              <div class="progress-header">
+                <span>Blind Spot Sensors</span>
+                <span class="font-bold">10%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill warning" style="width: 10%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Technician Utilization -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Technician Utilization</h3>
+          </div>
+          <div class="dashboard-panel-body">
+            <div class="donut-chart-wrapper">
+              <div class="donut-chart" style="background: conic-gradient(var(--color-accent) 0% 78%, var(--color-bg-alt) 78% 100%);">
+                <div class="donut-chart-inner">
+                  <span class="donut-chart-value">78%</span>
+                  <span class="donut-chart-label">Active</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-center text-xs text-text-muted mt-2">
+              14/18 Technicians dispatched today
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Fleet Diagnostics Health -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Fleet Diagnostics Health</h3>
+          </div>
+          <div class="dashboard-panel-body">
+            <div class="text-3xl font-bold mb-4">92% <span class="text-sm font-normal text-text-muted">Pass Rate</span></div>
+            
+            <div class="multi-progress-container">
+              <div class="multi-progress-segment" style="width: 92%; background: var(--color-success);" title="Pass: 92%"></div>
+              <div class="multi-progress-segment" style="width: 5%; background: var(--color-warning);" title="Warning: 5%"></div>
+              <div class="multi-progress-segment" style="width: 3%; background: var(--color-danger);" title="Fail: 3%"></div>
+            </div>
+            
+            <div class="legend-group mt-4">
+              <div class="legend-item"><div class="legend-dot" style="background: var(--color-success);"></div> Pass</div>
+              <div class="legend-item"><div class="legend-dot" style="background: var(--color-warning);"></div> Warning</div>
+              <div class="legend-item"><div class="legend-dot" style="background: var(--color-danger);"></div> Fail</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Tables and Activity Row -->
       <section class="bottom-row mt-8">
         <!-- Booking Table -->

@@ -111,6 +111,108 @@
         <button class="quick-action-btn" onclick="alert('Opening support ticketing screen...');"><i data-lucide="life-buoy"></i> Contact Dispatch Support</button>
       </div>
 
+      <!-- Dashboard Infographics -->
+      <section class="infographics-row">
+        <!-- 1. Shop Safety & Compliance Score -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Safety & Compliance Score</h3>
+          </div>
+          <div class="dashboard-panel-body">
+            <div class="donut-chart-wrapper">
+              <div class="donut-chart" style="background: conic-gradient(var(--color-success) 0% 98%, var(--color-bg-alt) 98% 100%);">
+                <div class="donut-chart-inner">
+                  <span class="donut-chart-value text-success">98%</span>
+                  <span class="donut-chart-label">Excellent</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-center text-xs text-text-muted mt-2">
+              Based on recent 50 calibrations
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Service Breakdown -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Requested Services</h3>
+          </div>
+          <div class="dashboard-panel-body">
+            <div class="progress-group">
+              <div class="progress-header">
+                <span>Windshield Cameras</span>
+                <span class="font-bold">45%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 45%;"></div>
+              </div>
+            </div>
+            <div class="progress-group">
+              <div class="progress-header">
+                <span>Front Radars</span>
+                <span class="font-bold">35%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill success" style="width: 35%;"></div>
+              </div>
+            </div>
+            <div class="progress-group">
+              <div class="progress-header">
+                <span>Blind Spot Monitors</span>
+                <span class="font-bold">20%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill warning" style="width: 20%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Calibration Volume History -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Monthly Volume History</h3>
+          </div>
+          <div class="dashboard-panel-body" style="height: 180px; display: flex; align-items: flex-end; justify-content: space-around; padding: var(--space-4) var(--space-2);">
+            <div class="chart-bar" style="width: 24px; height: 40%; background: var(--color-border-hover); border-radius: var(--radius-md); position: relative;" title="Feb: 12">
+              <span style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 10px;">Feb</span>
+            </div>
+            <div class="chart-bar" style="width: 24px; height: 50%; background: var(--color-border-hover); border-radius: var(--radius-md); position: relative;" title="Mar: 15">
+              <span style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 10px;">Mar</span>
+            </div>
+            <div class="chart-bar" style="width: 24px; height: 60%; background: var(--color-border-hover); border-radius: var(--radius-md); position: relative;" title="Apr: 18">
+              <span style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 10px;">Apr</span>
+            </div>
+            <div class="chart-bar" style="width: 24px; height: 85%; background: var(--gradient-accent); border-radius: var(--radius-md); position: relative;" title="May: 25">
+              <span style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 10px;">May</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Average Turnaround Time -->
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-header">
+            <h3>Turnaround Speed</h3>
+          </div>
+          <div class="dashboard-panel-body">
+            <div class="text-3xl font-bold mb-4">4.2 <span class="text-sm font-normal text-text-muted">Hours</span></div>
+            
+            <div class="multi-progress-container">
+              <div class="multi-progress-segment" style="width: 70%; background: var(--color-success);" title="Wait Time: 70%"></div>
+              <div class="multi-progress-segment" style="width: 20%; background: var(--color-accent);" title="Active Calibration: 20%"></div>
+              <div class="multi-progress-segment" style="width: 10%; background: var(--color-warning);" title="Reporting: 10%"></div>
+            </div>
+            
+            <div class="legend-group mt-4" style="flex-wrap: wrap;">
+              <div class="legend-item"><div class="legend-dot" style="background: var(--color-success);"></div> Wait Time</div>
+              <div class="legend-item"><div class="legend-dot" style="background: var(--color-accent);"></div> Calibration</div>
+              <div class="legend-item"><div class="legend-dot" style="background: var(--color-warning);"></div> Reporting</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Main Layout Columns -->
       <section class="charts-row">
         

@@ -31,6 +31,7 @@
 .mb-4 { margin-bottom: var(--space-4); }
 .mb-6 { margin-bottom: var(--space-6); }
 .mb-8 { margin-bottom: var(--space-8); }
+.mx-auto { margin-left: auto; margin-right: auto; }
 .pt-0 { padding-top: 0; }
 .pb-0 { padding-bottom: 0; }
 

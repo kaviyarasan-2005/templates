@@ -3,6 +3,30 @@
    Admin & User Dashboard
    ============================================ */
 
+/* ---- Ambient Animated Background ---- */
+.dashboard-body {
+  position: relative;
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+.dashboard-body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.08), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.08), transparent 30%);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulseBg 10s ease-in-out infinite alternate;
+}
+
+@keyframes pulseBg {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.05); opacity: 1; }
+}
+
 /* ---- Dashboard Quick Actions ---- */
 .quick-actions {
   display: flex;
@@ -17,8 +41,11 @@
   gap: var(--space-2);
   padding: var(--space-3) var(--space-5);
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-glass-border);
   border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: var(--weight-medium);
@@ -29,10 +56,15 @@
 }
 
 .quick-action-btn:hover {
-  background: var(--color-accent-light);
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-  transform: translateY(-1px);
+  background: var(--gradient-accent);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: var(--shadow-glow-accent);
+  transform: translateY(-2px);
+}
+
+.quick-action-btn:hover i {
+  animation: float 2s infinite ease-in-out;
 }
 
 .quick-action-btn i {
@@ -43,10 +75,20 @@
 /* ---- Dashboard Panels ---- */
 .dashboard-panel {
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%), var(--color-surface);
+  border: 1px solid var(--color-glass-border);
   border-radius: var(--radius-xl);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
-  transition: border-color var(--transition-theme);
+  transition: all var(--transition-theme);
+}
+
+.dashboard-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-border-hover);
 }
 
 .dashboard-panel-header {
@@ -303,6 +345,7 @@
   color: var(--color-accent);
   border: 3px solid var(--color-accent);
   flex-shrink: 0;
+  box-shadow: var(--shadow-glow-accent);
 }
 
 .profile-info h3 {
@@ -349,7 +392,10 @@
 }
 
 .saved-item:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  background: var(--color-bg-alt);
+  border-color: var(--color-accent);
 }
 
 .saved-item-icon {
@@ -436,6 +482,114 @@
   box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
   color: #FFFFFF;
 }
+
+/* ============================================
+   DASHBOARD INFOGRAPHICS
+   ============================================ */
+   
+/* ---- Infographics Row ---- */
+.infographics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+/* ---- Horizontal Progress Bar ---- */
+.progress-group {
+  margin-bottom: var(--space-4);
+}
+.progress-group:last-child {
+  margin-bottom: 0;
+}
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+.progress-bar-container {
+  height: 8px;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--gradient-accent);
+  transition: width 1s ease-in-out;
+}
+.progress-bar-fill.success { background: var(--gradient-success); }
+.progress-bar-fill.warning { background: var(--color-warning); }
+
+/* ---- Multi-Segment Progress Bar ---- */
+.multi-progress-container {
+  display: flex;
+  height: 12px;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+}
+.multi-progress-segment {
+  height: 100%;
+}
+.legend-group {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--text-xs);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* ---- Donut Chart ---- */
+.donut-chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-4) 0;
+}
+.donut-chart {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* conic-gradient will be applied inline */
+}
+.donut-chart-inner {
+  width: 110px;
+  height: 110px;
+  background: var(--color-surface);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.donut-chart-value {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+}
+.donut-chart-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
 
 /* ---- Dashboard Charts Row ---- */
 .charts-row {
