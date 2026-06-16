@@ -64,11 +64,7 @@
         </div>
         
         <div class="flex items-center gap-4">
-          <!-- Notification Bell -->
-          <button class="nav-toggle-btn" aria-label="Notifications" onclick="alert('Shop notifications panel clicked');" style="position: relative;">
-            <i data-lucide="bell"></i>
-            <span class="badge badge-accent" style="position: absolute; top: -5px; right: -5px; width: 8px; height: 8px; padding: 0; border-radius: var(--radius-full);"></span>
-          </button>
+
           
           <!-- Theme & RTL Toggles -->
           <button class="nav-toggle-btn rtl-toggle" aria-label="Toggle RTL Mode">
@@ -85,31 +81,34 @@
 
       <!-- KPI Overview Cards -->
       <section class="grid grid-3 mb-8">
-        <div class="card p-6">
-          <span class="text-text-muted text-xs uppercase font-semibold">Calibrations Completed</span>
-          <div class="text-3xl font-bold mb-1 mt-2">18</div>
-          <span class="text-text-muted text-xs">All sensors verified</span>
+        <div class="card kpi-card">
+          <div class="kpi-icon" style="background: var(--color-success-light); color: var(--color-success);"><i data-lucide="check-circle"></i></div>
+          <div class="kpi-content">
+            <span class="kpi-label uppercase font-semibold">Calibrations Completed</span>
+            <div class="kpi-value">18</div>
+            <div class="text-xs text-text-muted mt-1">All sensors verified</div>
+          </div>
         </div>
 
-        <div class="card p-6">
-          <span class="text-text-muted text-xs uppercase font-semibold">Awaiting Dispatch</span>
-          <div class="text-3xl font-bold mb-1 mt-2">2</div>
-          <span class="text-text-muted text-xs">Technician is scheduled</span>
+        <div class="card kpi-card">
+          <div class="kpi-icon"><i data-lucide="clock"></i></div>
+          <div class="kpi-content">
+            <span class="kpi-label uppercase font-semibold">Awaiting Dispatch</span>
+            <div class="kpi-value">2</div>
+            <div class="text-xs text-text-muted mt-1">Technician is scheduled</div>
+          </div>
         </div>
 
-        <div class="card p-6">
-          <span class="text-text-muted text-xs uppercase font-semibold">Current Open Balance</span>
-          <div class="text-3xl font-bold mb-1 mt-2">$798.00</div>
-          <span class="text-text-muted text-xs">Due Net-30 invoice</span>
+        <div class="card kpi-card">
+          <div class="kpi-icon"><i data-lucide="credit-card"></i></div>
+          <div class="kpi-content">
+            <span class="kpi-label uppercase font-semibold">Current Open Balance</span>
+            <div class="kpi-value">$798.00</div>
+            <div class="text-xs text-text-muted mt-1">Due Net-30 invoice</div>
+          </div>
         </div>
       </section>
 
-      <!-- Quick Actions / Request Booking Control -->
-      <div class="quick-actions">
-        <a href="contact.html" class="quick-action-btn"><i data-lucide="plus-circle"></i> Request New Calibration</a>
-        <button class="quick-action-btn" onclick="alert('Downloading last monthly billing invoice...');"><i data-lucide="file-text"></i> Download Invoices</button>
-        <button class="quick-action-btn" onclick="alert('Opening support ticketing screen...');"><i data-lucide="life-buoy"></i> Contact Dispatch Support</button>
-      </div>
 
       <!-- Dashboard Infographics -->
       <section class="infographics-row">
@@ -306,6 +305,33 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- Large Action Buttons -->
+      <section class="grid grid-3 mb-8">
+        <a href="contact.html" class="card kpi-card" style="text-decoration: none; align-items: center;">
+          <div class="kpi-icon" style="background: var(--color-accent-light); color: var(--color-accent); width: 64px; height: 64px;"><i data-lucide="plus-circle" style="width: 32px; height: 32px;"></i></div>
+          <div class="kpi-content">
+            <h3 class="text-lg font-bold mb-1">Request New Calibration</h3>
+            <p class="text-xs text-text-muted">Schedule a mobile unit dispatch.</p>
+          </div>
+        </a>
+
+        <button class="card kpi-card w-full text-left" onclick="alert('Downloading last monthly billing invoice...');" style="border: 1px solid var(--color-glass-border); cursor: pointer; align-items: center;">
+          <div class="kpi-icon" style="background: var(--color-success-light); color: var(--color-success); width: 64px; height: 64px;"><i data-lucide="file-text" style="width: 32px; height: 32px;"></i></div>
+          <div class="kpi-content">
+            <h3 class="text-lg font-bold mb-1">Download Invoices</h3>
+            <p class="text-xs text-text-muted">Get your latest Net-30 billing PDFs.</p>
+          </div>
+        </button>
+
+        <button class="card kpi-card w-full text-left" onclick="alert('Opening support ticketing screen...');" style="border: 1px solid var(--color-glass-border); cursor: pointer; align-items: center;">
+          <div class="kpi-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--color-warning); width: 64px; height: 64px;"><i data-lucide="life-buoy" style="width: 32px; height: 32px;"></i></div>
+          <div class="kpi-content">
+            <h3 class="text-lg font-bold mb-1">Contact Dispatch</h3>
+            <p class="text-xs text-text-muted">Open a support ticket.</p>
+          </div>
+        </button>
       </section>
 
       <!-- Logout / Danger Section -->
