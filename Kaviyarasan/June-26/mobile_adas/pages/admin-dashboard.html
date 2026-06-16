@@ -94,40 +94,52 @@
 
       <!-- KPI Overview Cards -->
       <section class="grid grid-4 mb-8">
-        <div class="card p-6">
-          <div class="flex justify-between items-start mb-2">
-            <span class="text-text-muted text-xs uppercase font-semibold">Total Calibrations</span>
-            <span class="text-success text-xs font-bold flex items-center"><i data-lucide="arrow-up-right"></i> +12%</span>
+        <div class="card kpi-card">
+          <div class="kpi-icon"><i data-lucide="activity"></i></div>
+          <div class="kpi-content">
+            <span class="kpi-label uppercase font-semibold">Total Calibrations</span>
+            <div class="kpi-value">1,482</div>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="badge badge-success"><i data-lucide="arrow-up-right"></i> +12%</span>
+              <span class="text-xs text-text-muted">Since launch</span>
+            </div>
           </div>
-          <div class="text-3xl font-bold mb-1">1,482</div>
-          <span class="text-text-muted text-xs">Since launch</span>
         </div>
 
-        <div class="card p-6">
-          <div class="flex justify-between items-start mb-2">
-            <span class="text-text-muted text-xs uppercase font-semibold">Monthly Revenue</span>
-            <span class="text-success text-xs font-bold flex items-center"><i data-lucide="arrow-up-right"></i> +8%</span>
+        <div class="card kpi-card">
+          <div class="kpi-icon"><i data-lucide="dollar-sign"></i></div>
+          <div class="kpi-content">
+            <span class="kpi-label uppercase font-semibold">Monthly Revenue</span>
+            <div class="kpi-value">$42,910</div>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="badge badge-success"><i data-lucide="arrow-up-right"></i> +8%</span>
+              <span class="text-xs text-text-muted">Current billing</span>
+            </div>
           </div>
-          <div class="text-3xl font-bold mb-1">$42,910</div>
-          <span class="text-text-muted text-xs">Current month billing</span>
         </div>
 
-        <div class="card p-6">
-          <div class="flex justify-between items-start mb-2">
-            <span class="text-text-muted text-xs uppercase font-semibold">Active Vans</span>
-            <span class="text-text-muted text-xs font-bold">5 / 6 Online</span>
+        <div class="card kpi-card">
+          <div class="kpi-icon"><i data-lucide="truck"></i></div>
+          <div class="kpi-content">
+            <span class="kpi-label uppercase font-semibold">Active Vans</span>
+            <div class="kpi-value">5 <span class="text-lg text-text-muted">/ 6</span></div>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="badge badge-primary">Online</span>
+              <span class="text-xs text-text-muted">Dispatched</span>
+            </div>
           </div>
-          <div class="text-3xl font-bold mb-1">5</div>
-          <span class="text-text-muted text-xs">Mobile units dispatched</span>
         </div>
 
-        <div class="card p-6">
-          <div class="flex justify-between items-start mb-2">
-            <span class="text-text-muted text-xs uppercase font-semibold">Pending Bookings</span>
-            <span class="badge badge-danger text-xs">Action Required</span>
+        <div class="card kpi-card">
+          <div class="kpi-icon" style="background: rgba(239,68,68,0.1); color: var(--color-danger);"><i data-lucide="calendar-clock"></i></div>
+          <div class="kpi-content">
+            <span class="kpi-label uppercase font-semibold">Pending Bookings</span>
+            <div class="kpi-value">8</div>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="badge badge-danger">Action Required</span>
+              <span class="text-xs text-text-muted">Awaiting schedule</span>
+            </div>
           </div>
-          <div class="text-3xl font-bold mb-1">8</div>
-          <span class="text-text-muted text-xs">Awaiting technician schedule</span>
         </div>
       </section>
 
