@@ -390,5 +390,4 @@
 
 @media (max-width: 639px) {
   .brand-tagline { display: none; }
-  .rtl-toggle span { display: none; }
 }
