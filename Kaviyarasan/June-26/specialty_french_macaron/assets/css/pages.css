@@ -407,9 +407,21 @@
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--r-lg);
-  padding: var(--sp-8) var(--sp-6);
+  padding: 0;
   text-align: center;
   transition: transform var(--t-spring), box-shadow var(--t-base);
+  overflow: hidden;
+}
+
+.value-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.value-card-body {
+  padding: var(--sp-6);
 }
 
 .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
@@ -1054,6 +1066,20 @@
   .values-grid            { grid-template-columns: repeat(2, 1fr); }
   .pricing-grid           { grid-template-columns: 1fr; }
   .box-grid               { grid-template-columns: repeat(2, 1fr); }
+  
+  .mobile-center-block, .hero2-text, .cta-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .mobile-center-block > ul > li { justify-content: center; }
+  .mobile-center-block > div[style*="display:grid"], 
+  .hero2-text > div[style*="display:flex"] {
+    justify-content: center;
+    place-items: center;
+    text-align: center;
+  }
 }
 
 @media (max-width: 640px) {
