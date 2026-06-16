@@ -24,6 +24,10 @@ body {
   font-weight: var(--weight-regular);
   color: var(--color-text);
   background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.03), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.03), transparent 25%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color var(--transition-theme), color var(--transition-theme);
@@ -44,6 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: var(--text-hero);
   line-height: 1.1;
+  letter-spacing: -0.04em; /* Extra tight for hero */
 }
 
 h2 {
@@ -194,7 +199,7 @@ textarea:focus-visible {
   align-items: center;
   gap: var(--space-2);
   font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-bold);
   color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);

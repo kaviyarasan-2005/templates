@@ -16,8 +16,8 @@
   /* ---- Surface & Background (Light Mode) ---- */
   --color-bg: #F8FAFC;
   --color-bg-alt: #F1F5F9;
-  --color-surface: #FFFFFF;
-  --color-surface-hover: #F8FAFC;
+  --color-surface: rgba(255, 255, 255, 0.85);
+  --color-surface-hover: rgba(255, 255, 255, 0.95);
   --color-surface-elevated: #FFFFFF;
 
   /* ---- Text (Light Mode) ---- */
@@ -76,16 +76,16 @@
   --weight-bold: 700;
 
   /* Line Heights */
-  --leading-tight: 1.2;
+  --leading-tight: 1.15;
   --leading-snug: 1.35;
-  --leading-normal: 1.6;
-  --leading-relaxed: 1.75;
+  --leading-normal: 1.65;
+  --leading-relaxed: 1.8;
 
   /* Letter Spacing */
-  --tracking-tight: -0.025em;
+  --tracking-tight: -0.03em;
   --tracking-normal: 0;
-  --tracking-wide: 0.025em;
-  --tracking-wider: 0.05em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
 
   /* ============================================
      Spacing (8px base)
@@ -117,13 +117,13 @@
   /* ============================================
      Shadows
      ============================================ */
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
-  --shadow-2xl: 0 25px 50px -12px rgba(15, 23, 42, 0.2);
-  --shadow-glow-accent: 0 0 20px rgba(37, 99, 235, 0.3);
-  --shadow-glow-success: 0 0 20px rgba(16, 185, 129, 0.3);
+  --shadow-sm: 0 2px 8px -2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 10px 20px -5px rgba(15, 23, 42, 0.06), 0 4px 10px -5px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.08), 0 10px 20px -10px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 30px 60px -15px rgba(15, 23, 42, 0.1), 0 15px 30px -15px rgba(15, 23, 42, 0.05);
+  --shadow-2xl: 0 40px 80px -20px rgba(15, 23, 42, 0.15);
+  --shadow-glow-accent: 0 0 25px rgba(37, 99, 235, 0.4);
+  --shadow-glow-success: 0 0 25px rgba(16, 185, 129, 0.4);
 
   /* ============================================
      Z-Index Scale
