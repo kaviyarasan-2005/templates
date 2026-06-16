@@ -126,7 +126,7 @@
 }
 
 .hero-split-content {
-  padding: var(--sp-9) var(--sp-9) var(--sp-9) 0;
+  padding: var(--sp-9) var(--sp-9) var(--sp-9) var(--sp-5);
 }
 
 .hero-split-image {
@@ -157,12 +157,19 @@
     min-height: auto;
   }
   .hero-split-content {
-    padding: var(--sp-7) 0;
+    padding: var(--sp-7) var(--sp-5);
     order: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .hero-split-image {
     order: 1;
     min-height: 350px;
+  }
+  .hero-actions {
+    justify-content: center;
   }
 }
 
