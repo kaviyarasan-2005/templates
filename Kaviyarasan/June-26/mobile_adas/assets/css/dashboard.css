@@ -599,10 +599,9 @@
   margin-bottom: var(--space-6);
 }
 
-/* ---- Dashboard Bottom Row ---- */
 .bottom-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-6);
 }
 
