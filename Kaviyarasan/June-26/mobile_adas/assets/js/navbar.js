@@ -60,6 +60,7 @@
             <button class="nav-toggle-btn theme-toggle" aria-label="Toggle Theme">
               <i data-lucide="moon"></i>
             </button>
+            <a href="${pagesPath}login.html" class="btn btn-primary nav-desktop-login" style="padding: 0.5rem 1rem; font-size: var(--text-sm); margin-inline-start: var(--space-2); text-decoration: none;">Login</a>
             <button class="hamburger" aria-label="Open Menu">
               <i data-lucide="menu"></i>
             </button>
@@ -98,7 +99,9 @@
             <a href="${pagesPath}admin-dashboard.html">Admin</a>
             <a href="${pagesPath}user-dashboard.html">User</a>
           </div>
-      </div>
+
+          <a href="${pagesPath}login.html" class="mobile-nav-link text-accent" style="margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-border); font-weight: var(--weight-bold);">Login / Sign Up</a>
+        </div>
     </header>
   `;
 
