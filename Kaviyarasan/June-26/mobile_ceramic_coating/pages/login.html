@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Log in to your CeraShield account to track your vehicle's ceramic coating warranty and maintenance schedule." />
+  <title>Log In — CeraShield</title>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="../assets/css/navbar.css" />
+  <link rel="stylesheet" href="../assets/css/footer.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <script>
+    (function(){const t=localStorage.getItem('cc-theme'),d=localStorage.getItem('cc-dir');if(t)document.documentElement.setAttribute('data-theme',t);if(d){document.documentElement.setAttribute('dir',d);document.documentElement.setAttribute('lang',d==='rtl'?'ar':'en');}})();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <style>
+    .auth-section {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-9) var(--sp-5);
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 480px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      box-shadow: var(--shadow-lg);
+    }
+    .auth-header {
+      text-align: center;
+      margin-bottom: var(--sp-6);
+    }
+    .auth-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-lg);
+      background: var(--color-blue-glow);
+      color: var(--color-ceramic-blue);
+      margin-bottom: var(--sp-4);
+    }
+    .auth-footer {
+      text-align: center;
+      margin-top: var(--sp-6);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+    }
+    .auth-footer a {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div id="pageLoader" role="status" aria-label="Loading"><div class="loader-ring"></div></div>
+
+<!-- NAVBAR -->
+<header class="navbar" role="banner">
+  <div class="navbar-inner">
+    <a href="../index.html" class="navbar-brand" aria-label="CeraShield Home"><div class="brand-logo" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/></svg></div><div class="brand-text"><span class="brand-name">CeraShield</span><span class="brand-tagline">Paint Protection</span></div></a>
+    <nav class="navbar-nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-item"><button class="nav-link" aria-haspopup="true" aria-expanded="false">Home <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="dropdown-menu" role="menu"><a href="../index.html" class="dropdown-item" role="menuitem">Home Classic</a><a href="home2.html" class="dropdown-item" role="menuitem">Home Modern</a></div></div>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="service.html" class="nav-link">Services</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="navbar-actions">
+      <button class="theme-toggle" aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+      <a href="login.html" class="btn btn-ghost btn-sm navbar-cta hide-mobile">Log In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm navbar-cta">Sign Up</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <div class="nav-section"><p class="nav-section-label">Pages</p>
+    <a href="../index.html" class="mobile-nav-link">Home</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="service.html" class="mobile-nav-link">Services</a>
+    <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+  </div>
+  <div class="mobile-actions">
+    <a href="login.html" class="btn btn-outline w-full mb-3">Log In</a>
+    <a href="signup.html" class="btn btn-primary w-full">Sign Up</a>
+  </div>
+</nav>
+
+<!-- AUTH CONTENT -->
+<main class="auth-section">
+  <div class="auth-card fade-up">
+    <div class="auth-header">
+      <div class="auth-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/></svg>
+      </div>
+      <h2>Welcome Back</h2>
+      <p class="text-muted" style="margin-top:var(--sp-2);">Enter your credentials to access your dashboard.</p>
+    </div>
+    
+    <form action="dashboard-user.html" method="GET" data-validate>
+      <div class="form-group">
+        <label for="login-email" class="form-label">Email Address</label>
+        <input type="email" id="login-email" name="email" class="form-control" required placeholder="john@example.com" data-error-required="Email is required." data-error-email="Please provide a valid email." />
+        <div class="form-error"></div>
+      </div>
+      
+      <div class="form-group">
+        <div class="flex-between mb-2">
+          <label for="login-password" class="form-label" style="margin-bottom:0;">Password</label>
+          <a href="#" class="text-xs">Forgot password?</a>
+        </div>
+        <input type="password" id="login-password" name="password" class="form-control" required placeholder="••••••••" data-error-required="Password is required." />
+        <div class="form-error"></div>
+      </div>
+      
+      <button type="submit" class="btn btn-primary w-full mt-4">Log In</button>
+    </form>
+    
+    <div class="auth-footer">
+      Don't have an account? <a href="signup.html">Sign Up</a>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-bottom"><div class="container"><div class="footer-bottom-inner"><p class="footer-copyright">&copy; 2026 <a href="../index.html">CeraShield</a>. All rights reserved.</p><nav class="footer-legal" aria-label="Legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Warranty</a></nav></div></div></div>
+</footer>
+
+<button id="scrollTopBtn" aria-label="Scroll to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></button>
+<div class="toast-container" role="region" aria-live="polite"></div>
+<script src="../assets/js/theme.js"></script>
+<script src="../assets/js/navbar.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
