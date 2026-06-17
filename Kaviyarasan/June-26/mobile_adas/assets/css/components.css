@@ -311,7 +311,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-4);
-  padding: var(--space-6);
+  padding: var(--space-4) var(--space-6);
   position: relative;
   overflow: hidden;
 }

@@ -89,7 +89,7 @@
       </header>
 
       <!-- KPI Overview Cards -->
-      <section class="grid grid-4 mb-8">
+      <section class="grid grid-4 mb-6">
         <div class="card kpi-card hover-lift" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(56, 189, 248, 0.15); border-radius: var(--radius-xl); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);">
           <div class="kpi-icon" style="background: rgba(56, 189, 248, 0.1); color: var(--color-accent); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);"><i data-lucide="activity"></i></div>
           <div class="kpi-content w-full mt-2">
@@ -147,19 +147,23 @@
             <h3>Calibration Completion Trends</h3>
             <span class="text-text-muted text-xs">Weekly breakdown</span>
           </div>
-          <div class="dashboard-panel-body" style="height: 300px; display: flex; align-items: flex-end; justify-content: space-around; padding: var(--space-8);">
+          <div class="dashboard-panel-body" style="height: 300px; display: flex; align-items: flex-end; justify-content: space-around; padding: var(--space-6) var(--space-4) var(--space-4);">
             <!-- Simple Mock Chart Bars -->
-            <div class="chart-bar" style="width: 40px; height: 60%; background: var(--gradient-accent); border-radius: var(--radius-md); position: relative;" title="Week 1: 82 units">
-              <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 10px;">Wk 1</span>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 8px;">
+              <div class="chart-bar" style="width: 40px; height: 60%; background: var(--gradient-accent); border-radius: var(--radius-md); box-shadow: 0 4px 15px rgba(0,0,0,0.2);" title="Week 1: 82 units"></div>
+              <span style="font-size: 12px; color: var(--color-text-muted); font-weight: var(--weight-medium); white-space: nowrap;">Wk 1</span>
             </div>
-            <div class="chart-bar" style="width: 40px; height: 75%; background: var(--gradient-accent); border-radius: var(--radius-md); position: relative;" title="Week 2: 95 units">
-              <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 10px;">Wk 2</span>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 8px;">
+              <div class="chart-bar" style="width: 40px; height: 75%; background: var(--gradient-accent); border-radius: var(--radius-md); box-shadow: 0 4px 15px rgba(0,0,0,0.2);" title="Week 2: 95 units"></div>
+              <span style="font-size: 12px; color: var(--color-text-muted); font-weight: var(--weight-medium); white-space: nowrap;">Wk 2</span>
             </div>
-            <div class="chart-bar" style="width: 40px; height: 85%; background: var(--gradient-accent); border-radius: var(--radius-md); position: relative;" title="Week 3: 110 units">
-              <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 10px;">Wk 3</span>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 8px;">
+              <div class="chart-bar" style="width: 40px; height: 85%; background: var(--gradient-accent); border-radius: var(--radius-md); box-shadow: 0 4px 15px rgba(0,0,0,0.2);" title="Week 3: 110 units"></div>
+              <span style="font-size: 12px; color: var(--color-text-muted); font-weight: var(--weight-medium); white-space: nowrap;">Wk 3</span>
             </div>
-            <div class="chart-bar" style="width: 40px; height: 95%; background: var(--gradient-accent); border-radius: var(--radius-md); position: relative;" title="Week 4: 125 units">
-              <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 10px;">Wk 4</span>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 8px;">
+              <div class="chart-bar" style="width: 40px; height: 95%; background: var(--gradient-accent); border-radius: var(--radius-md); box-shadow: 0 4px 15px rgba(0,0,0,0.2);" title="Week 4: 125 units"></div>
+              <span style="font-size: 12px; color: var(--color-text-muted); font-weight: var(--weight-medium); white-space: nowrap;">Wk 4</span>
             </div>
           </div>
         </div>
@@ -260,13 +264,13 @@
       </section>
 
       <!-- Tables and Activity Row -->
-      <section class="bottom-row mt-8">
+      <section class="bottom-row">
         <!-- Booking Table -->
         <div class="dashboard-panel">
           <div class="dashboard-panel-header">
             <h3>Active Bookings Dispatch Table</h3>
           </div>
-          <div class="table-responsive" style="padding: var(--space-4);">
+          <div class="table-responsive" style="padding: 0 var(--space-8);">
             <table class="table w-full text-left" style="font-size: var(--text-sm);">
               <thead>
                 <tr>

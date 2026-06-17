@@ -863,6 +863,14 @@
   transition: margin var(--transition-base);
 }
 
+.dashboard-main-content {
+  padding: var(--space-6);
+}
+
+.dashboard-main-content section {
+  padding: 0;
+}
+
 .dashboard-topbar {
   display: flex;
   align-items: center;
