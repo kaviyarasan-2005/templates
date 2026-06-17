@@ -542,10 +542,9 @@
 /* ---- Tabs ---- */
 .tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-1);
   border-bottom: 2px solid var(--color-border);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .tab-btn {

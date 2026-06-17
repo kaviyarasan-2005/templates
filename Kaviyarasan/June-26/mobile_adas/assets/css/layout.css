@@ -335,7 +335,7 @@
   display: none;
   position: fixed;
   top: 0;
-  inset-inline-end: 0;
+  right: 0;
   width: 300px;
   max-width: 85vw;
   height: 100vh;
@@ -348,11 +348,17 @@
 }
 
 [dir="rtl"] .mobile-nav {
+  right: auto;
+  left: 0;
   transform: translateX(-100%);
 }
 
 .mobile-nav.active {
   display: block;
+  transform: translateX(0);
+}
+
+[dir="rtl"] .mobile-nav.active {
   transform: translateX(0);
 }
 
