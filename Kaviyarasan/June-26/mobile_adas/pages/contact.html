@@ -77,15 +77,30 @@
             </div>
 
             <!-- Emergency callout -->
-            <div class="card border-accent bg-accent-light p-6 mt-8 animate-on-scroll">
-              <h3 class="font-bold text-accent mb-2 flex items-center gap-2"><i data-lucide="alert-triangle"></i> Emergency Same-Day Service</h3>
-              <p class="text-text-secondary text-sm">Need a calibration completed immediately to release a vehicle? Call our emergency dispatch line directly at <strong>(800) 555-0199</strong> before 12:00 PM for guaranteed same-day mobile dispatch.</p>
+            <div class="card mt-8 animate-on-scroll relative overflow-hidden" style="background: rgba(239, 68, 68, 0.03); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: var(--radius-xl); padding: var(--space-8);">
+              <!-- Subtle pulsing gradient -->
+              <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+              
+              <div style="position: relative; z-index: 1;">
+                <div class="flex items-center gap-4 mb-5">
+                  <div style="background: rgba(239, 68, 68, 0.1); color: var(--color-danger); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-full); flex-shrink: 0; box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);">
+                    <i data-lucide="alert-triangle"></i>
+                  </div>
+                  <h3 class="font-bold text-xl m-0" style="color: #FCA5A5;">Emergency Same-Day Service</h3>
+                </div>
+                
+                <p class="text-text-secondary mb-6" style="line-height: 1.6;">Need a calibration completed immediately to release a vehicle? Call our emergency dispatch line directly before 12:00 PM for guaranteed same-day mobile dispatch.</p>
+                
+                <a href="tel:8005550199" class="btn hover-lift" style="background: var(--color-danger); color: white; border: none; box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.4); width: 100%; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                  <i data-lucide="phone-call" style="width: 18px; height: 18px;"></i> Call (800) 555-0199
+                </a>
+              </div>
             </div>
           </div>
           
           <!-- Booking Form Column -->
           <div class="contact-form-col animate-on-scroll">
-            <div class="card p-8">
+            <div class="card hover-lift" style="padding: var(--space-8); background: rgba(255,255,255,0.02); border-radius: var(--radius-xl); border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
               <h3 class="text-xl font-bold mb-6">Service Request Form</h3>
               
               <form class="validate-form flex flex-col gap-4" action="https://formspree.io/f/placeholder" method="POST">
@@ -143,16 +158,51 @@
 
         </div>
 
-        <!-- Google Maps Embed Placeholder -->
-        <div class="map-placeholder mt-16 animate-on-scroll">
-          <h3 class="text-xl font-bold mb-4 text-center">Service Dispatch Map</h3>
-          <div class="rounded-lg overflow-hidden border" style="height: 350px; background: var(--color-surface); position: relative; display: flex; align-items: center; justify-content: center;">
-            <!-- Dummy Map Background with SVG pins -->
-            <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(var(--color-accent) 1px, transparent 1px); background-size: 20px 20px;"></div>
-            <div class="text-center p-6" style="z-index: 1;">
-              <i data-lucide="map-pin" class="text-accent animate-pulse" style="width: 48px; height: 48px; margin: 0 auto 16px;"></i>
-              <h4 class="font-bold mb-1">Dispatch Territory Map</h4>
-              <p class="text-sm text-text-muted">Serving the Greater Metropolitan Area & surrounding cities up to 50 miles.</p>
+        <!-- Service Areas / Coverage Map -->
+        <div class="service-areas mt-20 mb-8 animate-on-scroll">
+          <div class="section-header text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Mobile Dispatch Territory</h2>
+            <p class="text-text-secondary max-w-2xl mx-auto">We bring our dealership-level calibration rigs directly to collision centers across these primary regions.</p>
+          </div>
+          
+          <div class="grid grid-3 gap-6">
+            <!-- Region 1 -->
+            <div class="card hover-lift" style="padding: var(--space-6); background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius-lg);">
+              <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="map-pin" style="color: var(--color-accent);"></i>
+                <h3 class="font-bold text-lg m-0">North Region</h3>
+              </div>
+              <ul class="list-unstyled flex flex-col gap-3 text-sm text-text-secondary">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="text-success" style="width: 16px; height: 16px;"></i> Downtown Metro</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="text-success" style="width: 16px; height: 16px;"></i> Northridge Valley</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="text-success" style="width: 16px; height: 16px;"></i> Pinecrest Industrial</li>
+              </ul>
+            </div>
+            
+            <!-- Region 2 -->
+            <div class="card hover-lift" style="padding: var(--space-6); background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius-lg);">
+              <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="map-pin" style="color: var(--color-warning);"></i>
+                <h3 class="font-bold text-lg m-0">South Region</h3>
+              </div>
+              <ul class="list-unstyled flex flex-col gap-3 text-sm text-text-secondary">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="text-success" style="width: 16px; height: 16px;"></i> Southbay Tech District</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="text-success" style="width: 16px; height: 16px;"></i> Airport Auto Row</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="text-success" style="width: 16px; height: 16px;"></i> Riverside County</li>
+              </ul>
+            </div>
+
+            <!-- Region 3 -->
+            <div class="card hover-lift" style="padding: var(--space-6); background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius-lg);">
+              <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="map-pin" style="color: #8B5CF6;"></i>
+                <h3 class="font-bold text-lg m-0">East / West Corridors</h3>
+              </div>
+              <ul class="list-unstyled flex flex-col gap-3 text-sm text-text-secondary">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="text-success" style="width: 16px; height: 16px;"></i> Westside Highway</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="text-success" style="width: 16px; height: 16px;"></i> Eastland Dealerships</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="text-success" style="width: 16px; height: 16px;"></i> Out of Bounds (Call for quote)</li>
+              </ul>
             </div>
           </div>
         </div>
