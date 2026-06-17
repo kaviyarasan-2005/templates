@@ -160,16 +160,75 @@
   </div>
 </section>
 
-<!-- MAP PLACEHOLDER -->
-<section class="section-sm" style="background:var(--bg-secondary);" aria-label="Coverage Map">
+<!-- FAQ SECTION -->
+<section class="section fade-up" style="background:var(--bg-card); border-top:1px solid var(--border-color);" aria-labelledby="faq-heading">
+  <div class="container" style="max-width:800px;">
+    <div style="text-align:center; margin-bottom:var(--sp-7);">
+      <span class="section-tag" style="display:inline-block; margin-bottom:var(--sp-3);">Have Questions?</span>
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+    </div>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false">
+          Do you need access to water and power?
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner text-muted">
+            No, our mobile vans are 100% self-contained. We bring our own deionized spot-free water system and quiet generators to ensure the perfect detailing environment anywhere.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false">
+          How long does a ceramic coating application take?
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner text-muted">
+            Depending on the condition of your paint and the level of paint correction required, an installation typically takes between 4 to 8 hours. We ask that the vehicle remains out of the elements during the initial curing phase.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false">
+          What happens if it rains on the day of my appointment?
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner text-muted">
+            We require a garage, carport, or covered area to apply ceramic coatings properly. If you do not have a covered area and it rains, we will seamlessly reschedule your appointment to the next available sunny day.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS MAP SECTION -->
+<section class="section fade-up" style="background:var(--bg-secondary);" aria-labelledby="map-heading">
   <div class="container">
-    <div style="border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border-color); height:380px; position:relative;">
-      <!-- Simulated beautiful map using premium design overlay and descriptive content -->
-      <div style="position:absolute; inset:0; background: var(--color-graphite); display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; padding:var(--sp-6);">
-        <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-ceramic-blue)" stroke-width="1.5" width="48" height="48" style="margin-bottom:var(--sp-3);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <h3 style="color:#fff;">Interactive Coverage Map</h3>
-        <p style="color:rgba(255,255,255,0.7); max-width:480px; margin-bottom:var(--sp-4);">Showing our real-time mobile detailing coverage zones. Fully insured, certified mobile vans equipped with power, filtered water, and infrared curing lamps operating near you.</p>
-        <span class="btn btn-sm btn-outline" style="border-color:rgba(255,255,255,0.3); color:#fff;">View Local Technicians</span>
+    <div style="text-align:center; margin-bottom:var(--sp-6);">
+      <h2 id="map-heading">Our Service Coverage</h2>
+      <p class="text-muted" style="max-width:600px; margin:var(--sp-2) auto 0;">We bring the premium detailing studio to your driveway. View our primary service zones below.</p>
+    </div>
+    <div style="border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border-color); height:450px; position:relative; box-shadow:var(--shadow-lg);">
+      <!-- Simulated map background -->
+      <div style="position:absolute; inset:0; background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&q=80') center/cover; opacity: 0.2; mix-blend-mode: luminosity;"></div>
+      <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(15,17,21,0.9), rgba(15,17,21,0.7));"></div>
+      
+      <!-- Overlay Content -->
+      <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; padding:var(--sp-6); z-index:2;">
+        <div style="width:64px; height:64px; border-radius:50%; background:rgba(0,174,239,0.15); border:2px solid var(--color-ceramic-blue); display:flex; align-items:center; justify-content:center; margin-bottom:var(--sp-4);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-ceramic-blue)" stroke-width="2" width="28" height="28"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 style="color:#fff; font-size:var(--text-2xl); margin-bottom:var(--sp-2);">Southern California & Beyond</h3>
+        <p style="color:rgba(255,255,255,0.8); max-width:540px; margin-bottom:var(--sp-6); line-height:1.6;">Currently operating fully equipped mobile vans in Los Angeles, Orange County, San Diego, and parts of the SF Bay Area. We never charge a travel fee within our primary zones.</p>
+        <div style="display:flex; gap:var(--sp-3); justify-content:center; flex-wrap:wrap;">
+          <span class="btn btn-sm" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff;">Los Angeles</span>
+          <span class="btn btn-sm" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff;">Orange County</span>
+          <span class="btn btn-sm" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff;">San Diego</span>
+        </div>
       </div>
     </div>
   </div>

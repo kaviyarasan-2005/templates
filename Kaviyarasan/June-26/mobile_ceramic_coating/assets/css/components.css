@@ -1299,3 +1299,46 @@
   text-transform: uppercase;
   color: var(--text-muted);
 }
+
+/* ============================================================
+   USP CARDS (Contact / Info)
+   ============================================================ */
+.usp-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.usp-card:hover {
+  border-color: var(--color-ceramic-blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.usp-card .usp-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--color-blue-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.usp-card .usp-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-ceramic-blue);
+}
+
+.usp-card h4 {
+  font-size: var(--text-base);
+  margin-bottom: var(--sp-1);
+  color: var(--text-primary);
+}

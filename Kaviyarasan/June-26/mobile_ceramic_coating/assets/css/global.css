@@ -646,9 +646,9 @@ select.form-control { appearance: none; cursor: pointer; }
   color: var(--text-secondary);
   line-height: 1.7;
 }
-.accordion-item.open .accordion-body { max-height: 400px; }
+.accordion-item.active .accordion-body { max-height: 400px; }
 .accordion-icon { transition: transform var(--transition-base); }
-.accordion-item.open .accordion-icon { transform: rotate(180deg); }
+.accordion-item.active .accordion-icon { transform: rotate(180deg); }
 
 /* ============================================================
    TOAST NOTIFICATION
