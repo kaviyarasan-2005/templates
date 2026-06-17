@@ -876,6 +876,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-8);
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
@@ -1152,5 +1153,20 @@
   }
   .topbar-profile-info {
     display: none;
+  }
+  
+  /* Mobile Search Bar Restyling */
+  .dashboard-topbar:has(.search-wrapper) {
+    padding-bottom: calc(var(--space-8) + 40px);
+  }
+  .search-wrapper {
+    position: absolute !important;
+    bottom: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
+  }
+  .search-wrapper .search-input {
+    max-width: 100% !important;
+    width: 100% !important;
   }
 }

@@ -49,7 +49,7 @@
       </nav>
       
       <div class="sidebar-footer" style="padding: var(--space-4); border-top: 1px solid var(--color-border); margin-top: auto;">
-        <a href="../index.html" class="sidebar-link" style="color: var(--color-danger);"><i data-lucide="log-out"></i> Leave Dashboard</a>
+        <a href="../index.html" class="sidebar-link" style="color: var(--color-danger);"><i data-lucide="log-out"></i> Logout</a>
       </div>
     </aside>
 
@@ -66,10 +66,10 @@
           <h1 class="font-bold topbar-title">Admin Management Hub</h1>
         </div>
         
-        <div class="flex items-center gap-4">
+        <div class="topbar-right flex items-center gap-4">
           <!-- Search input -->
           <div class="search-wrapper" style="position: relative;">
-            <input type="text" placeholder="Search orders..." class="search-input" style="padding: var(--space-2) var(--space-4) var(--space-2) var(--space-8); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); font-size: var(--text-sm); max-width: 200px;">
+            <input type="text" placeholder="Search orders..." class="search-input" style="padding: var(--space-2) var(--space-4) var(--space-2) var(--space-8); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); font-size: var(--text-sm); max-width: 200px; width: 100%;">
             <i data-lucide="search" style="position: absolute; left: 8px; top: 12px; width: 14px; height: 14px; color: var(--color-text-muted);"></i>
           </div>
 
@@ -91,25 +91,25 @@
       <!-- KPI Overview Cards -->
       <section class="grid grid-4 mb-6">
         <div class="card kpi-card hover-lift" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(56, 189, 248, 0.15); border-radius: var(--radius-xl); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);">
-          <div class="kpi-icon" style="background: rgba(56, 189, 248, 0.1); color: var(--color-accent); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);"><i data-lucide="activity"></i></div>
+          <div class="kpi-icon" style="background: rgba(56, 189, 248, 0.1); color: var(--color-accent); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);"><i data-lucide="crosshair"></i></div>
           <div class="kpi-content w-full mt-2">
-            <span class="kpi-label uppercase font-semibold text-xs tracking-wider flex items-center gap-1" style="color: #94A3B8;"><i data-lucide="target" style="width: 14px; height: 14px;"></i> Total Calibrations</span>
+            <span class="kpi-label uppercase font-semibold text-xs tracking-wider flex items-center gap-1" style="color: #94A3B8;"><i data-lucide="bar-chart-2" style="width: 14px; height: 14px;"></i> Total Calibrations</span>
             <div class="kpi-value text-3xl my-2">1,482</div>
             <div class="flex items-center gap-2">
-              <span class="badge badge-success"><i data-lucide="arrow-up-right" style="width: 12px; height: 12px;"></i> +12%</span>
-              <span class="text-xs text-text-muted flex items-center gap-1"><i data-lucide="clock" style="width: 12px; height: 12px;"></i> Since launch</span>
+              <span class="badge badge-success"><i data-lucide="trending-up" style="width: 12px; height: 12px;"></i> +12%</span>
+              <span class="text-xs text-text-muted flex items-center gap-1"><i data-lucide="calendar" style="width: 12px; height: 12px;"></i> Since launch</span>
             </div>
           </div>
         </div>
 
         <div class="card kpi-card hover-lift" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(16, 185, 129, 0.15); border-radius: var(--radius-xl); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);">
-          <div class="kpi-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--color-success); box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);"><i data-lucide="dollar-sign"></i></div>
+          <div class="kpi-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--color-success); box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);"><i data-lucide="pie-chart"></i></div>
           <div class="kpi-content w-full mt-2">
-            <span class="kpi-label uppercase font-semibold text-xs tracking-wider flex items-center gap-1" style="color: #94A3B8;"><i data-lucide="wallet" style="width: 14px; height: 14px;"></i> Monthly Revenue</span>
+            <span class="kpi-label uppercase font-semibold text-xs tracking-wider flex items-center gap-1" style="color: #94A3B8;"><i data-lucide="banknote" style="width: 14px; height: 14px;"></i> Monthly Revenue</span>
             <div class="kpi-value text-3xl my-2" style="background: linear-gradient(to right, #34D399, #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$42,910</div>
             <div class="flex items-center gap-2">
-              <span class="badge badge-success"><i data-lucide="arrow-up-right" style="width: 12px; height: 12px;"></i> +8%</span>
-              <span class="text-xs text-text-muted flex items-center gap-1"><i data-lucide="credit-card" style="width: 12px; height: 12px;"></i> Current billing</span>
+              <span class="badge badge-success"><i data-lucide="trending-up" style="width: 12px; height: 12px;"></i> +8%</span>
+              <span class="text-xs text-text-muted flex items-center gap-1"><i data-lucide="file-text" style="width: 12px; height: 12px;"></i> Current billing</span>
             </div>
           </div>
         </div>
@@ -117,23 +117,23 @@
         <div class="card kpi-card hover-lift" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(139, 92, 246, 0.15); border-radius: var(--radius-xl); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);">
           <div class="kpi-icon" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6; box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);"><i data-lucide="truck"></i></div>
           <div class="kpi-content w-full mt-2">
-            <span class="kpi-label uppercase font-semibold text-xs tracking-wider flex items-center gap-1" style="color: #94A3B8;"><i data-lucide="navigation" style="width: 14px; height: 14px;"></i> Active Vans</span>
+            <span class="kpi-label uppercase font-semibold text-xs tracking-wider flex items-center gap-1" style="color: #94A3B8;"><i data-lucide="map" style="width: 14px; height: 14px;"></i> Active Vans</span>
             <div class="kpi-value text-3xl my-2" style="background: linear-gradient(to right, #A78BFA, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">5 <span class="text-lg" style="color: rgba(255,255,255,0.3); -webkit-text-fill-color: rgba(255,255,255,0.3);">/ 6</span></div>
             <div class="flex items-center gap-2">
-              <span class="badge flex items-center gap-1" style="background: rgba(139, 92, 246, 0.2); color: #C4B5FD; border: 1px solid rgba(139, 92, 246, 0.3);"><i data-lucide="wifi" style="width: 12px; height: 12px;"></i> Online</span>
-              <span class="text-xs text-text-muted flex items-center gap-1"><i data-lucide="map-pin" style="width: 12px; height: 12px;"></i> Dispatched</span>
+              <span class="badge flex items-center gap-1" style="background: rgba(139, 92, 246, 0.2); color: #C4B5FD; border: 1px solid rgba(139, 92, 246, 0.3);"><i data-lucide="radio" style="width: 12px; height: 12px;"></i> Online</span>
+              <span class="text-xs text-text-muted flex items-center gap-1"><i data-lucide="navigation" style="width: 12px; height: 12px;"></i> Dispatched</span>
             </div>
           </div>
         </div>
 
         <div class="card kpi-card hover-lift" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: var(--radius-xl); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);">
-          <div class="kpi-icon" style="background: rgba(239, 68, 68, 0.1); color: var(--color-danger); box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);"><i data-lucide="calendar-clock"></i></div>
+          <div class="kpi-icon" style="background: rgba(239, 68, 68, 0.1); color: var(--color-danger); box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);"><i data-lucide="clipboard-list"></i></div>
           <div class="kpi-content w-full mt-2">
-            <span class="kpi-label uppercase font-semibold text-xs tracking-wider flex items-center gap-1" style="color: #94A3B8;"><i data-lucide="alert-circle" style="width: 14px; height: 14px;"></i> Pending Bookings</span>
+            <span class="kpi-label uppercase font-semibold text-xs tracking-wider flex items-center gap-1" style="color: #94A3B8;"><i data-lucide="clock" style="width: 14px; height: 14px;"></i> Pending Bookings</span>
             <div class="kpi-value text-3xl my-2" style="background: linear-gradient(to right, #FCA5A5, #EF4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">8</div>
             <div class="flex items-center gap-2">
-              <span class="badge badge-danger flex items-center gap-1"><i data-lucide="siren" style="width: 12px; height: 12px;"></i> Action Required</span>
-              <span class="text-xs text-text-muted flex items-center gap-1"><i data-lucide="hourglass" style="width: 12px; height: 12px;"></i> Awaiting schedule</span>
+              <span class="badge badge-danger flex items-center gap-1"><i data-lucide="alert-triangle" style="width: 12px; height: 12px;"></i> Action Required</span>
+              <span class="text-xs text-text-muted flex items-center gap-1"><i data-lucide="calendar-clock" style="width: 12px; height: 12px;"></i> Awaiting schedule</span>
             </div>
           </div>
         </div>
