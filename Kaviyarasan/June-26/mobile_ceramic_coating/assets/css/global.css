@@ -561,33 +561,6 @@ select.form-control { appearance: none; cursor: pointer; }
 .rounded-lg { border-radius: var(--radius-lg); }
 .rounded-full { border-radius: var(--radius-full); }
 
-/* ============================================================
-   SCROLL TO TOP BUTTON
-   ============================================================ */
-#scrollTopBtn {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 48px;
-  height: 48px;
-  background: var(--color-ceramic-blue);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: all var(--transition-base);
-  box-shadow: var(--shadow-blue);
-  z-index: 99;
-}
-#scrollTopBtn.visible { opacity: 1; pointer-events: all; }
-#scrollTopBtn:hover { background: var(--color-blue-dark); transform: translateY(-3px); }
-
-[dir="rtl"] #scrollTopBtn { right: auto; left: 32px; }
 
 /* ============================================================
    THEME TOGGLE & RTL TOGGLE

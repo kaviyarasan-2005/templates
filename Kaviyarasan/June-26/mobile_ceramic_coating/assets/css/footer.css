@@ -81,7 +81,7 @@
 
 .footer-brand-name {
   font-family: var(--font-display);
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 700;
   color: #fff;
   line-height: 1.2;
@@ -312,7 +312,7 @@
 .footer-bottom-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: var(--sp-4);
 }
