@@ -384,6 +384,9 @@ const Nexo = (() => {
 
   /* ---- Initialize All ---- */
   const init = () => {
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
     Theme.init();
     RTL.init();
     NavScroll.init();
