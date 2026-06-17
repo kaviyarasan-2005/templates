@@ -257,6 +257,13 @@
   flex: 1;
 }
 
+.service-card .card-title {
+  /* Reserve space for 2 lines of text so paragraphs below always align straight */
+  min-height: 3.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+
 .card-body .btn-link {
   margin-top: auto;
   align-self: flex-start;

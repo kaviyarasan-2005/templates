@@ -684,3 +684,18 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(calc(-50% - var(--space-6)/2)); }
 }
+
+/* ============================================
+   DANGER CARD LAYOUT (Responsive)
+   ============================================ */
+.danger-card-layout {
+  padding: var(--space-16);
+  gap: var(--space-12);
+}
+
+@media (max-width: 768px) {
+  .danger-card-layout {
+    padding: var(--space-6) !important;
+    gap: var(--space-8) !important;
+  }
+}

@@ -54,49 +54,61 @@
 
         <div class="grid grid-3">
           <!-- Feature 1 -->
-          <div class="card feature-card hover-lift animate-on-scroll">
+          <div class="card service-card hover-lift animate-on-scroll">
+            <div class="card-img-wrapper">
+              <img src="../images/img-1.webp" alt="Forward Collision Warning" class="card-img">
+            </div>
             <div class="card-body">
-              <div class="card-icon"><i data-lucide="shield-alert"></i></div>
               <h3 class="card-title">Forward Collision Warning</h3>
               <p class="card-text">Main radar calibration to detect ahead obstacles, preventing frontal crashes at highway speeds.</p>
             </div>
           </div>
           <!-- Feature 2 -->
-          <div class="card feature-card hover-lift animate-on-scroll">
+          <div class="card service-card hover-lift animate-on-scroll">
+            <div class="card-img-wrapper">
+              <img src="../images/june-adas-1000x563.webp" alt="Lane Departure Warning" class="card-img">
+            </div>
             <div class="card-body">
-              <div class="card-icon"><i data-lucide="signpost"></i></div>
               <h3 class="card-title">Lane Departure Warning</h3>
               <p class="card-text">Windshield camera recalibration for lane guidance, road edge tracking, and steering feedback.</p>
             </div>
           </div>
           <!-- Feature 3 -->
-          <div class="card feature-card hover-lift animate-on-scroll">
-            <div class="card-body">
-              <div class="card-icon"><i data-lucide="eye"></i></div>
-              <h3 class="card-title">Blind Spot Detection</h3>
-              <p class="card-text">Rear bumper corner radar tuning to eliminate cross-traffic blind zones during lane changes.</p>
+          <div class="card service-card hover-lift animate-on-scroll">
+            <div class="card-img-wrapper">
+              <img src="../images/images (2).jpg" alt="Adaptive Cruise Control" class="card-img">
             </div>
-          </div>
-          <!-- Feature 4 -->
-          <div class="card feature-card hover-lift animate-on-scroll">
             <div class="card-body">
-              <div class="card-icon"><i data-lucide="gauge"></i></div>
               <h3 class="card-title">Adaptive Cruise Control</h3>
               <p class="card-text">Long-range radar distance setting calibrations to safely maintain preset follow intervals.</p>
             </div>
           </div>
-          <!-- Feature 5 -->
-          <div class="card feature-card hover-lift animate-on-scroll">
+          <!-- Feature 4 -->
+          <div class="card service-card hover-lift animate-on-scroll">
+            <div class="card-img-wrapper">
+              <img src="../images/images (1).jpg" alt="Blind Spot Detection" class="card-img">
+            </div>
             <div class="card-body">
-              <div class="card-icon"><i data-lucide="sparkles"></i></div>
+              <h3 class="card-title">Blind Spot Detection</h3>
+              <p class="card-text">Rear bumper corner radar tuning to eliminate cross-traffic blind zones during lane changes.</p>
+            </div>
+          </div>
+          <!-- Feature 5 -->
+          <div class="card service-card hover-lift animate-on-scroll">
+            <div class="card-img-wrapper">
+              <img src="../images/images (3).jpg" alt="Parking Assist & 360" class="card-img">
+            </div>
+            <div class="card-body">
               <h3 class="card-title">Parking Assist & 360°</h3>
               <p class="card-text">Ultrasonic sensors and surround-view camera adjustments for automated parking features.</p>
             </div>
           </div>
           <!-- Feature 6 -->
-          <div class="card feature-card hover-lift animate-on-scroll">
+          <div class="card service-card hover-lift animate-on-scroll">
+            <div class="card-img-wrapper">
+              <img src="../images/images (4).jpg" alt="Night Vision Assist" class="card-img">
+            </div>
             <div class="card-body">
-              <div class="card-icon"><i data-lucide="moon-star"></i></div>
               <h3 class="card-title">Night Vision Assist</h3>
               <p class="card-text">Infrared camera recalibration for pedestrian and animal thermal highlights in total darkness.</p>
             </div>
@@ -106,27 +118,108 @@
     </section>
 
     <!-- Before/After Comparison Showcase -->
-    <section class="comparison-section py-20 bg-surface">
+    <section class="comparison-section py-20">
+      <div class="container">
+        <div class="card danger-card-layout" style="position: relative; overflow: hidden; display: flex; flex-wrap: wrap; align-items: center; border: 1px solid rgba(239, 68, 68, 0.3); box-shadow: 0 0 40px rgba(239, 68, 68, 0.1);">
+          
+          <!-- Background image with heavy overlay -->
+          <div style="position: absolute; inset: 0; background: url('../images/wyui.webp') center/cover; opacity: 0.1; z-index: 0;"></div>
+          <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.98)); z-index: 1;"></div>
+
+          <div class="comparison-info animate-on-scroll" style="position: relative; z-index: 2; flex: 1; min-width: 300px;">
+            <div class="badge mb-6" style="background: rgba(239, 68, 68, 0.1); border: 1px solid var(--color-danger); color: var(--color-danger); font-size: 0.85rem; padding: 6px 12px;">Critical Safety Warning</div>
+            <h2 class="text-4xl font-bold mb-4" style="color: #FFFFFF; line-height: 1.2;">The Danger of Misalignment</h2>
+            <p class="mb-8" style="color: #94A3B8; font-size: 1.125rem; line-height: 1.8;">Even a 1-degree shift in a front camera or radar angle can result in the vehicle scanning yards off-center at highway speeds. ADAS sensors rely on precise geometric reference points that change after any minor collision, wheel alignment, or windshield replacement.</p>
+            
+            <ul class="list-unstyled gap-5 flex flex-col mb-10">
+              <li class="flex items-start gap-4">
+                <i data-lucide="alert-triangle" style="color: var(--color-danger); margin-top: 4px; width: 24px; height: 24px;"></i> 
+                <span style="color: #E2E8F0; line-height: 1.6;"><strong>False Braking Triggers:</strong> Off-center radar mounting causes the system to brake for vehicles in adjacent lanes.</span>
+              </li>
+              <li class="flex items-start gap-4">
+                <i data-lucide="alert-triangle" style="color: var(--color-danger); margin-top: 4px; width: 24px; height: 24px;"></i> 
+                <span style="color: #E2E8F0; line-height: 1.6;"><strong>Lane Keep Drifting:</strong> Incorrect windshield camera calibrations lead to dangerous over-steering into oncoming traffic.</span>
+              </li>
+            </ul>
+            <a href="services.html" class="btn" style="background: var(--color-danger); border: none; color: white; box-shadow: 0 0 20px rgba(239,68,68,0.4);">View Correct Calibration Procedures</a>
+          </div>
+          
+          <div class="comparison-display animate-on-scroll" style="position: relative; z-index: 2; flex: 1; min-width: 300px;">
+            <div class="image-wrapper" style="position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.1);">
+              <img src="../images/AirProDecoding-ADAS.webp" alt="ADAS Calibration Target Setups" class="w-full" style="display: block;">
+              
+              <!-- Overlay graphics to show 'misalignment' -->
+              <div style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: radial-gradient(circle at center, transparent, rgba(0,0,0,0.4)); pointer-events: none;"></div>
+              
+              <!-- Correct Alignment Line (Green) -->
+              <div style="position: absolute; top: 50%; left: -10%; right: -10%; height: 2px; background: rgba(16,185,129,0.8); box-shadow: 0 0 15px var(--color-success); z-index: 10;">
+                <span style="position: absolute; right: 15%; top: -25px; color: var(--color-success); font-weight: bold; font-size: 12px; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 4px;">0° True Center</span>
+              </div>
+              
+              <!-- Misaligned Line (Red) -->
+              <div style="position: absolute; top: 50%; left: -10%; right: -10%; height: 2px; background: rgba(239,68,68,0.9); box-shadow: 0 0 15px var(--color-danger); transform: rotate(-8deg); transform-origin: left center; z-index: 10;">
+                <span style="position: absolute; right: 15%; top: -25px; color: var(--color-danger); font-weight: bold; font-size: 12px; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 4px;">-1° Misaligned</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-20 bg-alt">
       <div class="container">
         <div class="section-header text-center max-w-2xl mx-auto mb-16">
-          <h2 class="section-title">The Danger of Misalignment</h2>
-          <p class="section-desc">Even a 1-degree shift in a front camera or radar angle can result in the vehicle scanning yards off-center at highway speeds.</p>
+          <div class="badge badge-accent mb-4">Success Stories</div>
+          <h2 class="section-title">Trusted by Top Collision Centers</h2>
+          <p class="section-desc">Don't just take our word for it. Hear what our partners have to say about our mobile ADAS calibration services.</p>
         </div>
 
-        <div class="grid grid-2 items-center">
-          <div class="comparison-info animate-on-scroll">
-            <h3 class="text-2xl font-bold mb-4">Why Precise Pitch, Yaw, and Roll Matter</h3>
-            <p class="text-text-secondary mb-6">ADAS sensors rely on geometric reference points. After a minor fender-bender, wheel alignment, or windshield replacement, the baseline coordinate system changes. Our tools recalibrate these systems to the millimeter.</p>
-            <ul class="list-unstyled gap-3 flex flex-col mb-6">
-              <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-success"></i> <strong>Static Calibration:</strong> Controlled shop floor alignment using mechanical lasers.</li>
-              <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-success"></i> <strong>Dynamic Calibration:</strong> Active road learning sessions via vehicle OBD connection.</li>
-            </ul>
-            <a href="services.html" class="btn btn-primary">Compare Sensor Setup Specs</a>
-          </div>
-          <div class="comparison-display animate-on-scroll">
-            <div class="image-wrapper">
-              <img src="../images/june-adas-1000x563.webp" alt="ADAS Calibration Target Setups" class="w-full rounded-lg shadow-lg">
+        <div class="grid grid-3">
+          <!-- Testimonial 1 -->
+          <div class="card p-8 hover-lift animate-on-scroll" style="padding: var(--space-8);">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="profile-avatar" style="width: 50px; height: 50px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-accent); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">MT</div>
+              <div>
+                <h4 class="font-bold" style="margin: 0;">Mike Thompson</h4>
+                <p class="text-xs text-text-muted m-0">Manager, Precision Autobody</p>
+              </div>
             </div>
+            <div class="flex text-warning mb-4 gap-1">
+              <i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i>
+            </div>
+            <p class="text-text-secondary italic" style="font-style: italic;">"Having Nexo's mobile team handle our ADAS calibrations has cut our cycle time down by 2 days. We no longer have to tow vehicles to the dealership. Outstanding service!"</p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="card p-8 hover-lift animate-on-scroll" style="padding: var(--space-8); box-shadow: var(--shadow-glow-accent); border-color: var(--color-accent);">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="profile-avatar" style="width: 50px; height: 50px; border-radius: 50%; background: var(--color-success-light); color: var(--color-success); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">SL</div>
+              <div>
+                <h4 class="font-bold" style="margin: 0;">Sarah Lewis</h4>
+                <p class="text-xs text-text-muted m-0">Owner, Rapid Auto Repair</p>
+              </div>
+            </div>
+            <div class="flex text-warning mb-4 gap-1">
+              <i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i>
+            </div>
+            <p class="text-text-secondary italic" style="font-style: italic;">"The digital certificates they provide immediately after a dynamic road test give both us and the insurance companies total peace of mind. Highly professional team."</p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="card p-8 hover-lift animate-on-scroll" style="padding: var(--space-8);">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="profile-avatar" style="width: 50px; height: 50px; border-radius: 50%; background: rgba(245,158,11,0.1); color: var(--color-warning); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">JR</div>
+              <div>
+                <h4 class="font-bold" style="margin: 0;">Jason Ramirez</h4>
+                <p class="text-xs text-text-muted m-0">Lead Tech, Elite Collision</p>
+              </div>
+            </div>
+            <div class="flex text-warning mb-4 gap-1">
+              <i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i><i data-lucide="star" style="fill: currentColor; width: 18px; height: 18px;"></i>
+            </div>
+            <p class="text-text-secondary italic" style="font-style: italic;">"Their target setups are incredibly precise. I've watched them do a 360 surround-view calibration in our bay and their laser alignments are millimeter perfect."</p>
           </div>
         </div>
       </div>
