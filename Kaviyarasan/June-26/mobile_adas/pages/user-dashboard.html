@@ -58,11 +58,10 @@
       
       <!-- Top Bar -->
       <header class="dashboard-topbar">
-        <div class="flex items-center gap-3">
+        <div class="topbar-left flex items-center gap-3">
           <button class="sidebar-toggle" aria-label="Open Sidebar"><i data-lucide="menu"></i></button>
+          <h1 class="font-bold topbar-title">Welcome Back, Apex</h1>
         </div>
-        
-        <h1 class="font-bold topbar-title" style="position: absolute; left: 50%; transform: translateX(-50%); margin: 0; white-space: nowrap;">Welcome Back, Apex Collision</h1>
         
         <div class="flex items-center gap-4">
 
@@ -81,7 +80,7 @@
       </header>
 
       <!-- KPI Overview Cards -->
-      <section class="grid grid-3 mb-8">
+      <section class="grid grid-3 mb-6">
         <div class="card kpi-card">
           <div class="kpi-icon" style="background: var(--color-success-light); color: var(--color-success);"><i data-lucide="check-circle"></i></div>
           <div class="kpi-content">
@@ -214,7 +213,7 @@
       </section>
 
       <!-- Main Layout Columns -->
-      <section class="charts-row">
+      <section class="flex flex-col gap-6 mb-6">
         
         <!-- Active Orders Table -->
         <div class="dashboard-panel">
@@ -277,7 +276,7 @@
       </section>
 
       <!-- Saved Specifications Grid -->
-      <section class="dashboard-panel mt-8">
+      <section class="dashboard-panel mb-6">
         <div class="dashboard-panel-header">
           <h3>Saved OEM Calibration Specifications</h3>
         </div>
@@ -309,7 +308,7 @@
       </section>
 
       <!-- Large Action Buttons -->
-      <section class="grid grid-3 mb-8">
+      <section class="grid grid-3 mb-6">
         <a href="contact.html" class="card kpi-card" style="text-decoration: none; align-items: center;">
           <div class="kpi-icon" style="background: var(--color-accent-light); color: var(--color-accent); width: 64px; height: 64px;"><i data-lucide="plus-circle" style="width: 32px; height: 32px;"></i></div>
           <div class="kpi-content">
@@ -335,14 +334,7 @@
         </button>
       </section>
 
-      <!-- Logout / Danger Section -->
-      <section class="logout-section mt-8">
-        <div>
-          <h4 class="font-bold">Log Out of Shop Account</h4>
-          <p class="text-xs text-text-muted">Ensure all session tokens are cleared from the current browser safety sandbox.</p>
-        </div>
-        <a href="../index.html" class="btn btn-danger">Sign Out</a>
-      </section>
+
 
     </main>
 
