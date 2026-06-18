@@ -15,23 +15,37 @@
     (function(){const t=localStorage.getItem('cc-theme'),d=localStorage.getItem('cc-dir');if(t)document.documentElement.setAttribute('data-theme',t);if(d){document.documentElement.setAttribute('dir',d);document.documentElement.setAttribute('lang',d==='rtl'?'ar':'en');}})();
   </script>
   <style>
+    @media (min-width: 1025px) {
+      .hide-on-desktop {
+        display: none !important;
+      }
+    }
+    @media (min-width: 1025px) {
+      .dashboard-top-bar:empty,
+      .dashboard-top-bar:has(.left-controls:empty) {
+        display: none !important;
+      }
+    }
     .dashboard-container {
       display: grid;
       grid-template-columns: 260px 1fr;
-      min-height: 700px;
-      margin-top: 20px;
-      margin-bottom: 60px;
-      gap: var(--sp-6);
+      min-height: 100vh;
+      margin: 0;
+      gap: 0;
     }
     .dashboard-sidebar {
       background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-xl);
-      padding: var(--sp-5);
+      border: none;
+      border-right: 1px solid var(--border-color);
+      border-radius: 0;
+      padding: var(--sp-6) var(--sp-5);
       display: flex;
       flex-direction: column;
       gap: var(--sp-2);
-      height: fit-content;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow-y: auto;
     }
     .sidebar-user-info {
       padding-bottom: var(--sp-4);
@@ -167,6 +181,7 @@
     }
 
     @media (max-width: 1024px) {
+      .dashboard-main { padding: 0 var(--sp-4) var(--sp-6) !important; }
       .dashboard-container { grid-template-columns: 1fr; }
       .dashboard-sidebar {
         position: fixed;
@@ -182,7 +197,7 @@
         box-shadow: 4px 0 15px rgba(0,0,0,0.1);
         padding: var(--sp-6) var(--sp-5);
       }
-      [dir="rtl"] .dashboard-sidebar {
+      [dir="rtl"] .dashboard-sidebar { border-right: none; border-left: 1px solid var(--border-color);
         left: auto;
         right: -300px;
         border-right: none;
@@ -227,33 +242,19 @@
 
 <!-- MAIN CONTAINER -->
 <main class="container" style="position: relative;">
-<!-- DASHBOARD TOP BAR -->
-<header class="dashboard-top-bar" style="display: flex; align-items: center; justify-content: space-between; padding: var(--sp-6) var(--sp-2) 0; z-index: 100;">
-  <div class="left-controls" style="display: flex; align-items: center; gap: var(--sp-3);">
-    <button class="hamburger-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-    </button>
-    <a href="../index.html" class="brand" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+
+  <div class="dashboard-container">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar" role="navigation" aria-label="Dashboard navigation">
+      <div style="margin-bottom: var(--sp-6); display: flex; justify-content: center;">
+        <a href="../index.html" class="brand" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
       <div style="width: 42px; height: 42px; background: linear-gradient(135deg, var(--color-ceramic-blue), var(--color-blue-dark)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow-blue);">
         <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; color: #fff; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/></svg>
       </div>
       <span style="font-family: var(--font-display); font-weight: 800; font-size: 24px; color: var(--text-primary); letter-spacing: -0.02em;">Glint</span>
     </a>
-  </div>
-  <div class="right-controls" style="display: flex; align-items: center; gap: var(--sp-2);">
-    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Toggle Theme" style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:8px; cursor:pointer; color:var(--text-primary);">
-    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-  </button>
-    <button class="rtl-toggle" id="rtlToggle" aria-label="Switch to RTL mode" title="Toggle RTL/LTR" style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:8px 12px; cursor:pointer; color:var(--text-primary); font-weight:600; font-size:var(--text-sm);">
-    <span>RTL</span>
-  </button>
-  </div>
-</header>
-  <div class="dashboard-container">
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-    <!-- SIDEBAR -->
-    <aside class="dashboard-sidebar" role="navigation" aria-label="Dashboard navigation">
+      </div>
       <div class="sidebar-user-info">
         <div class="sidebar-user-avatar">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80" alt="Sarah Connor" />
@@ -267,15 +268,7 @@
         Paint Protection Tracker
       </button>
 
-      <div class="sidebar-link" style="opacity:0.5; cursor:not-allowed; pointer-events:none;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-5 5"/></svg>
-        Analytics &amp; Health
-      </div>
-
-      <div class="sidebar-link" style="opacity:0.5; cursor:not-allowed; pointer-events:none;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Schedule Coating / Wash
-      </div>
+      
 
       <div class="sidebar-link" style="opacity:0.5; cursor:not-allowed; pointer-events:none;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
@@ -298,8 +291,20 @@
       </a>
     </aside>
 
-    <!-- CONTENT PANELS -->
-    <section class="dashboard-content-box" role="main" aria-label="Dashboard Panels">
+    
+    <div class="dashboard-main" style="display: flex; flex-direction: column; gap: 0; padding: 3px var(--sp-6) var(--sp-6);">
+      <!-- DASHBOARD TOP BAR -->
+<header class="dashboard-top-bar hide-on-desktop" style="display: flex; align-items: center; justify-content: space-between; padding: var(--sp-3) 0 0; z-index: 100;">
+  <div class="left-controls" style="display: flex; align-items: center; gap: var(--sp-3);">
+    <button class="hamburger-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    
+  </div>
+  
+</header>
+      <!-- CONTENT PANELS -->
+      <section class="dashboard-content-box" role="main" aria-label="Dashboard Panels">
       
       <!-- PANEL: ANALYTICS & HEALTH -->
       <div id="panel-analytics" class="dashboard-panel" style="display:none;">
@@ -350,8 +355,21 @@
 
       <!-- PANEL 1: PAINT PROTECTION TRACKER -->
       <div id="panel-tracking" class="dashboard-panel">
-        <h2 style="margin-bottom: var(--sp-2);">Paint Protection Tracking</h2>
-        <p style="color:var(--text-muted); margin-bottom: var(--sp-6);">Live statistics for your registered vehicle: <strong>2023 Porsche 911 GT3 (Chalk Gray)</strong></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--sp-6); flex-wrap: wrap; gap: var(--sp-4);">
+          <div>
+            <h2 style="margin-bottom: var(--sp-2);">Paint Protection Tracking</h2>
+            <p style="color:var(--text-muted); margin: 0;">Live statistics for your registered vehicle: <strong>2023 Porsche 911 GT3 (Chalk Gray)</strong></p>
+          </div>
+          <div class="right-controls" style="display: flex; align-items: center; gap: var(--sp-2);">
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Toggle Theme" style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:8px; cursor:pointer; color:var(--text-primary);">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+  </button>
+    <button class="rtl-toggle" id="rtlToggle" aria-label="Switch to RTL mode" title="Toggle RTL/LTR" style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:8px 12px; cursor:pointer; color:var(--text-primary); font-weight:600; font-size:var(--text-sm);">
+    <span>RTL</span>
+  </button>
+  </div>
+        </div>
 
         <!-- Curing Status -->
         <div class="tracker-card">
@@ -513,50 +531,6 @@
 
       </div>
 
-      <!-- PANEL 2: SCHEDULE COATING / WASH -->
-      <div id="panel-schedule" class="dashboard-panel" style="display:none;">
-        <h2 style="margin-bottom: var(--sp-2);">Schedule Mobile Service</h2>
-        <p style="color:var(--text-muted); margin-bottom: var(--sp-6);">Select date, time, and address. Our fully self-contained detailing van comes to you.</p>
-
-        <form data-validate action="https://formspree.io/f/placeholder" method="POST" class="form-grid">
-          <div class="form-group">
-            <label for="sched-service" class="form-label">Detailing Service *</label>
-            <select id="sched-service" class="form-control" required data-error-required="Please select a service.">
-              <option value="">Choose Service...</option>
-              <option value="gold-annual">Annual Gold Gloss Maintenance Wash</option>
-              <option value="ppf-inspect">PPF Edge Inspection &amp; Sealant</option>
-              <option value="new-ceramic">Full Ceramic Coating Application</option>
-              <option value="correction">Premium 2-Stage Paint Correction</option>
-            </select>
-            <div class="form-error"></div>
-          </div>
-
-          <div class="form-group">
-            <label for="sched-date" class="form-label">Preferred Date *</label>
-            <input type="date" id="sched-date" class="form-control" required data-error-required="Please pick a date." />
-            <div class="form-error"></div>
-          </div>
-
-          <div class="form-group">
-            <label for="sched-time" class="form-label">Preferred Time Slot *</label>
-            <select id="sched-time" class="form-control" required data-error-required="Please choose a time.">
-              <option value="">Choose Time...</option>
-              <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
-              <option value="afternoon">Afternoon (1:00 PM - 5:00 PM)</option>
-            </select>
-            <div class="form-error"></div>
-          </div>
-
-          <div class="form-group">
-            <label for="sched-address" class="form-label">Service Address *</label>
-            <input type="text" id="sched-address" class="form-control" required placeholder="e.g. 123 Beverly Hills Blvd, Los Angeles, CA" data-error-required="Address is required." />
-            <div class="form-error"></div>
-          </div>
-
-          <button type="submit" class="btn btn-primary w-full mt-4">Book Detailing Appointment</button>
-        </form>
-      </div>
-
       <!-- PANEL 3: MAINTENANCE WASHES -->
       <div id="panel-washes" class="dashboard-panel" style="display:none;">
         <h2 style="margin-bottom: var(--sp-2);">Maintenance Wash History</h2>
@@ -654,6 +628,7 @@
       </div>
 
     </section>
+    </div>
   </div>
 </main>
 
