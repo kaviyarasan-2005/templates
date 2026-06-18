@@ -388,7 +388,7 @@
 }
 
 /* ---- RESPONSIVE ---- */
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .navbar-nav { display: none; }
   .hamburger  { display: flex; }
   .navbar-cta { display: none; }

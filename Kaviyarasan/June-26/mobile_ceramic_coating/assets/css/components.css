@@ -73,7 +73,7 @@
   flex-wrap: wrap;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .hero-1 .hero-content > div {
     display: flex;
     flex-direction: column;
@@ -167,7 +167,7 @@
   z-index: 1;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .hero-split {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -1119,7 +1119,7 @@
   stroke-width: 2.5;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .dashboard-layout {
     grid-template-columns: 1fr;
   }

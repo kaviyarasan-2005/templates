@@ -369,7 +369,7 @@
 }
 
 /* ---- RESPONSIVE ---- */
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: var(--sp-6);
