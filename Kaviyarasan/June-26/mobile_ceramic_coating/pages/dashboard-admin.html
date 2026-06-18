@@ -16,11 +16,8 @@
   </script>
   <style>
     .dashboard-container {
-      display: grid;
-      grid-template-columns: 260px 1fr;
+      display: block;
       min-height: 100vh;
-      margin: 0;
-      gap: 0;
     }
     .dashboard-sidebar {
       background: var(--bg-card);
@@ -32,9 +29,12 @@
       flex-direction: column;
       gap: var(--sp-2);
       height: 100vh;
-      position: sticky;
+      width: 260px;
+      position: fixed;
       top: 0;
+      left: 0;
       overflow-y: auto;
+      z-index: 50;
     }
     .sidebar-user-info {
       padding-bottom: var(--sp-4);
@@ -162,28 +162,20 @@
     }
 
         @media (max-width: 1024px) {
-      .dashboard-main { padding: 0 var(--sp-4) var(--sp-6) !important; }
-      .dashboard-container { grid-template-columns: 1fr; }
+      .dashboard-main {
+      margin-left: 260px;
+      min-height: 100vh;
+      padding: 3px var(--sp-6) var(--sp-6);
+    }
       .dashboard-sidebar {
-        position: fixed;
-        top: 0;
         left: -300px;
         width: 280px;
-        height: 100vh;
         z-index: 1000;
         transition: left 0.3s ease;
-        border-radius: 0;
-        border: none;
-        border-right: 1px solid var(--border-color);
-        box-shadow: 4px 0 15px rgba(0,0,0,0.1);
-        padding: var(--sp-6) var(--sp-5);
       }
-      [dir="rtl"] .dashboard-sidebar { border-right: none; border-left: 1px solid var(--border-color);
+      [dir="rtl"] .dashboard-sidebar {
         left: auto;
         right: -300px;
-        border-right: none;
-        border-left: 1px solid var(--border-color);
-        box-shadow: -4px 0 15px rgba(0,0,0,0.1);
         transition: right 0.3s ease;
       }
       .dashboard-sidebar.sidebar-open {
@@ -200,21 +192,11 @@
       .sidebar-overlay.active {
         display: block;
       }
-      .dashboard-content-box {
-        padding: var(--sp-3);
-        border-radius: var(--radius-lg);
-      }
-      .tracker-card {
-        padding: var(--sp-3) !important;
-      }
-      div[style*="padding:var(--sp-5)"], div[style*="padding: var(--sp-5)"],
-      div[style*="padding:var(--sp-6)"], div[style*="padding: var(--sp-6)"],
-      div[style*="padding:var(--sp-7)"], div[style*="padding: var(--sp-7)"] {
-        padding: var(--sp-3) !important;
-      }
     }
-    @media (max-width: 639px) {
-      .kpi-grid { grid-template-columns: 1fr; }
+  
+    [dir="rtl"] .dashboard-main {
+      margin-left: 0;
+      margin-right: 260px;
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
@@ -272,7 +254,7 @@
     </aside>
 
     
-    <div class="dashboard-main" style="display: flex; flex-direction: column; gap: var(--sp-6); padding: 0 var(--sp-6) var(--sp-6);">
+    <div class="dashboard-main">
       <!-- DASHBOARD TOP BAR -->
 <header class="dashboard-top-bar" style="display: flex; align-items: center; justify-content: space-between; padding: var(--sp-6) 0 0; z-index: 100;">
   <div class="left-controls" style="display: flex; align-items: center; gap: var(--sp-3);">
