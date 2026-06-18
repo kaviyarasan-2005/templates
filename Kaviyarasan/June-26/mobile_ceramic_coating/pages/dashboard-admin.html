@@ -150,27 +150,19 @@
 <div id="pageLoader" role="status" aria-label="Loading"><div class="loader-ring"></div></div>
 
 
-    <div class="navbar-actions">
-      <button class="theme-toggle" aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
-      <button class="rtl-toggle" aria-label="Toggle RTL"><span>RTL</span></button>
-      <a href="login.html" class="btn btn-primary btn-sm navbar-cta">Login</a>
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
-  <div class="nav-section"><p class="nav-section-label">Pages</p>
-    <a href="../index.html" class="mobile-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Home 1</a>
-    <a href="home2.html" class="mobile-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Home 2</a>
-    <a href="about.html" class="mobile-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>About</a>
-    <a href="service.html" class="mobile-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6"/></svg>Services</a>
-    <a href="pricing.html" class="mobile-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/></svg>Pricing</a>
-    <a href="contact.html" class="mobile-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2"/></svg>Contact</a>
-    <a href="dashboard-user.html" class="mobile-nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>User</a>
-    <a href="dashboard-admin.html" class="mobile-nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/></svg>Admin</a>
-  </div>
-  <div class="mobile-actions"><a href="contact.html" class="btn btn-primary w-full">Book Appointment</a></div>
-</nav>
+    
+
+
+<!-- TOP CONTROLS -->
+<div style="position: absolute; top: var(--sp-4); inset-inline-end: var(--sp-5); z-index: 100; display: flex; gap: var(--sp-2);">
+  <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Toggle Theme" style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:8px; cursor:pointer; color:var(--text-primary);">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+  </button>
+  <button class="rtl-toggle" id="rtlToggle" aria-label="Switch to RTL mode" title="Toggle RTL/LTR" style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:8px 12px; cursor:pointer; color:var(--text-primary); font-weight:600; font-size:var(--text-sm);">
+    <span>RTL</span>
+  </button>
+</div>
 
 <!-- MAIN CONTAINER -->
 <main class="container">
@@ -272,9 +264,130 @@
               <td>Paint Correction (Audi R8)</td>
               <td><span class="status-pill success">Completed</span></td>
             </tr>
-          </tbody>
+                    </tbody>
         </table>
       </div>
+
+        <!-- ADMIN DASHBOARD NEW INFOGRAPHICS -->
+        <h3 style="margin: var(--sp-6) 0 var(--sp-4);">Operational Metrics</h3>
+        <div class="grid grid-4" style="gap:var(--sp-4); margin-bottom: var(--sp-6);">
+          
+          <!-- Infographic 1: Fleet Utilization -->
+          <div style="background:var(--bg-secondary); padding:var(--sp-5); border-radius:var(--radius-lg); text-align:center; display:flex; flex-direction:column; align-items:center;">
+            <div style="font-size:var(--text-xs); color:var(--text-muted); text-transform:uppercase; margin-bottom:var(--sp-3);">Fleet Utilization</div>
+            <div style="position:relative; width:100px; height:100px;">
+              <svg viewBox="0 0 36 36" style="width:100%; height:100%;">
+                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--border-color)" stroke-width="3" />
+                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#10B981" stroke-width="3" stroke-dasharray="80, 100" />
+              </svg>
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-weight:700; font-size:var(--text-lg);">8/10</div>
+            </div>
+            <div style="font-size:var(--text-xs); color:var(--text-secondary); margin-top:var(--sp-3);">Vans Deployed</div>
+          </div>
+
+          <!-- Infographic 2: Package Popularity Funnel -->
+          <div style="background:var(--bg-secondary); padding:var(--sp-5); border-radius:var(--radius-lg); text-align:left; display:flex; flex-direction:column; justify-content:center;">
+            <div style="font-size:var(--text-xs); color:var(--text-muted); text-transform:uppercase; margin-bottom:var(--sp-3); text-align:center;">Package Sales (Month)</div>
+            
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <span style="font-size:10px; width:45px;">Diamond</span>
+              <div style="flex-grow:1; height:8px; background:var(--border-color); border-radius:4px;"><div style="width:20%; height:100%; background:var(--text-primary); border-radius:4px;"></div></div>
+              <span style="font-size:10px; font-weight:700;">20%</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <span style="font-size:10px; width:45px; color:var(--color-ceramic-blue);">Gold</span>
+              <div style="flex-grow:1; height:8px; background:var(--border-color); border-radius:4px;"><div style="width:55%; height:100%; background:var(--color-ceramic-blue); border-radius:4px;"></div></div>
+              <span style="font-size:10px; font-weight:700;">55%</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:10px; width:45px; color:#9ca3af;">Silver</span>
+              <div style="flex-grow:1; height:8px; background:var(--border-color); border-radius:4px;"><div style="width:25%; height:100%; background:#9ca3af; border-radius:4px;"></div></div>
+              <span style="font-size:10px; font-weight:700;">25%</span>
+            </div>
+          </div>
+
+          <!-- Infographic 3: Revenue vs Target Gauge -->
+          <div style="background:var(--bg-secondary); padding:var(--sp-5); border-radius:var(--radius-lg); text-align:center; display:flex; flex-direction:column; align-items:center;">
+            <div style="font-size:var(--text-xs); color:var(--text-muted); text-transform:uppercase; margin-bottom:var(--sp-3);">Monthly Target ($50k)</div>
+            <div style="position:relative; width:120px; height:60px; overflow:hidden;">
+              <div style="position:absolute; top:0; left:0; width:120px; height:120px; border-radius:50%; border:8px solid var(--border-color); border-bottom-color:transparent; border-right-color:transparent; transform:rotate(45deg);"></div>
+              <div style="position:absolute; top:0; left:0; width:120px; height:120px; border-radius:50%; border:8px solid var(--color-ceramic-blue); border-bottom-color:transparent; border-right-color:transparent; transform:rotate(90deg);"></div>
+              <div style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); font-weight:800; font-size:var(--text-lg);">$38k</div>
+            </div>
+            <div style="font-size:var(--text-xs); color:var(--text-secondary); margin-top:var(--sp-2);">76% Reached</div>
+          </div>
+
+          <!-- Infographic 4: Efficiency Map -->
+          <div style="background:var(--bg-secondary); padding:var(--sp-5); border-radius:var(--radius-lg); text-align:center; display:flex; flex-direction:column;">
+            <div style="font-size:var(--text-xs); color:var(--text-muted); text-transform:uppercase; margin-bottom:var(--sp-3);">Avg Completion Time</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; flex-grow:1;">
+              <div style="background:var(--bg-card); border-radius:var(--radius-md); padding:8px; display:flex; flex-direction:column; justify-content:center;">
+                <div style="font-size:10px; color:var(--text-muted);">Coating</div>
+                <div style="font-weight:700; font-size:var(--text-md); color:var(--color-ceramic-blue);">4.2h</div>
+              </div>
+              <div style="background:var(--bg-card); border-radius:var(--radius-md); padding:8px; display:flex; flex-direction:column; justify-content:center;">
+                <div style="font-size:10px; color:var(--text-muted);">PPF</div>
+                <div style="font-weight:700; font-size:var(--text-md); color:#10B981;">6.5h</div>
+              </div>
+              <div style="background:var(--bg-card); border-radius:var(--radius-md); padding:8px; display:flex; flex-direction:column; justify-content:center;">
+                <div style="font-size:10px; color:var(--text-muted);">Correction</div>
+                <div style="font-weight:700; font-size:var(--text-md);">3.1h</div>
+              </div>
+              <div style="background:var(--bg-card); border-radius:var(--radius-md); padding:8px; display:flex; flex-direction:column; justify-content:center;">
+                <div style="font-size:10px; color:var(--text-muted);">Wash</div>
+                <div style="font-weight:700; font-size:var(--text-md);">1.5h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-2" style="gap:var(--sp-5); margin-bottom:var(--sp-5);">
+          <!-- Live Activity Feed -->
+          <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-xl); padding:var(--sp-5);">
+            <h4 style="margin-bottom:var(--sp-4); display:flex; align-items:center; gap:var(--sp-2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Live Activity Feed</h4>
+            <div style="display:flex; flex-direction:column; gap:var(--sp-4);">
+              <div style="display:flex; align-items:center; gap:var(--sp-3);">
+                <div style="width:32px; height:32px; border-radius:50%; background:rgba(16,185,129,0.1); color:var(--color-success); display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+                <div style="flex-grow:1;">
+                  <div style="font-size:var(--text-sm); font-weight:600;">Payment Received</div>
+                  <div style="font-size:11px; color:var(--text-muted);">$1,599 from Michael T. (Diamond Armor)</div>
+                </div>
+                <div style="font-size:10px; color:var(--text-muted);">Just now</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:var(--sp-3);">
+                <div style="width:32px; height:32px; border-radius:50%; background:rgba(0,174,239,0.1); color:var(--color-ceramic-blue); display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <div style="flex-grow:1;">
+                  <div style="font-size:var(--text-sm); font-weight:600;">New Booking</div>
+                  <div style="font-size:11px; color:var(--text-muted);">2024 Tesla Model Y (Gold Gloss)</div>
+                </div>
+                <div style="font-size:10px; color:var(--text-muted);">12m ago</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:var(--sp-3);">
+                <div style="width:32px; height:32px; border-radius:50%; background:rgba(245,158,11,0.1); color:var(--color-warning); display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div style="flex-grow:1;">
+                  <div style="font-size:var(--text-sm); font-weight:600;">Job Completed</div>
+                  <div style="font-size:11px; color:var(--text-muted);">Tech David finished Job #4421</div>
+                </div>
+                <div style="font-size:10px; color:var(--text-muted);">45m ago</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- System Alerts -->
+          <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-xl); padding:var(--sp-5);">
+            <h4 style="margin-bottom:var(--sp-4); display:flex; align-items:center; gap:var(--sp-2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> System Alerts</h4>
+            <div style="display:flex; flex-direction:column; gap:var(--sp-3);">
+              <div style="background:rgba(239,68,68,0.1); border-left:3px solid #ef4444; padding:10px 14px; border-radius:0 var(--radius-md) var(--radius-md) 0;">
+                <div style="font-size:var(--text-sm); font-weight:600; color:#ef4444;">Low Inventory Alert</div>
+                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">9H Ceramic Coating (50ml) stock is below threshold (only 3 units left).</div>
+              </div>
+              <div style="background:rgba(245,158,11,0.1); border-left:3px solid var(--color-warning); padding:10px 14px; border-radius:0 var(--radius-md) var(--radius-md) 0;">
+                <div style="font-size:var(--text-sm); font-weight:600; color:var(--color-warning);">Vehicle Maintenance</div>
+                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Van #04 is scheduled for an oil change and tire rotation tomorrow.</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       <!-- PANEL 2: MANAGE BOOKINGS -->
       <div id="panel-bookings" class="dashboard-panel" style="display:none;">
