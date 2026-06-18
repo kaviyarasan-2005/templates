@@ -204,6 +204,18 @@
       .sidebar-overlay.active {
         display: block;
       }
+      .dashboard-content-box {
+        padding: var(--sp-3);
+        border-radius: var(--radius-lg);
+      }
+      .tracker-card {
+        padding: var(--sp-3) !important;
+      }
+      div[style*="padding:var(--sp-5)"], div[style*="padding: var(--sp-5)"],
+      div[style*="padding:var(--sp-6)"], div[style*="padding: var(--sp-6)"],
+      div[style*="padding:var(--sp-7)"], div[style*="padding: var(--sp-7)"] {
+        padding: var(--sp-3) !important;
+      }
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
@@ -221,7 +233,12 @@
     <button class="hamburger-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </button>
-    <a href="../index.html" class="brand-name" style="font-family: var(--font-display); font-weight: 800; font-size: 24px; color: var(--text-primary); text-decoration: none; letter-spacing: -0.02em;">GLINT</a>
+    <a href="../index.html" class="brand" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+      <div style="width: 42px; height: 42px; background: linear-gradient(135deg, var(--color-ceramic-blue), var(--color-blue-dark)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow-blue);">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; color: #fff; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/></svg>
+      </div>
+      <span style="font-family: var(--font-display); font-weight: 800; font-size: 24px; color: var(--text-primary); letter-spacing: -0.02em;">Glint</span>
+    </a>
   </div>
   <div class="right-controls" style="display: flex; align-items: center; gap: var(--sp-2);">
     <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Toggle Theme" style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:8px; cursor:pointer; color:var(--text-primary);">
@@ -769,6 +786,7 @@
   });
 </script>
 
+<script>
 // Mobile Sidebar Toggle
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const dashboardSidebar = document.querySelector('.dashboard-sidebar');
@@ -785,6 +803,7 @@ if (mobileMenuBtn && dashboardSidebar && sidebarOverlay) {
     sidebarOverlay.classList.remove('active');
   });
 }
+</script>
 
 </body>
 </html>
